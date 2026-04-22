@@ -88,7 +88,7 @@ export const modules = [
     path: '/module-7',
     order: 7,
     prerequisite: 'module6',
-    next: null,
+    next: 'module8',
     related: ['module1', 'module5', 'module6'],
     duration: '艺术探索',
     color: 'from-cyan-500 to-teal-500',
