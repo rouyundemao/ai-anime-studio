@@ -93,6 +93,19 @@ export const modules = [
     duration: '艺术探索',
     color: 'from-cyan-500 to-teal-500',
     icon: '✨'
+  },
+  {
+    id: 'module8',
+    title: '六步标准化工作流',
+    subtitle: '完整的 AI 动漫制作流程',
+    path: '/module-8',
+    order: 8,
+    prerequisite: 'module7',
+    next: null,
+    related: ['module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'module7'],
+    duration: '全流程实战',
+    color: 'from-amber-500 to-orange-500',
+    icon: '📊'
   }
 ]
 
