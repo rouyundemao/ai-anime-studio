@@ -4,74 +4,156 @@ import { Link } from 'react-router-dom'
 // 工具网站数据
 const toolWebsites = [
   {
-    category: '🎨 AI 图片生成',
+    category: '🎨 AI 图片生成（2026最新）',
     tools: [
       {
-        name: '即梦 AI',
+        name: '即梦 AI (Seedream 4.5)',
         url: 'https://jimeng.jianying.com/',
-        description: '火山引擎顶级图片生成工具，支持高质量写实和动漫风格',
-        tags: ['国产', '免费', '高质量'],
+        description: '字节跳动顶级图片生成，4K超高清，中文提示词理解优秀，特别适合东方美学风格',
+        tags: ['国产', '免费', '4K'],
         recommended: true
       },
       {
-        name: '通义万相',
+        name: '通义万相 3.0',
         url: 'https://wanxiang.aliyun.com/',
-        description: '阿里云东方风格优化，特别适合水墨效果和古风创作',
+        description: '阿里云东方风格优化，特别适合水墨效果和古风创作，长文本理解能力强',
         tags: ['国产', '免费', '东方风格'],
+        recommended: true
+      },
+      {
+        name: 'Nano Banana',
+        url: 'https://aistudio.google.com/',
+        description: 'Google Gemini 2.5 Pro Image，付费版最强，多轮编辑后保持高度一致性，支持自然语言指令',
+        tags: ['国际', '付费', '最强图片'],
         recommended: true
       },
       {
         name: 'Midjourney',
         url: 'https://www.midjourney.com/',
-        description: '国际顶级艺术风格 AI，创意生成能力强',
+        description: '国际顶级艺术风格AI，创意生成能力强，V7版本支持4K高清，适合高端商业创作',
         tags: ['国际', '付费', '艺术风格'],
         recommended: true
       },
       {
-        name: 'Stable Diffusion Online',
-        url: 'https://stablediffusionweb.com/',
-        description: '在线 SD 工具，无需部署即可使用',
-        tags: ['在线', '免费', '开源'],
+        name: 'Stable Diffusion 3.0',
+        url: 'https://stability.ai/',
+        description: '开源免费，可本地部署，SDXL/SD 3.0模型，ControlNet/IP-Adapter专业控制',
+        tags: ['开源', '免费', '本地部署'],
+        recommended: true
+      },
+      {
+        name: 'Civitai',
+        url: 'https://civitai.com/',
+        description: '全球最大的SD模型社区，海量高质量模型可下载，社区活跃（1000万+月活）',
+        tags: ['模型库', '免费', '社区'],
+        recommended: true
+      },
+      {
+        name: 'NijiJourney',
+        url: 'https://docs.nijijourney.com/',
+        description: 'Midjourney 旗下专业动漫风格工具，二次元创作首选',
+        tags: ['动漫', '付费', '二次元'],
+        recommended: false
+      },
+      {
+        name: 'Draw Things',
+        url: 'https://drawthings.ai/',
+        description: 'iOS/iPadOS 本地部署工具，隐私安全，适合接NDA保密项目',
+        tags: ['本地', '免费', '隐私'],
         recommended: false
       }
     ]
   },
   {
-    category: '🎬 AI 视频生成',
+    category: '🎬 AI 视频生成（2026最新）',
     tools: [
       {
-        name: '可灵 AI',
+        name: 'Seedance 2.0',
+        url: 'https://jimeng.jianying.com/',
+        description: '字节跳动顶级视频生成模型，支持12项多模态输入，15秒视频，原生音频，2K画质，可用产 出率90%+',
+        tags: ['国产', '付费', '最强视频'],
+        recommended: true
+      },
+      {
+        name: 'Kling 3.0',
         url: 'https://kling.kuaishou.com/',
-        description: '快手顶级视频生成工具，物理真实感强',
-        tags: ['国产', '免费', '图生视频'],
+        description: '快手顶级视频生成，2K/4K超高清输出，物理真实感强，多镜头叙事（6镜头），AI导演系统',
+        tags: ['国产', '免费', '4K画质'],
         recommended: true
       },
       {
-        name: '海螺 AI',
-        url: 'https://hailuoai.com/',
-        description: 'MiniMax 视频生成工具，支持特效制作',
-        tags: ['国产', '免费', '特效'],
+        name: 'Veo 3.1',
+        url: 'https://flow.google.com/',
+        description: 'Google 旗舰视频生成模型，4K原生画质，原生音画同步，镜头语言丰富，集成 Gemini API',
+        tags: ['国际', '付费', '电影级'],
         recommended: true
       },
       {
-        name: 'Vidu',
-        url: 'https://www.vidu.cn/',
-        description: '生数科技顶级视频生成工具，支持长视频和高一致性',
-        tags: ['国产', '免费', '长视频'],
+        name: 'Wan 2.7',
+        url: 'https://wan.ai/',
+        description: '免费工具中逼真度最高（9.8/10），动态逻辑与物理模拟最强，适合专业B-roll素材',
+        tags: ['免费', '高逼真度', '物理模拟'],
         recommended: true
       },
       {
-        name: 'Runway ML',
+        name: 'Runway Gen-4 Turbo',
         url: 'https://runwayml.com/',
-        description: '国际顶级视频生成和编辑工具',
+        description: '国际顶级视频生成和编辑工具，精准操控，主体一致性突破，125积分新用户免费',
         tags: ['国际', '付费', '专业级'],
         recommended: true
       },
       {
-        name: 'Pika Labs',
-        url: 'https://pika.art/',
-        description: '新兴视频生成工具，风格独特',
-        tags: ['国际', '免费', '创意'],
+        name: 'Vidu 2.0',
+        url: 'https://www.vidu.cn/',
+        description: '生数科技视频生成工具，中国风元素支持佳，3D空间深度强，推拉镜头优秀',
+        tags: ['国产', '免费', '国风'],
+        recommended: true
+      },
+      {
+        name: '海螺 AI 2.3',
+        url: 'https://hailuoai.com/',
+        description: 'MiniMax 视频生成工具，中文理解能力强，生成速度快，300积分新用户免费',
+        tags: ['国产', '免费', '中文优化'],
+        recommended: true
+      },
+      {
+        name: 'PixVerse',
+        url: 'https://pixverse.ai/',
+        description: '免费工具中面部映射和口型同步表现优秀，60积分/天，适合对口型视频',
+        tags: ['免费', '口型同步', '面部映射'],
+        recommended: false
+      }
+    ]
+  },
+  {
+    category: '🎭 数字人 AI（2026新热门）',
+    tools: [
+      {
+        name: '悟空AI',
+        url: 'https://wukongai.com/',
+        description: '字节跳动与香港大学联合研发，超写实数字人视频生成，解决闪烁断层问题，直接对接电商场景',
+        tags: ['国产', '电商', '数字人'],
+        recommended: true
+      },
+      {
+        name: '即梦数字人',
+        url: 'https://jimeng.jianying.com/',
+        description: '即梦AI内置数字人功能，输入产品图和文案即可生成带货素材',
+        tags: ['国产', '带货', '短视频'],
+        recommended: true
+      },
+      {
+        name: 'HeyGen',
+        url: 'https://heygen.com/',
+        description: '国际顶级数字人平台，支持100+语言，口型同步优秀',
+        tags: ['国际', '付费', '多语言'],
+        recommended: true
+      },
+      {
+        name: 'D-ID',
+        url: 'https://www.d-id.com/',
+        description: '专业数字人视频生成，支持照片说话，适合营销视频',
+        tags: ['国际', '付费', '营销'],
         recommended: false
       }
     ]
@@ -79,6 +161,20 @@ const toolWebsites = [
   {
     category: '📝 提示词工具',
     tools: [
+      {
+        name: 'MyPrompt 提示词库',
+        url: 'https://myprompt.cc/zh',
+        description: 'AI 图片与视频提示词大全，支持 Midjourney、Stable Diffusion、DALL·E、Nano Banana Pro，海量优质提示词',
+        tags: ['中文', '免费', '图库'],
+        recommended: true
+      },
+      {
+        name: 'PromLib·AI 提示词画廊',
+        url: 'https://promlib.com/',
+        description: 'AIGC 提示词分享平台，海量 AI 绘画提示词，支持多种模型，社区活跃',
+        tags: ['中文', '免费', '社区'],
+        recommended: true
+      },
       {
         name: 'PromptHero',
         url: 'https://prompthero.com/',

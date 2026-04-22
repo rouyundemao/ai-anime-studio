@@ -73,6 +73,95 @@ https://jimeng.jianying.com/`,
         updates: '2026 年 4 月更新：Seedance 2.0 视频生成模型、Seedream 4.5 图片生成模型、CLI 命令行工具、批量生成功能、高清模式'
       },
       {
+        name: '豆包 AI 桌面版',
+        subtitle: '字节跳动全能 AI 助手',
+        content: '豆包 AI 桌面版是字节跳动推出的全能 AI 助手，2026 年 4 月更新到 2.0 版本，支持 AI 写作、语音对话、AI 生图（MJ、SD）、浏览器插件等功能。特别适合中文创作场景，支持一键生成小红书文案、公众号文章、短视频脚本等。',
+        features: [
+          '豆包 TTS 2.0 语音合成（Vivi 2.0 音色）',
+          'AI 写作助手',
+          'AI 生图（MJ + SD 双引擎）',
+          '浏览器插件（截图、翻译、阅读）',
+          '语音对话功能',
+          'AI 知识库'
+        ],
+        usage: `// 豆包 TTS 2.0 语音合成
+python "C:/Users/32346/.openclaw/workspace/skills/doubao-tts/scripts/tts_synthesize.py" \\
+  --text "你好，我是雾" \\
+  --format ogg_opus \\
+  --output "C:/Users/32346/.openclaw/workspace/media/voice/test.ogg" \\
+  --app-id "8713180110" \\
+  --access-key "N8o5XI4mAKKNnAVmJh-yR3nMOwEcZjJi" \\
+  --speaker "zh_female_vv_uranus_bigtts"`,
+        tips: [
+          '✅ TTS 语音输出必须使用 .ogg 格式（opus 编码）',
+          '✅ 输出路径必须在 workspace 目录下，否则飞书无法发送',
+          '✅ 推荐音色：zh_female_vv_uranus_bigtts（Vivi 2.0）',
+          '✅ 豆包生图支持中文提示词，适合国内用户',
+          '✅ 桌面版支持截图 OCR 和网页智能阅读'
+        ],
+        cases: [
+          {
+            title: '语音生成示例',
+            prompt: '生成一段温柔的问候语：你好，欢迎来到 AI 幻梦工作室，我是雾，很高兴认识你！',
+            params: '音色：zh_female_vv_uranus_bigtts | 格式：ogg_opus | 采样率：24000'
+          }
+        ],
+        faq: [
+          { q: '豆包 TTS 支持哪些语言？', a: '支持中文、英文、日文、韩文等 20+ 语言，中文效果最佳。' },
+          { q: '如何获取 Access Key？', a: '在火山引擎控制台 → 语音合成 → 申请开通 → 获取 APP ID 和 Access Token。' }
+        ],
+        updates: '2026 年 4 月更新：豆包 TTS 2.0、桌面版 2.0、AI 生图增强'
+      },
+      {
+        name: 'ComfyUI 本地部署',
+        subtitle: '最强 AI 生图本地工作流',
+        content: 'ComfyUI 是本地部署的 AI 图形化工作流工具，支持 Stable Diffusion 系列模型。优势：完全本地运行（隐私安全）、自定义工作流、节点式流程设计、社区丰富的工作流模板。适合需要高度定制化的专业创作者。',
+        features: [
+          '完全本地运行（隐私安全）',
+          '自定义工作流',
+          'IP-Adapter 角色一致性',
+          'ControlNet 控制',
+          'Roop 换脸',
+          'SDXL/SD 3.0 模型支持'
+        ],
+        usage: `// 本地地址
+http://127.0.0.1:8000/
+
+// 加载工作流
+import json, requests
+with open('workflow.json', 'r', encoding='utf-8') as f:
+    workflow = json.load(f)
+
+# 设置提示词
+for node_id, node in workflow.items():
+    if 'CLIPTextEncode' in node.get('class_type', ''):
+        node['inputs']['text'] = prompt_text
+
+# 提交
+resp = requests.post('http://127.0.0.1:8000/prompt', json={"prompt": workflow})
+prompt_id = resp.json()['prompt_id']`,
+        tips: [
+          '✅ 推荐显卡：RTX 3090/4090（24GB 显存）',
+          '✅ 模型放在 E:\\Comfy\\models\\ 目录',
+          '✅ 输出目录：E:\\Comfy\\output\\',
+          '✅ 常用工作流：文生图、图生视频、角色一致性、局部重绘',
+          '✅ 安装 Manager 扩展：便于管理节点和工作流',
+          '✅ 中文路径在 Python API 中可能有编码问题，建议用英文路径'
+        ],
+        cases: [
+          {
+            title: '国漫风格美女生成',
+            prompt: '(guoqian manhua style:1.3), beautiful chinese ancient girl, perfect facial features, large bright eyes, delicate nose, cherry lips, pale smooth skin, soft facial lighting, detailed face, black long hair, classical Chinese hairstyle, hair ornament, wearing elegant Hanfu dress, embroidery patterns, flowing ribbons, background is classical Chinese garden, pavilion, peach blossoms, high quality anime style, detailed, masterpiece, best quality',
+            params: '尺寸：720x720 | 模型：国漫风格 | 步数：30 | CFG: 7'
+          }
+        ],
+        faq: [
+          { q: 'ComfyUI 需要什么显卡？', a: '推荐 NVIDIA RTX 3090/4090，8GB 显存也能运行但速度较慢。' },
+          { q: '如何安装自定义节点？', a: '通过 ComfyUI Manager 搜索安装，或手动复制到 custom_nodes 目录。' }
+        ],
+        updates: '2026 年 4 月更新：SD3.0 模型支持、工作流优化'
+      },
+      {
         name: '可灵 AI（Kling 3.0）',
         subtitle: '快手顶级视频生成工具',
         content: '可灵 AI 是快手推出的专业级 AI 视频生成工具，2026 年发布 Kling 3.0 版本，支持 2K/4K 超高清输出，物理真实感强，新增多镜头叙事（最多 6 镜头）和 AI 导演系统。在提示词遵循能力和主体一致性上表现优异。',

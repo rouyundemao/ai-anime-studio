@@ -15,9 +15,9 @@ function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-primary-600 flex items-center gap-2">
-            <span className="bg-primary-600 text-white w-8 h-8 rounded-full flex items-center justify-center">🎨</span>
-            AI 幻梦工作室
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src="/logo-icon.png" alt="" className="h-8 md:h-10 w-8 md:w-10 rounded-full" />
+            <span className="text-2xl md:text-3xl font-bold text-red-600">AI 幻梦工作室</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
@@ -25,10 +25,10 @@ function Header() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`font-medium transition-colors ${
+                className={`relative px-4 py-2 text-lg font-semibold rounded-lg transition-all duration-300 ${
                   location.pathname === item.path
-                    ? 'text-primary-600'
-                    : 'text-gray-600 hover:text-primary-600'
+                    ? 'text-white bg-gradient-to-r from-red-500 to-red-600 shadow-lg shadow-red-500/30 scale-105'
+                    : 'text-gray-700 hover:text-red-600 hover:bg-red-50'
                 }`}
               >
                 {item.label}

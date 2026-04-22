@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
 
-// 模块 1：顶级艺术理念
+// 模块 1：艺术理念
 function Module1() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
@@ -37,20 +37,20 @@ function Module1() {
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
       <SideNavigation currentId="module1" />
-      <TableOfContents sections={sections} moduleName="顶级艺术理念" />
+      <TableOfContents sections={sections} moduleName="艺术理念" />
       
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🎨 顶级艺术理念
+              🎨 艺术理念
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              顶级艺术理念
+              艺术理念
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              东方美学与西方美学融合，建立顶级动漫美学体系
+              东方美学与西方美学融合，建立动漫美学体系
             </p>
             <div className="flex items-center gap-6 mt-6 text-gray-600">
               <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
@@ -90,7 +90,7 @@ function Module1() {
               </div>
               <blockquote className="border-l-4 border-accent-500 pl-6 py-4 my-6 bg-accent-50 italic text-gray-700">
                 <p className="text-lg">"AI 是画笔，你才是艺术家。"</p>
-                <cite className="block text-right text-sm text-gray-600 mt-2">— AI 动漫顶级创作理念</cite>
+                <cite className="block text-right text-sm text-gray-600 mt-2">— AI 动漫创作理念</cite>
               </blockquote>
             </section>
 
