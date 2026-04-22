@@ -9,7 +9,8 @@ const modules = [
   { id: 'module4', title: '世界构建方法', subtitle: '地理生态与文明体系', path: '/module-4' },
   { id: 'module5', title: '顶级画面生成', subtitle: '电影级画面与三层光影', path: '/module-5' },
   { id: 'module6', title: '顶级动画生成', subtitle: '物理真实感与情感表现', path: '/module-6' },
-  { id: 'module7', title: '混合媒体艺术', subtitle: '水墨数字融合与电影后期', path: '/module-7' }
+  { id: 'module7', title: '混合媒体艺术', subtitle: '水墨数字融合与电影后期', path: '/module-7' },
+  { id: 'module8', title: '六步标准化工作流', subtitle: '完整的 AI 动漫制作流程', path: '/module-8' }
 ]
 
 // 顶部搜索栏组件
