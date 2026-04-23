@@ -225,10 +225,15 @@ h2[id], h3[id] {
 /* 深色主题 */
 [data-theme="dark"] {
   --bg: #1a1a1a;
-  --surface: #2d2d2d;
+  --surface: #242424;
+  --surface-2: #2d2d2d;
   --ink: #e5e5e5;
   --ink-soft: #a0a0a0;
   --line: #404040;
+}
+
+[data-theme="dark"] {
+  background-color: #1a1a1a !important;
 }
 
 [data-theme="dark"] body {
@@ -236,29 +241,31 @@ h2[id], h3[id] {
   color: #e5e5e5 !important;
 }
 
+/* 卡片背景 */
 [data-theme="dark"] .bg-white,
-[data-theme="dark"] .bg-gray-50 {
-  background-color: #2d2d2d !important;
+[data-theme="dark"] .bg-gray-50,
+[data-theme="dark"] article.bg-white {
+  background-color: #242424 !important;
 }
 
+/* 文字颜色 */
 [data-theme="dark"] .text-gray-800,
-[data-theme="dark"] .text-gray-700 {
+[data-theme="dark"] .text-gray-700,
+[data-theme="dark"] .text-gray-600 {
   color: #e5e5e5 !important;
 }
 
-[data-theme="dark"] .text-gray-600 {
+[data-theme="dark"] .text-gray-500 {
   color: #a0a0a0 !important;
 }
 
-[data-theme="dark"] .text-gray-500 {
-  color: #888888 !important;
-}
-
+/* 边框颜色 */
 [data-theme="dark"] .border-gray-200,
 [data-theme="dark"] .border-gray-100 {
   border-color: #404040 !important;
 }
 
+/* 灰色背景元素 */
 [data-theme="dark"] .bg-gray-100 {
   background-color: #3a3a3a !important;
 }
@@ -267,15 +274,25 @@ h2[id], h3[id] {
   background-color: #4a4a4a !important;
 }
 
-[data-theme="dark"] select {
+/* 表单元素 */
+[data-theme="dark"] select,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"] {
   background-color: #2d2d2d !important;
   color: #e5e5e5 !important;
   border-color: #404040 !important;
 }
 
+/* 阴影 */
 [data-theme="dark"] .shadow-lg,
 [data-theme="dark"] .shadow-xl {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 按钮 hover */
+[data-theme="dark"] .hover\:bg-gray-200:hover {
+  background-color: #3a3a3a !important;
 }
 
 /* 紧凑模式 */
