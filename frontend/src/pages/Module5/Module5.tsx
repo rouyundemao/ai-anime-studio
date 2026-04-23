@@ -35,13 +35,13 @@ function Module5() {
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
       
-      <div className="flex gap-4 px-4 md:px-8 py-8">
+      <div className="relative flex gap-4 px-4 md:px-8 py-8">
         <aside className="hidden xl:block w-60 flex-shrink-0">
-          <div className="sticky top-4">
+          <div className="fixed top-20 left-4 md:left-8 w-60">
             <SideNavigation currentId="module5" />
           </div>
         </aside>
-        <main className="flex-1 min-w-0">
+        <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -660,9 +660,9 @@ function Module5() {
         </article>
         </main>
         
-        {/* 右侧：小标题导航 */}
+        {/* 右侧：小标题导航 - 固定定位 */}
         <aside className="hidden xl:block w-64 flex-shrink-0">
-          <div className="sticky top-4">
+          <div className="fixed top-20 right-4 md:right-8 w-64">
             <TableOfContents sections={sections} moduleName="画面生成" />
           </div>
         </aside>
