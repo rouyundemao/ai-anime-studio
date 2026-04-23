@@ -16,7 +16,9 @@ function Module1() {
   const sections = [
     { id: 'core-concept', title: '核心理念', icon: '🎯' },
     { id: 'eastern-aesthetics', title: '东方美学体系', icon: '🌸' },
+    { id: 'eastern-ai-tutorial', title: '东方美学 AI 实操教学', icon: '🤖' },
     { id: 'western-aesthetics', title: '西方美学融合', icon: '🎭' },
+    { id: 'western-ai-tutorial', title: '西方美学 AI 实操教学', icon: '🤖' },
     { id: 'anime-aesthetics', title: '动漫美学特征', icon: '🎨' },
     { id: 'classic-analysis', title: '经典作品分析', icon: '🏛️' },
     { id: 'practice-steps', title: '实践步骤', icon: '📋' }
@@ -36,11 +38,18 @@ function Module1() {
   return (
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
-      <SideNavigation currentId="module1" />
-      <TableOfContents sections={sections} moduleName="艺术理念" />
       
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="flex gap-6 container mx-auto px-4 py-8 max-w-[1400px]">
+        {/* 左侧：模块导航 */}
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <SideNavigation currentId="module1" />
+          </div>
+        </aside>
+        
+        {/* 中间：教程内容 */}
+        <main className="flex-1 min-w-0 xl:max-w-[800px]">
+          <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -141,6 +150,111 @@ function Module1() {
               </div>
             </section>
 
+            <section id="eastern-ai-tutorial" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+                🤖 东方美学 AI 实操教学
+              </h2>
+              <p className="text-gray-700 mb-6">
+                将东方美学理念转化为 AI 工具可理解的 Prompt，实现算法化创作
+              </p>
+              
+              {/* 留白艺术 AI 教学 */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-blue-700">留白艺术 - AI 实操教学</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    将"留白"的东方美学理念转化为 AI 绘画工具可理解的 Prompt，实现计白当黑的意境效果
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney v6</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：基础留白 Prompt 公式</h5>
+                    <p className="text-gray-700 mb-2">采用「主体 + 留白关键词 + 风格 + 参数」的固定公式</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动漫主体与场景描述]，东方水墨画留白艺术，计白当黑，大面积留白，留足想象空间，极简构图，意境悠远，动漫风格，电影级画质，8K 超高清 --ar 16:9 --style raw --s 250</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：意境营造 Prompt</h5>
+                    <p className="text-gray-700 mb-2">强调"情景交融 + 虚实相生"的意境营造逻辑</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[核心情节与情绪]，动漫场景，情景交融，虚实相生，通过环境氛围烘托人物情绪，不着一字尽得风流，东方美学意境，电影级光影，氛围感拉满 --ar 16:9 --style raw</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：韵律节奏控制</h5>
+                    <p className="text-gray-700 mb-2">用 AI 设计分镜的韵律感</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为[剧本片段]设计一组动漫分镜，共4个镜头，通过景别切换、运镜快慢、画面疏密，实现气韵生动、动静相宜的韵律节奏 --ar 16:9</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3 flex items-center">
+                    <span className="mr-2">✅</span>
+                    成果校验标准
+                  </h4>
+                  <p className="text-green-700">
+                    生成的动漫画面具备大面积留白、极简构图、意境悠远、虚实相生的艺术效果，符合东方美学的留白艺术特征
+                  </p>
+                </div>
+              </div>
+              
+              {/* 意境营造 AI 教学 */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-purple-700">意境营造 - AI 实操教学</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    通过 AI 控制画面的情感氛围，实现"情景交融、不着一字尽得风流"的意境效果
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">基础意境 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述]，东方美学意境，情景交融，虚实相生，通过朦胧雾气、柔和光线、空白区域营造氛围，让人产生无限遐想 --ar 16:9 --style raw --s 250</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">电影感意境 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[电影级场景]，电影级意境表达，空灵淡定的氛围感，留白艺术，动态模糊，景深控制 --ar 16:9 --style raw --s 300</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    画面具备空灵意境、氛围感强烈、留白区域恰当、让人产生无限想象空间
+                  </p>
+                </div>
+              </div>
+            </section>
+
             <section id="western-aesthetics" className="mb-12 scroll-mt-24">
               <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
                 🎭 西方美学融合
@@ -202,6 +316,183 @@ function Module1() {
                     <h4 className="font-bold text-gray-800">声画对位</h4>
                     <p className="text-sm text-gray-600">声音与画面的和谐</p>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="western-ai-tutorial" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+                🤖 西方美学 AI 实操教学
+              </h2>
+              <p className="text-gray-700 mb-6">
+                将西方美学理念转化为 AI 工具可理解的 Prompt，实现算法化创作
+              </p>
+              
+              {/* 黄金比例 AI 教学 */}
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-orange-700">黄金比例 - AI 实操教学</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    将“黄金分割”的美学理念转化为 AI 绘画工具可理解的构图控制参数
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney v6</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：黄金分割构图 Prompt</h5>
+                    <p className="text-gray-700 mb-2">使用“主体 + 构图关键词 + 参数”的固定公式</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动漫主体与场景描述]，构图遵循黄金分割与黄金螺旋法则，主体位于黄金分割点，画面平衡有张力，电影级构图，动漫风格，8K 超高清 --ar 16:9 --style raw --s 250</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：费波那契构图 Prompt</h5>
+                    <p className="text-gray-700 mb-2">使用引导线、螺旋线进行构图控制</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动漫主体与场景描述]，费波那契螺旋构图，黄金螺旋引导线，主体位于螺旋中心点，画面平衡且富有张力，电影级构图，动漫风格，8K 超高清 --ar 16:9 --style raw</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：三分法构图 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动漫主体与场景描述]，三分法构图，主体位于画面三分之一处，留白区域恰到好处，画面平衡有张力，电影级构图，动漫风格，8K 超高清 --ar 16:9 --style raw</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3 flex items-center">
+                    <span className="mr-2">✅</span>
+                    成果校验标准
+                  </h4>
+                  <p className="text-green-700">
+                    生成的动漫画面构图符合黄金分割、费波那契螺旋或三分法，主体位于黄金分割点，画面平衡且富有张力
+                  </p>
+                </div>
+              </div>
+              
+              {/* 戏剧张力 AI 教学 */}
+              <div className="bg-gradient-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-red-700">戏剧张力 - AI 实操教学</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    通过 AI 编剧工具生成符合三一律原则的剧本，实现戏剧张力最大化
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Claude 3 Opus</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ChatGPT-4o</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Kimi</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：三一律剧本框架</h5>
+                    <p className="text-gray-700 mb-2">使用“救猫咪 15 节拍表”框架</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">帮我按照好莱坞救猫咪 15 节拍表，创作一个 [题材类型] 动漫短片的完整剧本框架，明确标注每个节拍的核心事件、时长占比、情绪峰值，同时设计完整的主角人物弧光，标注主角从开篇到结局的成长转变节点，以及全片的情感曲线起伏。</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：悬念设置 Prompt</h5>
+                    <p className="text-gray-700 mb-2">在剧本中设置层层递进的悬念</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上剧本框架，在每个关键节点设置一个悬念，采用“倒金字塔”结构，将最重要的信息放在最后揭晓，全程保持观众的好奇心和紧张感。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：起承转合结构 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">优化以上剧本的起承转合结构，确保每个环节节奏紧凑，情感递进自然。起：引入冲突（30秒），承：发展矛盾（60秒），转：高潮爆发（45秒），合：情感释放（15秒）</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    生成的剧本具备完整的时间、地点、情节统一性，悬念层层递进，起承转合结构清晰，情感曲线起伏明显
+                  </p>
+                </div>
+              </div>
+              
+              {/* 电影语言 AI 教学 */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
+                <h3 className="text-2xl font-bold mb-4 text-blue-700">电影语言 - AI 实操教学</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    用 AI 设计蒙太奇分镜，实现镜头组接的叙事与情绪表达
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ChatGPT-4o</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Claude 3</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney (分镜图)</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：蒙太奇分镜设计</h5>
+                    <p className="text-gray-700 mb-2">使用 AI 生成蒙太奇分镜脚本</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为 [核心情节] 设计一组蒙太奇动漫分镜，共 6-8 个镜头，通过镜头组接实现叙事与情绪表达，标注每个镜头的画面内容、时长、声画对位设计，符合电影级蒙太奇语言</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：镜头组接逻辑</h5>
+                    <p className="text-gray-700 mb-2">学习经典蒙太奇组接逻辑</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">分析以上蒙太奇分镜，确保镜头组接符合电影语言逻辑：时间连续性、空间一致性、情绪递进性。每个镜头的时长与情绪强度成反比，紧张场景用短镜头，抒情场景用长镜头。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：声画对位设计</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为以上蒙太奇分镜设计声画对位关系，包括背景音乐、音效、人声的安排。音乐节奏与画面节奏同步，音效增强画面真实感，人声推动情节发展。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    生成的蒙太奇分镜具备完整的叙事逻辑、情绪递进、声画对位关系，符合电影级蒙太奇语言
+                  </p>
                 </div>
               </div>
             </section>
@@ -426,6 +717,14 @@ function Module1() {
             </div>
           </footer>
         </article>
+        </main>
+        
+        {/* 右侧：小标题导航 */}
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <TableOfContents sections={sections} moduleName="艺术理念" />
+          </div>
+        </aside>
       </div>
     </div>
   )

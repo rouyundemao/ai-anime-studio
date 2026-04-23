@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
 
@@ -19,7 +19,8 @@ function Module3() {
     { id: 'hairstyle-design', title: '发型设计', icon: '💇' },
     { id: 'costume-design', title: '服装设计', icon: '👗' },
     { id: 'style-unity', title: '风格统一', icon: '✨' },
-    { id: 'practical-steps', title: '实践步骤', icon: '📋' }
+    { id: 'practical-steps', title: '实践步骤', icon: '📋' },
+    { id: 'character-ai-tutorial', title: 'AI 角色设计全流程教学', icon: '🤖' }
   ]
 
   if (loading) {
@@ -33,11 +34,15 @@ function Module3() {
   return (
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
-      <SideNavigation currentId="module3" />
-      <TableOfContents sections={sections} moduleName="角色设计体系" />
       
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="flex gap-6 container mx-auto px-4 py-8 max-w-[1400px]">
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <SideNavigation currentId="module3" />
+          </div>
+        </aside>
+        <main className="flex-1 min-w-0 xl:max-w-[800px]">
+          <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
               👤 角色设计体系
@@ -46,7 +51,7 @@ function Module3() {
               角色设计体系
             </h1>
             <p className="text-xl text-gray-600">
-              顶级五官美学，发型服装设计，风格统一性控制
+              精致五官美学，发型服装设计，风格统一性控制
             </p>
             <div className="flex items-center gap-6 mt-6 text-gray-600">
               <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
@@ -442,11 +447,230 @@ function Module3() {
                 </div>
               </div>
             </section>
+
+            <section id="character-ai-tutorial" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+                🤖 AI 角色设计全流程教学
+              </h2>
+              <p className="text-gray-700 mb-6">
+                用 AI 工具快速完成角色设计，实现标准化、批量化的角色素材生成
+              </p>
+              
+              {/* 人物人设生成 */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-blue-700">人物人设与基础设定生成</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    用 AI 快速生成完整的角色人设，包含基本信息、性格特点、背景故事
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Claude 3 Opus</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ChatGPT-4o</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：生成角色人设</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">创作一个 [年龄/性别/气质] 的动漫角色人设，包含基本信息、性格特点、背景故事、外貌特征、服装风格，确保人物设定立体饱满，有独特的辨识度。</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：深化角色背景</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上角色设定，补充详细的背景故事、动机、恐惧、欲望、与其他角色的关系。确保角色有血有肉，有完整的内在逻辑。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：生成视觉描述</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将以上角色设定转化为详细的视觉描述，包括脸型、五官、发型、服装、配饰、颜色偏好等，为 AI 绘画提供精准提示词。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    角色人设完整立体、性格特点鲜明、背景故事丰富、视觉描述详细准确、有独特辨识度
+                  </p>
+                </div>
+              </div>
+              
+              {/* 五官与形体设计 */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-purple-700">五官与形体精准设计</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">Prompt 模板</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[人物基础设定], 精致五官，符合黄金分割比例，东方美学骨相，[风格定位，如古风/日系/写实动漫], 清晰的面部轮廓，灵动的眼神细节，皮肤质感细腻，无五官变形，无面部崩坏 --ar 3:4 --style raw</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">五官细化 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色名]，完美精致五官，五官比例协调，大眼睛明亮有神，高鼻梁，樱桃小嘴，面部光照均匀，细节清晰，极致面部细节刻画，人物结构完美无瑕 --ar 3:4 --style raw --s 250</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    五官精致符合美学标准、比例协调、皮肤细腻、眼神灵动、无面部崩坏
+                  </p>
+                </div>
+              </div>
+              
+              {/* 人物一致性 LoRA 训练 */}
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-orange-700">人物一致性终极方案（LoRA 训练）</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    训练专属 LoRA 模型，实现同一人物多场景、多动作下的 100% 风格与五官统一
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Kohya_ss</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion WebUI</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：准备训练素材</h5>
+                    <p className="text-gray-700 mb-2">收集 8-15 张同人物的标准图片</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>• 至少包含正脸照片 3-5 张</li>
+                      <li>• 包含不同表情、不同角度</li>
+                      <li>• 图片清晰，无水印，无遮挡</li>
+                      <li>• 统一图片尺寸为 512x512 或 1024x1024</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：配置训练参数</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">batch_size: 2
+epoch: 10
+learning_rate: 1e-4
+lr_scheduler: cosine
+resolution: 512
+network_dim: 128
+alpha: 64</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：训练与调用</h5>
+                    <p className="text-gray-700 mb-2">训练完成后，使用 LoRA 进行生成</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], &lt;lora:角色名:0.8&gt;, 同一人物，五官完全一致，风格统一，动漫风格 --ar 16:9 --style raw</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    LoRA 训练成功，同人物在不同场景、不同动作下五官和风格完全统一，解决 AI 变脸问题
+                  </p>
+                </div>
+              </div>
+              
+              {/* 标准化角色素材生成 */}
+              <div className="bg-gradient-to-br from-green-50 to-teal-50 border border-green-200 rounded-2xl p-6">
+                <h3 className="text-2xl font-bold mb-4 text-green-700">标准化角色素材生成</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">三视图 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[人物完整设定], 动漫角色三视图，分别为正面视图、侧面视图、背面视图，同一人物，保持五官、发型、服装完全一致，纯白背景，标准平光，无阴影，无透视变形，细节完整，8K 超高清 --ar 16:9</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">表情集 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色名]，动漫角色表情集，包括微笑、大笑、严肃、愤怒、悲伤、惊讶、困惑、放松，共 8 个表情，同一人物，五官一致，纯白背景 --ar 3:4</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">多套服装 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">以上人物，保持五官、脸型、气质完全不变，设计 3 套不同场景的 [风格] 发型与服装，每套服装搭配对应的配饰，风格统一，细节完整，符合人物的性格与世界观设定 --ar 16:9</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    生成完整的三视图、8 组基础表情、3 套服装变体，所有素材风格统一、五官一致
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* 底部导航 */}
           <ModuleFooter currentId="module3" />
         </article>
+        </main>
+        
+        {/* 右侧：小标题导航 */}
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <TableOfContents sections={sections} moduleName="角色设计体系" />
+          </div>
+        </aside>
       </div>
     </div>
   )

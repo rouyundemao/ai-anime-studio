@@ -1,80 +1,91 @@
-import sqlite3 from 'sqlite3'
+import Database from 'better-sqlite3'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import fs from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const dbPath = path.join(__dirname, '../../data/anime-studio.db')
 
-// Promise 包装的数据库查询
+// 确保数据目录存在
+const dataDir = path.dirname(dbPath)
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true })
+}
+
+let dbInstance = null
+
+// 获取数据库实例
+function getDb() {
+  if (!dbInstance) {
+    dbInstance = new Database(dbPath)
+    dbInstance.pragma('journal_mode = WAL')
+  }
+  return dbInstance
+}
+
+// 数据库查询
 export const query = (sql, params = []) => {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(dbPath, (err) => {
-      if (err) reject(err)
-    })
-    
-    db.all(sql, params, (err, rows) => {
-      if (err) reject(err)
-      else resolve(rows)
-      db.close()
-    })
-  })
+  const db = getDb()
+  const stmt = db.prepare(sql)
+  return stmt.all(...params)
 }
 
 export const run = (sql, params = []) => {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(dbPath, (err) => {
-      if (err) reject(err)
-    })
-    
-    db.run(sql, params, function(err) {
-      if (err) reject(err)
-      else resolve({ lastID: this.lastID, changes: this.changes })
-      db.close()
-    })
-  })
+  const db = getDb()
+  const stmt = db.prepare(sql)
+  const info = stmt.run(...params)
+  return { lastID: info.lastInsertRowid, changes: info.changes }
 }
 
 export const get = (sql, params = []) => {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(dbPath, (err) => {
-      if (err) reject(err)
-    })
-    
-    db.get(sql, params, (err, row) => {
-      if (err) reject(err)
-      else resolve(row)
-      db.close()
-    })
-  })
+  const db = getDb()
+  const stmt = db.prepare(sql)
+  return stmt.get(...params)
 }
 
 export const exec = (sql) => {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(dbPath, (err) => {
-      if (err) reject(err)
-    })
-    
-    db.exec(sql, (err) => {
-      if (err) reject(err)
-      else resolve()
-      db.close()
-    })
-  })
+  const db = getDb()
+  return db.exec(sql)
 }
 
 // 初始化数据库表
-export async function initDatabase() {
-  // 确保数据目录存在
-  const fs = await import('fs')
-  const dataDir = path.join(__dirname, '../../data')
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
+export function initDatabase() {
+  // 模块表
+  exec(`
+    CREATE TABLE IF NOT EXISTS modules (
+      id TEXT PRIMARY KEY,
+      title TEXT NOT NULL,
+      subtitle TEXT NOT NULL,
+      path TEXT NOT NULL,
+      module_order INTEGER NOT NULL,
+      prerequisite TEXT,
+      next_module TEXT,
+      related TEXT,
+      duration TEXT,
+      color TEXT,
+      icon TEXT,
+      description TEXT,
+      features TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `)
+
+  // 模块进度表
+  exec(`
+    CREATE TABLE IF NOT EXISTS module_progress (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      module_id TEXT NOT NULL,
+      completed INTEGER DEFAULT 0,
+      completed_at DATETIME,
+      UNIQUE(module_id)
+    )
+  `)
 
   // 教程表
-  await exec(`
+  exec(`
     CREATE TABLE IF NOT EXISTS tutorials (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
@@ -89,7 +100,7 @@ export async function initDatabase() {
   `)
 
   // 资源表
-  await exec(`
+  exec(`
     CREATE TABLE IF NOT EXISTS resources (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
@@ -103,7 +114,7 @@ export async function initDatabase() {
   `)
 
   // 工具表
-  await exec(`
+  exec(`
     CREATE TABLE IF NOT EXISTS tools (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
@@ -119,12 +130,156 @@ export async function initDatabase() {
   `)
 
   // 初始化示例数据
-  await seedData()
+  seedModules()
+  seedData()
+}
+
+// 初始化模块数据
+function seedModules() {
+  const moduleCount = get('SELECT COUNT(*) as count FROM modules')
+  
+  if (moduleCount.count === 0) {
+    const modules = [
+      {
+        id: 'module1',
+        title: 'Module 1',
+        subtitle: '艺术理念',
+        path: '/module-1',
+        module_order: 1,
+        prerequisite: null,
+        next_module: 'module2',
+        related: JSON.stringify(['module2', 'module3', 'module4', 'module5', 'module6', 'module7']),
+        duration: '深度研习',
+        color: 'from-blue-500 to-purple-500',
+        icon: '🎨',
+        description: '东方美学与西方美学融合，建立动漫美学体系',
+        features: JSON.stringify(['美学是灵魂', '意境营造', '留白艺术'])
+      },
+      {
+        id: 'module2',
+        title: 'Module 2',
+        subtitle: '故事创作艺术',
+        path: '/module-2',
+        module_order: 2,
+        prerequisite: 'module1',
+        next_module: 'module3',
+        related: JSON.stringify(['module1', 'module3', 'module4']),
+        duration: '深度创作',
+        color: 'from-green-500 to-teal-500',
+        icon: '📖',
+        description: '电影级剧本结构，人物弧光设计，情感节奏把控',
+        features: JSON.stringify(['故事是核心', '动人情感', '三幕式结构'])
+      },
+      {
+        id: 'module3',
+        title: 'Module 3',
+        subtitle: '角色设计体系',
+        path: '/module-3',
+        module_order: 3,
+        prerequisite: 'module1',
+        next_module: 'module4',
+        related: JSON.stringify(['module1', 'module2', 'module4']),
+        duration: '精细打磨',
+        color: 'from-pink-500 to-rose-500',
+        icon: '👤',
+        description: '五官美学，发型服装设计，风格统一性控制',
+        features: JSON.stringify(['人物是标识', '精致美丽', '五官比例'])
+      },
+      {
+        id: 'module4',
+        title: 'Module 4',
+        subtitle: '世界构建方法',
+        path: '/module-4',
+        module_order: 4,
+        prerequisite: 'module1',
+        next_module: 'module5',
+        related: JSON.stringify(['module1', 'module2', 'module3']),
+        duration: '宏大构建',
+        color: 'from-amber-500 to-orange-500',
+        icon: '🌍',
+        description: '地理生态设定，文明文化创造，历史神话体系',
+        features: JSON.stringify(['世界是舞台', '丰富沉浸', '文明设定'])
+      },
+      {
+        id: 'module5',
+        title: 'Module 5',
+        subtitle: '电影级画面生成',
+        path: '/module-5',
+        module_order: 5,
+        prerequisite: 'module4',
+        next_module: 'module6',
+        related: JSON.stringify(['module1', 'module3', 'module4']),
+        duration: '极致追求',
+        color: 'from-cyan-500 to-blue-500',
+        icon: '🖼️',
+        description: '电影级画面构建，三层光影设计，细节精度控制',
+        features: JSON.stringify(['画面是呈现', '电影质感', '三层光影'])
+      },
+      {
+        id: 'module6',
+        title: 'Module 6',
+        subtitle: '电影级动画生成',
+        path: '/module-6',
+        module_order: 6,
+        prerequisite: 'module5',
+        next_module: 'module7',
+        related: JSON.stringify(['module1', 'module3', 'module5']),
+        duration: '精细调控',
+        color: 'from-violet-500 to-purple-500',
+        icon: '🎬',
+        description: '物理真实感动画，情感动画表现，艺术化运动表达',
+        features: JSON.stringify(['动画是生命', '丝滑流畅', '物理真实感'])
+      },
+      {
+        id: 'module7',
+        title: 'Module 7',
+        subtitle: '混合媒体艺术',
+        path: '/module-7',
+        module_order: 7,
+        prerequisite: 'module6',
+        next_module: 'module8',
+        related: JSON.stringify(['module1', 'module2', 'module3', 'module4', 'module5', 'module6']),
+        duration: '艺术探索',
+        color: 'from-fuchsia-500 to-pink-500',
+        icon: '✨',
+        description: '水墨与数字融合，手绘与 AI 结合，电影级后期制作',
+        features: JSON.stringify(['融合是创新', '艺术创新', '混合媒体'])
+      },
+      {
+        id: 'module8',
+        title: 'Module 8',
+        subtitle: '完整的 AI 动漫制作流程',
+        path: '/module-8',
+        module_order: 8,
+        prerequisite: 'module7',
+        next_module: null,
+        related: JSON.stringify(['module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'module7']),
+        duration: '全流程实战',
+        color: 'from-amber-500 to-orange-500',
+        icon: '📊',
+        description: '完整的 AI 动漫制作全流程实战',
+        features: JSON.stringify(['全流程', '实战', '综合应用'])
+      }
+    ]
+
+    for (const module of modules) {
+      run(`
+        INSERT INTO modules (id, title, subtitle, path, module_order, prerequisite, next_module, related, duration, color, icon, description, features)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `, [
+        module.id, module.title, module.subtitle, module.path, module.module_order,
+        module.prerequisite, module.next_module, module.related, module.duration,
+        module.color, module.icon, module.description, module.features
+      ])
+    }
+
+    console.log('✅ 模块数据已初始化')
+  }
 }
 
 // 初始化示例数据
-async function seedData() {
-  const tutorialCount = await get('SELECT COUNT(*) as count FROM tutorials')
+function seedData() {
+  const tutorialCount = get('SELECT COUNT(*) as count FROM tutorials')
   
   if (tutorialCount.count === 0) {
     const tutorials = [
@@ -155,7 +310,7 @@ async function seedData() {
     ]
 
     for (const tutorial of tutorials) {
-      await run(`
+      run(`
         INSERT INTO tutorials (title, category, tags, duration, description, content)
         VALUES (?, ?, ?, ?, ?, ?)
       `, [tutorial.title, tutorial.category, tutorial.tags, tutorial.duration, tutorial.description, tutorial.content])
@@ -164,7 +319,7 @@ async function seedData() {
     console.log('✅ 示例教程数据已初始化')
   }
 
-  const toolCount = await get('SELECT COUNT(*) as count FROM tools')
+  const toolCount = get('SELECT COUNT(*) as count FROM tools')
   
   if (toolCount.count === 0) {
     const tools = [
@@ -201,7 +356,7 @@ async function seedData() {
     ]
 
     for (const tool of tools) {
-      await run(`
+      run(`
         INSERT INTO tools (name, developer, category, price, rating, description, features, url)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       `, [tool.name, tool.developer, tool.category, tool.price, tool.rating, tool.description, tool.features, tool.url])

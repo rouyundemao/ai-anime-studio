@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
 
@@ -19,7 +19,8 @@ function Module6() {
     { id: 'motion-guide', title: '运动引导', icon: '💃' },
     { id: 'rendering', title: '渲染技术', icon: '🎨' },
     { id: 'video-export', title: '视频导出', icon: '🎥' },
-    { id: 'practical-steps', title: '实践步骤', icon: '📋' }
+    { id: 'practical-steps', title: '实践步骤', icon: '📋' },
+    { id: 'animation-ai-tutorial', title: 'AI 动画生成全流程教学', icon: '🤖' }
   ]
 
   if (loading) {
@@ -33,17 +34,21 @@ function Module6() {
   return (
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
-      <SideNavigation currentId="module6" />
-      <TableOfContents sections={sections} moduleName="顶级动画生成" />
       
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="flex gap-6 container mx-auto px-4 py-8 max-w-[1400px]">
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <SideNavigation currentId="module6" />
+          </div>
+        </aside>
+        <main className="flex-1 min-w-0 xl:max-w-[800px]">
+          <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
               🎬 顶级动画生成
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              顶级动画生成
+              电影级动画生成
             </h1>
             <p className="text-xl text-gray-600">
               物理真实感动画，情感动画表现，艺术化运动表达
@@ -59,7 +64,7 @@ function Module6() {
               
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700">
-                  顶级动画 = <strong>物理真实感</strong> + <strong>情感表现力</strong> + <strong>艺术化运动</strong> + <strong>电影级节奏</strong>
+                  电影级动画 = <strong>物理真实感</strong> + <strong>情感表现力</strong> + <strong>艺术化运动</strong> + <strong>电影级节奏</strong>
                 </p>
               </div>
 
@@ -439,11 +444,220 @@ function Module6() {
                 </div>
               </div>
             </section>
+
+            <section id="animation-ai-tutorial" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+                🤖 AI 动画生成全流程教学
+              </h2>
+              <p className="text-gray-700 mb-6">
+                用 AI 工具从静帧到成片，生成丝滑流畅的物理真实感动画
+              </p>
+              
+              {/* 静帧图生动画 */}
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-purple-700">静帧图生动画基础操作</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    使用 AI 工具将静帧图转化为动画，掌握画面一致性、动作幅度、时长控制的核心技巧
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Runway Gen-3</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Pika Labs</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">AnimateDiff</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：图生动画 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动画描述], 根据以上静帧图生成动画，动作幅度控制在合理范围，遵循物理规律，保持人物造型和五官一致性，丝滑流畅，60 帧 --duration 5s --ar 16:9</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：动作幅度控制</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">动画角色在 5 秒内完成一个完整动作循环，动作幅度适中，避免过度夸张导致失真，保持角色造型一致性，面部五官不变形，服装布料自然摆动。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：画面一致性控制</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">确保动画中角色的五官、发型、服装、配饰在所有帧中完全一致，使用 LoRA 模型或参考图控制，避免画面崩坏和人物变脸。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    动画画面一致、五官发型服装不变、动作幅度适中、丝滑流畅 60 帧、无画面崩坏
+                  </p>
+                </div>
+              </div>
+              
+              {/* 物理真实感动画 */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-blue-700">物理真实感动画生成</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Runway Gen-3</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Pika Labs</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Kaiber</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">人物动作物理 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色动作描述]，符合物理规则的运动，自然的重力和惯性，真实的肢体动作，流畅的过渡，60 帧丝滑动画，物理真实感 --duration 5s --ar 16:9</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">物体运动物理 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[物体运动描述]，符合物理规律的运动，重力、惯性、弹性、摩擦力等物理特性真实，自然的碰撞和反弹，动态模糊，60 帧丝滑动画 --duration 5s</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">自然环境物理 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[自然环境运动]，真实的布料物理、流体物理、动态效果，自然的风、水流、烟雾、火焰等，符合物理规律，沉浸感强，60 帧丝滑动画 --duration 5s</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    动画符合物理规则、重力惯性真实、动作过渡自然、无物理失真、60 帧丝滑流畅
+                  </p>
+                </div>
+              </div>
+              
+              {/* 情感动画表现 */}
+              <div className="bg-gradient-to-br from-pink-50 to-red-50 border border-pink-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-pink-700">情感动画表现</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Runway Gen-3</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Kaiber</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Pika Labs</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">面部表情动画 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色表情描述]，通过面部表情传递情感，眼睛眉毛嘴部细节丰富，微表情自然，情绪表达准确，情感真挚动人，60 帧丝滑动画 --duration 3s</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">肢体语言动画 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色动作描述]，通过肢体动作传递情感，姿态变化自然，动作幅度和节奏符合情绪，情感表达丰富，60 帧丝滑动画 --duration 3s</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">情感综合动画 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[情感场景描述]，面部表情 + 肢体动作 + 节奏变化，综合传递人物情感，情感递进自然，情绪真实感人，60 帧丝滑动画 --duration 5s</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    面部表情真实丰富、肢体语言自然准确、情感递进合理、观众能够准确感知人物情绪
+                  </p>
+                </div>
+              </div>
+              
+              {/* 后期精细化调控 */}
+              <div className="bg-gradient-to-br from-teal-50 to-green-50 border border-teal-200 rounded-2xl p-6">
+                <h3 className="text-2xl font-bold mb-4 text-teal-700">后期精细化调控</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Topaz Video AI</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">剪映专业版</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Adobe Premiere</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：去闪烁处理</h5>
+                    <p className="text-gray-700 mb-2">解决 AI 动画常见的闪烁问题</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 Topaz Video AI 或剪映的降闪烁功能，降低动画帧间的闪烁和抖动，确保画面稳定流畅。</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：补帧处理</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 补帧工具（如 RIFE、Morpho）将动画从 24/30 帧提升到 60 帧，增加中间帧，使动画更加丝滑流畅。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：画质修复</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 Topaz Video Enhance AI 进行画质修复，提升分辨率、增强细节、去除噪点，确保最终输出质量。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    动画无闪烁、丝滑流畅 60 帧、分辨率 4K+、细节清晰、无明显瑕疵
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* 底部导航 */}
           <ModuleFooter currentId="module6" />
         </article>
+        </main>
+        
+        {/* 右侧：小标题导航 */}
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <TableOfContents sections={sections} moduleName="动画生成" />
+          </div>
+        </aside>
       </div>
     </div>
   )

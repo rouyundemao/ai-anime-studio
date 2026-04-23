@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
 
@@ -19,7 +19,8 @@ function Module7() {
     { id: 'interactive', title: '互动媒体', icon: '🎮' },
     { id: 'sound-design', title: '声音设计', icon: '🎵' },
     { id: 'installation', title: '装置艺术', icon: '🏗️' },
-    { id: 'practical-steps', title: '实践步骤', icon: '📋' }
+    { id: 'practical-steps', title: '实践步骤', icon: '📋' },
+    { id: 'mixed-media-ai-tutorial', title: 'AI 混合媒体创作创新玩法教学', icon: '🤖' }
   ]
 
   if (loading) {
@@ -33,11 +34,15 @@ function Module7() {
   return (
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
-      <SideNavigation currentId="module7" />
-      <TableOfContents sections={sections} moduleName="混合媒体艺术" />
       
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div className="flex gap-6 container mx-auto px-4 py-8 max-w-[1400px]">
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <SideNavigation currentId="module7" />
+          </div>
+        </aside>
+        <main className="flex-1 min-w-0 xl:max-w-[800px]">
+          <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="inline-block bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
               ✨ 混合媒体艺术
@@ -487,11 +492,222 @@ function Module7() {
                 </div>
               </div>
             </section>
+
+            <section id="mixed-media-ai-tutorial" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-teal-600 border-l-4 border-teal-500 pl-4">
+                🤖 AI 混合媒体创作创新玩法教学
+              </h2>
+              <p className="text-gray-700 mb-6">
+                融合多种艺术形式，用 AI 工具实现水墨、手绘、数字、实拍等多种媒介的创新结合
+              </p>
+              
+              {/* 水墨与数字动漫融合 */}
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-teal-700">水墨与数字动漫融合创作</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
+                  <p className="text-gray-700">
+                    用 AI 生成东方水墨风格的动漫画面，掌握水墨质感、笔触、意境的控制方法
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Midjourney</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">水墨风格 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[主体描述], 东方水墨风格，水墨质感，传统笔触，留白艺术，意境悠远，与数字动漫融合，电影级画质，8K 超高清 --ar 16:9 --style raw --s 250</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">水墨笔触控制 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], 水墨画笔触，毛笔质感，墨色浓淡变化，飞白效果，传统山水画技法，与动漫人物融合，意境深远 --ar 16:9 --style raw</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">水墨意境表达 Prompt</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[意境描述], 水墨意境，计白当黑，虚实相生，情景交融，不着一字尽得风流，东方美学意境，水墨与动漫融合，电影级光影 --ar 16:9</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    画面具备水墨质感、传统笔触、意境悠远、留白艺术、水墨与数字动漫完美融合
+                  </p>
+                </div>
+              </div>
+              
+              {/* 手绘与 AI 结合 */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-purple-700">手绘与 AI 结合创作</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Photoshop AI</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Diffusion</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">ComfyUI</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 1：手绘线稿 AI 上色</h5>
+                    <p className="text-gray-700 mb-2">将手绘线稿转化为彩色画面</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿进行 AI 上色，保持手绘质感，色彩柔和自然，光影协调，风格统一，保留原始笔触感觉 --reference [手绘线稿路径]</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 2：手绘线稿 AI 细化</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿进行 AI 细化处理，增强细节表现，丰富纹理质感，提升画面精度，同时保留原始手绘风格和笔触 --reference [手绘线稿路径] --style_preserve true</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">步骤 3：手绘 AI 动画生成</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿生成 AI 动画，保持手绘风格和笔触，生成流畅动画，确保动画过程中风格统一，笔触一致 --reference [手绘线稿路径] --animation_style preserved</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    保留手绘艺术质感、色彩自然协调、细节丰富、风格统一、笔触一致
+                  </p>
+                </div>
+              </div>
+              
+              {/* 电影级后期制作 */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-blue-700">电影级后期全流程制作</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">剪映专业版</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Adobe Premiere</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">After Effects</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">剪辑与节奏</h5>
+                    <p className="text-gray-700 mb-2">AI 辅助剪辑，优化节奏</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用剪映专业版的 AI 剪辑功能，自动识别最佳镜头，优化剪辑节奏，确保叙事流畅，情感递进自然，符合电影语言。</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">配音与音效</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 配音工具生成符合角色性格的配音，添加环境音效、动作音效、背景音乐，确保音画同步，情感表达准确。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">特效与调色</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 辅助调色，应用电影级 LUT 预设，添加光效、粒子、转场等特效，确保整体视觉风格统一，达到电影级后期标准。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    剪辑流畅、节奏合理、音画同步、配音贴合、特效自然、调色统一、达到电影级成片标准
+                  </p>
+                </div>
+              </div>
+              
+              {/* 实拍与 AI 动漫融合 */}
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6">
+                <h3 className="text-2xl font-bold mb-4 text-orange-700">实拍与 AI 动漫融合创作</h3>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Runway ML</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Pika Labs</span>
+                    <span className="bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Stable Video Diffusion</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 mb-4">
+                  <h4 className="font-bold text-gray-800 mb-3">分步教学</h4>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">实拍素材 AI 动漫化</h5>
+                    <p className="text-gray-700 mb-2">将实拍镜头转化为动漫风格</p>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将以下实拍视频素材转化为动漫风格，保持原始动作和构图，应用动漫风格滤镜，确保风格统一，动作流畅，与原实拍素材无缝融合 --input [实拍视频路径] --style anime</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">实拍与动漫合成</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将实拍背景与 AI 生成的动漫角色进行合成，确保光影一致、透视正确、融合自然，创建虚实结合的创新视觉效果。</pre>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">混合媒体创新</h5>
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
+                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">探索实拍、手绘、AI 生成、3D 动画等多种媒介的创新结合方式，拓展动漫创作的表现形式，创造独特的视觉语言。</pre>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">成果校验标准</h4>
+                  <p className="text-green-700">
+                    实拍与动漫融合自然、光影透视正确、风格统一、创新性强、视觉效果震撼
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* 底部导航 */}
           <ModuleFooter currentId="module7" />
         </article>
+        </main>
+        
+        {/* 右侧：小标题导航 */}
+        <aside className="hidden xl:block w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <TableOfContents sections={sections} moduleName="混合媒体艺术" />
+          </div>
+        </aside>
       </div>
     </div>
   )
