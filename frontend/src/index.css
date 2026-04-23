@@ -221,3 +221,93 @@ h2[id], h3[id] {
     scroll-margin-top: 100px;
   }
 }
+
+/* 深色主题 */
+body.dark-theme {
+  --bg: #1a1a1a;
+  --surface: #2d2d2d;
+  --ink: #e5e5e5;
+  --ink-soft: #a0a0a0;
+  --line: #404040;
+  background-color: var(--bg) !important;
+  color: var(--ink) !important;
+}
+
+body.dark-theme .bg-white,
+body.dark-theme .bg-gray-50 {
+  background-color: var(--surface) !important;
+}
+
+body.dark-theme .text-gray-800,
+body.dark-theme .text-gray-700,
+body.dark-theme .text-gray-600 {
+  color: var(--ink) !important;
+}
+
+body.dark-theme .text-gray-500 {
+  color: var(--ink-soft) !important;
+}
+
+body.dark-theme .border-gray-200,
+body.dark-theme .border-gray-100 {
+  border-color: var(--line) !important;
+}
+
+body.dark-theme .bg-gray-100 {
+  background-color: #3a3a3a !important;
+}
+
+body.dark-theme .bg-gray-200 {
+  background-color: #4a4a4a !important;
+}
+
+body.dark-theme select {
+  background-color: var(--surface) !important;
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+
+/* 动漫主题 */
+body.anime-theme {
+  --bg: #FFF5F5;
+  --surface: #FFFFFF;
+  --ink: #2D2D2D;
+  --ink-soft: #666666;
+  --accent: #FF6B9D;
+  --line: #FFE0E6;
+  background-color: var(--bg) !important;
+}
+
+body.anime-theme .bg-gradient-to-r.from-primary-500.to-accent-500,
+body.anime-theme .bg-gradient-to-r.from-primary-600.to-accent-600 {
+  background: linear-gradient(135deg, #FF6B9D, #FF8C42) !important;
+}
+
+body.anime-theme .rounded-2xl {
+  border: 2px solid #FFE0E6;
+}
+
+/* 紧凑模式 */
+body.compact-mode .container {
+  max-width: 1200px !important;
+}
+
+body.compact-mode .p-8 {
+  padding: 1rem !important;
+}
+
+body.compact-mode .p-12 {
+  padding: 1.5rem !important;
+}
+
+body.compact-mode .mb-12 {
+  margin-bottom: 1.5rem !important;
+}
+
+body.compact-mode .mb-8 {
+  margin-bottom: 1rem !important;
+}
+
+body.compact-mode .gap-6 {
+  gap: 0.75rem !important;
+}

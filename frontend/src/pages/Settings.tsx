@@ -1,87 +1,33 @@
-import React, { useState, useEffect } from 'react'
-
-interface Settings {
-  theme: 'light' | 'dark' | 'anime'
-  contentFilter: 'all' | 'tutorials' | 'resources' | 'tools'
-  notifications: boolean
-  contentFormat: 'mdx' | 'markdown' | 'html'
-  fontSize: 'small' | 'medium' | 'large'
-  language: 'zh-CN' | 'zh-TW' | 'en'
-  autoSave: boolean
-  compactMode: boolean
-}
-
-const defaultSettings: Settings = {
-  theme: 'light',
-  contentFilter: 'all',
-  notifications: true,
-  contentFormat: 'mdx',
-  fontSize: 'medium',
-  language: 'zh-CN',
-  autoSave: true,
-  compactMode: false,
-}
+import React, { useState } from 'react'
+import { useSettings } from '../context/SettingsContext'
 
 function Settings() {
-  const [settings, setSettings] = useState<Settings>(defaultSettings)
+  const { settings, updateSetting, resetSettings, exportSettings, importSettings } = useSettings()
   const [saved, setSaved] = useState(false)
 
-  useEffect(() => {
-    const saved = localStorage.getItem('anime-studio-settings')
-    if (saved) {
-      try {
-        setSettings(JSON.parse(saved))
-      } catch {
-        setSettings(defaultSettings)
-      }
-    }
-  }, [])
-
-  const saveSettings = (newSettings: Settings) => {
-    setSettings(newSettings)
-    localStorage.setItem('anime-studio-settings', JSON.stringify(newSettings))
+  const handleSave = () => {
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
   }
 
-  const updateSetting = <K extends keyof Settings>(key: K, value: Settings[K]) => {
-    saveSettings({ ...settings, [key]: value })
+  // Wrap updateSetting to show save indicator
+  const update = <K extends keyof typeof settings>(key: K, value: (typeof settings)[K]) => {
+    updateSetting(key, value)
+    handleSave()
   }
 
-  const resetSettings = () => {
-    saveSettings(defaultSettings)
-    localStorage.removeItem('anime-studio-settings')
+  const handleReset = () => {
+    resetSettings()
+    handleSave()
   }
 
-  const exportSettings = () => {
-    const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'anime-studio-settings.json'
-    a.click()
-    URL.revokeObjectURL(url)
+  const handleExport = () => {
+    exportSettings()
   }
 
-  const importSettings = () => {
-    const input = document.createElement('input')
-    input.type = 'file'
-    input.accept = '.json'
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0]
-      if (!file) return
-      const reader = new FileReader()
-      reader.onload = (ev) => {
-        try {
-          const imported = JSON.parse(ev.target?.result as string)
-          saveSettings({ ...defaultSettings, ...imported })
-        } catch {
-          alert('导入失败：文件格式不正确')
-        }
-      }
-      reader.readAsText(file)
-    }
-    input.click()
+  const handleImport = () => {
+    importSettings()
+    handleSave()
   }
 
   return (
@@ -119,7 +65,7 @@ function Settings() {
                 {(['light', 'dark', 'anime'] as const).map((theme) => (
                   <button
                     key={theme}
-                    onClick={() => updateSetting('theme', theme)}
+                    onClick={() => update('theme', theme)}
                     className={`px-4 py-2 rounded-lg transition-all ${
                       settings.theme === theme
                         ? 'bg-primary-500 text-white shadow-md'
@@ -142,7 +88,7 @@ function Settings() {
                 {(['small', 'medium', 'large'] as const).map((size) => (
                   <button
                     key={size}
-                    onClick={() => updateSetting('fontSize', size)}
+                    onClick={() => update('fontSize', size)}
                     className={`px-4 py-2 rounded-lg transition-all ${
                       settings.fontSize === size
                         ? 'bg-primary-500 text-white shadow-md'
@@ -166,7 +112,7 @@ function Settings() {
                   type="checkbox"
                   className="sr-only peer"
                   checked={settings.compactMode}
-                  onChange={(e) => updateSetting('compactMode', e.target.checked)}
+                  onChange={(e) => update('compactMode', e.target.checked)}
                 />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
               </label>
@@ -189,7 +135,7 @@ function Settings() {
               </div>
               <select
                 value={settings.contentFilter}
-                onChange={(e) => updateSetting('contentFilter', e.target.value as Settings['contentFilter'])}
+                onChange={(e) => update('contentFilter', e.target.value as typeof settings.contentFilter)}
                 className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="all">全部</option>
@@ -207,7 +153,7 @@ function Settings() {
               </div>
               <select
                 value={settings.contentFormat}
-                onChange={(e) => updateSetting('contentFormat', e.target.value as Settings['contentFormat'])}
+                onChange={(e) => update('contentFormat', e.target.value as typeof settings.contentFormat)}
                 className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="mdx">MDX（推荐）</option>
@@ -224,7 +170,7 @@ function Settings() {
               </div>
               <select
                 value={settings.language}
-                onChange={(e) => updateSetting('language', e.target.value as Settings['language'])}
+                onChange={(e) => update('language', e.target.value as typeof settings.language)}
                 className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="zh-CN">简体中文</option>
@@ -253,7 +199,7 @@ function Settings() {
                   type="checkbox"
                   className="sr-only peer"
                   checked={settings.notifications}
-                  onChange={(e) => updateSetting('notifications', e.target.checked)}
+                  onChange={(e) => update('notifications', e.target.checked)}
                 />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
               </label>
@@ -270,7 +216,7 @@ function Settings() {
                   type="checkbox"
                   className="sr-only peer"
                   checked={settings.autoSave}
-                  onChange={(e) => updateSetting('autoSave', e.target.checked)}
+                  onChange={(e) => update('autoSave', e.target.checked)}
                 />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
               </label>
@@ -286,13 +232,13 @@ function Settings() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <button
-              onClick={exportSettings}
+              onClick={handleExport}
               className="bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
             >
               📤 导出设置
             </button>
             <button
-              onClick={importSettings}
+              onClick={handleImport}
               className="bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
             >
               📥 导入设置
@@ -301,7 +247,7 @@ function Settings() {
 
           <div className="pt-6 border-t border-gray-200">
             <button
-              onClick={resetSettings}
+              onClick={handleReset}
               className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-3 px-6 rounded-xl transition-all border border-red-200"
             >
               🗑️ 恢复默认设置
