@@ -48,10 +48,33 @@ function CodeBlock({
   // 使用 Pretext 精确计算高度
   const { height, lineCount } = useCodeLayout(code, fontSize, maxWidth)
 
-  // 复制功能
+  // 复制功能 - 带降级方案
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(code)
+      // 方法 1: 使用 Clipboard API（需要 HTTPS）
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(code)
+      } else {
+        // 方法 2: 降级方案 - 使用 textarea + execCommand
+        const textarea = document.createElement('textarea')
+        textarea.value = code
+        textarea.style.position = 'fixed'
+        textarea.style.left = '-9999px'
+        textarea.style.top = '-9999px'
+        textarea.style.opacity = '0'
+        document.body.appendChild(textarea)
+        textarea.focus()
+        textarea.select()
+        
+        try {
+          document.execCommand('copy')
+        } catch (err) {
+          console.error('复制失败:', err)
+        }
+        
+        document.body.removeChild(textarea)
+      }
+      
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
