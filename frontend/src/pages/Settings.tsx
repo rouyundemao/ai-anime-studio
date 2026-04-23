@@ -2,32 +2,19 @@ import React, { useState } from 'react'
 import { useSettings } from '../context/SettingsContext'
 
 function Settings() {
-  const { settings, updateSetting, resetSettings, exportSettings, importSettings } = useSettings()
+  const { settings, updateSetting, resetSettings } = useSettings()
   const [saved, setSaved] = useState(false)
 
-  const handleSave = () => {
+  const handleUpdate = <K extends keyof typeof settings>(key: K, value: (typeof settings)[K]) => {
+    updateSetting(key, value)
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
   }
 
-  // Wrap updateSetting to show save indicator
-  const update = <K extends keyof typeof settings>(key: K, value: (typeof settings)[K]) => {
-    updateSetting(key, value)
-    handleSave()
-  }
-
   const handleReset = () => {
     resetSettings()
-    handleSave()
-  }
-
-  const handleExport = () => {
-    exportSettings()
-  }
-
-  const handleImport = () => {
-    importSettings()
-    handleSave()
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2000)
   }
 
   return (
@@ -56,42 +43,49 @@ function Settings() {
           
           <div className="space-y-6">
             {/* 主题模式 */}
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+            <div className="flex items-center justify-between pb-6 border-b border-gray-100">
               <div>
                 <h3 className="font-semibold text-gray-800">主题模式</h3>
                 <p className="text-gray-500 text-sm">选择你喜欢的主题外观</p>
               </div>
-              <div className="flex gap-2">
-                {(['light', 'dark', 'anime'] as const).map((theme) => (
-                  <button
-                    key={theme}
-                    onClick={() => update('theme', theme)}
-                    className={`px-4 py-2 rounded-lg transition-all ${
-                      settings.theme === theme
-                        ? 'bg-primary-500 text-white shadow-md'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                  >
-                    {theme === 'light' ? '☀️ 浅色' : theme === 'dark' ? '🌙 深色' : '🎭 动漫'}
-                  </button>
-                ))}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => handleUpdate('theme', 'light')}
+                  className={`px-6 py-3 rounded-xl transition-all font-medium ${
+                    settings.theme === 'light'
+                      ? 'bg-primary-500 text-white shadow-lg scale-105'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  ☀️ 浅色
+                </button>
+                <button
+                  onClick={() => handleUpdate('theme', 'dark')}
+                  className={`px-6 py-3 rounded-xl transition-all font-medium ${
+                    settings.theme === 'dark'
+                      ? 'bg-gray-800 text-white shadow-lg scale-105'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  🌙 深色
+                </button>
               </div>
             </div>
 
             {/* 字体大小 */}
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+            <div className="flex items-center justify-between pb-6 border-b border-gray-100">
               <div>
                 <h3 className="font-semibold text-gray-800">字体大小</h3>
                 <p className="text-gray-500 text-sm">调整内容显示的字号</p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 {(['small', 'medium', 'large'] as const).map((size) => (
                   <button
                     key={size}
-                    onClick={() => update('fontSize', size)}
-                    className={`px-4 py-2 rounded-lg transition-all ${
+                    onClick={() => handleUpdate('fontSize', size)}
+                    className={`px-6 py-3 rounded-xl transition-all font-medium ${
                       settings.fontSize === size
-                        ? 'bg-primary-500 text-white shadow-md'
+                        ? 'bg-primary-500 text-white shadow-lg scale-105'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
@@ -112,111 +106,7 @@ function Settings() {
                   type="checkbox"
                   className="sr-only peer"
                   checked={settings.compactMode}
-                  onChange={(e) => update('compactMode', e.target.checked)}
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        {/* 内容设置 */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <span>📚</span> 内容设置
-          </h2>
-          
-          <div className="space-y-6">
-            {/* 内容分类 */}
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <div>
-                <h3 className="font-semibold text-gray-800">默认内容分类</h3>
-                <p className="text-gray-500 text-sm">首页默认显示的内容类型</p>
-              </div>
-              <select
-                value={settings.contentFilter}
-                onChange={(e) => update('contentFilter', e.target.value as typeof settings.contentFilter)}
-                className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              >
-                <option value="all">全部</option>
-                <option value="tutorials">教程</option>
-                <option value="resources">资源</option>
-                <option value="tools">工具</option>
-              </select>
-            </div>
-
-            {/* 内容格式 */}
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <div>
-                <h3 className="font-semibold text-gray-800">内容格式</h3>
-                <p className="text-gray-500 text-sm">教程内容的渲染格式</p>
-              </div>
-              <select
-                value={settings.contentFormat}
-                onChange={(e) => update('contentFormat', e.target.value as typeof settings.contentFormat)}
-                className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              >
-                <option value="mdx">MDX（推荐）</option>
-                <option value="markdown">Markdown</option>
-                <option value="html">HTML</option>
-              </select>
-            </div>
-
-            {/* 语言 */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-semibold text-gray-800">语言</h3>
-                <p className="text-gray-500 text-sm">界面显示语言</p>
-              </div>
-              <select
-                value={settings.language}
-                onChange={(e) => update('language', e.target.value as typeof settings.language)}
-                className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              >
-                <option value="zh-CN">简体中文</option>
-                <option value="zh-TW">繁體中文</option>
-                <option value="en">English</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* 功能设置 */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <span>⚡</span> 功能设置
-          </h2>
-          
-          <div className="space-y-6">
-            {/* 通知设置 */}
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <div>
-                <h3 className="font-semibold text-gray-800">更新通知</h3>
-                <p className="text-gray-500 text-sm">有新教程或资源时通知你</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="sr-only peer"
-                  checked={settings.notifications}
-                  onChange={(e) => update('notifications', e.target.checked)}
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-              </label>
-            </div>
-
-            {/* 自动保存 */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-semibold text-gray-800">自动保存进度</h3>
-                <p className="text-gray-500 text-sm">自动记录学习进度</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="sr-only peer"
-                  checked={settings.autoSave}
-                  onChange={(e) => update('autoSave', e.target.checked)}
+                  onChange={(e) => handleUpdate('compactMode', e.target.checked)}
                 />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
               </label>
@@ -229,21 +119,6 @@ function Settings() {
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <span>💾</span> 数据管理
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <button
-              onClick={handleExport}
-              className="bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
-            >
-              📤 导出设置
-            </button>
-            <button
-              onClick={handleImport}
-              className="bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
-            >
-              📥 导入设置
-            </button>
-          </div>
 
           <div className="pt-6 border-t border-gray-200">
             <button
