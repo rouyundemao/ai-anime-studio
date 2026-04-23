@@ -120,13 +120,37 @@ function Settings() {
             <span>💾</span> 数据管理
           </h2>
 
-          <div className="pt-6 border-t border-gray-200">
+          <div className="space-y-4">
+            {/* 清除设置数据 */}
+            <button
+              onClick={() => {
+                localStorage.removeItem('anime-studio-settings')
+                handleReset()
+              }}
+              className="w-full bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold py-3 px-6 rounded-xl transition-all border border-orange-200 flex items-center justify-center gap-2"
+            >
+              <span>🗑️</span>
+              <span>清除设置数据</span>
+            </button>
+
+            {/* 恢复默认设置 */}
             <button
               onClick={handleReset}
-              className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-3 px-6 rounded-xl transition-all border border-red-200"
+              className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-3 px-6 rounded-xl transition-all border border-red-200 flex items-center justify-center gap-2"
             >
-              🗑️ 恢复默认设置
+              <span>🔄</span>
+              <span>恢复默认设置</span>
             </button>
+
+            {/* 说明文字 */}
+            <div className="bg-gray-50 rounded-xl p-4 text-sm text-gray-600">
+              <p className="font-semibold mb-2">📌 说明：</p>
+              <ul className="space-y-1">
+                <li>• <strong>清除设置数据</strong>：删除浏览器中保存的所有设置，恢复为初始状态</li>
+                <li>• <strong>恢复默认设置</strong>：将当前设置重置为默认值（浅色主题、中等字体、关闭紧凑模式）</li>
+                <li>• 设置仅保存在你的浏览器中，不会影响其他用户</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
