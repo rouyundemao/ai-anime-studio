@@ -39,16 +39,16 @@ function Module1() {
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
       
-      <div className="flex gap-4 px-4 md:px-8 py-8">
-        {/* 左侧：模块导航 */}
+      <div className="relative flex gap-4 px-4 md:px-8 py-8">
+        {/* 左侧：模块导航 - 固定定位 */}
         <aside className="hidden xl:block w-60 flex-shrink-0">
-          <div className="sticky top-4">
+          <div className="fixed top-20 left-4 md:left-8 w-60">
             <SideNavigation currentId="module1" />
           </div>
         </aside>
         
         {/* 中间：教程内容 - 真正全宽 */}
-        <main className="flex-1 min-w-0">
+        <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
@@ -719,9 +719,9 @@ function Module1() {
         </article>
         </main>
         
-        {/* 右侧：小标题导航 */}
+        {/* 右侧：小标题导航 - 固定定位 */}
         <aside className="hidden xl:block w-64 flex-shrink-0">
-          <div className="sticky top-4">
+          <div className="fixed top-20 right-4 md:right-8 w-64">
             <TableOfContents sections={sections} moduleName="艺术理念" />
           </div>
         </aside>
