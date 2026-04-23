@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.mdx",
   ],
   theme: {
     extend: {
@@ -48,7 +49,38 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Source Han Serif CN', 'Noto Serif SC', 'serif'],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: theme('colors.gray.700'),
+            lineHeight: theme('lineHeight.relaxed'),
+            h2: {
+              marginTop: theme('spacing.12'),
+              marginBottom: theme('spacing.6'),
+            },
+            h3: {
+              marginTop: theme('spacing.10'),
+              marginBottom: theme('spacing.4'),
+            },
+            'ul > li': {
+              marginTop: theme('spacing.2'),
+              marginBottom: theme('spacing.2'),
+            },
+          },
+        },
+        lg: {
+          css: {
+            lineHeight: theme('lineHeight.relaxed'),
+            '> ul > li': {
+              paddingLeft: theme('spacing.3'),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
