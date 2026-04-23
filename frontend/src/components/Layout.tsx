@@ -30,12 +30,14 @@ function Layout() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#1a1a1a] dark:to-[#1a1a1a] flex flex-col">
       <Header />
       
       {/* 主内容区域 - 添加移动端底部导航的空间 */}
-      <main className={`flex-1 container mx-auto px-4 py-6 md:py-8 ${isModulePage ? 'pb-24 md:pb-8' : ''}`}>
-        <Outlet />
+      <main className={`flex-1 px-4 py-6 md:py-8 ${isModulePage ? 'pb-24 md:pb-8' : ''}`}>
+        <div className="max-w-4xl mx-auto">
+          <Outlet />
+        </div>
       </main>
 
       <Footer />
