@@ -1,0 +1,184 @@
+/**
+ * 科技感光效样式
+ * 用于代码块、卡片、按钮等组件的渐变边框和光效
+ */
+
+/* ========== 基础光效 ========== */
+
+/* 基础科技感边框 */
+.tech-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6) border-box;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-border:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 渐变背景 */
+.tech-gradient {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+/* 悬停光效增强 */
+.tech-glow-hover {
+  transition: all 0.3s ease;
+}
+
+.tech-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ========== 按钮样式 ========== */
+
+/* 科技感按钮 */
+.tech-button {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-button:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.tech-button:active {
+  transform: translateY(0);
+}
+
+/* ========== 卡片样式 ========== */
+
+/* 科技感卡片 */
+.tech-card {
+  background: white;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #3b82f6, #8b5cf6) border-box;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========== 文字渐变 ========== */
+
+/* 渐变文字 */
+.tech-text-gradient {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 标题渐变 */
+h1.tech-title,
+h2.tech-title,
+h3.tech-title {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ========== 进度条 ========== */
+
+/* 科技感进度条 */
+.tech-progress {
+  height: 0.5rem;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transition: width 0.3s ease;
+}
+
+/* ========== 代码块专用 ========== */
+
+/* 代码块容器 */
+.tech-code-block {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 2px solid transparent;
+  background-image: linear-gradient(#f9fafb, #f3f4f6),
+                    linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-code-block:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========== 装饰元素 ========== */
+
+/* 光晕效果 */
+.tech-glow {
+  position: relative;
+}
+
+.tech-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-size: 200% 100%;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  animation: glow 2s linear infinite;
+}
+
+.tech-glow:hover::before {
+  opacity: 0.5;
+}
+
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ========== 响应式 ========== */
+
+@media (max-width: 768px) {
+  .tech-border,
+  .tech-card,
+  .tech-code-block {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+  }
+
+  .tech-border:hover,
+  .tech-card:hover,
+  .tech-code-block:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+}
