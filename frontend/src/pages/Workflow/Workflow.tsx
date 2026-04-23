@@ -496,7 +496,10 @@ function Workflow() {
                 {/* 返回按钮 */}
                 <div className="text-center mt-8">
                   <button
-                    onClick={() => setCurrentStep(-1)}
+                    onClick={() => {
+                      setCurrentStep(-1)
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
                     className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg transition-colors"
                   >
                     ← 返回流程概览
