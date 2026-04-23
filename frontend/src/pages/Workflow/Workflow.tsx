@@ -351,7 +351,13 @@ function Workflow() {
             {workflowSteps.map((step) => (
               <div
                 key={step.id}
-                onClick={() => setCurrentStep(step.id - 1)}
+                onClick={() => {
+                  setCurrentStep(step.id - 1)
+                  const element = document.getElementById(`step-${step.id}`)
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 className={`cursor-pointer p-4 rounded-xl transition-all duration-300 hover:shadow-lg ${
                   currentStep === step.id - 1
                     ? 'bg-primary-500 text-white ring-2 ring-primary-600'
