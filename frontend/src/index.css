@@ -167,3 +167,63 @@ a, button {
     background-clip: text;
   }
 }
+
+/* 移动端安全区域 */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  /* 隐藏三栏布局的侧边栏 */
+  .sidebar-left, .sidebar-right {
+    display: none !important;
+  }
+  
+  /* 主内容区域全宽 */
+  main.flex-1 {
+    max-width: 100% !important;
+  }
+  
+  /* 优化字体大小 */
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 2rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  
+  /* 优化卡片 */
+  .rounded-2xl { border-radius: 1rem !important; }
+  .p-6 { padding: 1rem !important; }
+  
+  /* 优化按钮 */
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* 优化表格 */
+  .table-responsive {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  /* 优化图片 */
+  img { max-width: 100%; height: auto; }
+  
+  /* 减少动画效果（提升性能） */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 章节标题滚动偏移 */
+h2[id], h3[id] {
+  scroll-margin-top: 80px;
+}
+
+/* 移动端标题偏移更大 */
+@media (max-width: 768px) {
+  h2[id], h3[id] {
+    scroll-margin-top: 100px;
+  }
+}
