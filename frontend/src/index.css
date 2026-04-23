@@ -314,10 +314,21 @@ pre, code {
   color: #1f2937 !important;
 }
 
+/* 强制覆盖所有可能的深色背景 */
 [data-theme="dark"] pre,
-[data-theme="dark"] code {
+[data-theme="dark"] code,
+pre.bg-gray-900,
+pre.bg-slate-900,
+code.bg-gray-900,
+code.bg-slate-900 {
   background-color: #f3f4f6 !important;
   color: #1f2937 !important;
+}
+
+/* 代码块容器也强制浅色 */
+.overflow-x-auto:has(pre),
+div:has(> pre) {
+  background-color: transparent !important;
 }
 
 [data-compact="true"] .p-8 {
