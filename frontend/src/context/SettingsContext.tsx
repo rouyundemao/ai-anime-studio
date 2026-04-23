@@ -32,10 +32,17 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   const [settings, setSettings] = useState<AppSettings>(defaultSettings)
 
   useEffect(() => {
+    // 页面加载时强制移除深色主题，防止 localStorage 中的旧设置影响
+    document.documentElement.removeAttribute('data-theme')
+    document.documentElement.removeAttribute('data-compact')
+    
     const saved = localStorage.getItem('anime-studio-settings')
     if (saved) {
       try {
-        setSettings({ ...defaultSettings, ...JSON.parse(saved) })
+        const parsed = JSON.parse(saved)
+        // 如果是深色主题，忽略它，强制使用浅色
+        const safeSettings = { ...defaultSettings, ...parsed, theme: 'light' as const }
+        setSettings(safeSettings)
       } catch {
         setSettings(defaultSettings)
       }
