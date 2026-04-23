@@ -308,6 +308,18 @@ h2[id], h3[id] {
   max-width: 1200px !important;
 }
 
+/* 代码块样式 - 始终使用浅色背景 */
+pre, code {
+  background-color: #f9fafb !important;
+  color: #1f2937 !important;
+}
+
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
 [data-compact="true"] .p-8 {
   padding: 1rem !important;
 }
