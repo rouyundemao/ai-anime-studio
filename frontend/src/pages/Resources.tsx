@@ -79,7 +79,7 @@ function Resources() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           专业创作资源库
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 mx-auto">
           七大专业资源分类，每一个都是顶级标准<br />
           <span className="text-gray-500">详细使用指南 + 参数配置 + 案例展示</span>
         </p>
@@ -135,7 +135,7 @@ function Resources() {
       {/* 使用说明 */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
         <h2 className="text-2xl font-bold mb-6 text-center">💡 使用方式</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
           <div className="bg-white p-6 rounded-xl shadow-lg text-center">
             <div className="text-4xl mb-4">👆</div>
             <h3 className="font-bold mb-2">点击分类</h3>

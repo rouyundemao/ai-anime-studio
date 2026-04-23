@@ -97,7 +97,7 @@ function Tutorials() {
     <div className="space-y-12">
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">🎨 AI 幻梦工作室</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 mx-auto">
           八大模块，系统化学习 AI 动漫创作<br/>
           <span className="text-lg text-gray-500">艺术驱动，技术赋能 — 创作精致美丽的绝境</span>
         </p>
@@ -153,7 +153,7 @@ function Tutorials() {
       {/* 学习路径说明 */}
       <div className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-3xl p-8">
         <h2 className="text-2xl font-bold text-center mb-6">📚 建议学习路径</h2>
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               to="/module-1" 

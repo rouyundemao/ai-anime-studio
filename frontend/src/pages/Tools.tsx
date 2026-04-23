@@ -395,7 +395,7 @@ function Tools() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           一键直达，高效创作
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 mx-auto">
           精选顶级创作工具网站，点击即可访问<br />
           <span className="text-gray-500">AI 生成 · 提示词 · 翻译 · 设计 · 音频视频 · 学习资源</span>
         </p>
@@ -473,7 +473,7 @@ function Tools() {
       {/* 使用说明 */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
         <h2 className="text-2xl font-bold mb-6 text-center">💡 使用提示</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="text-3xl mb-3">🔗</div>
             <h3 className="font-bold mb-2">点击访问</h3>

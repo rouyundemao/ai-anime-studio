@@ -121,7 +121,7 @@ function Home() {
             创作<span className="bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-600 bg-clip-text text-transparent animate-gradient">精致美丽的世界</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 px-4">
+          <p className="text-xl md:text-2xl text-gray-600 mx-auto leading-relaxed mb-8 px-4">
             动人的故事 <span className="text-primary-400">·</span> 美丽的人物 <span className="text-primary-400">·</span> 丰富的世界
           </p>
           
