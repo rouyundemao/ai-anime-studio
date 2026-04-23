@@ -7,6 +7,9 @@
 
 import { prepare, layout, type LayoutResult } from '@chenglou/pretext'
 
+// 导出类型
+export type { LayoutResult }
+
 // 字体配置
 const FONT_CONFIG = {
   body: '"LXGW WenKai", system-ui, sans-serif',
