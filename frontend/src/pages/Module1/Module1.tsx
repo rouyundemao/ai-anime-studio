@@ -39,7 +39,7 @@ function Module1() {
     <div className="min-h-screen bg-gray-50">
       <TopNavigation />
       
-      <div className="flex gap-6 container mx-auto px-4 py-8">
+      <div className="flex gap-6 px-4 py-8 max-w-[90vw] mx-auto">
         {/* 左侧：模块导航 */}
         <aside className="hidden xl:block w-64 flex-shrink-0">
           <div className="sticky top-4">
@@ -47,7 +47,7 @@ function Module1() {
           </div>
         </aside>
         
-        {/* 中间：教程内容 - 全宽无限制 */}
+        {/* 中间：教程内容 - 无宽度限制 */}
         <main className="flex-1 min-w-0">
           <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
           {/* 模块标题 */}
