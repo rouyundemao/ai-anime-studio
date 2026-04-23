@@ -19,6 +19,7 @@ import Module6 from './pages/Module6/Module6'
 import Module7 from './pages/Module7/Module7'
 import Module8 from './pages/Module8/Module8'
 import TestTextLayout from './pages/TestTextLayout'
+import PromptLibrary from './pages/PromptLibrary'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="tools" element={<Tools />} />
           <Route path="settings" element={<Settings />} />
           <Route path="test-text-layout" element={<TestTextLayout />} />
+          <Route path="prompt-library" element={<PromptLibrary />} />
           <Route path="module-1" element={<Module1 />} />
           <Route path="module-2" element={<Module2 />} />
           <Route path="module-3" element={<Module3 />} />
