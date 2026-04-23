@@ -3,7 +3,7 @@
  * 使用 Pretext 精确计算高度，避免布局跳动
  */
 
-import React, { useMemo, useState, useCallback } from 'react'
+import React, { useMemo, useState, useCallback, useRef } from 'react'
 import { useCodeLayout } from '../hooks/useTextLayout'
 
 interface CodeBlockProps {
@@ -18,21 +18,6 @@ interface CodeBlockProps {
 
 /**
  * 科技感代码块组件
- * 
- * 特性:
- * - 精确高度计算，零布局跳动
- * - 渐变边框和光效
- * - 一键复制功能
- * - 可选行号显示
- * 
- * @example
- * ```tsx
- * <CodeBlock 
- *   code="const hello = 'world'"
- *   language="javascript"
- *   title="示例代码"
- * />
- * ```
  */
 function CodeBlock({
   code,
@@ -44,42 +29,44 @@ function CodeBlock({
   className = ''
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
   
   // 使用 Pretext 精确计算高度
   const { height, lineCount } = useCodeLayout(code, fontSize, maxWidth)
 
-  // 复制功能 - 带降级方案
-  const handleCopy = useCallback(async () => {
+  // 复制功能
+  const handleCopy = useCallback(() => {
+    console.log('[CodeBlock] 复制按钮被点击')
+    
+    // 使用 textarea 方案（最兼容）
+    const textarea = document.createElement('textarea')
+    textarea.value = code
+    textarea.style.position = 'fixed'
+    textarea.style.left = '0'
+    textarea.style.top = '0'
+    textarea.style.width = '1px'
+    textarea.style.height = '1px'
+    textarea.style.opacity = '0'
+    textarea.setAttribute('readonly', '')
+    document.body.appendChild(textarea)
+    textarea.select()
+    textarea.setSelectionRange(0, textarea.value.length)
+    
     try {
-      // 方法 1: 使用 Clipboard API（需要 HTTPS）
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(code)
-      } else {
-        // 方法 2: 降级方案 - 使用 textarea + execCommand
-        const textarea = document.createElement('textarea')
-        textarea.value = code
-        textarea.style.position = 'fixed'
-        textarea.style.left = '-9999px'
-        textarea.style.top = '-9999px'
-        textarea.style.opacity = '0'
-        document.body.appendChild(textarea)
-        textarea.focus()
-        textarea.select()
-        
-        try {
-          document.execCommand('copy')
-        } catch (err) {
-          console.error('复制失败:', err)
-        }
-        
-        document.body.removeChild(textarea)
-      }
+      const successful = document.execCommand('copy')
+      console.log('[CodeBlock] execCommand copy 结果:', successful)
       
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      if (successful) {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } else {
+        console.warn('[CodeBlock] execCommand copy 返回 false')
+      }
     } catch (err) {
-      console.error('复制失败:', err)
+      console.error('[CodeBlock] 复制失败:', err)
     }
+    
+    document.body.removeChild(textarea)
   }, [code])
 
   // 生成行号
@@ -107,41 +94,19 @@ function CodeBlock({
         </div>
       )}
 
-      {/* 代码块容器 - 科技感样式 */}
-      <div
-        className="relative rounded-xl overflow-hidden"
-        style={{
-          minHeight: height + 32, // +32px 内边距
-          background: 'linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%)',
-          border: '2px solid transparent',
-          backgroundImage: `
-            linear-gradient(#f9fafb, #f3f4f6),
-            linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6)
-          `,
-          backgroundOrigin: 'padding-box, border-box',
-          backgroundClip: 'padding-box, border-box',
-          boxShadow: '0 0 20px rgba(59, 130, 246, 0.1)',
-          transition: 'all 0.3s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.2)'
-          e.currentTarget.style.transform = 'translateY(-2px)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.1)'
-          e.currentTarget.style.transform = 'translateY(0)'
-        }}
-      >
-        {/* 复制按钮 */}
+      {/* 代码块容器 */}
+      <div className="relative rounded-xl" style={{ zIndex: 1 }}>
+        {/* 复制按钮 - 放在 overflow-hidden 外面 */}
         <button
+          ref={buttonRef}
           onClick={handleCopy}
-          className="absolute top-3 right-3 px-3 py-1.5 text-xs font-semibold rounded-lg
-            bg-gradient-to-r from-blue-500 to-purple-500 text-white
-            hover:from-blue-600 hover:to-purple-600
+          className="absolute top-3 right-3 z-50 px-3 py-1.5 text-xs font-semibold rounded-lg
+            bg-blue-500 text-white hover:bg-blue-600
             transition-all duration-300
             flex items-center gap-1.5
             shadow-md hover:shadow-lg"
           aria-label={copied ? '已复制' : '复制代码'}
+          style={{ cursor: 'pointer' }}
         >
           {copied ? (
             <>
@@ -160,37 +125,62 @@ function CodeBlock({
           )}
         </button>
 
-        {/* 代码内容区 */}
-        <div className="relative flex p-4 font-mono text-sm overflow-x-auto">
-          {/* 行号 */}
-          {showLineNumbers && (
-            <div
-              className="select-none text-gray-400 text-right pr-4 mr-4 border-r border-gray-300"
+        {/* 代码内容 - 带渐变边框和光效 */}
+        <div
+          className="rounded-xl overflow-hidden"
+          style={{
+            minHeight: height + 32,
+            background: 'linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%)',
+            border: '2px solid transparent',
+            backgroundImage: `
+              linear-gradient(#f9fafb, #f3f4f6),
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6)
+            `,
+            backgroundOrigin: 'padding-box, border-box',
+            backgroundClip: 'padding-box, border-box',
+            boxShadow: '0 0 20px rgba(59, 130, 246, 0.1)',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.2)'
+            e.currentTarget.style.transform = 'translateY(-2px)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.1)'
+            e.currentTarget.style.transform = 'translateY(0)'
+          }}
+        >
+          <div className="relative flex p-4 font-mono text-sm overflow-x-auto">
+            {/* 行号 */}
+            {showLineNumbers && (
+              <div
+                className="select-none text-gray-400 text-right pr-4 mr-4 border-r border-gray-300"
+                style={{
+                  lineHeight: `${fontSize * 1.5}px`,
+                  minWidth: '3rem'
+                }}
+              >
+                {lineNumbers}
+              </div>
+            )}
+
+            {/* 代码 */}
+            <pre
+              className="flex-1 text-gray-800 whitespace-pre-wrap break-words"
               style={{
                 lineHeight: `${fontSize * 1.5}px`,
-                minWidth: '3rem'
+                fontSize: `${fontSize}px`
               }}
             >
-              {lineNumbers}
-            </div>
-          )}
+              <code>{code}</code>
+            </pre>
+          </div>
 
-          {/* 代码 */}
-          <pre
-            className="flex-1 text-gray-800 whitespace-pre-wrap break-words"
-            style={{
-              lineHeight: `${fontSize * 1.5}px`,
-              fontSize: `${fontSize}px`
-            }}
-          >
-            <code>{code}</code>
-          </pre>
-        </div>
-
-        {/* 底部状态栏 */}
-        <div className="px-4 pb-3 flex items-center justify-between text-xs text-gray-500">
-          <span>{lineCount} 行</span>
-          <span>{language.toUpperCase()}</span>
+          {/* 底部状态栏 */}
+          <div className="px-4 pb-3 flex items-center justify-between text-xs text-gray-500">
+            <span>{lineCount} 行</span>
+            <span>{language.toUpperCase()}</span>
+          </div>
         </div>
       </div>
     </div>
