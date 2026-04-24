@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 5：顶级画面生成
 function Module5() {
@@ -485,23 +486,32 @@ function Module5() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：景别控制 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[画面主体], 电影级镜头语言，[景别：特写/中景/全景/大远景], [运镜：推/拉/摇/移/跟], 构图遵循黄金分割，动漫风格，8K 超高清 --ar 16:9 --style raw</pre>
-                    </div>
+                    <CodeBlock
+                      code="[画面主体], 电影级镜头语言，[景别：特写/中景/全景/大远景], [运镜：推/拉/摇/移/跟], 构图遵循黄金分割，动漫风格，8K 超高清 --ar 16:9 --style raw"
+                      title="步骤 1：景别控制 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：运镜效果 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], 电影级运镜，镜头从远景缓慢推进到特写，动态模糊，景深控制，前景虚化，背景清晰，营造沉浸式观影体验 --ar 16:9 --style raw --s 250</pre>
-                    </div>
+                    <CodeBlock
+                      code="[场景描述], 电影级运镜，镜头从远景缓慢推进到特写，动态模糊，景深控制，前景虚化，背景清晰，营造沉浸式观影体验 --ar 16:9 --style raw --s 250"
+                      title="步骤 2：运镜效果 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：构图控制 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[画面主体], 电影级构图，三分法构图，主体位于画面三分之一处，留白区域恰到好处，画面平衡有张力，动漫风格，8K 超高清 --ar 16:9 --style raw</pre>
-                    </div>
+                    <CodeBlock
+                      code="[画面主体], 电影级构图，三分法构图，主体位于画面三分之一处，留白区域恰到好处，画面平衡有张力，动漫风格，8K 超高清 --ar 16:9 --style raw"
+                      title="步骤 3：构图控制 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -531,23 +541,32 @@ function Module5() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">三层光影 Prompt 公式</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], 三层光影：环境氛围光 + 人物轮廓光 + 面部细节补光，电影级色彩分级，8K 超高清，发丝级细节刻画，极致纹理质感，OC 渲染，Unreal Engine 5 --ar 16:9 --style raw --s 250</pre>
-                    </div>
+                    <CodeBlock
+                      code="[场景描述], 三层光影：环境氛围光 + 人物轮廓光 + 面部细节补光，电影级色彩分级，8K 超高清，发丝级细节刻画，极致纹理质感，OC 渲染，Unreal Engine 5 --ar 16:9 --style raw --s 250"
+                      title="三层光影 Prompt 公式"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">环境氛围光</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景], 环境氛围光，柔和的全局光照，营造整体氛围，冷暖色调对比，体积光，丁达尔效应，空气感 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[场景], 环境氛围光，柔和的全局光照，营造整体氛围，冷暖色调对比，体积光，丁达尔效应，空气感 --ar 16:9"
+                      title="环境氛围光"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">轮廓光与补光</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[人物], 轮廓光从背后照射，勾勒人物边缘，面部细节补光，柔和自然光，面部光照均匀，细节清晰，无阴影遮挡 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[人物], 轮廓光从背后照射，勾勒人物边缘，面部细节补光，柔和自然光，面部光照均匀，细节清晰，无阴影遮挡 --ar 16:9"
+                      title="轮廓光与补光"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -578,23 +597,32 @@ function Module5() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：AI 无损放大</h5>
                     <p className="text-gray-700 mb-2">使用 Topaz Video Enhance AI，采用动漫专属模型</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">参数预设：放大倍率 4-8 倍，降噪强度 30%，细节增强 40%，去锯齿开启，一键解决 AI 生成画面模糊、分辨率不足、边缘锯齿问题，无损输出 4K+ 成品。</pre>
-                    </div>
+                    <CodeBlock
+                      code="参数预设：放大倍率 4-8 倍，降噪强度 30%，细节增强 40%，去锯齿开启，一键解决 AI 生成画面模糊、分辨率不足、边缘锯齿问题，无损输出 4K+ 成品。"
+                      title="步骤 1：AI 无损放大"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：细节修复</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">针对面部细节、发丝、服装纹理进行专项修复，使用高清素材增强细节，确保发丝级精度。</pre>
-                    </div>
+                    <CodeBlock
+                      code="针对面部细节、发丝、服装纹理进行专项修复，使用高清素材增强细节，确保发丝级精度。"
+                      title="步骤 2：细节修复"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：质量检查</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">检查画面是否达到 4K+ 分辨率、边缘是否清晰无锯齿、细节是否丰富、有无模糊或失真。</pre>
-                    </div>
+                    <CodeBlock
+                      code="检查画面是否达到 4K+ 分辨率、边缘是否清晰无锯齿、细节是否丰富、有无模糊或失真。"
+                      title="步骤 3：质量检查"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -625,23 +653,32 @@ function Module5() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：AI 色彩匹配</h5>
                     <p className="text-gray-700 mb-2">使用 DaVinci Resolve 的 AI 色彩匹配功能</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">导入经典动漫/电影的参考帧，30 秒内完成 1:1 色调匹配，同步开启 AI 肤色保护、高光阴影智能优化，实现统一的电影级调色风格。</pre>
-                    </div>
+                    <CodeBlock
+                      code="导入经典动漫/电影的参考帧，30 秒内完成 1:1 色调匹配，同步开启 AI 键色保护、高光阴影智能优化，实现统一的电影级调色风格。"
+                      title="步骤 1：AI 色彩匹配"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：色调统一</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">确定主色调（冷/暖）、辅色（对比色/邻近色）、点缀色（强调色），为同系列作品建立统一的调色预设，确保风格一致。</pre>
-                    </div>
+                    <CodeBlock
+                      code="确定主色调（冷/暖）、辅色（对比色/邻近色）、点缀色（强调色），为同系列作品建立统一的调色预设，确保风格一致。"
+                      title="步骤 2：色调统一"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：风格化调色</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">根据作品风格应用 LUT 预设：日系清新（高明度、低饱和）、赛博朋克（高对比、霓虹色）、复古胶片（颗粒感、暖色调）等。</pre>
-                    </div>
+                    <CodeBlock
+                      code="根据作品风格应用 LUT 预设：日系清新（高明度、低饱和）、赛博朋克（高对比、霓虹色）、复古胶片（颗粒感、暖色调）等。"
+                      title="步骤 3：风格化调色"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 

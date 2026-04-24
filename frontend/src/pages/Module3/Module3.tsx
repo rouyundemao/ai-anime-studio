@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 3：角色设计体系
 function Module3() {
@@ -481,23 +482,32 @@ function Module3() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：生成角色人设</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">创作一个 [年龄/性别/气质] 的动漫角色人设，包含基本信息、性格特点、背景故事、外貌特征、服装风格，确保人物设定立体饱满，有独特的辨识度。</pre>
-                    </div>
+                    <CodeBlock
+                      code="创作一个 [年龄/性别/气质] 的动漫角色人设，包含基本信息、性格特点、背景故事、外貌特征、服装风格，确保人物设定立体饱满，有独特的辨识度。"
+                      title="步骤 1：生成角色人设"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：深化角色背景</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上角色设定，补充详细的背景故事、动机、恐惧、欲望、与其他角色的关系。确保角色有血有肉，有完整的内在逻辑。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以上角色设定，补充详细的背景故事、动机、恐惧、欲望、与其他角色的关系。确保角色有血有肉，有完整的内在逻辑。"
+                      title="步骤 2：深化角色背景"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：生成视觉描述</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将以上角色设定转化为详细的视觉描述，包括脸型、五官、发型、服装、配饰、颜色偏好等，为 AI 绘画提供精准提示词。</pre>
-                    </div>
+                    <CodeBlock
+                      code="将以上角色设定转化为详细的视觉描述，包括脸型、五官、发型、服装、配饰、颜色偏好等，为 AI 绘画提供精准提示词。"
+                      title="步骤 3：生成视觉描述"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -527,16 +537,22 @@ function Module3() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">Prompt 模板</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[人物基础设定], 精致五官，符合黄金分割比例，东方美学骨相，[风格定位，如古风/日系/写实动漫], 清晰的面部轮廓，灵动的眼神细节，皮肤质感细腻，无五官变形，无面部崩坏 --ar 3:4 --style raw</pre>
-                    </div>
+                    <CodeBlock
+                      code="[人物基础设定], 精致五官，符合黄金分割比例，东方美学骨相，[风格定位，如古风/日系/写实动漫], 清晰的面部轮廓，灵动的眼神细节，皮肤质感细腻，无五官变形，无面部崩坏 --ar 3:4 --style raw"
+                      title="Prompt 模板"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">五官细化 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色名]，完美精致五官，五官比例协调，大眼睛明亮有神，高鼻梁，樱桃小嘴，面部光照均匀，细节清晰，极致面部细节刻画，人物结构完美无瑕 --ar 3:4 --style raw --s 250</pre>
-                    </div>
+                    <CodeBlock
+                      code="[角色名]，完美精致五官，五官比例协调，大眼睛明亮有神，高鼻梁，樱桃小嘴，面部光照均匀，细节清晰，极致面部细节刻画，人物结构完美无瑕 --ar 3:4 --style raw --s 250"
+                      title="五官细化 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -584,23 +600,29 @@ function Module3() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：配置训练参数</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">batch_size: 2
+                    <CodeBlock
+                      code="batch_size: 2
 epoch: 10
 learning_rate: 1e-4
 lr_scheduler: cosine
 resolution: 512
 network_dim: 128
-alpha: 64</pre>
-                    </div>
+alpha: 64"
+                      title="步骤 2：配置训练参数"
+                      language="yaml"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：训练与调用</h5>
                     <p className="text-gray-700 mb-2">训练完成后，使用 LoRA 进行生成</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], &lt;lora:角色名:0.8&gt;, 同一人物，五官完全一致，风格统一，动漫风格 --ar 16:9 --style raw</pre>
-                    </div>
+                    <CodeBlock
+                      code="[场景描述], <lora:角色名:0.8>, 同一人物，五官完全一致，风格统一，动漫风格 --ar 16:9 --style raw"
+                      title="步骤 3：训练与调用"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -630,23 +652,32 @@ alpha: 64</pre>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">三视图 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[人物完整设定], 动漫角色三视图，分别为正面视图、侧面视图、背面视图，同一人物，保持五官、发型、服装完全一致，纯白背景，标准平光，无阴影，无透视变形，细节完整，8K 超高清 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[人物完整设定], 动漫角色三视图，分别为正面视图、侧面视图、背面视图，同一人物，保持五官、发型、服装完全一致，纯白背景，标准平光，无阴影，无透视变形，细节完整，8K 超高清 --ar 16:9"
+                      title="三视图 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">表情集 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色名]，动漫角色表情集，包括微笑、大笑、严肃、愤怒、悲伤、惊讶、困惑、放松，共 8 个表情，同一人物，五官一致，纯白背景 --ar 3:4</pre>
-                    </div>
+                    <CodeBlock
+                      code="[角色名]，动漫角色表情集，包括微笑、大笑、严肃、愤怒、悲伤、惊讶、困惑、放松，共 8 个表情，同一人物，五官一致，纯白背景 --ar 3:4"
+                      title="表情集 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">多套服装 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">以上人物，保持五官、脸型、气质完全不变，设计 3 套不同场景的 [风格] 发型与服装，每套服装搭配对应的配饰，风格统一，细节完整，符合人物的性格与世界观设定 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="以上人物，保持五官、脸型、气质完全不变，设计 3 套不同场景的 [风格] 发型与服装，每套服装搭配对应的配饰，风格统一，细节完整，符合人物的性格与世界观设定 --ar 16:9"
+                      title="多套服装 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 

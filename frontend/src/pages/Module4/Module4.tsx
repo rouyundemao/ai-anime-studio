@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 4：世界构建方法
 function Module4() {
@@ -432,23 +433,32 @@ function Module4() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：世界观核心设定</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">帮我构建一个 [题材类型] 的动漫世界观，包含完整的地理生态设定、文明文化体系、历史神话脉络、社会结构规则，所有设定逻辑自洽，无前后矛盾，贴合东方美学的意境与底蕴，同时具备宏大的想象空间。</pre>
-                    </div>
+                    <CodeBlock
+                      code="帮我构建一个 [题材类型] 的动漫世界观，包含完整的地理生态设定、文明文化体系、历史神话脉络、社会结构规则，所有设定逻辑自洽，无前后矛盾，贴合东方美学的意境与底蕴，同时具备宏大的想象空间。"
+                      title="步骤 1：世界观核心设定"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：世界规则设定</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上世界观，明确世界的核心规则：物理法则、魔法体系、力量等级、种族设定、科技水平等。确保规则清晰、逻辑自洽、有明确的边界和限制。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以上世界观，明确世界的核心规则：物理法则、魔法体系、力量等级、种族设定、科技水平等。确保规则清晰、逻辑自洽、有明确的边界和限制。"
+                      title="步骤 2：世界规则设定"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：地理生态设定</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">设计世界的地理生态：大陆分布、海洋河流、山脉平原、气候带、自然资源分布。标注核心地域的名称、特征、重要性。</pre>
-                    </div>
+                    <CodeBlock
+                      code="设计世界的地理生态：大陆分布、海洋河流、山脉平原、气候带、自然资源分布。标注核心地域的名称、特征、重要性。"
+                      title="步骤 3：地理生态设定"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -478,23 +488,32 @@ function Module4() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：历史年表</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上世界观，补充完整的世界历史大事件年表，包括创世时期、远古时代、古代、近代、现代的核心事件，标注每个事件的时间、地点、参与者、影响。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以上世界观，补充完整的世界历史大事件年表，包括创世时期、远古时代、古代、近代、现代的核心事件，标注每个事件的时间、地点、参与者、影响。"
+                      title="步骤 1：历史年表"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：神话传说体系</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">设计世界的核心神话传说体系，包括创世神话、神灵体系、神迹传说、英雄史诗。每个神话故事要有完整的起因、经过、结果，体现世界的核心价值观。</pre>
-                    </div>
+                    <CodeBlock
+                      code="设计世界的核心神话传说体系，包括创世神话、神灵体系、神迹传说、英雄史诗。每个神话故事要有完整的起因、经过、结果，体现世界的核心价值观。"
+                      title="步骤 2：神话传说体系"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：势力纷争与关系</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">设计世界的主要势力：国家、组织、种族、宗教等。明确各势力的核心利益、相互关系、历史恩怨、当前状态。为世界观赋予厚度与沉浸感。</pre>
-                    </div>
+                    <CodeBlock
+                      code="设计世界的主要势力：国家、组织、种族、宗教等。明确各势力的核心利益、相互关系、历史恩怨、当前状态。为世界观赋予厚度与沉浸感。"
+                      title="步骤 3：势力纷争与关系"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -525,23 +544,32 @@ function Module4() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：世界地图生成</h5>
                     <p className="text-gray-700 mb-2">使用 Inkarnate 的 AI 地图生成功能</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">输入世界地理设定，一键生成高清世界地图，标注核心地域、地形、城市分布、交通路线、资源分布。</pre>
-                    </div>
+                    <CodeBlock
+                      code="输入世界地理设定，一键生成高清世界地图，标注核心地域、地形、城市分布、交通路线、资源分布。"
+                      title="步骤 1：世界地图生成"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：场景概念图生成</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[世界观场景详细设定，如地域、建筑风格、环境氛围]，符合以上世界观的动漫场景概念图，电影级画质，三层光影，丰富的环境细节，沉浸感强，8K 超高清 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[世界观场景详细设定，如地域、建筑风格、环境氛围]，符合以上世界观的动漫场景概念图，电影级画质，三层光影，丰富的环境细节，沉浸感强，8K 超高清 --ar 16:9"
+                      title="步骤 2：场景概念图生成"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：建筑与服饰设计</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于世界观的文明设定，设计核心文明的建筑风格、服饰特点、日常用品、武器道具等，确保风格统一、符合世界观背景。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于世界观的文明设定，设计核心文明的建筑风格、服饰特点、日常用品、武器道具等，确保风格统一、符合世界观背景。"
+                      title="步骤 3：建筑与服饰设计"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -571,23 +599,32 @@ function Module4() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：整理世界观文档</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将以上所有世界观设定，整理成标准化的世界观百科文档，按地理设定、文明体系、历史神话、社会结构、核心角色、核心场景分类归档，逻辑清晰，方便后续创作调用。</pre>
-                    </div>
+                    <CodeBlock
+                      code="将以上所有世界观设定，整理成标准化的世界观百科文档，按地理设定、文明体系、历史神话、社会结构、核心角色、核心场景分类归档，逻辑清晰，方便后续创作调用。"
+                      title="步骤 1：整理世界观文档"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：建立索引系统</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为世界观文档建立完整的索引系统，包括术语表、人物索引、地点索引、事件索引、时间线等，方便快速查找和引用。</pre>
-                    </div>
+                    <CodeBlock
+                      code="为世界观文档建立完整的索引系统，包括术语表、人物索引、地点索引、事件索引、时间线等，方便快速查找和引用。"
+                      title="步骤 2：建立索引系统"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：版本管理与更新</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">建立世界观设定的版本管理机制，记录每次更新的内容、时间、原因。确保世界观设定随着创作进程不断完善，同时保持前后一致。</pre>
-                    </div>
+                    <CodeBlock
+                      code="建立世界观设定的版本管理机制，记录每次更新的内容、时间、原因。确保世界观设定随着创作进程不断完善，同时保持前后一致。"
+                      title="步骤 3：版本管理与更新"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 

@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 6：顶级动画生成
 function Module6() {
@@ -478,23 +479,32 @@ function Module6() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：图生动画 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[动画描述], 根据以上静帧图生成动画，动作幅度控制在合理范围，遵循物理规律，保持人物造型和五官一致性，丝滑流畅，60 帧 --duration 5s --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[动画描述], 根据以上静帧图生成动画，动作幅度控制在合理范围，遵循物理规律，保持人物造型和五官一致性，丝滑流畅，60 帧 --duration 5s --ar 16:9"
+                      title="步骤 1：图生动画 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：动作幅度控制</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">动画角色在 5 秒内完成一个完整动作循环，动作幅度适中，避免过度夸张导致失真，保持角色造型一致性，面部五官不变形，服装布料自然摆动。</pre>
-                    </div>
+                    <CodeBlock
+                      code="动画角色在 5 秒内完成一个完整动作循环，动作幅度适中，避免过度夸张导致失真，保持角色造型一致性，面部五官不变形，服装布料自然摆动。"
+                      title="步骤 2：动作幅度控制"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：画面一致性控制</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">确保动画中角色的五官、发型、服装、配饰在所有帧中完全一致，使用 LoRA 模型或参考图控制，避免画面崩坏和人物变脸。</pre>
-                    </div>
+                    <CodeBlock
+                      code="确保动画中角色的五官、发型、服装、配饰在所有帧中完全一致，使用 LoRA 模型或参考图控制，避免画面崩坏和人物变脸。"
+                      title="步骤 3：画面一致性控制"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -524,23 +534,32 @@ function Module6() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">人物动作物理 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色动作描述]，符合物理规则的运动，自然的重力和惯性，真实的肢体动作，流畅的过渡，60 帧丝滑动画，物理真实感 --duration 5s --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[角色动作描述]，符合物理规则的运动，自然的重力和惯性，真实的肢体动作，流畅的过渡，60 帧丝滑动画，物理真实感 --duration 5s --ar 16:9"
+                      title="人物动作物理 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">物体运动物理 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[物体运动描述]，符合物理规律的运动，重力、惯性、弹性、摩擦力等物理特性真实，自然的碰撞和反弹，动态模糊，60 帧丝滑动画 --duration 5s</pre>
-                    </div>
+                    <CodeBlock
+                      code="[物体运动描述]，符合物理规律的运动，重力、惯性、弹性、摩擦力等物理特性真实，自然的碰撞和反弹，动态模糊，60 帧丝滑动画 --duration 5s"
+                      title="物体运动物理 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">自然环境物理 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[自然环境运动]，真实的布料物理、流体物理、动态效果，自然的风、水流、烟雾、火焰等，符合物理规律，沉浸感强，60 帧丝滑动画 --duration 5s</pre>
-                    </div>
+                    <CodeBlock
+                      code="[自然环境运动]，真实的布料物理、流体物理、动态效果，自然的风、水流、烟雾、火焰等，符合物理规律，沉浸感强，60 帧丝滑动画 --duration 5s"
+                      title="自然环境物理 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -570,23 +589,32 @@ function Module6() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">面部表情动画 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色表情描述]，通过面部表情传递情感，眼睛眉毛嘴部细节丰富，微表情自然，情绪表达准确，情感真挚动人，60 帧丝滑动画 --duration 3s</pre>
-                    </div>
+                    <CodeBlock
+                      code="[角色表情描述]，通过面部表情传递情感，眼睛眉毛嘴部细节丰富，微表情自然，情绪表达准确，情感真挚动人，60 帧丝滑动画 --duration 3s"
+                      title="面部表情动画 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">肢体语言动画 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[角色动作描述]，通过肢体动作传递情感，姿态变化自然，动作幅度和节奏符合情绪，情感表达丰富，60 帧丝滑动画 --duration 3s</pre>
-                    </div>
+                    <CodeBlock
+                      code="[角色动作描述]，通过肢体动作传递情感，姿态变化自然，动作幅度和节奏符合情绪，情感表达丰富，60 帧丝滑动画 --duration 3s"
+                      title="肢体语言动画 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">情感综合动画 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[情感场景描述]，面部表情 + 肢体动作 + 节奏变化，综合传递人物情感，情感递进自然，情绪真实感人，60 帧丝滑动画 --duration 5s</pre>
-                    </div>
+                    <CodeBlock
+                      code="[情感场景描述]，面部表情 + 肢体动作 + 节奏变化，综合传递人物情感，情感递进自然，情绪真实感人，60 帧丝滑动画 --duration 5s"
+                      title="情感综合动画 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -617,23 +645,32 @@ function Module6() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：去闪烁处理</h5>
                     <p className="text-gray-700 mb-2">解决 AI 动画常见的闪烁问题</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 Topaz Video AI 或剪映的降闪烁功能，降低动画帧间的闪烁和抖动，确保画面稳定流畅。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用 Topaz Video AI 或剪映的降闪烁功能，降低动画帧间的闪烁和抖动，确保画面稳定流畅。"
+                      title="步骤 1：去闪烁处理"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：补帧处理</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 补帧工具（如 RIFE、Morpho）将动画从 24/30 帧提升到 60 帧，增加中间帧，使动画更加丝滑流畅。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用 AI 补帧工具（如 RIFE、Morpho）将动画从 24/30 帧提升到 60 帧，增加中间帧，使动画更加丝滑流畅。"
+                      title="步骤 2：补帧处理"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：画质修复</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 Topaz Video Enhance AI 进行画质修复，提升分辨率、增强细节、去除噪点，确保最终输出质量。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用 Topaz Video Enhance AI 进行画质修复，提升分辨率、增强细节、去除噪点，确保最终输出质量。"
+                      title="步骤 3：画质修复"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 

@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 7：混合媒体艺术
 function Module7() {
@@ -526,23 +527,32 @@ function Module7() {
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">水墨风格 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[主体描述], 东方水墨风格，水墨质感，传统笔触，留白艺术，意境悠远，与数字动漫融合，电影级画质，8K 超高清 --ar 16:9 --style raw --s 250</pre>
-                    </div>
+                    <CodeBlock
+                      code="[主体描述], 东方水墨风格，水墨质感，传统笔触，留白艺术，意境悠远，与数字动漫融合，电影级画质，8K 超高清 --ar 16:9 --style raw --s 250"
+                      title="水墨风格 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">水墨笔触控制 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[场景描述], 水墨画笔触，毛笔质感，墨色浓淡变化，飞白效果，传统山水画技法，与动漫人物融合，意境深远 --ar 16:9 --style raw</pre>
-                    </div>
+                    <CodeBlock
+                      code="[场景描述], 水墨画笔触，毛笔质感，墨色浓淡变化，飞白效果，传统山水画技法，与动漫人物融合，意境深远 --ar 16:9 --style raw"
+                      title="水墨笔触控制 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">水墨意境表达 Prompt</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">[意境描述], 水墨意境，计白当黑，虚实相生，情景交融，不着一字尽得风流，东方美学意境，水墨与动漫融合，电影级光影 --ar 16:9</pre>
-                    </div>
+                    <CodeBlock
+                      code="[意境描述], 水墨意境，计白当黑，虚实相生，情景交融，不着一字尽得风流，东方美学意境，水墨与动漫融合，电影级光影 --ar 16:9"
+                      title="水墨意境表达 Prompt"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -573,23 +583,32 @@ function Module7() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：手绘线稿 AI 上色</h5>
                     <p className="text-gray-700 mb-2">将手绘线稿转化为彩色画面</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿进行 AI 上色，保持手绘质感，色彩柔和自然，光影协调，风格统一，保留原始笔触感觉 --reference [手绘线稿路径]</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以下手绘线稿进行 AI 上色，保持手绘质感，色彩柔和自然，光影协调，风格统一，保留原始笔触感觉 --reference [手绘线稿路径]"
+                      title="步骤 1：手绘线稿 AI 上色"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：手绘线稿 AI 细化</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿进行 AI 细化处理，增强细节表现，丰富纹理质感，提升画面精度，同时保留原始手绘风格和笔触 --reference [手绘线稿路径] --style_preserve true</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以下手绘线稿进行 AI 细化处理，增强细节表现，丰富纹理质感，提升画面精度，同时保留原始手绘风格和笔触 --reference [手绘线稿路径] --style_preserve true"
+                      title="步骤 2：手绘线稿 AI 细化"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：手绘 AI 动画生成</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以下手绘线稿生成 AI 动画，保持手绘风格和笔触，生成流畅动画，确保动画过程中风格统一，笔触一致 --reference [手绘线稿路径] --animation_style preserved</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以下手绘线稿生成 AI 动画，保持手绘风格和笔触，生成流畅动画，确保动画过程中风格统一，笔触一致 --reference [手绘线稿路径] --animation_style preserved"
+                      title="步骤 3：手绘 AI 动画生成"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -620,23 +639,32 @@ function Module7() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">剪辑与节奏</h5>
                     <p className="text-gray-700 mb-2">AI 辅助剪辑，优化节奏</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用剪映专业版的 AI 剪辑功能，自动识别最佳镜头，优化剪辑节奏，确保叙事流畅，情感递进自然，符合电影语言。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用剪映专业版的 AI 剪辑功能，自动识别最佳镜头，优化剪辑节奏，确保叙事流畅，情感递进自然，符合电影语言。"
+                      title="剪辑与节奏"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">配音与音效</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 配音工具生成符合角色性格的配音，添加环境音效、动作音效、背景音乐，确保音画同步，情感表达准确。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用 AI 配音工具生成符合角色性格的配音，添加环境音效、动作音效、背景音乐，确保音画同步，情感表达准确。"
+                      title="配音与音效"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">特效与调色</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">使用 AI 辅助调色，应用电影级 LUT 预设，添加光效、粒子、转场等特效，确保整体视觉风格统一，达到电影级后期标准。</pre>
-                    </div>
+                    <CodeBlock
+                      code="使用 AI 辅助调色，应用电影级 LUT 预设，添加光效、粒子、转场等特效，确保整体视觉风格统一，达到电影级后期标准。"
+                      title="特效与调色"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -667,23 +695,32 @@ function Module7() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">实拍素材 AI 动漫化</h5>
                     <p className="text-gray-700 mb-2">将实拍镜头转化为动漫风格</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将以下实拍视频素材转化为动漫风格，保持原始动作和构图，应用动漫风格滤镜，确保风格统一，动作流畅，与原实拍素材无缝融合 --input [实拍视频路径] --style anime</pre>
-                    </div>
+                    <CodeBlock
+                      code="将以下实拍视频素材转化为动漫风格，保持原始动作和构图，应用动漫风格滤镜，确保风格统一，动作流畅，与原实拍素材无缝融合 --input [实拍视频路径] --style anime"
+                      title="实拍素材 AI 动漫化"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">实拍与动漫合成</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">将实拍背景与 AI 生成的动漫角色进行合成，确保光影一致、透视正确、融合自然，创建虚实结合的创新视觉效果。</pre>
-                    </div>
+                    <CodeBlock
+                      code="将实拍背景与 AI 生成的动漫角色进行合成，确保光影一致、透视正确、融合自然，创建虚实结合的创新视觉效果。"
+                      title="实拍与动漫合成"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">混合媒体创新</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">探索实拍、手绘、AI 生成、3D 动画等多种媒介的创新结合方式，拓展动漫创作的表现形式，创造独特的视觉语言。</pre>
-                    </div>
+                    <CodeBlock
+                      code="探索实拍、手绘、AI 生成、3D 动画等多种媒介的创新结合方式，拓展动漫创作的表现形式，创造独特的视觉语言。"
+                      title="混合媒体创新"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 

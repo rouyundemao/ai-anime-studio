@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 8：六步标准化工作流
 function Module8() {
@@ -253,8 +254,8 @@ function Module8() {
 
                 <h3 className="text-xl font-bold mb-4">提示词模板</h3>
                 <div className="bg-white p-6 rounded-lg border border-gray-200">
-                  <pre className="text-sm text-gray-700 whitespace-pre-wrap">
-{`请帮我创作一个 AI 动漫短剧剧本：
+                  <CodeBlock
+                  code="请帮我创作一个 AI 动漫短剧剧本：
 
 【故事类型】校园奇幻 / 古风武侠 / 都市情感 / 科幻冒险
 
@@ -279,8 +280,11 @@ function Module8() {
 【特殊要求】
 - 每集结尾需要留悬念
 - 对话要符合角色性格
-- 场景描写要视觉化（AI 能生成画面）`}
-                  </pre>
+- 场景描写要视觉化（AI 能生成画面）"
+                  title="剧本创作提示词模板"
+                  language="prompt"
+                  showLineNumbers={false}
+                />
                 </div>
               </div>
 
@@ -312,15 +316,31 @@ function Module8() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
                         <div className="font-bold text-gray-800 mb-2">豆包 AI - 故事大纲</div>
-                        <pre className="text-xs text-gray-600 whitespace-pre-wrap bg-gray-50 p-3 rounded">
-{"请帮我创作一个校园奇幻短剧大纲：\n主角是内向的高三女生林小雨，\n毕业前夕意外获得时间倒流能力，\n想向暗恋学长表白但每次都失败，\n学长即将出国留学，\n最终学会珍惜当下。\n要求：5集，每集1-2分钟，\n温暖治愈风格"}
-                        </pre>
+                        <CodeBlock
+                        code="请帮我创作一个校园奇幻短剧大纲：
+主角是内向的高三女生林小雨，
+毕业前夕意外获得时间倒流能力，
+想向暗恋学长表白但每次都失败，
+学长即将出国留学，
+最终学会珍惜当下。
+要求：5集，每集1-2分钟，
+温暖治愈风格"
+                        title="豆包 AI - 故事大纲"
+                        language="prompt"
+                        showLineNumbers={false}
+                      />
                       </div>
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
                         <div className="font-bold text-gray-800 mb-2">通义千问 - 对话优化</div>
-                        <pre className="text-xs text-gray-600 whitespace-pre-wrap bg-gray-50 p-3 rounded">
-{"请优化这段对话，让林小雨的\n犹豫和紧张更自然：\n学长，我...我有话想对你说。\n嗯？你说吧。\n（心跳加速，说不出话）"}
-                        </pre>
+                        <CodeBlock
+                        code="请优化这段对话，让林小雨的犹豫和紧张更自然：
+学长，我...我有话想对你说。
+嗯？你说吧。
+（心跳加速，说不出话）"
+                        title="通义千问 - 对话优化"
+                        language="prompt"
+                        showLineNumbers={false}
+                      />
                       </div>
                     </div>
                   </div>

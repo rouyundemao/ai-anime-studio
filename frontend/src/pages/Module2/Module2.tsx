@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
+import CodeBlock from '../../components/CodeBlock'
 
 // 模块 2：故事创作艺术
 function Module2() {
@@ -441,24 +442,33 @@ function Module2() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：批量创意生成</h5>
                     <p className="text-gray-700 mb-2">生成多个创意候选，方便筛选</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">帮我生成 10 个 [题材类型] 的动漫短片创意，每个创意包含核心主题、核心冲突、人物设定，要求主题有深度，能引发观众情感共鸣，有差异化的创意亮点。</pre>
-                    </div>
+                    <CodeBlock
+                      code="帮我生成 10 个 [题材类型] 的动漫短片创意，每个创意包含核心主题、核心冲突、人物设定，要求主题有深度，能引发观众情感共鸣，有差异化的创意亮点。"
+                      title="步骤 1：批量创意生成"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：创意筛选与优化</h5>
                     <p className="text-gray-700 mb-2">从生成的创意中筛选最有潜力的几个</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">从以上 10 个创意中，筛选出最有潜力的 3 个，并对每个创意进行深化，补充具体的场景设定、人物背景、情感内核。</pre>
-                    </div>
+                    <CodeBlock
+                      code="从以上 10 个创意中，筛选出最有潜力的 3 个，并对每个创意进行深化，补充具体的场景设定、人物背景、情感内核。"
+                      title="步骤 2：创意筛选与优化"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：确定最终创意</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">从这 3 个深化后的创意中，选择一个作为最终创意，并详细阐述选择理由、创作目标、预期效果。</pre>
-                    </div>
+                    <CodeBlock
+                      code="从这 3 个深化后的创意中，选择一个作为最终创意，并详细阐述选择理由、创作目标、预期效果。"
+                      title="步骤 3：确定最终创意"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -496,24 +506,33 @@ function Module2() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：三幕式结构框架</h5>
                     <p className="text-gray-700 mb-2">使用“救猫咪 15 节拍表”框架</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">帮我按照好莱坞救猫咪 15 节拍表，创作一个 [题材类型] 动漫短片的完整剧本框架，明确标注每个节拍的核心事件、时长占比、情绪峰值，同时设计完整的主角人物弧光，标注主角从开篇到结局的成长转变节点，以及全片的情感曲线起伏。</pre>
-                    </div>
+                    <CodeBlock
+                      code="帮我按照好莱坞救猫咪 15 节拍表，创作一个 [题材类型] 动漫短片的完整剧本框架，明确标注每个节拍的核心事件、时长占比、情绪峰值，同时设计完整的主角人物弧光，标注主角从开篇到结局的成长转变节点，以及全片的情感曲线起伏。"
+                      title="步骤 1：三幕式结构框架"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：英雄之旅结构</h5>
                     <p className="text-gray-700 mb-2">使用 12 步英雄之旅模型</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上创意，使用英雄之旅 12 步模型构建剧本结构：1. 普通世界 2. 冒险召唤 3. 拒绝召唤 4. 遇见导师 5. 跨越第一道门槛 6. 试炼、盟友、敌人 7. 深入洞穴 8. 严峻考验 9. 奖赏 10. 返程 11. 复活 12. 满载而归。为每个步骤设计具体的场景和情节。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以上创意，使用英雄之旅 12 步模型构建剧本结构：1. 普通世界 2. 冒险召唤 3. 拒绝召唤 4. 遇见导师 5. 跨越第一道门槛 6. 试炼、盟友、敌人 7. 深入洞穴 8. 严峻考验 9. 奖赏 10. 返程 11. 复活 12. 满载而归。为每个步骤设计具体的场景和情节。"
+                      title="步骤 2：英雄之旅结构"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：三幕式简化结构</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">按照三幕式结构设计剧本框架。第一幕（铺垫，25%）：开场 + 激励事件 + 第一幕终点。第二幕（对抗，50%）：B故事 + 中点 + 一无所有 + 第二幕终点。第三幕（解决，25%）：高潮 + 结局。标注每个节点的具体内容和时长。</pre>
-                    </div>
+                    <CodeBlock
+                      code="按照三幕式结构设计剧本框架。第一幕（铺垫，25%）：开场 + 激励事件 + 第一幕终点。第二幕（对抗，50%）：B故事 + 中点 + 一无所有 + 第二幕终点。第三幕（解决，25%）：高潮 + 结局。标注每个节点的具体内容和时长。"
+                      title="步骤 3：三幕式简化结构"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -551,24 +570,33 @@ function Module2() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：人物小传</h5>
                     <p className="text-gray-700 mb-2">为主角和配角设计完整的人物背景</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为 [角色名] 设计完整的人物小传，包括基本信息、性格特点、背景故事、核心信念、外在目标、内在需求、心理缺陷、成长需求。确保人物设定立体饱满，有独特的辨识度。</pre>
-                    </div>
+                    <CodeBlock
+                      code="为 [角色名] 设计完整的人物小传，包括基本信息、性格特点、背景故事、核心信念、外在目标、内在需求、心理缺陷、成长需求。确保人物设定立体饱满，有独特的辨识度。"
+                      title="步骤 1：人物小传"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：人物弧光设计</h5>
                     <p className="text-gray-700 mb-2">设计人物从开始到结束的成长路径</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">基于以上人物小传，设计 [角色名] 的完整人物弧光。明确标注人物的开始状态（核心缺陷、心理防御）、变化过程（遇到的挑战、失败的教训、觉醒的时刻）、结束状态（克服缺陷、获得成长、完成转变）。</pre>
-                    </div>
+                    <CodeBlock
+                      code="基于以上人物小传，设计 [角色名] 的完整人物弧光。明确标注人物的开始状态（核心缺陷、心理防御）、变化过程（遇到的挑战、失败的教训、觉醒的时刻）、结束状态（克服缺陷、获得成长、完成转变）。"
+                      title="步骤 2：人物弧光设计"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：人物成长节点</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">为 [角色名] 在剧本的每个关键节点设计成长表现，明确人物在每个节点的心理状态、情绪变化、行为转变。确保人物弧光与情节发展紧密相连，成长过程自然合理。</pre>
-                    </div>
+                    <CodeBlock
+                      code="为 [角色名] 在剧本的每个关键节点设计成长表现，明确人物在每个节点的心理状态、情绪变化、行为转变。确保人物弧光与情节发展紧密相连，成长过程自然合理。"
+                      title="步骤 3：人物成长节点"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
@@ -606,24 +634,33 @@ function Module2() {
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 1：对白优化</h5>
                     <p className="text-gray-700 mb-2">优化对白，让每一句话都符合人物性格</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">优化以上剧本的对白，确保每一句话都符合人物的性格和身份。对白要简洁有力、推动情节发展、体现人物心理、增强情感张力。删除冗余内容，强化关键对话。</pre>
-                    </div>
+                    <CodeBlock
+                      code="优化以上剧本的对白，确保每一句话都符合人物的性格和身份。对白要简洁有力、推动情节发展、体现人物心理、增强情感张力。删除冗余内容，强化关键对话。"
+                      title="步骤 1：对白优化"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div className="mb-4">
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 2：情节节奏优化</h5>
                     <p className="text-gray-700 mb-2">调整情节节奏，确保张弛有度</p>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">分析以上剧本的情节节奏，确保张弛有度、情感递进自然。如有必要，调整场景的顺序、延长或缩短某些场景、增加或删减冲突，确保节奏紧凑流畅。</pre>
-                    </div>
+                    <CodeBlock
+                      code="分析以上剧本的情节节奏，确保张弛有度、情感递进自然。如有必要，调整场景的顺序、延长或缩短某些场景、增加或删减冲突，确保节奏紧凑流畅。"
+                      title="步骤 2：情节节奏优化"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                   
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-2">步骤 3：最终打磨</h5>
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 overflow-x-auto">
-                      <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words font-mono">对剧本进行最终打磨。检查情节逻辑、人物一致性、情感表达、对白质量。确保剧本没有漏洞、没有冗余、情感饱满、节奏流畅。</pre>
-                    </div>
+                    <CodeBlock
+                      code="对剧本进行最终打磨。检查情节逻辑、人物一致性、情感表达、对白质量。确保剧本没有漏洞、没有冗余、情感饱满、节奏流畅。"
+                      title="步骤 3：最终打磨"
+                      language="prompt"
+                      showLineNumbers={false}
+                    />
                   </div>
                 </div>
                 
