@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
+import ThemeProvider from './components/ThemeProvider'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
@@ -23,10 +24,11 @@ import PromptLibrary from './pages/PromptLibrary'
 
 function App() {
   return (
-    <AppProvider>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
+    <ThemeProvider>
+      <AppProvider>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="tutorials" element={<Tutorials />} />
           <Route path="workflow" element={<Workflow />} />
@@ -48,6 +50,7 @@ function App() {
         </Route>
       </Routes>
     </AppProvider>
+    </ThemeProvider>
   )
 }
 

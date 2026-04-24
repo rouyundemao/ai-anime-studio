@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import ModuleProgressButton from './ModuleProgressButton'
 export { TableOfContents, SectionProgress } from './TableOfContents'
 
 export interface Module {
@@ -403,39 +404,54 @@ export const ModuleFooter = ({ currentId }: ModuleFooterProps) => {
 
   if (!nav || (!nav.prev && !nav.next)) return null
 
-  return (
-    <div className="flex justify-between items-center gap-4 mt-8 pt-8 border-t border-gray-200">
-      {nav.prev ? (
-        <Link
-          to={nav.prev.path}
-          className="flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-50 text-gray-700 rounded-xl transition-all duration-200 border border-gray-200 hover:border-primary-300 hover:shadow-md flex-1"
-        >
-          <span className="text-xl">←</span>
-          <div className="text-left">
-            <div className="text-xs text-gray-500">上一章</div>
-            <div className="text-sm font-semibold whitespace-nowrap">{nav.prev.subtitle}</div>
-          </div>
-        </Link>
-      ) : (
-        <div className="flex-1" />
-      )}
+  // 获取模块信息
+  const moduleInfo = modules.find(m => m.id === currentId)
+  const moduleId = currentId.replace('module', 'module-') // module1 -> module-1
+  const moduleName = moduleInfo?.subtitle || ''
 
-      {nav.next ? (
-        <Link
-          to={nav.next.path}
-          className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex-1 justify-end"
-        >
-          <div className="text-right">
-            <div className="text-xs opacity-90">下一章</div>
-            <div className="text-sm font-semibold whitespace-nowrap">{nav.next.subtitle}</div>
-          </div>
-          <span className="text-xl">→</span>
-        </Link>
-      ) : (
-        <div className="flex-1 text-center text-gray-500 text-sm">
-          🎉 已完成全部模块
+  return (
+    <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors">
+      {/* 进度按钮 */}
+      {moduleId && moduleName && (
+        <div className="mb-6 flex justify-center">
+          <ModuleProgressButton moduleId={moduleId} moduleName={moduleName} />
         </div>
       )}
+      
+      {/* 导航按钮 */}
+      <div className="flex justify-between items-center gap-4">
+        {nav.prev ? (
+          <Link
+            to={nav.prev.path}
+            className="flex items-center gap-2 px-4 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-xl transition-all duration-200 border border-gray-200 dark:border-gray-600 hover:border-primary-300 hover:shadow-md flex-1"
+          >
+            <span className="text-xl">←</span>
+            <div className="text-left">
+              <div className="text-xs text-gray-500 dark:text-gray-400">上一章</div>
+              <div className="text-sm font-semibold whitespace-nowrap">{nav.prev.subtitle}</div>
+            </div>
+          </Link>
+        ) : (
+          <div className="flex-1" />
+        )}
+
+        {nav.next ? (
+          <Link
+            to={nav.next.path}
+            className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex-1 justify-end"
+          >
+            <div className="text-right">
+              <div className="text-xs opacity-90">下一章</div>
+              <div className="text-sm font-semibold whitespace-nowrap">{nav.next.subtitle}</div>
+            </div>
+            <span className="text-xl">→</span>
+          </Link>
+        ) : (
+          <div className="flex-1 text-center text-gray-500 dark:text-gray-400 text-sm">
+            🎉 已完成全部模块
+          </div>
+        )}
+      </div>
     </div>
   )
 }

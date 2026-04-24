@@ -86,9 +86,9 @@ function CodeBlock({
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
-            <span className="text-sm text-gray-600 font-semibold ml-2">{title}</span>
+            <span className="text-sm text-gray-600 dark:text-gray-400 font-semibold ml-2">{title}</span>
           </div>
-          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+          <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
             {language}
           </span>
         </div>
