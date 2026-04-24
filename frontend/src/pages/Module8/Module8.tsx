@@ -425,8 +425,8 @@ function Module8() {
 
                 <h3 className="text-xl font-bold mb-4">提示词模板</h3>
                 <div className="bg-white p-6 rounded-lg border border-gray-200">
-                  <pre className="text-sm text-gray-700 whitespace-pre-wrap">
-{`【基础描述】
+                  <CodeBlock
+                    code={`【基础描述】
 一位 16 岁的中国少女，黑色齐肩短发，左侧别着蓝色星星发卡，
 琥珀色大眼睛，眼神清澈带着忧郁，皮肤白皙，
 
@@ -441,7 +441,10 @@ function Module8() {
 【质量要求】
 完美精致五官，五官比例协调，面部光照均匀，
 极致面部细节刻画，人物结构完美无瑕`}
-                  </pre>
+                    title="角色生成提示词模板"
+                    language="prompt"
+                    showLineNumbers={false}
+                  />
                 </div>
               </div>
 

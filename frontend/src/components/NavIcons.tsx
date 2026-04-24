@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface NavIconProps {
-  type: 'home' | 'tutorials' | 'prompts' | 'resources' | 'tools' | 'workflow' | 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond'
+  type: 'home' | 'tutorials' | 'prompts' | 'resources' | 'tools' | 'workflow' | 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond' | 'search' | 'chart' | 'spiral' | 'pencil' | 'headphone' | 'clapperboard'
   size?: number
   className?: string
 }
@@ -528,6 +528,204 @@ export function NavIcon({ type, size = 20, className = '' }: NavIconProps) {
             strokeLinecap="round"
           />
           <circle cx="12" cy="8" r="2" fill={`url(#${gradientId})`} opacity="0.5" />
+        </>
+      )}
+
+      {type === 'search' && (
+        <>
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            fill="none"
+          />
+          <path
+            d="M16 16L21 21"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <circle cx="11" cy="11" r="3" fill={`url(#${gradientId})`} opacity="0.3" />
+        </>
+      )}
+
+      {type === 'chart' && (
+        <>
+          <path
+            d="M3 20H21"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <rect
+            x="5"
+            y="12"
+            width="3"
+            height="8"
+            rx="1"
+            fill={`url(#${gradientId})`}
+            opacity="0.6"
+          />
+          <rect
+            x="10.5"
+            y="8"
+            width="3"
+            height="12"
+            rx="1"
+            fill={`url(#${gradientId})`}
+            opacity="0.8"
+          />
+          <rect
+            x="16"
+            y="4"
+            width="3"
+            height="16"
+            rx="1"
+            fill={`url(#${gradientId})`}
+          />
+        </>
+      )}
+
+      {type === 'spiral' && (
+        <>
+          <path
+            d="M12 3C7 3 3 7 3 12C3 17 7 21 12 21C17 21 21 17 21 12C21 9 19.5 7 17.5 6"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M12 7C9.5 7 7.5 9 7.5 11.5C7.5 14 9.5 16 12 16C14.5 16 16.5 14 16.5 11.5"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+            opacity="0.7"
+          />
+          <circle cx="12" cy="11.5" r="2" fill={`url(#${gradientId})`} />
+        </>
+      )}
+
+      {type === 'pencil' && (
+        <>
+          <path
+            d="M17 3L21 7L8 20H4V16L17 3Z"
+            fill={`url(#${gradientId})`}
+            opacity="0.15"
+          />
+          <path
+            d="M17 3L21 7L8 20H4V16L17 3Z"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14 6L18 10"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <circle cx="16" cy="8" r="1" fill={`url(#${gradientId})`} />
+        </>
+      )}
+
+      {type === 'headphone' && (
+        <>
+          <path
+            d="M3 12C3 7 7 3 12 3C17 3 21 7 21 12"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <rect
+            x="2"
+            y="12"
+            width="4"
+            height="7"
+            rx="2"
+            fill={`url(#${gradientId})`}
+            opacity="0.6"
+          />
+          <rect
+            x="18"
+            y="12"
+            width="4"
+            height="7"
+            rx="2"
+            fill={`url(#${gradientId})`}
+          />
+          <path
+            d="M4 16V19C4 20.1 4.9 21 6 21"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+          <path
+            d="M20 16V19C20 20.1 19.1 21 18 21"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+        </>
+      )}
+
+      {type === 'clapperboard' && (
+        <>
+          <rect
+            x="3"
+            y="6"
+            width="18"
+            height="14"
+            rx="2"
+            fill={`url(#${gradientId})`}
+            opacity="0.1"
+          />
+          <rect
+            x="3"
+            y="6"
+            width="18"
+            height="14"
+            rx="2"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+          />
+          <path
+            d="M3 10H12L15 6H3Z"
+            fill={`url(#${gradientId})`}
+            opacity="0.3"
+          />
+          <path
+            d="M3 10H12L15 6H3Z"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <line
+            x1="7"
+            y1="13"
+            x2="17"
+            y2="13"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.6"
+          />
+          <line
+            x1="7"
+            y1="16"
+            x2="14"
+            y2="16"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.4"
+          />
         </>
       )}
     </svg>

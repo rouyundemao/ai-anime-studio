@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
+import { NavIcon } from './NavIcons'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
@@ -37,14 +38,14 @@ function Footer() {
               学习路径
             </h3>
             <div className="grid grid-cols-2 gap-y-2 gap-x-3">
-              <Link to="/module-1" className="text-gray-400 hover:text-white text-sm transition-colors">🎨 艺术理念</Link>
-              <Link to="/module-2" className="text-gray-400 hover:text-white text-sm transition-colors">📖 故事创作</Link>
-              <Link to="/module-3" className="text-gray-400 hover:text-white text-sm transition-colors">👤 角色设计</Link>
-              <Link to="/module-4" className="text-gray-400 hover:text-white text-sm transition-colors">🌍 世界构建</Link>
-              <Link to="/module-5" className="text-gray-400 hover:text-white text-sm transition-colors">🖼️ 画面生成</Link>
-              <Link to="/module-6" className="text-gray-400 hover:text-white text-sm transition-colors">🎬 动画生成</Link>
-              <Link to="/module-7" className="text-gray-400 hover:text-white text-sm transition-colors">✨ 混合媒体</Link>
-              <Link to="/module-8" className="text-gray-400 hover:text-white text-sm transition-colors">🚀 发布运营</Link>
+              <Link to="/module-1" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="palette" size={16} /> 艺术理念</Link>
+              <Link to="/module-2" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="book" size={16} /> 故事创作</Link>
+              <Link to="/module-3" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="user" size={16} /> 角色设计</Link>
+              <Link to="/module-4" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="globe" size={16} /> 世界构建</Link>
+              <Link to="/module-5" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="image" size={16} /> 画面生成</Link>
+              <Link to="/module-6" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="film" size={16} /> 动画生成</Link>
+              <Link to="/module-7" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="sparkles" size={16} /> 混合媒体</Link>
+              <Link to="/module-8" className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="rocket" size={16} /> 发布运营</Link>
             </div>
           </div>
 
@@ -55,11 +56,11 @@ function Footer() {
               资源中心
             </h3>
             <div className="space-y-2">
-              <Link to="/tutorials" className="block text-gray-400 hover:text-white text-sm transition-colors">📚 课程体系</Link>
-              <Link to="/prompt-library" className="block text-gray-400 hover:text-white text-sm transition-colors">✨ Prompt 库（250+）</Link>
-              <Link to="/resources" className="block text-gray-400 hover:text-white text-sm transition-colors">📦 资源中心</Link>
-              <Link to="/tools" className="block text-gray-400 hover:text-white text-sm transition-colors">🛠️ 工具评测</Link>
-              <Link to="/workflow" className="block text-gray-400 hover:text-white text-sm transition-colors">📊 生产流程</Link>
+              <Link to="/tutorials" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="tutorials" size={16} /> 课程体系</Link>
+              <Link to="/prompt-library" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="sparkles" size={16} /> Prompt 库（250+）</Link>
+              <Link to="/resources" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="resources" size={16} /> 资源中心</Link>
+              <Link to="/tools" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="tools" size={16} /> 工具评测</Link>
+              <Link to="/workflow" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"><NavIcon type="workflow" size={16} /> 生产流程</Link>
             </div>
           </div>
 

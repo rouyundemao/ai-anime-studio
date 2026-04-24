@@ -5,12 +5,13 @@
 
 import React, { useState, useCallback } from 'react'
 import { useTextLayout } from '../hooks/useTextLayout'
+import { NavIcon } from './NavIcons'
 
 interface PromptCardProps {
   prompt: string
   title?: string
   category?: string
-  icon?: string
+  icon?: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond' | 'tools' | 'tutorials' | 'prompts' | 'resources' | 'workflow' | 'home' | 'search' | 'chart' | 'spiral' | 'pencil' | 'headphone' | 'clapperboard'
   maxWidth?: number
   fontSize?: number
   className?: string
@@ -23,7 +24,7 @@ function PromptCard({
   prompt,
   title,
   category,
-  icon = '✨',
+  icon = 'sparkles',
   maxWidth = 600,
   fontSize = 14,
   className = ''
@@ -101,7 +102,7 @@ function PromptCard({
         <div className="flex items-center justify-between px-6 pt-5 pb-3">
           <div className="flex items-center gap-3">
             {icon && (
-              <span className="text-2xl">{icon}</span>
+              <NavIcon type={icon} size={24} />
             )}
             <div>
               {title && (
@@ -166,7 +167,7 @@ function PromptCard({
             <span>{prompt.length} 字符</span>
           </div>
           <div className="flex items-center gap-1">
-            <span>✨</span>
+            <NavIcon type="sparkles" size={14} />
             <span>AI 动漫 Prompt</span>
           </div>
         </div>
