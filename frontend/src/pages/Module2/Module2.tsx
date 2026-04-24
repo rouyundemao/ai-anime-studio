@@ -19,8 +19,9 @@ function Module2() {
     { id: 'three-act', title: '三幕式结构', icon: '🎭' },
     { id: 'hero-journey', title: '英雄之旅', icon: '⚔️' },
     { id: 'character-arc', title: '人物弧光', icon: '👤' },
-    { id: 'emotional-rhythm', title: '情感节奏', icon: '🎵' },
-    { id: 'practical-steps', title: '实践步骤', icon: '📋' },
+    { id: 'emotional-rhythm', title: '创作流程', icon: '📋' },
+    { id: 'genre-templates', title: '4种题材模板', icon: '📄' },
+    { id: 'hook-formula', title: '短剧钩子公式', icon: '🪝' },
     { id: 'story-ai-tutorial', title: 'AI 剧本创作全流程教学', icon: '🤖' }
   ]
 
@@ -406,6 +407,245 @@ function Module2() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* 4种题材模板 */}
+            <section id="genre-templates" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+                📄 4种题材 · 即用剧本模板
+              </h2>
+              <p className="text-gray-600 mb-8">选对题材，是成片效率最高的一步。以下 4 种题材各附核心结构和可直接喂给 AI 的创作 Prompt。</p>
+
+              <div className="space-y-6">
+                {/* 漫剧 */}
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 A</span>
+                    <h3 className="text-xl font-bold text-pink-800">漫剧 / 短剧</h3>
+                    <span className="text-xs bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full">3–8 分钟 · 2–10 集</span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">核心结构</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• <strong>集首钩子</strong>：前 15 秒必须有悬念或冲突</li>
+                        <li>• <strong>主线进展</strong>：每集推进一个关键事件</li>
+                        <li>• <strong>集尾悬念</strong>：留下疑问，逼迫追更</li>
+                        <li>• <strong>完结时情感释放</strong>：最后一集给足爽感</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">黄金题材组合</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• 校园 × 奇幻（时间倒流 / 穿越）</li>
+                        <li>• 古风 × 逆袭（废柴成神 / 身份反转）</li>
+                        <li>• 都市 × 情感（误会解除 / 告别与重逢）</li>
+                        <li>• 科幻 × 悬疑（AI 觉醒 / 记忆消除）</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <CodeBlock
+                    code="请帮我创作一部 [题材] 漫剧：
+主角：[姓名]，[年龄]，[性格]，内心渴望「[渴望]」，最大恐惧「[恐惧]」
+反派/障碍：[对立角色或困境]
+故事背景：[世界观设定]
+核心冲突：[主要矛盾]
+集数：共 [N] 集，每集约 2 分钟
+要求：
+- 每集前15秒必须有吸引力的开场钩子
+- 每集结尾留悬念，引发追更欲望
+- 情感基调：[温暖治愈/热血励志/悬疑烧脑]
+- 对话要口语化，符合角色性格
+请输出：完整分集大纲 + 第一集剧本"
+                    title="漫剧 AI 创作 Prompt"
+                    language="prompt"
+                    showLineNumbers={false}
+                  />
+                </div>
+
+                {/* 微短剧 */}
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 B</span>
+                    <h3 className="text-xl font-bold text-orange-800">微短剧 · 竖屏单集</h3>
+                    <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">60–90 秒 · 独立完整</span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">黄金公式</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• <strong>0–5s</strong>：强开场（冲突爆发 / 惊喜反转）</li>
+                        <li>• <strong>5–45s</strong>：情节发展，情绪逐步升温</li>
+                        <li>• <strong>45–75s</strong>：情感爆点，最高潮</li>
+                        <li>• <strong>75–90s</strong>：结尾留钩，引发讨论或关注</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">高爆款模式</h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• 身份反转（普通人 → 惊天秘密）</li>
+                        <li>• 情感爆破（压抑已久的告白 / 离别）</li>
+                        <li>• 奇幻日常（超能力融入普通生活）</li>
+                        <li>• 治愈片段（一个温暖的瞬间，30 帧内泪目）</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <CodeBlock
+                    code="为竖屏微短剧创作一个 90 秒完整故事：
+类型：[身份反转/情感爆破/奇幻日常/治愈片段]
+主角：[简单角色设定]
+核心情绪：[观众看完之后应该感受到什么]
+要求：
+- 开头 5 秒必须有强吸引力（无需交代背景直接进入冲突）
+- 节奏要快，每句台词都要推动情节
+- 结尾 15 秒情感爆破，让人想二刷
+- 输出格式：时间轴脚本（标注每秒画面内容+台词）"
+                    title="微短剧 AI 创作 Prompt"
+                    language="prompt"
+                    showLineNumbers={false}
+                  />
+                </div>
+
+                {/* MV */}
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 C</span>
+                    <h3 className="text-xl font-bold text-blue-800">动漫 MV</h3>
+                    <span className="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">3–5 分钟 · 音画同步</span>
+                  </div>
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">创作逻辑</h4>
+                    <p className="text-sm text-gray-700">MV 以音乐为骨，画面为肉。先定歌曲情绪，再设计画面叙事。每段歌词对应一个情感段落，副歌处是视觉高潮。</p>
+                  </div>
+                  <CodeBlock
+                    code="基于以下歌词段落，为 [角色名] 设计动漫 MV 分镜脚本：
+歌曲情绪：[悲伤/热血/治愈/浪漫]
+角色：[外形描述]
+场景风格：[写实/奇幻/赛博/东方]
+
+歌词：[粘贴歌词]
+
+要求：
+- 每句歌词对应 1–2 个镜头（标注景别+画面内容+运镜）
+- 副歌段落安排最具视觉冲击力的场景（爆发/蜕变/高光时刻）
+- 镜头节奏要与音乐节拍同步（快节奏用短镜头，慢节奏用长镜头）
+- 输出：完整分镜脚本，共 [N] 个镜头"
+                    title="动漫 MV AI 创作 Prompt"
+                    language="prompt"
+                    showLineNumbers={false}
+                  />
+                </div>
+
+                {/* 广告片 */}
+                <div className="bg-gradient-to-br from-green-50 to-teal-50 border border-green-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 D</span>
+                    <h3 className="text-xl font-bold text-green-800">IP 形象广告片</h3>
+                    <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full">15–60 秒 · 商业化</span>
+                  </div>
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">结构公式</h4>
+                    <p className="text-sm text-gray-700">痛点 → 产品登场 → 效果展示 → 情感共鸣 → 行动号召。始终把 IP 角色置于品牌价值的核心。</p>
+                  </div>
+                  <CodeBlock
+                    code="为 [品牌/IP名称] 创作一条 30 秒动漫广告片脚本：
+目标受众：[年龄/性别/兴趣]
+核心卖点：[产品最大优势]
+情感诉求：[趣味/情怀/励志/惊喜]
+IP 角色：[动漫角色描述]
+
+要求：
+- 前 3 秒：强视觉钩子（不出现品牌名）
+- 中段 20 秒：用故事演示核心卖点
+- 后 7 秒：品牌露出 + 行动号召
+- 台词不超过 50 字，画面说话为主
+- 输出：分镜脚本（画面/台词/时长）"
+                    title="IP 广告片 AI 创作 Prompt"
+                    language="prompt"
+                    showLineNumbers={false}
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* 短剧钩子公式 */}
+            <section id="hook-formula" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+                🪝 短剧钩子公式
+              </h2>
+              <p className="text-gray-600 mb-6">钩子决定完播率。好的钩子让观众在前 5 秒产生「不看完会死」的感觉。以下是经过验证的 6 种高效钩子公式。</p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-red-100 text-red-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                    <h3 className="font-bold text-gray-800">问题悬念钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">开头提出一个观众想知道答案的问题</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">「如果你知道三年后会失去他，你还会在那天说再见吗？」</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-orange-100 text-orange-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                    <h3 className="font-bold text-gray-800">冲突爆发钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">故事从最高张力点开始，不给铺垫</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">开场就是主角被逼到悬崖边，镜头拉远——然后切回3天前……</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-yellow-100 text-yellow-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                    <h3 className="font-bold text-gray-800">身份反转钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">普通人突然暴露惊天秘密或隐藏实力</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">「那个被全班嘲笑画画的男孩，名字叫宫崎骏。」</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-green-100 text-green-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                    <h3 className="font-bold text-gray-800">情感共鸣钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">一句话直击目标受众的共同情绪</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">「有没有一首歌，你只敢在一个人的时候听？」</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-blue-100 text-blue-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                    <h3 className="font-bold text-gray-800">视觉震撼钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">前 3 帧就让人停止滑屏的极致画面</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">樱花飘落中，一个少女站在废墟上回眸——无对白，无字幕，3秒锁屏。</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-purple-100 text-purple-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                    <h3 className="font-bold text-gray-800">数据承诺钩</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">用具体数字建立可信度和好奇心</p>
+                  <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700 italic">「这个动漫场景，我用 AI 做了 200 次才满意——今天告诉你秘诀。」</div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 p-6 rounded-xl">
+                <h3 className="font-bold text-purple-700 mb-3">🤖 用 AI 生成钩子</h3>
+                <CodeBlock
+                  code="为以下故事生成 5 种不同风格的开场钩子（第一句台词/旁白），要求每种钩子都能在 5 秒内让观众产生强烈的「想看下去」的冲动：
+
+故事梗概：[一句话描述]
+目标情绪：[好奇/感动/爽感/共鸣]
+目标平台：[抖音/B站/小红书]
+
+分别用：问题悬念 / 冲突爆发 / 身份反转 / 情感共鸣 / 视觉震撼 五种钩子类型，各给一个版本。"
+                  title="AI 钩子生成 Prompt"
+                  language="prompt"
+                  showLineNumbers={false}
+                />
               </div>
             </section>
 

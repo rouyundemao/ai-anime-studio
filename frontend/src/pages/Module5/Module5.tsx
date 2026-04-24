@@ -16,6 +16,7 @@ function Module5() {
   // 目录章节
   const sections = [
     { id: 'image-generation', title: '画面生成基础', icon: '🎨' },
+    { id: 'model-comparison', title: '多模型对比选型', icon: '⚖️' },
     { id: 'prompt-engineering', title: '提示词工程', icon: '✍️' },
     { id: 'style-transfer', title: '风格迁移', icon: '🎭' },
     { id: 'composition', title: '构图美学', icon: '📐' },
@@ -98,6 +99,120 @@ function Module5() {
                   <div className="text-4xl mb-3">✨</div>
                   <h3 className="text-lg font-bold mb-2 text-amber-600">细节</h3>
                   <p className="text-xs text-gray-600">4K+ 精度</p>
+                </div>
+              </div>
+            </section>
+
+            {/* 多模型对比选型 */}
+            <section id="model-comparison" className="mb-12 scroll-mt-24">
+              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+                ⚖️ 多模型对比选型指南
+              </h2>
+              <p className="text-gray-600 mb-6">不同模型各有所长。根据你的场景、预算、风格需求选择合适工具，而不是盲目追最贵或最热的。</p>
+
+              {/* 快速决策表 */}
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse bg-white rounded-xl shadow-sm overflow-hidden text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                      <th className="p-4 text-left font-bold">工具</th>
+                      <th className="p-4 text-center font-bold">画质上限</th>
+                      <th className="p-4 text-center font-bold">动漫适配</th>
+                      <th className="p-4 text-center font-bold">速度</th>
+                      <th className="p-4 text-center font-bold">费用</th>
+                      <th className="p-4 text-left font-bold">最适场景</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">即梦 AI 4.5</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-medium">免费/低价</span></td>
+                      <td className="p-4 text-gray-600">国风角色 · 批量关键帧 · 快速迭代</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Midjourney V7</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-medium">$10–$120/月</span></td>
+                      <td className="p-4 text-gray-600">概念艺术 · 宣传图 · 精品单图</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">通义万相 3.0</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-medium">免费额度丰厚</span></td>
+                      <td className="p-4 text-gray-600">东方美学 · 国风场景 · 中文 Prompt</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Stable Diffusion 3 / Flux</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-gray-600">LoRA 训练 · 角色一致性 · 高度定制</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">ComfyUI</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★☆☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-gray-600">工作流自动化 · IP-Adapter · 批量出图</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* 场景决策卡 */}
+              <h3 className="text-xl font-bold mb-4 text-gray-800">按场景快速选型</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-xl p-5">
+                  <h4 className="font-bold text-orange-700 mb-3">🚀 快速出图 / 原型验证</h4>
+                  <p className="text-sm text-gray-700 mb-2">优先选 <strong>即梦 AI</strong> 或 <strong>通义万相</strong>，免费额度足够验证概念，速度快，中文 Prompt 直接用。</p>
+                  <div className="text-xs text-gray-500">预算：0–20元/天 · 出图时间：&lt;30秒/张</div>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
+                  <h4 className="font-bold text-blue-700 mb-3">🎨 精品宣传 / 概念艺术</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>Midjourney V7</strong>，艺术感最强，用 --style raw 和 --s 参数精确控制风格。</p>
+                  <div className="text-xs text-gray-500">预算：$10–30/月 · 出图时间：~60秒/张</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">🔄 角色一致性 / LoRA 训练</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>SD3 / Flux + ComfyUI</strong>，完全控制训练参数，IP-Adapter 保持角色跨场景一致。</p>
+                  <div className="text-xs text-gray-500">需要本地 GPU（≥8GB VRAM）· 学习曲线较陡</div>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-5">
+                  <h4 className="font-bold text-purple-700 mb-3">🏭 批量生产 / IP 系列</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>ComfyUI 工作流</strong>，节点化自动化批处理，一次设置批量输出百张风格统一的图。</p>
+                  <div className="text-xs text-gray-500">一次性配置成本高，长期效率最优</div>
+                </div>
+              </div>
+
+              {/* 组合策略 */}
+              <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-4">💡 专业组合策略</h3>
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">概念期</span>
+                    <span className="text-gray-300">即梦 AI + 通义万相 → 快速验证视觉风格，成本接近零</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-blue-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">精修期</span>
+                    <span className="text-gray-300">Midjourney V7 → 精品封面图、宣传物料，高质量少量图</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-green-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">量产期</span>
+                    <span className="text-gray-300">SD3/Flux + ComfyUI → 用 LoRA 锁定角色，批量生成全集关键帧</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-purple-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">增强期</span>
+                    <span className="text-gray-300">Topaz Gigapixel + DaVinci → 无损 4K 放大 + 统一调色 LUT</span>
+                  </div>
                 </div>
               </div>
             </section>
