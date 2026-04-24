@@ -5,6 +5,7 @@
 
 import React, { useState, useMemo } from 'react'
 import PromptCard from '../components/PromptCard'
+import BrandLogo from '../components/BrandLogo'
 
 // Prompt 数据类型
 interface PromptItem {
@@ -769,6 +770,7 @@ function PromptLibrary() {
   }, [selectedCategory, searchQuery])
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen bg-gray-50">
       {/* 页面头部 */}
       <div className="bg-gradient-to-r from-[#6B5FA0] via-[#8B7AB8] to-[#C2649C] text-white py-16 px-4">
@@ -779,29 +781,55 @@ function PromptLibrary() {
           </h1>
           <p className="text-xl text-blue-100 mb-8">
             覆盖 13 个创作维度，{prompts.length} 个高质量 Prompt，一键复制，即拿即用
+=======
+    <div className="space-y-12">
+      {/* 页头 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">Prompt 库 · Prompt Library</span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            精选 Prompt 一键复制
+          </h1>
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            覆盖 8 大模块，{prompts.length}+ 个高质量 Prompt，即拿即用。<br className="hidden md:block" />
+            <span className="text-gray-500">每个 Prompt 都经过实战验证，支持一键复制直接粘贴到 AI 工具。</span>
+>>>>>>> d97a0cd (优化：搜索跳转+清除历史+页头统一+图标清理 🎨)
           </p>
 
           {/* 搜索框 */}
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto mt-8">
             <div className="relative">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="搜索 Prompt、标签、关键词..."
+<<<<<<< HEAD
                 className="w-full px-6 py-4 rounded-2xl text-gray-800 bg-white shadow-2xl
                   focus:outline-none focus:ring-4 focus:ring-[#8B7AB8]/30
                   placeholder-gray-400 text-lg"
+=======
+                className="w-full px-6 py-4 rounded-2xl text-gray-800 bg-white/90 backdrop-blur-sm shadow-lg
+                  focus:outline-none focus:ring-4 focus:ring-[#8B7AB8]/30
+                  placeholder-gray-400 text-base"
+>>>>>>> d97a0cd (优化：搜索跳转+清除历史+页头统一+图标清理 🎨)
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 分类筛选 */}
       <div className="max-w-6xl mx-auto px-4 py-8">

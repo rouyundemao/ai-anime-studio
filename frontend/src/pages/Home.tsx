@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BrandLogo from '../components/BrandLogo'
+import { NavIcon } from '../components/NavIcons'
 
 // 8 大模块（产品级标题）
 const steps = [
@@ -12,7 +13,7 @@ const steps = [
     time: '深度研习',
     tools: '艺术史 · 美学理论 · 电影语言',
     key: '风格定调',
-    icon: '🎨'
+    icon: 'palette' as const
   },
   {
     number: 2,
@@ -22,7 +23,7 @@ const steps = [
     time: '深度创作',
     tools: '剧本结构 · 人物弧光 · 情感曲线',
     key: '动人共鸣',
-    icon: '📖'
+    icon: 'book' as const
   },
   {
     number: 3,
@@ -32,7 +33,7 @@ const steps = [
     time: '精细打磨',
     tools: '三视图 · Lora 训练 · IP-Adapter',
     key: '一致可复用',
-    icon: '👤'
+    icon: 'user' as const
   },
   {
     number: 4,
@@ -42,7 +43,7 @@ const steps = [
     time: '宏大构建',
     tools: '世界观 · 风格指南 · 场景库',
     key: '沉浸丰富',
-    icon: '🌍'
+    icon: 'globe' as const
   },
   {
     number: 5,
@@ -52,7 +53,7 @@ const steps = [
     time: '极致追求',
     tools: 'Midjourney · 即梦 · 通义万相 · ComfyUI',
     key: '电影质感',
-    icon: '🖼️'
+    icon: 'image' as const
   },
   {
     number: 6,
@@ -62,7 +63,7 @@ const steps = [
     time: '精细调控',
     tools: 'Sora · Veo · Kling · Seedance · Runway',
     key: '丝滑流畅',
-    icon: '🎬'
+    icon: 'film' as const
   },
   {
     number: 7,
@@ -72,7 +73,7 @@ const steps = [
     time: '精修打磨',
     tools: '剪映 · DaVinci · AE · Suno',
     key: '成片标准',
-    icon: '✨'
+    icon: 'sparkles' as const
   },
   {
     number: 8,
@@ -82,7 +83,7 @@ const steps = [
     time: '商业闭环',
     tools: '平台规则 · 投流 · IP 商业化',
     key: '可变现',
-    icon: '🚀'
+    icon: 'rocket' as const
   }
 ]
 
@@ -92,28 +93,28 @@ const valueProps = [
     title: '产品级方法论',
     description: '不止教程，是一套可复用的工作流标准',
     details: ['8 大模块体系化', '六步标准化生产', '可量化的检查清单', '可复盘的版本管理'],
-    icon: '🎯',
+    icon: 'target' as const,
     accent: 'from-[#8B7AB8] to-[#5B4B89]'
   },
   {
     title: '通用 Prompt 库',
     description: '250+ 模型无关的提示词，跨工具即拿即用',
     details: ['通用结构模板', '8 大风格分类', '负向 Prompt 套件', '中英文双版本'],
-    icon: '✨',
+    icon: 'sparkles' as const,
     accent: 'from-[#C2649C] to-[#8B3A6E]'
   },
   {
     title: '工具链对比',
     description: '50+ AI 工具横向评测，按场景而非按品牌选型',
     details: ['速度 / 画质 / 成本三维评分', '中文 vs 英文表现', '版权与商用合规', '替代方案矩阵'],
-    icon: '🛠️',
+    icon: 'tools' as const,
     accent: 'from-[#C23B22] to-[#8A1F0E]'
   },
   {
     title: '可商用产物',
     description: '从一致性角色到电影级镜头，每个交付物都能直接发行',
     details: ['角色一致性方案', '电影级调色 LUT', '版权清单与授权', '平台发行规范'],
-    icon: '💎',
+    icon: 'diamond' as const,
     accent: 'from-[#FBBF24] to-[#B45309]'
   }
 ]
@@ -219,8 +220,8 @@ function Home() {
             >
               <div className={`absolute -top-12 -right-12 w-32 h-32 rounded-full bg-gradient-to-br ${feature.accent} opacity-10 group-hover:opacity-20 transition-opacity`} />
               <div className="relative">
-                <div className={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.accent} items-center justify-center text-3xl mb-5 shadow-lg`}>
-                  <span className="filter drop-shadow">{feature.icon}</span>
+                <div className={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.accent} items-center justify-center mb-5 shadow-lg`}>
+                  <NavIcon type={feature.icon} size={32} />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-800">{feature.title}</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">{feature.description}</p>
@@ -259,9 +260,9 @@ function Home() {
               <div className="relative">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <span className="text-4xl mb-2 block transform group-hover:scale-110 transition-all duration-500">
-                      {step.icon}
-                    </span>
+                    <div className="w-12 h-12 mb-2 transform group-hover:scale-110 transition-all duration-500">
+                      <NavIcon type={step.icon} size={48} />
+                    </div>
                     <h3 className="text-lg font-bold mb-1 text-gray-800 group-hover:text-[#8B7AB8] transition-colors">
                       {step.title}
                     </h3>
