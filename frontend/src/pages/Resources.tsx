@@ -8,7 +8,7 @@ const resourceCategories = [
     id: 'ai-tools',
     title: 'AI 工具资源',
     icon: '🤖',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-[#6B5FA0] to-[#8B7AB8]',
     description: '顶级 AI 创作工具完整指南',
     count: 7,
     items: ['即梦 AI', '可灵 AI', '海螺 AI', 'Seedance 2.0', '通义万相', 'Midjourney', 'Stable Diffusion']
@@ -17,7 +17,7 @@ const resourceCategories = [
     id: 'materials',
     title: '高质量素材库',
     icon: '🖼️',
-    color: 'from-purple-500 to-purple-700',
+    color: 'from-[#8B7AB8] to-[#C2649C]',
     description: '精选动漫创作素材资源',
     count: 4,
     items: ['场景素材', '人物素材', '道具素材', '特效素材']
@@ -26,7 +26,7 @@ const resourceCategories = [
     id: 'audio',
     title: '音频资源库',
     icon: '🎵',
-    color: 'from-green-500 to-green-700',
+    color: 'from-[#C2649C] to-[#C23B22]',
     description: '专业音频制作资源集合',
     count: 4,
     items: ['背景音乐', '音效库', '配音素材', '音乐创作工具']
@@ -35,7 +35,7 @@ const resourceCategories = [
     id: 'design',
     title: '设计资源库',
     icon: '🎨',
-    color: 'from-pink-500 to-pink-700',
+    color: 'from-[#C23B22] to-[#A82C16]',
     description: '专业设计资源与指南',
     count: 4,
     items: ['配色方案', '字体库', '模板库', '排版指南']
@@ -44,7 +44,7 @@ const resourceCategories = [
     id: 'prompts',
     title: '提示词库',
     icon: '📝',
-    color: 'from-yellow-500 to-yellow-700',
+    color: 'from-[#504782] to-[#6B5FA0]',
     description: '顶级提示词模板集合',
     count: 4,
     items: ['人物提示词', '场景提示词', '风格提示词', '情感提示词']
@@ -53,7 +53,7 @@ const resourceCategories = [
     id: 'documents',
     title: '技术文档库',
     icon: '📚',
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-[#3A3161] to-[#504782]',
     description: '专业技术文档与手册',
     count: 4,
     items: ['AI 工具手册', '视频制作文档', '音频处理文档', '编程技术文档']
@@ -62,7 +62,7 @@ const resourceCategories = [
     id: 'learning',
     title: '学习资料库',
     icon: '🎓',
-    color: 'from-red-500 to-red-700',
+    color: 'from-[#8B7AB8] to-[#C23B22]',
     description: '系统化学习资料集合',
     count: 4,
     items: ['艺术史资料', '电影语言资料', '动漫创作资料', 'AI 技术资料']

@@ -58,7 +58,7 @@ function Module1() {
                 MODULE 01
               </span>
               <span className="text-[#8B7AB8] text-sm font-semibold">🎨 艺术理念 · Aesthetics</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">入门</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-[#6B5FA0] border border-emerald-200 font-semibold">入门</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               建立通用 AI 动漫的美学坐标系
@@ -79,7 +79,7 @@ function Module1() {
               <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎯 核心理念
               </h2>
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   AI 动漫创作的本质是<strong>艺术表达</strong>,技术只是实现创意的手段。
                   优秀的 AI 动漫作品需要:
@@ -112,7 +112,7 @@ function Module1() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-green-600">留白艺术</h3>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">留白艺术</h3>
                   <p className="text-gray-700 mb-3">以空取胜,计白当黑</p>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 留3分想象空间</li>
@@ -122,7 +122,7 @@ function Module1() {
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-blue-600">意境营造</h3>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">意境营造</h3>
                   <p className="text-gray-700 mb-3">以景抒情，寓情于境</p>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 环境映射人物心境</li>
@@ -132,7 +132,7 @@ function Module1() {
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-purple-600">韵律节奏</h3>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">韵律节奏</h3>
                   <p className="text-gray-700 mb-3">气韵生动,随物赋形</p>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 气韵生动</li>
@@ -162,7 +162,7 @@ function Module1() {
 
               {/* 留白艺术 AI 教学 */}
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">留白艺术 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">留白艺术 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -230,7 +230,7 @@ function Module1() {
 
               {/* 意境营造 AI 教学 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">意境营造 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">意境营造 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -297,7 +297,7 @@ function Module1() {
                 </div>
 
                 <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-200">
-                  <h3 className="text-xl font-bold mb-4 text-yellow-600">黄金比例</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#8B7AB8]">黄金比例</h3>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-lg mr-2">📐</span>
@@ -347,7 +347,7 @@ function Module1() {
 
               {/* 黄金比例 AI 教学 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">黄金比例 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">黄金比例 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -414,7 +414,7 @@ function Module1() {
 
               {/* 戏剧张力 AI 教学 */}
               <div className="bg-gradient-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-red-700">戏剧张力 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">戏剧张力 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -478,7 +478,7 @@ function Module1() {
 
               {/* 电影语言 AI 教学 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">电影语言 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">电影语言 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -548,7 +548,7 @@ function Module1() {
 
               <div className="space-y-8">
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-pink-600">角色美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#C2649C]">角色美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">五官比例</h4>
@@ -572,7 +572,7 @@ function Module1() {
                 </div>
 
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-indigo-600">场景美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">场景美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="text-center">
                       <div className="text-2xl mb-2">📏</div>
@@ -593,7 +593,7 @@ function Module1() {
                 </div>
 
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-teal-600">色彩美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">色彩美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">配色原理</h4>
@@ -629,7 +629,7 @@ function Module1() {
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">新海誠 Style</span>
-                    <h3 className="text-xl font-bold text-blue-800">光的叙事诗</h3>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">光的叙事诗</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -658,7 +658,7 @@ function Module1() {
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">宮崎駿 Style</span>
-                    <h3 className="text-xl font-bold text-green-800">自然与生命的礼赞</h3>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">自然与生命的礼赞</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -687,7 +687,7 @@ function Module1() {
                 <div className="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">京アニ Style</span>
-                    <h3 className="text-xl font-bold text-purple-800">日常即诗意</h3>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">日常即诗意</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>

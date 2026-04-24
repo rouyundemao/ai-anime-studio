@@ -214,7 +214,7 @@ function PromptLibrary() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 页面头部 */}
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-16 px-4">
+      <div className="bg-gradient-to-r from-[#6B5FA0] via-[#8B7AB8] to-[#C2649C] text-white py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="mr-3">✨</span>
@@ -256,7 +256,7 @@ function PromptLibrary() {
               className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300
                 flex items-center gap-2
                 ${selectedCategory === category.name
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-[#8B7AB8] to-[#C2649C] text-white shadow-lg scale-105'
                   : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg'
                 }`}
             >

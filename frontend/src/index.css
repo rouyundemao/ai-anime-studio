@@ -296,6 +296,32 @@ article section > h2 {
   font-weight: 800;
 }
 
+/* 模块内 h3 副标题 */
+.module-prose h3,
+article section h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+/* 模块内卡片 - 统一悬停效果 */
+.module-prose .bg-white.border,
+article section .bg-white.border {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.module-prose .bg-white.border:hover,
+article section .bg-white.border:hover {
+  box-shadow: 0 4px 20px rgba(139, 122, 184, 0.12), 0 1px 4px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+
+/* 渐变信息卡片 - 微妙圆角优化 */
+article section [class*="from-violet-50"],
+article section [class*="from-rose-50"] {
+  border-radius: 0.875rem;
+}
+
 /* ===========================
    对比表格 · 精致样式
    =========================== */
@@ -390,6 +416,12 @@ article section > h2 {
     0 4px 16px rgba(0,0,0,0.06),
     0 24px 48px rgba(0,0,0,0.04);
   border: 1px solid rgba(0,0,0,0.05);
+  border-top: 2px solid transparent;
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(90deg, #8B7AB8, #C2649C, #C23B22);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 /* ===========================

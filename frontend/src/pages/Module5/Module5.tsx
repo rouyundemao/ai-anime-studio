@@ -51,7 +51,7 @@ function Module5() {
                 MODULE 05
               </span>
               <span className="text-[#EF4444] text-sm font-semibold">🖼️ 画面生成 · Image Generation</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-[#6B5FA0] border border-blue-200 font-semibold">进阶</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               多模型画面生成实战
@@ -73,7 +73,7 @@ function Module5() {
                 🎨 画面是故事的视觉呈现
               </h2>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-rose-50 to-red-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700">
                   电影级画面 = <strong>电影级构图</strong> + <strong>三层光影</strong> + <strong>发丝级精度</strong> + <strong>电影级调色</strong>
                 </p>
@@ -114,7 +114,7 @@ function Module5() {
               <div className="overflow-x-auto mb-8">
                 <table className="w-full border-collapse bg-white rounded-xl shadow-sm overflow-hidden text-sm">
                   <thead>
-                    <tr className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                    <tr className="bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white">
                       <th className="p-4 text-left font-bold">工具</th>
                       <th className="p-4 text-center font-bold">画质上限</th>
                       <th className="p-4 text-center font-bold">动漫适配</th>
@@ -153,7 +153,7 @@ function Module5() {
                       <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
                       <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
                       <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
-                      <td className="p-4 text-center"><span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
                       <td className="p-4 text-gray-600">LoRA 训练 · 角色一致性 · 高度定制</td>
                     </tr>
                     <tr className="hover:bg-orange-50 transition-colors">
@@ -161,7 +161,7 @@ function Module5() {
                       <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
                       <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
                       <td className="p-4 text-center"><span className="text-yellow-500">★★☆☆☆</span></td>
-                      <td className="p-4 text-center"><span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
                       <td className="p-4 text-gray-600">工作流自动化 · IP-Adapter · 批量出图</td>
                     </tr>
                   </tbody>
@@ -172,12 +172,12 @@ function Module5() {
               <h3 className="text-xl font-bold mb-4 text-gray-800">按场景快速选型</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-xl p-5">
-                  <h4 className="font-bold text-orange-700 mb-3">🚀 快速出图 / 原型验证</h4>
+                  <h4 className="font-bold text-[#C23B22] mb-3">🚀 快速出图 / 原型验证</h4>
                   <p className="text-sm text-gray-700 mb-2">优先选 <strong>即梦 AI</strong> 或 <strong>通义万相</strong>，免费额度足够验证概念，速度快，中文 Prompt 直接用。</p>
                   <div className="text-xs text-gray-500">预算：0–20元/天 · 出图时间：&lt;30秒/张</div>
                 </div>
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
-                  <h4 className="font-bold text-blue-700 mb-3">🎨 精品宣传 / 概念艺术</h4>
+                  <h4 className="font-bold text-[#6B5FA0] mb-3">🎨 精品宣传 / 概念艺术</h4>
                   <p className="text-sm text-gray-700 mb-2">选 <strong>Midjourney V7</strong>，艺术感最强，用 --style raw 和 --s 参数精确控制风格。</p>
                   <div className="text-xs text-gray-500">预算：$10–30/月 · 出图时间：~60秒/张</div>
                 </div>
@@ -187,7 +187,7 @@ function Module5() {
                   <div className="text-xs text-gray-500">需要本地 GPU（≥8GB VRAM）· 学习曲线较陡</div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-5">
-                  <h4 className="font-bold text-purple-700 mb-3">🏭 批量生产 / IP 系列</h4>
+                  <h4 className="font-bold text-[#6B5FA0] mb-3">🏭 批量生产 / IP 系列</h4>
                   <p className="text-sm text-gray-700 mb-2">选 <strong>ComfyUI 工作流</strong>，节点化自动化批处理，一次设置批量输出百张风格统一的图。</p>
                   <div className="text-xs text-gray-500">一次性配置成本高，长期效率最优</div>
                 </div>
@@ -228,7 +228,7 @@ function Module5() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-xl font-bold mb-3 text-blue-600">三分法</h4>
+                    <h4 className="text-xl font-bold mb-3 text-[#6B5FA0]">三分法</h4>
                     <p className="text-sm text-gray-700 mb-3">将画面分为九宫格，关键元素放在交点上。</p>
                     <div className="grid grid-cols-3 gap-1 h-24 bg-gray-100 rounded">
                       <div className="bg-blue-400/30"></div>
@@ -361,7 +361,7 @@ function Module5() {
                 
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg">
-                    <h4 className="text-lg font-bold mb-3 text-blue-600">1. 基础校正</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">1. 基础校正</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• <strong>白平衡</strong>：确保色彩准确</li>
                       <li>• <strong>曝光</strong>：调整亮度对比</li>
@@ -424,7 +424,7 @@ function Module5() {
                 ✨ 细节精度控制系统
               </h2>
 
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-xl mb-8">
+              <div className="bg-gradient-to-r from-rose-50 to-red-50 p-8 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">细节的四个等级</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -493,11 +493,11 @@ function Module5() {
               </h2>
 
               <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-xl border border-orange-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-orange-700">从零开始生成顶级画面</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#C23B22]">从零开始生成顶级画面</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -510,7 +510,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -523,7 +523,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -536,7 +536,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -549,7 +549,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -562,7 +562,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -587,7 +587,7 @@ function Module5() {
               
               {/* 电影级镜头语言设计 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">电影级镜头语言设计</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">电影级镜头语言设计</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -649,7 +649,7 @@ function Module5() {
               
               {/* 三层光影精准控制 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">三层光影精准控制</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">三层光影精准控制</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -704,7 +704,7 @@ function Module5() {
               
               {/* 画质与细节精度提升 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">画质与细节精度提升</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">画质与细节精度提升</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>

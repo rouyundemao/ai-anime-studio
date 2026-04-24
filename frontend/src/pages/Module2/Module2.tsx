@@ -54,7 +54,7 @@ function Module2() {
                 MODULE 02
               </span>
               <span className="text-[#C2649C] text-sm font-semibold">📖 故事创作 · Storytelling</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">入门</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-[#6B5FA0] border border-emerald-200 font-semibold">入门</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               从灵感火花到可拍摄剧本
@@ -76,7 +76,7 @@ function Module2() {
                 🎯 故事是灵魂
               </h2>
               
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-violet-50 to-pink-50 p-6 rounded-xl mb-6">
                 <blockquote className="text-lg text-gray-700 italic">
                   "没有好故事，再美的画面也只是空洞的皮囊。"
                 </blockquote>
@@ -84,7 +84,7 @@ function Module2() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white border-2 border-purple-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-purple-600">故事的三大要素</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">故事的三大要素</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="text-2xl mr-3">🎯</span>
@@ -111,7 +111,7 @@ function Module2() {
                 </div>
 
                 <div className="bg-white border-2 border-pink-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-pink-600">故事的情感层次</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#C2649C]">故事的情感层次</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="text-xl mr-3 text-pink-500">表层</span>
@@ -140,8 +140,8 @@ function Module2() {
                 <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">三幕式结构详解</h3>
                 
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-blue-100 to-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-                    <h4 className="text-xl font-bold mb-3 text-blue-700">第一幕：铺垫（25%）</h4>
+                  <div className="bg-gradient-to-r from-violet-100 to-violet-50 p-6 rounded-lg border-l-4 border-[#8B7AB8]">
+                    <h4 className="text-xl font-bold mb-3 text-[#6B5FA0]">第一幕：铺垫（25%）</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>开场</strong>：建立世界观、介绍主角</li>
                       <li>• <strong>激励事件</strong>：打破平衡，触发故事</li>
@@ -149,8 +149,8 @@ function Module2() {
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-r from-orange-100 to-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
-                    <h4 className="text-xl font-bold mb-3 text-orange-700">第二幕：对抗（50%）</h4>
+                  <div className="bg-gradient-to-r from-rose-100 to-rose-50 p-6 rounded-lg border-l-4 border-[#C23B22]">
+                    <h4 className="text-xl font-bold mb-3 text-[#C23B22]">第二幕：对抗（50%）</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>B故事</strong>：副线情节，丰富内容</li>
                       <li>• <strong>中点</strong>：主角面临最大挑战</li>
@@ -170,7 +170,7 @@ function Module2() {
               </div>
 
               <div className="bg-white border-2 border-purple-300 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-purple-600">其他经典结构</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">其他经典结构</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
                     <div className="text-2xl mb-2">🔄</div>
@@ -198,12 +198,12 @@ function Module2() {
               </h2>
 
               <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-8 rounded-xl mb-8">
-                <h3 className="text-2xl font-bold mb-6 text-purple-700">人物弧光的三个阶段</h3>
+                <h3 className="text-2xl font-bold mb-6 text-[#6B5FA0]">人物弧光的三个阶段</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg shadow-sm">
                     <div className="text-center mb-4">
-                      <div className="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full font-bold">
+                      <div className="inline-block bg-red-100 text-[#C23B22] px-4 py-2 rounded-full font-bold">
                         开始状态
                       </div>
                     </div>
@@ -246,11 +246,11 @@ function Module2() {
                 <h3 className="text-xl font-bold mb-4 text-gray-800">人物设计要点</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold mb-2 text-purple-600">外在目标</h4>
+                    <h4 className="font-semibold mb-2 text-[#6B5FA0]">外在目标</h4>
                     <p className="text-sm text-gray-600">看得见的具体目标：打败敌人、完成任务、获得宝藏</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2 text-pink-600">内在需求</h4>
+                    <h4 className="font-semibold mb-2 text-[#C2649C]">内在需求</h4>
                     <p className="text-sm text-gray-600">看不见的情感需求：获得认可、寻找归属、自我证明</p>
                   </div>
                 </div>
@@ -263,12 +263,12 @@ function Module2() {
                 🎵 情感节奏把控
               </h2>
 
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-xl mb-8">
-                <h3 className="text-xl font-bold mb-6 text-indigo-700">情感曲线设计</h3>
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-8 rounded-xl mb-8">
+                <h3 className="text-xl font-bold mb-6 text-[#6B5FA0]">情感曲线设计</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-indigo-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                    <div className="bg-[#8B7AB8] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
                       高
                     </div>
                     <div className="flex-1 bg-white p-4 rounded-lg">
@@ -277,7 +277,7 @@ function Module2() {
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="bg-purple-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                    <div className="bg-[#8B7AB8] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
                       低
                     </div>
                     <div className="flex-1 bg-white p-4 rounded-lg">
@@ -298,7 +298,7 @@ function Module2() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-lg font-bold mb-4 text-purple-600">节奏控制技巧</h3>
+                  <h3 className="text-lg font-bold mb-4 text-[#6B5FA0]">节奏控制技巧</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>张弛有度</strong>：紧张后放松，放松后再紧张</li>
                     <li>• <strong>情感递进</strong>：从小冲突到大冲突</li>
@@ -308,7 +308,7 @@ function Module2() {
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-lg font-bold mb-4 text-pink-600">情感触发点</h3>
+                  <h3 className="text-lg font-bold mb-4 text-[#C2649C]">情感触发点</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>人物牺牲</strong>：主角为他人付出</li>
                     <li>• <strong>关系转变</strong>：敌人变朋友/朋友变敌人</li>
@@ -326,11 +326,11 @@ function Module2() {
               </h2>
 
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border border-purple-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-purple-700">从零开始创作动人故事</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#6B5FA0]">从零开始创作动人故事</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -343,7 +343,7 @@ function Module2() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -356,7 +356,7 @@ function Module2() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -369,7 +369,7 @@ function Module2() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -382,7 +382,7 @@ function Module2() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -395,7 +395,7 @@ function Module2() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -422,7 +422,7 @@ function Module2() {
                 <div className="bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 A</span>
-                    <h3 className="text-xl font-bold text-pink-800">漫剧 / 短剧</h3>
+                    <h3 className="text-xl font-bold text-[#C2649C]">漫剧 / 短剧</h3>
                     <span className="text-xs bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full">3–8 分钟 · 2–10 集</span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -468,7 +468,7 @@ function Module2() {
                 <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 B</span>
-                    <h3 className="text-xl font-bold text-orange-800">微短剧 · 竖屏单集</h3>
+                    <h3 className="text-xl font-bold text-[#C23B22]">微短剧 · 竖屏单集</h3>
                     <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">60–90 秒 · 独立完整</span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -511,8 +511,8 @@ function Module2() {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">类型 C</span>
-                    <h3 className="text-xl font-bold text-blue-800">动漫 MV</h3>
-                    <span className="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">3–5 分钟 · 音画同步</span>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">动漫 MV</h3>
+                    <span className="text-xs bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded-full">3–5 分钟 · 音画同步</span>
                   </div>
                   <div className="mb-4">
                     <h4 className="font-semibold text-gray-800 mb-2">创作逻辑</h4>
@@ -615,7 +615,7 @@ IP 角色：[动漫角色描述]
 
                 <div className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-600 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                    <span className="bg-blue-100 text-[#6B5FA0] w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold">5</span>
                     <h3 className="font-bold text-gray-800">视觉震撼钩</h3>
                   </div>
                   <p className="text-sm text-gray-600 mb-3">前 3 帧就让人停止滑屏的极致画面</p>
@@ -632,8 +632,8 @@ IP 角色：[动漫角色描述]
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 p-6 rounded-xl">
-                <h3 className="font-bold text-purple-700 mb-3">🤖 用 AI 生成钩子</h3>
+              <div className="bg-gradient-to-r from-violet-50 to-pink-50 border border-purple-200 p-6 rounded-xl">
+                <h3 className="font-bold text-[#6B5FA0] mb-3">🤖 用 AI 生成钩子</h3>
                 <CodeBlock
                   code="为以下故事生成 5 种不同风格的开场钩子（第一句台词/旁白），要求每种钩子都能在 5 秒内让观众产生强烈的「想看下去」的冲动：
 
@@ -659,7 +659,7 @@ IP 角色：[动漫角色描述]
               
               {/* 创意与选题生成 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">创意与选题生成 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">创意与选题生成 - AI 实操教学</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -723,7 +723,7 @@ IP 角色：[动漫角色描述]
               
               {/* 标准化剧本结构搭建 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">标准化剧本结构搭建 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">标准化剧本结构搭建 - AI 实操教学</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -787,7 +787,7 @@ IP 角色：[动漫角色描述]
               
               {/* 人物弧光深度设计 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">人物弧光深度设计 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">人物弧光深度设计 - AI 实操教学</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>

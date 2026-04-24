@@ -50,7 +50,7 @@ function Module3() {
                 MODULE 03
               </span>
               <span className="text-[#3B82F6] text-sm font-semibold">👤 角色设计 · Character Design</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-[#6B5FA0] border border-blue-200 font-semibold">进阶</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               可商用的角色一致性方案
@@ -72,7 +72,7 @@ function Module3() {
                 🎨 角色是故事的灵魂载体
               </h2>
               
-              <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700">
                   优秀的角色设计 = <strong>视觉吸引力</strong> + <strong>性格辨识度</strong> + <strong>情感共鸣力</strong>
                 </p>
@@ -81,17 +81,17 @@ function Module3() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white border-2 border-blue-200 rounded-xl p-6">
                   <div className="text-4xl mb-3">🎯</div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-600">视觉吸引力</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#6B5FA0]">视觉吸引力</h3>
                   <p className="text-gray-700">第一眼就让人记住的美学设计</p>
                 </div>
                 <div className="bg-white border-2 border-cyan-200 rounded-xl p-6">
                   <div className="text-4xl mb-3">✨</div>
-                  <h3 className="text-xl font-bold mb-2 text-cyan-600">性格辨识度</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#6B5FA0]">性格辨识度</h3>
                   <p className="text-gray-700">通过外表传达内在性格</p>
                 </div>
                 <div className="bg-white border-2 border-indigo-200 rounded-xl p-6">
                   <div className="text-4xl mb-3">💖</div>
-                  <h3 className="text-xl font-bold mb-2 text-indigo-600">情感共鸣力</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#6B5FA0]">情感共鸣力</h3>
                   <p className="text-gray-700">让观众产生情感连接</p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ function Module3() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-lg font-bold mb-4 text-blue-600">三庭五眼</h4>
+                    <h4 className="text-lg font-bold mb-4 text-[#6B5FA0]">三庭五眼</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>三庭</strong>：发际线 - 眉心 - 鼻底 - 下巴，三等分</li>
                       <li>• <strong>五眼</strong>：脸宽 = 五只眼睛的宽度</li>
@@ -117,7 +117,7 @@ function Module3() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-lg font-bold mb-4 text-cyan-600">侧颜美学</h4>
+                    <h4 className="text-lg font-bold mb-4 text-[#6B5FA0]">侧颜美学</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>E 线</strong>：鼻尖到下巴的连线</li>
                       <li>• <strong>鼻唇角</strong>：90-95 度为美</li>
@@ -129,7 +129,7 @@ function Module3() {
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-xl border-l-4 border-pink-400">
-                  <h3 className="text-xl font-bold mb-4 text-pink-700">眼睛设计要点</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#C2649C]">眼睛设计要点</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">形状选择</h4>
@@ -153,7 +153,7 @@ function Module3() {
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border-l-4 border-amber-400">
-                  <h3 className="text-xl font-bold mb-4 text-amber-700">鼻子设计要点</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#8B7AB8]">鼻子设计要点</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">鼻梁设计</h4>
@@ -175,7 +175,7 @@ function Module3() {
                 </div>
 
                 <div className="bg-gradient-to-r from-rose-50 to-red-50 p-6 rounded-xl border-l-4 border-rose-400">
-                  <h3 className="text-xl font-bold mb-4 text-rose-700">嘴唇设计要点</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#C23B22]">嘴唇设计要点</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">唇形分类</h4>
@@ -207,7 +207,7 @@ function Module3() {
               </h2>
 
               <div className="bg-white border-2 border-blue-200 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold mb-4 text-blue-600">发型与脸型的匹配</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">发型与脸型的匹配</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-bold text-gray-800 mb-2">圆脸</h4>
@@ -229,7 +229,7 @@ function Module3() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-bold mb-4 text-purple-700">古风发型</h3>
+                  <h3 className="text-lg font-bold mb-4 text-[#6B5FA0]">古风发型</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>高髻</strong>：高贵典雅，适合贵族</li>
                     <li>• <strong>双鬟</strong>：俏皮可爱，适合少女</li>
@@ -239,7 +239,7 @@ function Module3() {
                 </div>
 
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-bold mb-4 text-blue-700">现代发型</h3>
+                  <h3 className="text-lg font-bold mb-4 text-[#6B5FA0]">现代发型</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• <strong>长直发</strong>：温柔气质</li>
                     <li>• <strong>波浪卷</strong>：成熟魅力</li>
@@ -262,21 +262,21 @@ function Module3() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div className="text-4xl mb-3">🎨</div>
-                    <h4 className="font-bold text-lg mb-2 text-blue-600">色彩</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#6B5FA0]">色彩</h4>
                     <p className="text-sm text-gray-600">主色 + 辅色 + 点缀色</p>
                     <p className="text-xs text-gray-500 mt-2">60% + 30% + 10%</p>
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div className="text-4xl mb-3">✂️</div>
-                    <h4 className="font-bold text-lg mb-2 text-cyan-600">剪裁</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#6B5FA0]">剪裁</h4>
                     <p className="text-sm text-gray-600">轮廓 + 结构 + 细节</p>
                     <p className="text-xs text-gray-500 mt-2">A 型/H 型/X 型</p>
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-sm text-center">
                     <div className="text-4xl mb-3">🧵</div>
-                    <h4 className="font-bold text-lg mb-2 text-indigo-600">材质</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#6B5FA0]">材质</h4>
                     <p className="text-sm text-gray-600">面料 + 纹理 + 光泽</p>
                     <p className="text-xs text-gray-500 mt-2">丝绸/棉麻/皮革</p>
                   </div>
@@ -284,7 +284,7 @@ function Module3() {
               </div>
 
               <div className="bg-white border-2 border-blue-200 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-blue-600">古风服装体系</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">古风服装体系</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold mb-2 text-gray-800">先秦时期</h4>
@@ -312,12 +312,12 @@ function Module3() {
                 🎯 风格统一性控制
               </h2>
 
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl mb-8">
-                <h3 className="text-xl font-bold mb-6 text-blue-700">风格统一的四个维度</h3>
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-8 rounded-xl mb-8">
+                <h3 className="text-xl font-bold mb-6 text-[#6B5FA0]">风格统一的四个维度</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-lg">
-                    <h4 className="font-bold text-lg mb-3 text-blue-600">1. 时代背景统一</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">1. 时代背景统一</h4>
                     <p className="text-gray-700 mb-2">确保所有角色的服装、发型符合设定的时代背景。</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• 建立时代参考库</li>
@@ -327,7 +327,7 @@ function Module3() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg">
-                    <h4 className="font-bold text-lg mb-3 text-indigo-600">2. 社会阶层统一</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">2. 社会阶层统一</h4>
                     <p className="text-gray-700 mb-2">角色的服装材质、装饰应与其社会地位匹配。</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• 贵族：华丽精致</li>
@@ -337,7 +337,7 @@ function Module3() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg">
-                    <h4 className="font-bold text-lg mb-3 text-cyan-600">3. 色彩体系统一</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">3. 色彩体系统一</h4>
                     <p className="text-gray-700 mb-2">建立整体色彩方案，确保视觉和谐。</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• 主色调不超过 3 种</li>
@@ -366,11 +366,11 @@ function Module3() {
               </h2>
 
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl border border-blue-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-blue-700">从零开始设计完美角色</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#6B5FA0]">从零开始设计完美角色</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -383,7 +383,7 @@ function Module3() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -396,7 +396,7 @@ function Module3() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -409,7 +409,7 @@ function Module3() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -422,7 +422,7 @@ function Module3() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -435,7 +435,7 @@ function Module3() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -460,7 +460,7 @@ function Module3() {
               
               {/* 人物人设生成 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">人物人设与基础设定生成</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">人物人设与基础设定生成</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -522,7 +522,7 @@ function Module3() {
               
               {/* 五官与形体设计 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">五官与形体精准设计</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">五官与形体精准设计</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -567,7 +567,7 @@ function Module3() {
               
               {/* 人物一致性 LoRA 训练 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">人物一致性终极方案（LoRA 训练）</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">人物一致性终极方案（LoRA 训练）</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>

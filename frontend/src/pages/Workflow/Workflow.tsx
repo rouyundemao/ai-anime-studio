@@ -434,10 +434,19 @@ function Workflow() {
               key={step.id}
               id={`step-${step.id}`}
               className={`mb-12 bg-white rounded-2xl shadow-xl overflow-hidden ${
-                currentStep === index ? 'ring-4 ring-primary-500' : ''
+                currentStep === index ? 'ring-2 ring-[#8B7AB8]/60' : ''
               }`}
             >
-              <div className={`bg-gradient-to-r ${step.id === 1 ? 'from-gray-700 to-gray-900' : step.id === 2 ? 'from-blue-600 to-cyan-600' : step.id === 3 ? 'from-green-600 to-emerald-600' : step.id === 4 ? 'from-purple-600 to-indigo-600' : step.id === 5 ? 'from-teal-600 to-cyan-600' : 'from-orange-600 to-red-600'} p-8 text-white`}>
+              <div className="p-8 text-white" style={{
+                background: [
+                  'linear-gradient(120deg, #3d3358 0%, #1F1A3D 100%)',
+                  'linear-gradient(120deg, #6B5FA0 0%, #8B7AB8 100%)',
+                  'linear-gradient(120deg, #8B7AB8 0%, #C2649C 100%)',
+                  'linear-gradient(120deg, #C2649C 0%, #C23B22 100%)',
+                  'linear-gradient(120deg, #7c6ba0 0%, #5c4e8a 100%)',
+                  'linear-gradient(120deg, #C23B22 0%, #8B2815 100%)',
+                ][step.id - 1] || 'linear-gradient(120deg, #8B7AB8 0%, #C23B22 100%)'
+              }}>
                 <div className="flex items-start justify-between">
                   <div>
                     <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
@@ -580,7 +589,7 @@ function Workflow() {
         </div>
 
         {/* 结语 */}
-        <div className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-8 text-white text-center mt-12">
+        <div className="bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] rounded-2xl p-8 text-white text-center mt-12">
           <h2 className="text-3xl font-bold mb-4">🎯 六步流程总结</h2>
           <p className="text-lg opacity-90 max-w-3xl mx-auto">
             AI 动漫制作不再是复杂的系统工程，而是可以通过标准化流程快速掌握的技能。<br/>
