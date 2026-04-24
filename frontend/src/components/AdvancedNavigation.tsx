@@ -222,39 +222,38 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
 // 移动端导航栏
 export const MobileNavigation = () => {
   const location = useLocation()
+  
+  // 移动端导航项
+  const mobileNavItems = [
+    { path: '/', label: '首页', icon: '🏠' },
+    { path: '/tutorials', label: '教程', icon: '📚' },
+    { path: '/prompt-library', label: 'Prompt', icon: '✨' },
+    { path: '/resources', label: '资源', icon: '📦' },
+    { path: '/tools', label: '工具', icon: '🛠️' },
+    { path: '/workflow', label: '工作流', icon: '📊' }
+  ]
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 safe-area-bottom">
-      <div className="flex overflow-x-auto hide-scrollbar px-2 py-2">
-        {getAllModules().slice(0, 6).map((module) => {
-          const isActive = location.pathname === module.path
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-50 safe-area-bottom">
+      <div className="flex overflow-x-auto hide-scrollbar px-1 py-1.5">
+        {mobileNavItems.map((item) => {
+          const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path))
 
           return (
             <Link
-              key={module.id}
-              to={module.path}
-              className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-lg transition-all duration-200 min-w-[60px] ${
+              key={item.path}
+              to={item.path}
+              className={`flex-shrink-0 flex flex-col items-center px-2 py-1.5 rounded-lg transition-all duration-200 min-w-[56px] ${
                 isActive
                   ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
-              <span className="text-xl mb-1">{module.icon}</span>
-              <span className="text-[10px] font-semibold">{module.order}</span>
+              <span className="text-xl mb-0.5">{item.icon}</span>
+              <span className="text-[9px] font-semibold truncate max-w-full">{item.label}</span>
             </Link>
           )
         })}
-        <Link
-          to="/module-7"
-          className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-lg transition-all duration-200 min-w-[60px] ${
-            location.pathname === '/module-7'
-              ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white'
-              : 'text-gray-600 hover:bg-gray-100'
-          }`}
-        >
-          <span className="text-xl mb-1">✨</span>
-          <span className="text-[10px] font-semibold">7</span>
-        </Link>
       </div>
     </nav>
   )
