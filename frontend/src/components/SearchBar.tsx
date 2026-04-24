@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSearchStore } from '../stores/searchStore'
 
 function SearchBar() {
+  const navigate = useNavigate()
   const { query, results, isSearching, searchHistory, search, clearResults, clearHistory } = useSearchStore()
   const [isOpen, setIsOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -21,7 +22,11 @@ function SearchBar() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
-        setIsOpen(false)
+        // 检查是否点击的是搜索结果
+        const target = e.target as HTMLElement
+        if (!target.closest('[data-search-results]')) {
+          setIsOpen(false)
+        }
       }
     }
     
@@ -123,13 +128,16 @@ function SearchBar() {
           )}
 
           {!isSearching && results.length > 0 && (
-            <div className="max-h-80 overflow-y-auto">
+            <div className="max-h-80 overflow-y-auto" data-search-results>
               {results.map((result) => (
-                <Link
+                <div
                   key={result.id}
-                  to={result.path}
-                  onClick={() => setIsOpen(false)}
-                  className="block p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  onClick={() => {
+                    setIsOpen(false)
+                    clearResults()
+                    navigate(result.path)
+                  }}
+                  className="block p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
                     {/* 类型图标 */}
@@ -164,7 +172,7 @@ function SearchBar() {
                       )}
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           )}
