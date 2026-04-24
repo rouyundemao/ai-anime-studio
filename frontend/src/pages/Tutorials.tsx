@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BrandLogo from '../components/BrandLogo'
+import { NavIcon } from '../components/NavIcons'
 
 interface Module {
   id: string
@@ -11,7 +12,7 @@ interface Module {
   description: string
   outcomes: string[]
   color: string
-  icon: string
+  icon: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket'
   path: string
   level: '入门' | '进阶' | '高阶'
 }
@@ -26,7 +27,7 @@ const modules: Module[] = [
     description: '在开始使用任何 AI 工具之前，先建立自己的美学判断力。系统梳理东方留白、西方戏剧张力、电影语言三大体系，让 AI 成为你审美的放大器，而不是替代品。',
     outcomes: ['能够描述并定调自己作品的美学风格', '建立可量化的画面评价标准', '掌握 6 种风格基线 Prompt 模板'],
     color: 'from-[#8B7AB8] to-[#5B4B89]',
-    icon: '🎨',
+    icon: 'palette',
     path: '/module-1',
     level: '入门'
   },
@@ -39,7 +40,7 @@ const modules: Module[] = [
     description: '剧本决定 70% 的成片质量。讲透三幕式、救猫咪 15 节拍、英雄之旅、短剧钩子公式四种主流结构，并提供漫剧 / 微短剧 / MV / 广告片 4 种题材的落地模板。',
     outcomes: ['30 分钟内完成一部短片剧本大纲', '掌握 4 种剧本结构的适用场景', '建立自己的故事灵感库'],
     color: 'from-[#C2649C] to-[#8B3A6E]',
-    icon: '📖',
+    icon: 'book',
     path: '/module-2',
     level: '入门'
   },
@@ -52,7 +53,7 @@ const modules: Module[] = [
     description: '困扰所有 AI 动漫创作者的"角色脸会变"问题，在这一章得到系统解决。覆盖三视图 / 表情集 / 服装集的制作流程，以及 Lora 训练、IP-Adapter、Reference、ControlNet 四套一致性方案的取舍。',
     outcomes: ['产出一套完整角色资产包（三视图 + 表情集）', '掌握 4 种角色一致性技术路线', '建立可批量生产的角色工厂流程'],
     color: 'from-[#3B82F6] to-[#1D4ED8]',
-    icon: '👤',
+    icon: 'user',
     path: '/module-3',
     level: '进阶'
   },
@@ -65,7 +66,7 @@ const modules: Module[] = [
     description: '世界观不只是背景，它决定每一个镜头的氛围基调。学会用"风格指南 + 场景库 + 道具库"的方式沉淀资产，让系列作品保持一致，让单集制作速度翻倍。',
     outcomes: ['撰写一份可指导团队的风格指南', '建立可检索的场景 / 道具 Prompt 库', '输出一套世界观视觉规范'],
     color: 'from-[#10B981] to-[#047857]',
-    icon: '🌍',
+    icon: 'globe',
     path: '/module-4',
     level: '进阶'
   },
@@ -78,7 +79,7 @@ const modules: Module[] = [
     description: 'Midjourney V7 · 即梦 4.5 · 通义万相 3 · SD 3 · Flux · ComfyUI 全工具对比。不是教你单个工具的按钮，而是教你在不同场景（概念图 / 关键帧 / 批量出图）下如何组合使用。',
     outcomes: ['掌握 6 种主流出图工具的差异与取舍', '学会 ComfyUI 基础工作流搭建', '产出电影级画面的三层光影方法'],
     color: 'from-[#EF4444] to-[#B91C1C]',
-    icon: '🖼️',
+    icon: 'image',
     path: '/module-5',
     level: '进阶'
   },
@@ -91,7 +92,7 @@ const modules: Module[] = [
     description: 'Sora 2 · Veo 3.1 · Kling 3 · Seedance 2 · Runway Gen-4 · 海螺 2 · Wan · Vidu 八大视频模型的横向评测，以及"首尾帧 / 图生视频 / 视频重绘 / 对口型"四种工业化用法。',
     outcomes: ['建立视频模型按场景选型的决策表', '掌握首尾帧控制与镜头语言注入', '实现 AI 视频的镜头级稳定连贯'],
     color: 'from-[#8B5CF6] to-[#6D28D9]',
-    icon: '🎬',
+    icon: 'film',
     path: '/module-6',
     level: '高阶'
   },
@@ -104,7 +105,7 @@ const modules: Module[] = [
     description: 'AI 出的素材只是半成品。通过剪映 / DaVinci / After Effects 完成节奏剪辑、电影级调色、AI 配音（豆包 / ElevenLabs）、BGM（Suno / Udio）、字幕与音效一体化工作流。',
     outcomes: ['搭建从素材到成片的完整后期流水线', '掌握电影级调色 LUT 与音效套件', '输出符合平台规范的最终交付物'],
     color: 'from-[#14B8A6] to-[#0F766E]',
-    icon: '✨',
+    icon: 'sparkles',
     path: '/module-7',
     level: '高阶'
   },
@@ -117,7 +118,7 @@ const modules: Module[] = [
     description: '抖音 / 小红书 / B 站 / YouTube / TikTok 的算法偏好、封面与标题规范、付费投流策略，以及 IP 矩阵、商单接洽、广告植入、会员订阅四条主流变现路径。',
     outcomes: ['针对 5 大平台的差异化发行策略', '搭建 AI 内容数据分析看板', '建立个人 / 团队的 IP 变现路径'],
     color: 'from-[#F59E0B] to-[#B45309]',
-    icon: '🚀',
+    icon: 'rocket',
     path: '/module-8',
     level: '高阶'
   }
@@ -152,17 +153,17 @@ function Tutorials() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">
-              📚 <strong className="text-[#8B7AB8]">8</strong> 大模块
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center gap-1.5">
+              <NavIcon type="book" size={16} /> <strong className="text-[#8B7AB8]">8</strong> 大模块
             </span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">
-              🎯 <strong className="text-[#8B7AB8]">40+</strong> 小节
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center gap-1.5">
+              <NavIcon type="target" size={16} /> <strong className="text-[#8B7AB8]">40+</strong> 小节
             </span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">
-              ✨ <strong className="text-[#8B7AB8]">250+</strong> 个 Prompt
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center gap-1.5">
+              <NavIcon type="sparkles" size={16} /> <strong className="text-[#8B7AB8]">250+</strong> 个 Prompt
             </span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">
-              🛠️ <strong className="text-[#8B7AB8]">50+</strong> 工具评测
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center gap-1.5">
+              <NavIcon type="tools" size={16} /> <strong className="text-[#8B7AB8]">50+</strong> 工具评测
             </span>
           </div>
         </div>
@@ -179,7 +180,7 @@ function Tutorials() {
             <div className={`bg-gradient-to-r ${module.color} p-8 text-white`}>
               <div className="flex items-start justify-between mb-4 gap-4">
                 <div className="flex items-start gap-4 flex-1 min-w-0">
-                  <div className="text-5xl flex items-center flex-shrink-0">{module.icon}</div>
+                  <div className="flex items-center flex-shrink-0"><NavIcon type={module.icon} size={48} /></div>
                   <div className="min-w-0">
                     <div className="flex items-center flex-wrap gap-2 mb-2">
                       <span className="bg-white/25 text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -216,7 +217,7 @@ function Tutorials() {
                 ))}
               </div>
               <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                <span className="text-gray-500 text-sm">⏱️ {module.duration}</span>
+                <span className="text-gray-500 text-sm flex items-center gap-1.5"><NavIcon type="target" size={14} /> {module.duration}</span>
                 <span className="bg-white text-gray-800 font-bold py-2 px-6 rounded-lg group-hover:bg-gradient-to-r group-hover:from-[#8B7AB8] group-hover:to-[#C23B22] group-hover:text-white transition-all">
                   进入学习 →
                 </span>
@@ -228,7 +229,7 @@ function Tutorials() {
 
       {/* 学习路径 */}
       <div className="bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB] rounded-3xl p-8 border border-gray-100">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-gray-800">📚 两条推荐学习路径</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-gray-800 flex items-center justify-center gap-2"><NavIcon type="book" size={24} /> 两条推荐学习路径</h2>
         <p className="text-center text-gray-500 mb-8">根据你的目标选择，也可以按需跳章学习</p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">

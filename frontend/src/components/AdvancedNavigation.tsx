@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ModuleProgressButton from './ModuleProgressButton'
+import { NavIcon } from './NavIcons'
 export { TableOfContents, SectionProgress } from './TableOfContents'
 
 export interface Module {
@@ -14,7 +15,7 @@ export interface Module {
   related: string[]
   duration: string
   color: string
-  icon: string
+  icon: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket'
 }
 
 const modules: Module[] = [
@@ -29,7 +30,7 @@ const modules: Module[] = [
     related: ['module2', 'module3', 'module4', 'module5', 'module6', 'module7'],
     duration: '深度研习',
     color: 'from-blue-500 to-purple-500',
-    icon: '🎨'
+    icon: 'palette'
   },
   {
     id: 'module2',
@@ -42,7 +43,7 @@ const modules: Module[] = [
     related: ['module1', 'module3', 'module4'],
     duration: '深度创作',
     color: 'from-green-500 to-teal-500',
-    icon: '📖'
+    icon: 'book'
   },
   {
     id: 'module3',
@@ -55,7 +56,7 @@ const modules: Module[] = [
     related: ['module1', 'module2', 'module4'],
     duration: '精细打磨',
     color: 'from-pink-500 to-rose-500',
-    icon: '👤'
+    icon: 'user'
   },
   {
     id: 'module4',
@@ -68,7 +69,7 @@ const modules: Module[] = [
     related: ['module1', 'module2', 'module3'],
     duration: '宏大构建',
     color: 'from-amber-500 to-orange-500',
-    icon: '🌍'
+    icon: 'globe'
   },
   {
     id: 'module5',
@@ -81,7 +82,7 @@ const modules: Module[] = [
     related: ['module1', 'module3', 'module4'],
     duration: '极致追求',
     color: 'from-cyan-500 to-blue-500',
-    icon: '🖼️'
+    icon: 'image'
   },
   {
     id: 'module6',
@@ -94,7 +95,7 @@ const modules: Module[] = [
     related: ['module1', 'module3', 'module5'],
     duration: '精细调控',
     color: 'from-violet-500 to-purple-500',
-    icon: '🎬'
+    icon: 'film'
   },
   {
     id: 'module7',
@@ -107,7 +108,7 @@ const modules: Module[] = [
     related: ['module1', 'module2', 'module3', 'module4', 'module5', 'module6'],
     duration: '艺术探索',
     color: 'from-fuchsia-500 to-pink-500',
-    icon: '✨'
+    icon: 'sparkles'
   },
   {
     id: 'module8',
@@ -120,7 +121,7 @@ const modules: Module[] = [
     related: ['module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'module7'],
     duration: '全流程实战',
     color: 'from-amber-500 to-orange-500',
-    icon: '📊'
+    icon: 'rocket'
   }
 ]
 
@@ -184,7 +185,9 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
 
   return (
     <nav className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm sticky top-4 hidden xl:block">
-      <h3 className="text-sm md:text-base font-bold text-gray-800 mb-4">📚 模块导航</h3>
+      <h3 className="text-sm md:text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <NavIcon type="book" size={18} /> 模块导航
+      </h3>
       <ul className="space-y-2">
         {getAllModules().map((module) => {
           const isActive = module.id === currentId
@@ -201,7 +204,7 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
                 }`}
               >
                 <div className="flex items-center gap-2 md:gap-3">
-                  <span className="text-lg md:text-xl">{module.icon}</span>
+                  <NavIcon type={module.icon} size={20} />
                   <div className="flex-1 min-w-0">
                     <div className="text-xs md:text-sm font-semibold">{module.title}</div>
                     <div className="text-[10px] md:text-xs opacity-90 truncate">{module.subtitle}</div>
@@ -225,12 +228,12 @@ export const MobileNavigation = () => {
   
   // 移动端导航项
   const mobileNavItems = [
-    { path: '/', label: '首页', icon: '🏠' },
-    { path: '/tutorials', label: '教程', icon: '📚' },
-    { path: '/prompt-library', label: 'Prompt', icon: '✨' },
-    { path: '/resources', label: '资源', icon: '📦' },
-    { path: '/tools', label: '工具', icon: '🛠️' },
-    { path: '/workflow', label: '工作流', icon: '📊' }
+    { path: '/', label: '首页', icon: 'home' as const },
+    { path: '/tutorials', label: '教程', icon: 'tutorials' as const },
+    { path: '/prompt-library', label: 'Prompt', icon: 'sparkles' as const },
+    { path: '/resources', label: '资源', icon: 'resources' as const },
+    { path: '/tools', label: '工具', icon: 'tools' as const },
+    { path: '/workflow', label: '工作流', icon: 'workflow' as const }
   ]
 
   return (
@@ -249,7 +252,7 @@ export const MobileNavigation = () => {
                   : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
-              <span className="text-xl mb-0.5">{item.icon}</span>
+              <NavIcon type={item.icon} size={20} />
               <span className="text-[9px] font-semibold truncate max-w-full">{item.label}</span>
             </Link>
           )
@@ -273,9 +276,9 @@ export const Breadcrumb = ({ currentModule }: BreadcrumbProps) => {
     <nav className="flex items-center gap-2 text-sm md:text-base overflow-x-auto hide-scrollbar">
       <Link
         to="/"
-        className="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap"
+        className="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap flex items-center gap-1"
       >
-        🏠 首页
+        <NavIcon type="home" size={16} /> 首页
       </Link>
       {currentModule && (
         <>
@@ -377,9 +380,9 @@ export const TopNavigation = ({ currentModule }: TopNavigationProps) => {
     <nav className="flex items-center gap-2 text-sm md:text-base overflow-x-auto hide-scrollbar mb-6">
       <Link
         to="/"
-        className="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap"
+        className="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap flex items-center gap-1"
       >
-        🏠 首页
+        <NavIcon type="home" size={16} /> 首页
       </Link>
       {currentModule && (
         <>

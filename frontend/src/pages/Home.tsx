@@ -128,13 +128,14 @@ const metrics = [
 ]
 
 // 适用人群
-const audiences = [
-  { icon: '🎬', title: '独立动画 / 短片创作者', desc: '从 0 到一部完整 AI 动画短片' },
-  { icon: '📱', title: '内容创业 / IP 孵化团队', desc: '低成本批量产出系列化内容' },
-  { icon: '🎭', title: '漫剧 / 微短剧制作', desc: '快速验证剧本到成片' },
-  { icon: '✏️', title: '角色设计师 / 概念画师', desc: '把灵感稳定落地为可复用资产' },
-  { icon: '⚙️', title: 'AIGC / Prompt 工程师', desc: '掌握跨模型的工程化方法' },
-  { icon: '🎓', title: '院校师生 / 自学者', desc: '系统化课程，循序渐进' }
+type AudienceIcon = 'film' | 'user' | 'clapperboard' | 'pencil' | 'tools' | 'target'
+const audiences: { icon: AudienceIcon; title: string; desc: string }[] = [
+  { icon: 'film' as const, title: '独立动画 / 短片创作者', desc: '从 0 到一部完整 AI 动画短片' },
+  { icon: 'user' as const, title: '内容创业 / IP 孵化团队', desc: '低成本批量产出系列化内容' },
+  { icon: 'clapperboard' as const, title: '漫剧 / 微短剧制作', desc: '快速验证剧本到成片' },
+  { icon: 'pencil' as const, title: '角色设计师 / 概念画师', desc: '把灵感稳定落地为可复用资产' },
+  { icon: 'tools' as const, title: 'AIGC / Prompt 工程师', desc: '掌握跨模型的工程化方法' },
+  { icon: 'target' as const, title: '院校师生 / 自学者', desc: '系统化课程，循序渐进' }
 ]
 
 function Home() {
@@ -173,13 +174,13 @@ function Home() {
               to="/module-1"
               className="group relative bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#8B7AB8]/30 hover:scale-105 min-w-[260px] text-center overflow-hidden"
             >
-              <span className="relative z-10">🎨 开启创作之旅</span>
+              <span className="relative z-10 flex items-center justify-center gap-2"><NavIcon type="palette" size={18} /> 开启创作之旅</span>
             </Link>
             <Link
               to="/prompt-library"
               className="group bg-white hover:bg-gray-50 text-gray-800 font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-gray-100 hover:border-[#8B7AB8]/40 min-w-[260px] text-center"
             >
-              ✨ 浏览 Prompt 库
+              <span className="flex items-center justify-center gap-2"><NavIcon type="sparkles" size={18} /> 浏览 Prompt 库</span>
             </Link>
             <Link
               to="/workflow"
@@ -275,11 +276,11 @@ function Home() {
                 <p className="text-gray-600 mb-3 leading-relaxed text-xs line-clamp-2 min-h-[32px]">{step.description}</p>
                 <div className="space-y-1.5 text-xs">
                   <div className="flex items-center text-gray-500">
-                    <span className="font-semibold mr-1.5">🛠️</span>
+                    <NavIcon type="tools" size={14} className="mr-1.5" />
                     <span className="truncate">{step.tools}</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="bg-gradient-to-r from-[#F0EAFB] to-[#FBE8E2] text-[#C23B22] px-2.5 py-0.5 rounded-full text-xs font-semibold">⭐ {step.key}</span>
+                    <span className="bg-gradient-to-r from-[#F0EAFB] to-[#FBE8E2] text-[#C23B22] px-2.5 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1"><NavIcon type="sparkles" size={12} /> {step.key}</span>
                   </div>
                 </div>
               </div>
@@ -305,28 +306,28 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             <div className="group bg-white/85 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-lg border border-[#8B7AB8]/20">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#8B7AB8] to-[#5B4B89] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
-                  🎋
+                <div className="w-12 h-12 bg-gradient-to-br from-[#8B7AB8] to-[#5B4B89] rounded-2xl flex items-center justify-center text-white shadow-lg">
+                  <NavIcon type="sparkles" size={24} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800">东方美学（基底）</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🎋</span>
+                  <NavIcon type="sparkles" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">留白艺术</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">以空取胜，计白当黑，给观众留下想象空间</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🌸</span>
+                  <NavIcon type="sparkles" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">意境营造</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">情景交融，虚实相生，言有尽而意无穷</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🎵</span>
+                  <NavIcon type="headphone" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">气韵节奏</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">气韵生动，随物赋形，动静相宜</p>
@@ -337,28 +338,28 @@ function Home() {
 
             <div className="group bg-white/85 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-lg border border-[#C23B22]/20">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#C23B22] to-[#8A1F0E] rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
-                  🎬
+                <div className="w-12 h-12 bg-gradient-to-br from-[#C23B22] to-[#8A1F0E] rounded-2xl flex items-center justify-center text-white shadow-lg">
+                  <NavIcon type="clapperboard" size={24} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800">现代电影语言（驱动）</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🎭</span>
+                  <NavIcon type="clapperboard" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">三幕剧戏剧张力</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">建立—对抗—解决，节拍清晰，情感递进</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">📐</span>
+                  <NavIcon type="target" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">镜头与构图</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">黄金分割、三分法、引导线、景深控制</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🎞️</span>
+                  <NavIcon type="film" size={20} className="flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-gray-800">蒙太奇与节奏</strong>
                     <p className="text-gray-600 text-sm mt-1 leading-relaxed">镜头组接、声画对位、节奏把控</p>
@@ -383,7 +384,7 @@ function Home() {
           {audiences.map((a) => (
             <div key={a.title} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#8B7AB8]/40 hover:shadow-lg transition-all">
               <div className="flex items-start gap-4">
-                <div className="text-3xl flex-shrink-0">{a.icon}</div>
+                <NavIcon type={a.icon} size={28} className="flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-800">{a.title}</h3>
                   <p className="text-sm text-gray-500 mt-1 leading-relaxed">{a.desc}</p>
@@ -411,19 +412,19 @@ function Home() {
               to="/module-1"
               className="bg-white text-[#8B7AB8] font-bold py-3 px-8 md:py-4 md:px-12 rounded-2xl text-base md:text-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 min-w-[200px]"
             >
-              🎨 开始第 1 章
+              <span className="flex items-center justify-center gap-2"><NavIcon type="palette" size={18} /> 开始第 1 章</span>
             </Link>
             <Link
               to="/workflow"
               className="bg-white/20 hover:bg-white/30 backdrop-blur text-white font-bold py-3 px-8 md:py-4 md:px-12 rounded-2xl text-base md:text-xl transition-all duration-300 min-w-[200px] border border-white/30"
             >
-              📊 查看完整工作流
+              <span className="flex items-center justify-center gap-2"><NavIcon type="chart" size={18} /> 查看完整工作流</span>
             </Link>
             <Link
               to="/prompt-library"
               className="bg-white/20 hover:bg-white/30 backdrop-blur text-white font-bold py-3 px-8 md:py-4 md:px-12 rounded-2xl text-base md:text-xl transition-all duration-300 min-w-[200px] border border-white/30"
             >
-              ✨ Prompt 库
+              <span className="flex items-center justify-center gap-2"><NavIcon type="sparkles" size={18} /> Prompt 库</span>
             </Link>
           </div>
         </div>

@@ -2,13 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useHashScroll } from '../hooks/useHashScroll'
 import BrandLogo from '../components/BrandLogo'
+import { NavIcon } from '../components/NavIcons'
 
 // 资源分类数据
-const resourceCategories = [
+type ResourceIcon = 'tools' | 'image' | 'headphone' | 'palette' | 'pencil' | 'book' | 'target'
+const resourceCategories: { id: string; title: string; icon: ResourceIcon; color: string; description: string; count: number; items: string[] }[] = [
   {
     id: 'ai-tools',
     title: 'AI 工具资源',
-    icon: '🤖',
+    icon: 'tools',
     color: 'from-blue-500 to-blue-700',
     description: '顶级 AI 创作工具完整指南',
     count: 7,
@@ -17,7 +19,7 @@ const resourceCategories = [
   {
     id: 'materials',
     title: '高质量素材库',
-    icon: '🖼️',
+    icon: 'image',
     color: 'from-purple-500 to-purple-700',
     description: '精选动漫创作素材资源',
     count: 4,
@@ -26,7 +28,7 @@ const resourceCategories = [
   {
     id: 'audio',
     title: '音频资源库',
-    icon: '🎵',
+    icon: 'headphone',
     color: 'from-green-500 to-green-700',
     description: '专业音频制作资源集合',
     count: 4,
@@ -35,7 +37,7 @@ const resourceCategories = [
   {
     id: 'design',
     title: '设计资源库',
-    icon: '🎨',
+    icon: 'palette',
     color: 'from-pink-500 to-pink-700',
     description: '专业设计资源与指南',
     count: 4,
@@ -44,7 +46,7 @@ const resourceCategories = [
   {
     id: 'prompts',
     title: '提示词库',
-    icon: '📝',
+    icon: 'pencil',
     color: 'from-yellow-500 to-yellow-700',
     description: '顶级提示词模板集合',
     count: 4,
@@ -53,7 +55,7 @@ const resourceCategories = [
   {
     id: 'documents',
     title: '技术文档库',
-    icon: '📚',
+    icon: 'book',
     color: 'from-indigo-500 to-indigo-700',
     description: '专业技术文档与手册',
     count: 4,
@@ -62,7 +64,7 @@ const resourceCategories = [
   {
     id: 'learning',
     title: '学习资料库',
-    icon: '🎓',
+    icon: 'target',
     color: 'from-red-500 to-red-700',
     description: '系统化学习资料集合',
     count: 4,
@@ -107,8 +109,8 @@ function Resources() {
           >
             {/* 头部 */}
             <div className={`bg-gradient-to-br ${category.color} p-6 text-white`}>
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {category.icon}
+              <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                <NavIcon type={category.icon} size={48} />
               </div>
               <h3 className="text-xl font-bold mb-2">{category.title}</h3>
               <p className="text-sm opacity-90">{category.description}</p>
@@ -146,7 +148,7 @@ function Resources() {
 
       {/* 使用方式 */}
       <section className="bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB] rounded-3xl p-8 border border-gray-100">
-        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-gray-800">💡 如何高效使用资源中心</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-gray-800 flex items-center justify-center gap-2"><NavIcon type="sparkles" size={24} /> 如何高效使用资源中心</h2>
         <p className="text-center text-gray-500 mb-8">三步把资源变成你的生产力</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">

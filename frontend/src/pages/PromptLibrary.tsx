@@ -6,6 +6,7 @@
 import React, { useState, useMemo } from 'react'
 import PromptCard from '../components/PromptCard'
 import BrandLogo from '../components/BrandLogo'
+import { NavIcon } from '../components/NavIcons'
 
 // Prompt 数据类型
 interface PromptItem {
@@ -14,7 +15,7 @@ interface PromptItem {
   title: string
   category: string
   module: string
-  icon: string
+  icon: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond' | 'tools' | 'tutorials' | 'prompts' | 'resources' | 'workflow' | 'home' | 'search' | 'chart' | 'spiral'
   tags: string[]
 }
 
@@ -27,7 +28,7 @@ const prompts: PromptItem[] = [
     title: '基础留白 Prompt',
     category: '东方美学',
     module: '模块 1: 艺术理念',
-    icon: '🎨',
+    icon: 'palette',
     tags: ['留白', '水墨', '东方美学']
   },
   {
@@ -36,7 +37,7 @@ const prompts: PromptItem[] = [
     title: '意境营造 Prompt',
     category: '东方美学',
     module: '模块 1: 艺术理念',
-    icon: '🌸',
+    icon: 'sparkles',
     tags: ['意境', '氛围', '情景交融']
   },
   {
@@ -45,7 +46,7 @@ const prompts: PromptItem[] = [
     title: '黄金分割构图',
     category: '西方美学',
     module: '模块 1: 艺术理念',
-    icon: '📐',
+    icon: 'target',
     tags: ['构图', '黄金分割', '电影级']
   },
   {
@@ -54,7 +55,7 @@ const prompts: PromptItem[] = [
     title: '三分法构图',
     category: '西方美学',
     module: '模块 1: 艺术理念',
-    icon: '📏',
+    icon: 'target',
     tags: ['构图', '三分法', '平衡']
   },
   {
@@ -63,7 +64,7 @@ const prompts: PromptItem[] = [
     title: '电影感意境',
     category: '电影美学',
     module: '模块 1: 艺术理念',
-    icon: '🎬',
+    icon: 'film',
     tags: ['电影感', '景深', '氛围']
   },
   {
@@ -72,7 +73,7 @@ const prompts: PromptItem[] = [
     title: '朦胧雾气意境',
     category: '东方美学',
     module: '模块 1: 艺术理念',
-    icon: '🌫️',
+    icon: 'sparkles',
     tags: ['雾气', '朦胧', '意境']
   },
   // 模块 2: 故事创作
@@ -82,7 +83,7 @@ const prompts: PromptItem[] = [
     title: '三一律剧本框架',
     category: '剧本创作',
     module: '模块 2: 故事创作',
-    icon: '📝',
+    icon: 'book',
     tags: ['剧本', '三一律', '节拍表']
   },
   {
@@ -91,7 +92,7 @@ const prompts: PromptItem[] = [
     title: '悬念设置 Prompt',
     category: '剧本创作',
     module: '模块 2: 故事创作',
-    icon: '🔍',
+    icon: 'search',
     tags: ['悬念', '倒金字塔', '紧张感']
   },
   {
@@ -100,7 +101,7 @@ const prompts: PromptItem[] = [
     title: '起承转合结构',
     category: '剧本创作',
     module: '模块 2: 故事创作',
-    icon: '📊',
+    icon: 'chart',
     tags: ['起承转合', '节奏', '情感']
   },
   // 模块 5: 画面生成
@@ -110,7 +111,7 @@ const prompts: PromptItem[] = [
     title: '场景氛围 Prompt',
     category: '画面生成',
     module: '模块 5: 画面生成',
-    icon: '🖼️',
+    icon: 'image',
     tags: ['场景', '氛围', '光影']
   },
   {
@@ -119,7 +120,7 @@ const prompts: PromptItem[] = [
     title: '角色设计 Prompt',
     category: '角色设计',
     module: '模块 5: 画面生成',
-    icon: '👤',
+    icon: 'user',
     tags: ['角色', '设计', '五官']
   },
   {
@@ -128,7 +129,7 @@ const prompts: PromptItem[] = [
     title: '费波那契构图',
     category: '构图设计',
     module: '模块 5: 画面生成',
-    icon: '🌀',
+    icon: 'spiral',
     tags: ['构图', '费波那契', '螺旋']
   },
   // 模块 6: 动画生成
@@ -138,7 +139,7 @@ const prompts: PromptItem[] = [
     title: '蒙太奇分镜设计',
     category: '动画制作',
     module: '模块 6: 动画生成',
-    icon: '🎞️',
+    icon: 'film',
     tags: ['蒙太奇', '分镜', '动画']
   },
   {
@@ -147,7 +148,7 @@ const prompts: PromptItem[] = [
     title: '镜头组接逻辑',
     category: '动画制作',
     module: '模块 6: 动画生成',
-    icon: '🎬',
+    icon: 'film',
     tags: ['镜头', '组接', '逻辑']
   },
   {
@@ -156,7 +157,7 @@ const prompts: PromptItem[] = [
     title: '声画对位设计',
     category: '动画制作',
     module: '模块 6: 动画生成',
-    icon: '🎵',
+    icon: 'sparkles',
     tags: ['声画', '对位', '音乐']
   },
   // 模块 7: 混合媒体
@@ -166,7 +167,7 @@ const prompts: PromptItem[] = [
     title: '混合媒体风格',
     category: '混合媒体',
     module: '模块 7: 混合媒体',
-    icon: '🎭',
+    icon: 'sparkles',
     tags: ['混合媒体', '水墨', '数字艺术']
   },
   // 模块 8: 工作流
@@ -176,24 +177,24 @@ const prompts: PromptItem[] = [
     title: '完整工作流设计',
     category: '工作流',
     module: '模块 8: 工作流',
-    icon: '⚙️',
+    icon: 'workflow',
     tags: ['工作流', '流程', '完整']
   }
 ]
 
 // 分类列表
 const categories = [
-  { name: '全部', icon: '📚' },
-  { name: '东方美学', icon: '🌸' },
-  { name: '西方美学', icon: '🏛️' },
-  { name: '剧本创作', icon: '📝' },
-  { name: '画面生成', icon: '🖼️' },
-  { name: '角色设计', icon: '👤' },
-  { name: '构图设计', icon: '📐' },
-  { name: '动画制作', icon: '🎞️' },
-  { name: '混合媒体', icon: '🎭' },
-  { name: '工作流', icon: '⚙️' },
-  { name: '电影美学', icon: '🎬' }
+  { name: '全部', icon: 'book' as const },
+  { name: '东方美学', icon: 'sparkles' as const },
+  { name: '西方美学', icon: 'palette' as const },
+  { name: '剧本创作', icon: 'book' as const },
+  { name: '画面生成', icon: 'image' as const },
+  { name: '角色设计', icon: 'user' as const },
+  { name: '构图设计', icon: 'target' as const },
+  { name: '动画制作', icon: 'film' as const },
+  { name: '混合媒体', icon: 'sparkles' as const },
+  { name: '工作流', icon: 'workflow' as const },
+  { name: '电影美学', icon: 'film' as const }
 ]
 
 function PromptLibrary() {
@@ -269,7 +270,7 @@ function PromptLibrary() {
                   : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg'
                 }`}
             >
-              <span>{category.icon}</span>
+              <NavIcon type={category.icon} size={16} />
               <span>{category.name}</span>
               {category.name !== '全部' && (
                 <span className="text-xs opacity-75">
@@ -322,7 +323,7 @@ function PromptLibrary() {
                     ))}
                   </div>
                   <span className="text-xs text-gray-500 flex items-center gap-1">
-                    <span>📚</span>
+                    <NavIcon type="book" size={14} />
                     {prompt.module}
                   </span>
                 </div>
@@ -330,7 +331,7 @@ function PromptLibrary() {
             ))
           ) : (
             <div className="text-center py-16">
-              <div className="text-6xl mb-4">🔍</div>
+              <div className="flex justify-center mb-4"><NavIcon type="search" size={48} /></div>
               <h3 className="text-xl font-bold text-gray-700 mb-2">未找到匹配的 Prompt</h3>
               <p className="text-gray-500">
                 尝试其他关键词或选择其他分类

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHashScroll } from '../../hooks/useHashScroll'
 import BrandLogo from '../../components/BrandLogo'
+import { NavIcon } from '../../components/NavIcons'
 
 // 六步标准化流程（2026 年最新）
 const workflowSteps = [
@@ -9,7 +10,7 @@ const workflowSteps = [
     id: 1,
     title: '构思与剧本创作',
     duration: '20%',
-    icon: '📝',
+    icon: 'pencil' as const,
     description: '讲什么故事？如何打动人心？',
     stepByStep: [
       {
@@ -68,7 +69,7 @@ const workflowSteps = [
     id: 2,
     title: '角色设计',
     duration: '25%',
-    icon: '👤',
+    icon: 'user' as const,
     description: '角色长什么样？如何让人记住？',
     stepByStep: [
       {
@@ -121,7 +122,7 @@ const workflowSteps = [
     id: 3,
     title: '场景设计与布局',
     duration: '15%',
-    icon: '🏠',
+    icon: 'home' as const,
     description: '故事发生在哪？如何营造氛围？',
     stepByStep: [
       {
@@ -174,7 +175,7 @@ const workflowSteps = [
     id: 4,
     title: '动画制作',
     duration: '30%',
-    icon: '🎬',
+    icon: 'clapperboard' as const,
     description: '如何让静态画面有生命力？',
     stepByStep: [
       {
@@ -227,7 +228,7 @@ const workflowSteps = [
     id: 5,
     title: '后期制作',
     duration: '10%',
-    icon: '🎧',
+    icon: 'headphone' as const,
     description: '如何用声音塑造灵魂？',
     stepByStep: [
       {
@@ -280,7 +281,7 @@ const workflowSteps = [
     id: 6,
     title: '发布与推广',
     duration: '5%',
-    icon: '🚀',
+    icon: 'rocket' as const,
     description: '如何让作品被更多人看到？',
     stepByStep: [
       {
@@ -362,7 +363,7 @@ function Workflow() {
         {/* 流程概览 */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-            <span>📊</span> 流程概览
+            <NavIcon type="chart" size={24} /> 流程概览
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {workflowSteps.map((step) => (
@@ -381,7 +382,7 @@ function Workflow() {
                     : 'bg-white border border-gray-200 hover:bg-primary-50'
                 }`}
               >
-                <div className="text-3xl mb-2">{step.icon}</div>
+                <div className="mb-2 flex justify-center"><NavIcon type={step.icon} size={32} /></div>
                 <div className="font-bold">{step.title}</div>
                 <div className={`text-sm mt-1 ${currentStep === step.id - 1 ? 'text-white' : 'text-gray-500'}`}>
                   {step.duration}
@@ -405,12 +406,12 @@ function Workflow() {
                 <div className="flex items-start justify-between">
                   <div>
                     <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
-                      <span className="text-4xl">{step.icon}</span>
+                      <NavIcon type={step.icon} size={36} />
                       {step.id}. {step.title}
                     </h2>
                     <p className="text-xl opacity-90">{step.description}</p>
-                    <div className="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full">
-                      ⏱️ 时间占比：{step.duration}
+                    <div className="mt-4 inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
+                      <NavIcon type="target" size={16} /> 时间占比：{step.duration}
                     </div>
                   </div>
                   <div className="hidden md:block text-right">
@@ -425,7 +426,7 @@ function Workflow() {
                 {step.stepByStep && (
                   <div className="mb-8">
                     <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                      <span>📋</span> 详细操作步骤
+                      <NavIcon type="book" size={20} /> 详细操作步骤
                     </h3>
                     <div className="space-y-4">
                       {step.stepByStep.map((stepItem, i) => (
@@ -434,7 +435,7 @@ function Workflow() {
                           <p className="text-gray-700 mb-3">{stepItem.content}</p>
                           {stepItem.tips && (
                             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
-                              <span className="text-yellow-800 text-sm">💡 提示：{stepItem.tips}</span>
+                              <span className="text-yellow-800 text-sm flex items-center gap-1.5"><NavIcon type="sparkles" size={14} /> 提示：{stepItem.tips}</span>
                             </div>
                           )}
                           {stepItem.tools && (
@@ -459,7 +460,7 @@ function Workflow() {
                 {step.promptTemplate && (
                   <div className="mb-8">
                     <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                      <span>📝</span> {step.promptTemplate.title}
+                      <NavIcon type="pencil" size={20} /> {step.promptTemplate.title}
                     </h3>
                     <div className="bg-gradient-to-br from-primary-50 to-accent-50 border border-primary-200 rounded-xl p-6">
                       <div className="bg-white p-4 rounded-lg border border-gray-200 mb-4">
@@ -480,7 +481,7 @@ function Workflow() {
                 {/* 核心内容 */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span>📝</span> 核心内容
+                    <NavIcon type="prompts" size={20} /> 核心内容
                   </h3>
                   <ul className="space-y-3">
                     {step.details.map((detail, i) => (
@@ -495,7 +496,7 @@ function Workflow() {
                 {/* 推荐工具 */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span>🛠️</span> 推荐工具
+                    <NavIcon type="tools" size={20} /> 推荐工具
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {step.tools.map((tool, i) => (
@@ -509,7 +510,7 @@ function Workflow() {
                 {/* 优化内容 */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span>✨</span> 优化内容
+                    <NavIcon type="sparkles" size={20} /> 优化内容
                   </h3>
                   <div className="bg-green-50 border-l-4 border-green-500 p-6">
                     <p className="text-gray-700 leading-relaxed">{step.optimization}</p>
@@ -535,7 +536,9 @@ function Workflow() {
 
         {/* 结语 */}
         <div className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-8 text-white text-center mt-12">
-          <h2 className="text-3xl font-bold mb-4">🎯 六步流程总结</h2>
+          <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+            <NavIcon type="target" size={28} /> 六步流程总结
+          </h2>
           <p className="text-lg opacity-90 max-w-3xl mx-auto">
             AI 动漫制作不再是复杂的系统工程，而是可以通过标准化流程快速掌握的技能。<br/>
             从构思到发布，每一步都有明确的方法和工具支持，让你的创作之路更加顺畅！

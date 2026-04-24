@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter } from '../components/AdvancedNavigation'
+import { NavIcon } from '../components/NavIcons'
 
 interface ModulePageProps {
   moduleId: string
@@ -52,14 +53,14 @@ export function ModulePage({
               {moduleSubtitle}
             </p>
             <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                ⏳ 专业级内容
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm flex items-center gap-1.5">
+                <NavIcon type="target" size={14} /> 专业级内容
               </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                📚 一步一步教程
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm flex items-center gap-1.5">
+                <NavIcon type="book" size={14} /> 一步一步教程
               </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                🎯 顶级艺术标准
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm flex items-center gap-1.5">
+                <NavIcon type="sparkles" size={14} /> 顶级艺术标准
               </span>
             </div>
           </header>
