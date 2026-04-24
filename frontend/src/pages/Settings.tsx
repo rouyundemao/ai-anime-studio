@@ -25,7 +25,7 @@ function Settings() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
             ⚙️ 系统设置
           </h1>
-          <p className="text-gray-600 text-lg">个性化你的 AI 动漫工作室</p>
+          <p className="text-gray-600 text-lg">个性化你的轻语绘梦工作台</p>
         </div>
 
         {/* 保存提示 */}

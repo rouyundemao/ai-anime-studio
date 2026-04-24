@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BrandLogo from '../components/BrandLogo'
 
 // 资源分类数据
 const resourceCategories = [
@@ -71,19 +72,26 @@ const resourceCategories = [
 function Resources() {
   return (
     <div className="space-y-12">
-      {/* 页面标题 */}
-      <div className="text-center py-12 bg-gradient-to-br from-primary-50 via-white to-accent-50 rounded-3xl">
-        <div className="inline-block bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-lg">
-          📚 专业创作资源库
+      {/* 页头 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">资源中心 · Resources</span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            专业创作资源库
+          </h1>
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            把做好一部 AI 动漫需要的一切，按分类整理好放在这里。<br className="hidden md:block" />
+            <span className="text-gray-500">每条资源都附带使用指南、参数配置、成品案例。</span>
+          </p>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          专业创作资源库
-        </h1>
-        <p className="text-xl text-gray-600 mx-auto">
-          七大专业资源分类，每一个都是顶级标准<br />
-          <span className="text-gray-500">详细使用指南 + 参数配置 + 案例展示</span>
-        </p>
-      </div>
+      </section>
 
       {/* 资源分类网格 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -132,27 +140,28 @@ function Resources() {
         ))}
       </div>
 
-      {/* 使用说明 */}
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">💡 使用方式</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="text-4xl mb-4">👆</div>
-            <h3 className="font-bold mb-2">点击分类</h3>
-            <p className="text-gray-600 text-sm">点击任意资源分类卡片</p>
+      {/* 使用方式 */}
+      <section className="bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB] rounded-3xl p-8 border border-gray-100">
+        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-gray-800">💡 如何高效使用资源中心</h2>
+        <p className="text-center text-gray-500 mb-8">三步把资源变成你的生产力</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B7AB8] to-[#5B4B89] flex items-center justify-center text-2xl text-white mb-4">1</div>
+            <h3 className="font-bold mb-2 text-gray-800">先定场景</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">从你要做的内容（角色设计 / 场景出图 / 视频片段）出发，再进入对应分类</p>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="text-4xl mb-4">📖</div>
-            <h3 className="font-bold mb-2">查看详情</h3>
-            <p className="text-gray-600 text-sm">查看完整使用指南和案例</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C2649C] to-[#8B3A6E] flex items-center justify-center text-2xl text-white mb-4">2</div>
+            <h3 className="font-bold mb-2 text-gray-800">复制即用</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">所有 Prompt / 参数 / 命令都支持一键复制，到工具里直接粘贴即可</p>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <div className="text-4xl mb-4">🎯</div>
-            <h3 className="font-bold mb-2">直接使用</h3>
-            <p className="text-gray-600 text-sm">根据指南直接应用于创作</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C23B22] to-[#8A1F0E] flex items-center justify-center text-2xl text-white mb-4">3</div>
+            <h3 className="font-bold mb-2 text-gray-800">记录变体</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">把生效的修改版本存进自己的 Notion / Prompt 库，沉淀属于你的创作资产</p>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

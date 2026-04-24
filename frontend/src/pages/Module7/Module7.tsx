@@ -45,15 +45,24 @@ function Module7() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              ✨ 混合媒体艺术
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#14B8A6] to-[#0F766E] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 07
+              </span>
+              <span className="text-[#14B8A6] text-sm font-semibold">✨ 后期合成 · Post-Production</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">高阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              混合媒体艺术
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              剪辑 · 调色 · 配音 · 字幕全流程
             </h1>
-            <p className="text-xl text-gray-600">
-              水墨与数字融合，手绘与AI结合，电影级后期制作
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              AI 出的素材只是半成品。通过剪映 / DaVinci / After Effects 搭建节奏剪辑、电影级调色、AI 配音（豆包 / ElevenLabs）、BGM（Suno / Udio）、字幕与音效的一体化工作流。
             </p>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 精修打磨（4–8 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 达成成片标准</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：可发行成片</span>
+            </div>
           </header>
 
           <div className="prose prose-lg max-w-none">

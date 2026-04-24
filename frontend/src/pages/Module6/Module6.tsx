@@ -45,15 +45,24 @@ function Module6() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🎬 顶级动画生成
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 06
+              </span>
+              <span className="text-[#8B5CF6] text-sm font-semibold">🎬 动画生成 · Video Generation</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">高阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              电影级动画生成
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              AI 视频模型的工业化用法
             </h1>
-            <p className="text-xl text-gray-600">
-              物理真实感动画，情感动画表现，艺术化运动表达
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              Sora 2 · Veo 3.1 · Kling 3 · Seedance 2 · Runway Gen-4 · 海螺 2 · Wan · Vidu 八大视频模型横向评测，附首尾帧 / 图生视频 / 视频重绘 / 对口型四种工业化用法。
             </p>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 精细调控（5–10 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 镜头级稳定连贯</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：动画镜头集</span>
+            </div>
           </header>
 
           <div className="prose prose-lg max-w-none">

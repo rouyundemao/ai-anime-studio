@@ -48,22 +48,23 @@ function Module2() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              📖 故事创作艺术
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C2649C] to-[#8B3A6E] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 02
+              </span>
+              <span className="text-[#C2649C] text-sm font-semibold">📖 故事创作 · Storytelling</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">入门</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              故事创作艺术
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              从灵感火花到可拍摄剧本
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              电影级剧本结构设计，人物弧光打造，情感节奏把控
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              剧本决定 70% 的成片质量。讲透三幕式、救猫咪 15 节拍、英雄之旅、短剧钩子公式四种主流结构，附漫剧 / 微短剧 / MV / 广告片 4 种题材模板。
             </p>
-            <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                ⏳ 深度创作
-              </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                📚 专业级内容
-              </span>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 深度创作（3–5 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 30 分钟出剧本大纲</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：可拍摄剧本</span>
             </div>
           </header>
 

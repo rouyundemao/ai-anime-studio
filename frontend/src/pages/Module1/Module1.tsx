@@ -53,22 +53,23 @@ function Module1() {
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🎨 艺术理念
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 01
+              </span>
+              <span className="text-[#8B7AB8] text-sm font-semibold">🎨 艺术理念 · Aesthetics</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">入门</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              艺术理念
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              建立通用 AI 动漫的美学坐标系
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              东方美学与西方美学融合,建立动漫美学体系
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              在打开任何 AI 工具之前，先定调你的风格。融合东方留白、西方戏剧张力、电影语言三大体系，让 AI 成为你审美的放大器。
             </p>
-            <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                ⏳ 深度研习
-              </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                📚 专业级内容
-              </span>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 深度研习（2–4 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 建立风格判断力</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：美学风格指南</span>
             </div>
           </header>
 

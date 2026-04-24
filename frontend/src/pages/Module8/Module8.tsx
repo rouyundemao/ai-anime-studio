@@ -52,25 +52,23 @@ function Module8() {
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-primary-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🎬 六步标准化工作流
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#F59E0B] to-[#B45309] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 08
+              </span>
+              <span className="text-[#F59E0B] text-sm font-semibold">🚀 发行运营 · Distribution</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">高阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              六步标准化工作流
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              把作品变成可持续的业务
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              2026 年最新行业标准 · 专业级 AI 动漫制作流程
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              抖音 / 小红书 / B 站 / YouTube / TikTok 的算法偏好、封面与标题规范、付费投流策略，以及 IP 矩阵、商单接洽、广告植入、会员订阅四条主流变现路径。
             </p>
-            <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                ⏳ 完整流程
-              </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                📚 行业标准
-              </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                🎯 实战导向
-              </span>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 商业闭环（持续迭代）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 建立 IP 变现路径</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：发行 + 数据看板</span>
             </div>
           </header>
 

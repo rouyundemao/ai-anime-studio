@@ -1,8 +1,8 @@
 {
   "name": "ai-anime-studio",
   "version": "1.0.0",
-  "description": "AI 动漫制作全流程创作平台",
-  "author": "Sunny",
+  "description": "轻语绘梦 · QingyuDreams — 专业 AI 动漫制作全流程知识平台",
+  "author": "QingyuDreams",
   "private": true,
   "workspaces": [
     "frontend",

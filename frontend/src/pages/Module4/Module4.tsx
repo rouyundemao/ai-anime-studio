@@ -44,15 +44,24 @@ function Module4() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🌍 世界构建方法
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#10B981] to-[#047857] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 04
+              </span>
+              <span className="text-[#10B981] text-sm font-semibold">🌍 世界构建 · Worldbuilding</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              世界构建方法
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              可复用的世界观与场景库
             </h1>
-            <p className="text-xl text-gray-600">
-              地理生态、文明文化、历史神话体系
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              世界观不只是背景，它决定每一个镜头的氛围基调。用风格指南 + 场景库 + 道具库沉淀可复用资产，让系列作品保持一致，让单集制作速度翻倍。
             </p>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 宏大构建（3–5 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 世界观可追溯</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：风格指南 + 场景库</span>
+            </div>
           </header>
 
           <div className="prose prose-lg max-w-none">
