@@ -3,14 +3,15 @@ import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import SearchBar from './SearchBar'
 import BrandLogo from './BrandLogo'
+import { NavIcon } from './NavIcons'
 
 const navItems = [
-  { path: '/', label: '首页', icon: '🏠' },
-  { path: '/tutorials', label: '课程体系', icon: '📚' },
-  { path: '/prompt-library', label: 'Prompt 库', icon: '✨' },
-  { path: '/resources', label: '资源中心', icon: '📦' },
-  { path: '/tools', label: '工具评测', icon: '🛠️' },
-  { path: '/workflow', label: '生产流程', icon: '📊' },
+  { path: '/', label: '首页', icon: 'home' as const },
+  { path: '/tutorials', label: '课程体系', icon: 'tutorials' as const },
+  { path: '/prompt-library', label: 'Prompt 库', icon: 'prompts' as const },
+  { path: '/resources', label: '资源中心', icon: 'resources' as const },
+  { path: '/tools', label: '工具评测', icon: 'tools' as const },
+  { path: '/workflow', label: '生产流程', icon: 'workflow' as const },
 ]
 
 function Header() {
@@ -54,7 +55,7 @@ function Header() {
                 }`}
               >
                 <span className="flex items-center gap-1 lg:gap-2">
-                  <span className="text-base">{item.icon}</span>
+                  <NavIcon type={item.icon} size={18} />
                   <span>{item.label}</span>
                 </span>
               </Link>
@@ -99,7 +100,7 @@ function Header() {
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="text-xl">{item.icon}</span>
+                <NavIcon type={item.icon} size={20} />
                 <span>{item.label}</span>
                 {isActive(item.path) && <span className="ml-auto">●</span>}
               </Link>
