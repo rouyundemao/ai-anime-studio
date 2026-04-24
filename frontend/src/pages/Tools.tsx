@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useHashScroll } from '../hooks/useHashScroll'
 
 // 工具网站数据
 const toolWebsites = [
@@ -385,6 +386,8 @@ const toolWebsites = [
 ]
 
 function Tools() {
+  useHashScroll()
+
   return (
     <div className="space-y-12">
       {/* 页面标题 */}
@@ -413,12 +416,19 @@ function Tools() {
 
             {/* 工具卡片 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {category.tools.map((tool, toolIndex) => (
+              {category.tools.map((tool, toolIndex) => {
+                const toolId = tool.name.toLowerCase()
+                  .replace(/[^\w\s-]/g, '')
+                  .replace(/\s+/g, '-')
+                  .substring(0, 20)
+                
+                return (
                 <a
                   key={toolIndex}
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-hash={toolId}
                   className={`card hover:scale-105 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden ${
                     tool.recommended ? 'border-2 border-accent-400' : ''
                   }`}
@@ -464,7 +474,8 @@ function Tools() {
                     </div>
                   </div>
                 </a>
-              ))}
+                )
+              })}
             </div>
           </div>
         ))}

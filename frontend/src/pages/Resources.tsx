@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useHashScroll } from '../hooks/useHashScroll'
 
 // 资源分类数据
 const resourceCategories = [
@@ -69,6 +70,8 @@ const resourceCategories = [
 ]
 
 function Resources() {
+  useHashScroll()
+  
   return (
     <div className="space-y-12">
       {/* 页面标题 */}
@@ -91,6 +94,7 @@ function Resources() {
           <Link
             key={category.id}
             to={`/resources/${category.id}`}
+            data-hash={category.id}
             className="card overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 group"
           >
             {/* 头部 */}

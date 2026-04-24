@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useHashScroll } from '../../hooks/useHashScroll'
 
 // 六步标准化流程（2026 年最新）
 const workflowSteps = [
@@ -331,6 +332,7 @@ const workflowSteps = [
 
 function Workflow() {
   const [currentStep, setCurrentStep] = useState(0)
+  useHashScroll()
 
   return (
     <div className="min-h-screen bg-gray-50">
