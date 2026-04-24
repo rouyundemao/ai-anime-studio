@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHashScroll } from '../../hooks/useHashScroll'
+import BrandLogo from '../../components/BrandLogo'
 
 // 六步标准化流程（2026 年最新）
 const workflowSteps = [
@@ -335,29 +336,27 @@ function Workflow() {
   useHashScroll()
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#8B7AB8] via-[#C2649C] to-[#C23B22] py-14 md:py-16 text-white">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="relative container mx-auto px-4">
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 tracking-wider">
-            📊 PRODUCTION WORKFLOW · 2026
+    <div className="space-y-12">
+      {/* 页头 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">工作流 · Production Workflow</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
             六步标准化生产流程
           </h1>
-          <p className="text-base md:text-xl opacity-95 max-w-3xl leading-relaxed">
-            把"做一部 AI 动漫"拆成可执行的六个阶段，每一步都有<strong className="text-white">清晰目标、产出物、工具链和检查清单</strong>。<br className="hidden md:block" />
-            团队协作、个人出片、IP 批量生产都能套用。
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            把"做一部 AI 动漫"拆成可执行的六个阶段，每一步都有<span className="text-gray-700">清晰目标、产出物、工具链和检查清单</span>。<br className="hidden md:block" />
+            <span className="text-gray-500">团队协作、个人出片、IP 批量生产都能套用。</span>
           </p>
-          <div className="flex flex-wrap gap-3 mt-6 text-sm">
-            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 团队可复用</span>
-            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 产出物清晰</span>
-            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 可量化追踪</span>
-            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 支持跳章执行</span>
-          </div>
         </div>
-      </div>
+      </section>
 
       <div className="container mx-auto px-4 py-12">
         {/* 流程概览 */}

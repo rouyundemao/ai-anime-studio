@@ -183,7 +183,7 @@ export const useSearchStore = create<SearchState>()((set, get) => ({
   },
   
   clearResults: () => {
-    set({ results: [], query: '', isSearching: false })
+    set({ results: [], isSearching: false })
   },
   
   addToHistory: (query: string) => {

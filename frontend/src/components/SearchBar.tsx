@@ -6,6 +6,7 @@ function SearchBar() {
   const navigate = useNavigate()
   const { query, results, isSearching, searchHistory, search, clearResults, clearHistory } = useSearchStore()
   const [isOpen, setIsOpen] = useState(false)
+  const [justCleared, setJustCleared] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   // 监听输入变化
@@ -86,10 +87,10 @@ function SearchBar() {
 
       {/* 搜索结果下拉框 - 移动端优化 */}
       {isOpen && (query.length > 1 || searchHistory.length > 0) && (
-        <div className="absolute top-full mt-1.5 sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 sm:w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white dark:bg-gray-800 
+        <div data-search-results className="absolute top-full mt-1.5 sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 sm:w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white dark:bg-gray-800 
           rounded-lg sm:rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 overflow-hidden">
           
-          {/* 搜索历史 */}
+          {/* 搜索历史 - 无搜索结果时显示 */}
           {query.length <= 1 && searchHistory.length > 0 && (
             <div className="p-2 sm:p-3 border-b border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
@@ -99,16 +100,19 @@ function SearchBar() {
                     e.stopPropagation()
                     clearHistory()
                   }}
-                  className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="text-xs text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors font-medium"
                 >
-                  清除
+                  清除全部
                 </button>
               </div>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {searchHistory.slice(0, 5).map((h, i) => (
                   <button
                     key={i}
-                    onClick={() => search(h)}
+                    onClick={() => {
+                      useSearchStore.getState().setQuery(h)
+                      search(h)
+                    }}
                     className="px-2 py-1 text-xs sm:text-sm bg-gray-100 dark:bg-gray-700 
                       hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
                   >
@@ -116,6 +120,37 @@ function SearchBar() {
                   </button>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* 搜索结果有结果时，也在顶部显示清除历史按钮 */}
+          {!isSearching && results.length > 0 && searchHistory.length > 0 && (
+            <div className="px-3 py-2 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+              <span className="text-xs text-gray-400">最近搜索：{searchHistory[0]}</span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  clearHistory()
+                }}
+                className="text-xs text-red-400 hover:text-red-600 dark:hover:text-red-300 transition-colors font-medium"
+              >
+                清除历史
+              </button>
+            </div>
+          )}
+
+          {/* 始终显示清除历史按钮（当有历史时） */}
+          {searchHistory.length > 0 && query.length > 1 && (
+            <div className="px-3 py-1.5 border-b border-gray-100 dark:border-gray-700 flex items-center justify-end">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  clearHistory()
+                }}
+                className="text-xs text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              >
+                清除搜索历史
+              </button>
             </div>
           )}
 
@@ -134,8 +169,8 @@ function SearchBar() {
                   key={result.id}
                   onClick={() => {
                     setIsOpen(false)
-                    clearResults()
-                    navigate(result.path)
+                    // 使用 window.location 强制完整页面跳转，触发 useHashScroll
+                    window.location.href = result.path
                   }}
                   className="block p-2 sm:p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                 >
