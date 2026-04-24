@@ -50,7 +50,7 @@ function Module1() {
 
         {/* 中间:教程内容 - 真正全宽 */}
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -74,9 +74,9 @@ function Module1() {
           </header>
 
           {/* 内容主体 */}
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             <section id="core-concept" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎯 核心理念
               </h2>
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl mb-6">
@@ -106,7 +106,7 @@ function Module1() {
             </section>
 
             <section id="eastern-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌸 东方美学体系
               </h2>
 
@@ -153,7 +153,7 @@ function Module1() {
             </section>
 
             <section id="eastern-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 东方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -273,7 +273,7 @@ function Module1() {
             </section>
 
             <section id="western-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎭 西方美学融合
               </h2>
 
@@ -338,7 +338,7 @@ function Module1() {
             </section>
 
             <section id="western-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 西方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -542,7 +542,7 @@ function Module1() {
             </section>
 
             <section id="anime-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 动漫美学特征
               </h2>
 
@@ -619,7 +619,7 @@ function Module1() {
             </section>
 
             <section id="classic-analysis" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🏛️ 经典作品风格解析 & AI 复刻指南
               </h2>
               <p className="text-gray-600 mb-8">分析三大标志性美学体系，并提供可直接使用的 AI Prompt 公式，让工具输出向大师靠拢。</p>
@@ -737,7 +737,7 @@ function Module1() {
             </section>
 
             <section id="practice-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 建立个人美学坐标系 · 四步实操
               </h2>
 

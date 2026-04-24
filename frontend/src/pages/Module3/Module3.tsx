@@ -43,7 +43,7 @@ function Module3() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -65,10 +65,10 @@ function Module3() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="role-soul" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 角色是故事的灵魂载体
               </h2>
               
@@ -99,7 +99,7 @@ function Module3() {
 
             {/* 顶级五官美学 */}
             <section id="facial-features" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌸 顶级五官美学体系
               </h2>
 
@@ -202,7 +202,7 @@ function Module3() {
 
             {/* 发型设计体系 */}
             <section id="hairstyle-design" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 💇 发型设计体系
               </h2>
 
@@ -252,7 +252,7 @@ function Module3() {
 
             {/* 服装设计体系 */}
             <section id="costume-design" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 👗 服装设计体系
               </h2>
 
@@ -308,7 +308,7 @@ function Module3() {
 
             {/* 风格统一性控制 */}
             <section id="style-unity" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎯 风格统一性控制
               </h2>
 
@@ -361,7 +361,7 @@ function Module3() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步设计流程
               </h2>
 
@@ -451,7 +451,7 @@ function Module3() {
             </section>
 
             <section id="character-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 角色设计全流程教学
               </h2>
               <p className="text-gray-700 mb-6">

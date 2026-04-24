@@ -47,7 +47,7 @@ function Module2() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C2649C] to-[#8B3A6E] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -69,10 +69,10 @@ function Module2() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="story-soul" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎯 故事是灵魂
               </h2>
               
@@ -132,7 +132,7 @@ function Module2() {
 
             {/* 电影级剧本结构 */}
             <section id="three-act" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎬 电影级剧本结构
               </h2>
 
@@ -193,7 +193,7 @@ function Module2() {
 
             {/* 人物弧光设计 */}
             <section id="hero-journey" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 👤 人物弧光设计
               </h2>
 
@@ -259,7 +259,7 @@ function Module2() {
 
             {/* 情感节奏把控 */}
             <section id="character-arc" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎵 情感节奏把控
               </h2>
 
@@ -321,7 +321,7 @@ function Module2() {
 
             {/* 实践步骤 */}
             <section id="emotional-rhythm" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步创作流程
               </h2>
 
@@ -412,7 +412,7 @@ function Module2() {
 
             {/* 4种题材模板 */}
             <section id="genre-templates" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📄 4种题材 · 即用剧本模板
               </h2>
               <p className="text-gray-600 mb-8">选对题材，是成片效率最高的一步。以下 4 种题材各附核心结构和可直接喂给 AI 的创作 Prompt。</p>
@@ -571,7 +571,7 @@ IP 角色：[动漫角色描述]
 
             {/* 短剧钩子公式 */}
             <section id="hook-formula" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🪝 短剧钩子公式
               </h2>
               <p className="text-gray-600 mb-6">钩子决定完播率。好的钩子让观众在前 5 秒产生「不看完会死」的感觉。以下是经过验证的 6 种高效钩子公式。</p>
@@ -650,7 +650,7 @@ IP 角色：[动漫角色描述]
             </section>
 
             <section id="story-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-purple-600 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 剧本创作全流程教学
               </h2>
               <p className="text-gray-700 mb-6">

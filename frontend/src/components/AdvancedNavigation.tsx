@@ -183,9 +183,25 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
   if (!currentModule) return null
 
   return (
-    <nav className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm sticky top-4 hidden xl:block">
-      <h3 className="text-sm md:text-base font-bold text-gray-800 mb-4">📚 模块导航</h3>
-      <ul className="space-y-2">
+    <nav
+      className="hidden xl:block sticky top-4 rounded-2xl overflow-hidden"
+      style={{
+        background: '#ffffff',
+        border: '1px solid rgba(0,0,0,0.07)',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)'
+      }}
+    >
+      {/* 标题 */}
+      <div className="px-4 py-3 border-b border-gray-50 flex items-center gap-2">
+        <span className="text-[#8B7AB8] font-black text-sm">≡</span>
+        <div>
+          <div className="text-[10px] text-gray-400 tracking-wider uppercase font-medium leading-none mb-0.5">全部模块</div>
+          <div className="text-xs font-bold text-gray-600 leading-none">轻语绘梦 · 课程体系</div>
+        </div>
+      </div>
+
+      {/* 模块列表 */}
+      <ul className="py-1.5">
         {getAllModules().map((module) => {
           const isActive = module.id === currentId
           const isThisCompleted = isCompleted(module.id)
@@ -194,22 +210,41 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
             <li key={module.id}>
               <Link
                 to={module.path}
-                className={`block p-2 md:p-3 rounded-xl transition-all duration-200 ${
+                className={`flex items-center gap-2.5 px-4 py-2 transition-all duration-150 group ${
                   isActive
-                    ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg'
-                    : 'hover:bg-gray-100 text-gray-700'
+                    ? 'bg-[#8B7AB8]/10 text-[#6B5FA0]'
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800'
                 }`}
               >
-                <div className="flex items-center gap-2 md:gap-3">
-                  <span className="text-lg md:text-xl">{module.icon}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs md:text-sm font-semibold">{module.title}</div>
-                    <div className="text-[10px] md:text-xs opacity-90 truncate">{module.subtitle}</div>
+                {/* 左侧活跃条 */}
+                <span
+                  className="flex-shrink-0 w-0.5 h-5 rounded-full transition-all duration-200"
+                  style={{
+                    background: isActive ? 'linear-gradient(180deg, #8B7AB8, #C23B22)' : 'transparent'
+                  }}
+                />
+
+                <span className={`text-sm flex-shrink-0 transition-opacity ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-90'}`}>
+                  {module.icon}
+                </span>
+
+                <div className="flex-1 min-w-0">
+                  <div className={`text-xs font-semibold leading-tight ${isActive ? 'text-[#6B5FA0]' : ''}`}>
+                    {module.title}
                   </div>
-                  {isThisCompleted && (
-                    <span className="text-green-400 text-xs md:text-sm">✓</span>
-                  )}
+                  <div className={`text-[10px] truncate leading-tight mt-0.5 ${isActive ? 'text-[#8B7AB8]/70' : 'text-gray-400'}`}>
+                    {module.subtitle}
+                  </div>
                 </div>
+
+                {isThisCompleted ? (
+                  <span
+                    className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-white text-[9px] font-bold"
+                    style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
+                  >✓</span>
+                ) : isActive ? (
+                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#8B7AB8]" />
+                ) : null}
               </Link>
             </li>
           )

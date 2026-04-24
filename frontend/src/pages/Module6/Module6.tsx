@@ -44,7 +44,7 @@ function Module6() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -66,10 +66,10 @@ function Module6() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="animation-basics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎭 动画是生命的艺术表达
               </h2>
               
@@ -105,7 +105,7 @@ function Module6() {
 
             {/* 八大视频模型对比 */}
             <section id="video-model-comparison" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ⚖️ 八大视频模型横向评测
               </h2>
               <p className="text-gray-600 mb-6">2026 年主流视频生成模型对比，按场景选工具而非追热点。</p>
@@ -219,7 +219,7 @@ function Module6() {
 
             {/* 物理真实感动画 */}
             <section id="keyframes" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌍 物理真实感动画体系
               </h2>
 
@@ -289,7 +289,7 @@ function Module6() {
 
             {/* 情感动画表现 */}
             <section id="motion-guide" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ❤️ 情感动画表现体系
               </h2>
 
@@ -377,7 +377,7 @@ function Module6() {
 
             {/* 艺术化运动表达 */}
             <section id="rendering" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 艺术化运动表达体系
               </h2>
 
@@ -437,7 +437,7 @@ function Module6() {
 
             {/* 电影级节奏 */}
             <section id="video-export" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎬 电影级节奏控制
               </h2>
 
@@ -481,7 +481,7 @@ function Module6() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步生成流程
               </h2>
 
@@ -571,7 +571,7 @@ function Module6() {
             </section>
 
             <section id="animation-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 动画生成全流程教学
               </h2>
               <p className="text-gray-700 mb-6">

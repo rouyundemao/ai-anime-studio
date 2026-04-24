@@ -44,7 +44,7 @@ function Module5() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EF4444] to-[#B91C1C] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -66,10 +66,10 @@ function Module5() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="image-generation" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 画面是故事的视觉呈现
               </h2>
               
@@ -105,7 +105,7 @@ function Module5() {
 
             {/* 多模型对比选型 */}
             <section id="model-comparison" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ⚖️ 多模型对比选型指南
               </h2>
               <p className="text-gray-600 mb-6">不同模型各有所长。根据你的场景、预算、风格需求选择合适工具，而不是盲目追最贵或最热的。</p>
@@ -219,7 +219,7 @@ function Module5() {
 
             {/* 电影级构图 */}
             <section id="prompt-engineering" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📸 电影级构图体系
               </h2>
 
@@ -290,7 +290,7 @@ function Module5() {
 
             {/* 三层光影设计 */}
             <section id="lighting" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 💡 三层光影设计体系
               </h2>
 
@@ -352,7 +352,7 @@ function Module5() {
 
             {/* 电影级调色 */}
             <section id="composition" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 电影级调色体系
               </h2>
 
@@ -420,7 +420,7 @@ function Module5() {
 
             {/* 细节精度控制 */}
             <section id="style-transfer" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ✨ 细节精度控制系统
               </h2>
 
@@ -488,7 +488,7 @@ function Module5() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步生成流程
               </h2>
 
@@ -578,7 +578,7 @@ function Module5() {
             </section>
 
             <section id="image-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 电影级画面生成全流程教学
               </h2>
               <p className="text-gray-700 mb-6">

@@ -42,7 +42,7 @@ function Module4() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#10B981] to-[#047857] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -64,10 +64,10 @@ function Module4() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="world-building" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌐 世界是故事的土壤
               </h2>
               
@@ -93,7 +93,7 @@ function Module4() {
 
             {/* 地理生态设定 */}
             <section id="geography" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🏞️ 地理生态设定体系
               </h2>
 
@@ -174,7 +174,7 @@ function Module4() {
 
             {/* 文明文化体系 */}
             <section id="civilization" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🏛️ 文明文化体系
               </h2>
 
@@ -253,7 +253,7 @@ function Module4() {
 
             {/* 历史神话体系 */}
             <section id="history" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ⏳ 历史神话体系
               </h2>
 
@@ -320,7 +320,7 @@ function Module4() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步构建流程
               </h2>
 
@@ -410,7 +410,7 @@ function Module4() {
             </section>
 
             <section id="world-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 世界观构建全流程教学
               </h2>
               <p className="text-gray-700 mb-6">

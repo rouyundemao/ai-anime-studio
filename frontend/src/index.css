@@ -230,6 +230,179 @@ h2[id], h3[id] {
   }
 }
 
+/* ===========================
+   优雅滚动条
+   =========================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 122, 184, 0.28);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 122, 184, 0.55);
+}
+
+/* ===========================
+   模块文章 · 排版优化
+   =========================== */
+
+/* 文章内 p 段落 */
+.module-prose p {
+  line-height: 1.9;
+  color: #374151;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+/* 文章内 ul/ol */
+.module-prose ul li,
+.module-prose ol li {
+  line-height: 1.8;
+  margin-bottom: 0.35rem;
+  color: #374151;
+}
+
+/* 文章内 strong */
+.module-prose strong {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 文章区块引用 */
+.module-prose blockquote {
+  border-left: 3px solid #8B7AB8;
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  background: linear-gradient(135deg, #f9f7fe 0%, #fef9f9 100%);
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #4B5563;
+}
+
+/* ===========================
+   模块章节标题 · 排版优化
+   =========================== */
+
+/* 模块内 section h2 - 更精致的左竖线标题 */
+article section > h2 {
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+/* ===========================
+   对比表格 · 精致样式
+   =========================== */
+.comparison-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.comparison-table thead th {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.875rem 1rem;
+}
+
+.comparison-table tbody td {
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover td {
+  background-color: rgba(139, 122, 184, 0.04);
+}
+
+/* ===========================
+   Info 卡片 · 统一悬停效果
+   =========================== */
+
+/* 信息卡片的精致 hover */
+.info-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.info-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   检查清单 · 优化样式
+   =========================== */
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.6;
+}
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+/* ===========================
+   Prompt 标签 · 徽章优化
+   =========================== */
+.badge-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  background: linear-gradient(135deg, rgba(139,122,184,0.12) 0%, rgba(194,59,34,0.08) 100%);
+  border: 1px solid rgba(139, 122, 184, 0.25);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6B5FA0;
+  letter-spacing: 0.01em;
+}
+
+/* ===========================
+   阅读进度顶部指示条
+   =========================== */
+@keyframes readingProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ===========================
+   模块文章容器 · 更精致阴影
+   =========================== */
+.module-article-wrapper {
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 4px 16px rgba(0,0,0,0.06),
+    0 24px 48px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ===========================
+   分节线
+   =========================== */
+.section-divider {
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, #8B7AB8, #C23B22);
+  border-radius: 100px;
+  margin: 1.5rem 0;
+}
+
 /* 深色主题 */
 [data-theme="dark"] {
   --bg: #1a1a1a;
