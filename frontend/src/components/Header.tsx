@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
+import SearchBar from './SearchBar'
 
 const navItems = [
   { path: '/', label: '首页', icon: '🏠' },
@@ -58,6 +59,11 @@ function Header() {
                 </span>
               </Link>
             ))}
+            
+            {/* 搜索栏 */}
+            <div className="ml-2">
+              <SearchBar />
+            </div>
             
             {/* 主题切换按钮 */}
             <div className="ml-2">
