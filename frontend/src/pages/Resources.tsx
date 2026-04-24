@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useHashScroll } from '../hooks/useHashScroll'
 import BrandLogo from '../components/BrandLogo'
 
 const resourceCategories = [
@@ -98,6 +99,8 @@ const stats = [
 ]
 
 function Resources() {
+  useHashScroll()
+  
   return (
     <div className="space-y-10">
       {/* 页头 */}
@@ -106,6 +109,7 @@ function Resources() {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/08 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C2649C]/05 rounded-full blur-3xl pointer-events-none" />
 
+<<<<<<< HEAD
         <div className="relative z-10 px-4">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#8B7AB8]/25 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 shadow-sm">
             <BrandLogo size={18} showText={false} />
@@ -113,6 +117,55 @@ function Resources() {
             <span className="w-1 h-1 rounded-full bg-[#8B7AB8]/40" />
             <span className="text-[#8B7AB8]">2026 最新整理</span>
           </div>
+=======
+      {/* 资源分类网格 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {resourceCategories.map(category => (
+          <Link
+            key={category.id}
+            to={`/resources/${category.id}`}
+            data-hash={category.id}
+            className="card overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 group"
+          >
+            {/* 头部 */}
+            <div className={`bg-gradient-to-br ${category.color} p-6 text-white`}>
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {category.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+              <p className="text-sm opacity-90">{category.description}</p>
+            </div>
+            
+            {/* 内容 */}
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                  {category.count} 个资源
+                </span>
+                <span className="text-2xl group-hover:translate-x-2 transition-transform duration-300">
+                  →
+                </span>
+              </div>
+              
+              {/* 子项目列表 */}
+              <div className="space-y-2">
+                {category.items.slice(0, 3).map(item => (
+                  <div key={item} className="flex items-center text-gray-600 text-sm">
+                    <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                    {item}
+                  </div>
+                ))}
+                {category.items.length > 3 && (
+                  <div className="text-gray-500 text-sm">
+                    +{category.items.length - 3} 更多
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+>>>>>>> a7728e4 (修复：搜索跳转精准化 🎯)
 
           <h1 className="text-4xl md:text-5xl font-black mb-4 text-[#1F1A3D] tracking-tight">
             创作资源库

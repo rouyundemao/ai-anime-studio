@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useHashScroll } from '../hooks/useHashScroll'
 import BrandLogo from '../components/BrandLogo'
 
 interface Tool {
@@ -403,6 +404,7 @@ const tagColor = (tag: string) => {
 }
 
 function Tools() {
+<<<<<<< HEAD
   const [active, setActive] = useState('全部')
 
   const totalTools = useMemo(
@@ -413,6 +415,9 @@ function Tools() {
   const visibleCategories = active === '全部'
     ? toolCategories
     : toolCategories.filter(c => c.id === active)
+=======
+  useHashScroll()
+>>>>>>> a7728e4 (修复：搜索跳转精准化 🎯)
 
   return (
     <div className="space-y-10">
@@ -490,16 +495,35 @@ function Tools() {
               <div className="flex-1 h-px bg-gradient-to-r from-gray-200 to-transparent" />
             </div>
 
+<<<<<<< HEAD
             {/* 工具卡片网格 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {category.tools.map((tool, i) => (
+=======
+            {/* 工具卡片 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.tools.map((tool, toolIndex) => {
+                const toolId = tool.name.toLowerCase()
+                  .replace(/[^\w\s-]/g, '')
+                  .replace(/\s+/g, '-')
+                  .substring(0, 20)
+                
+                return (
+>>>>>>> a7728e4 (修复：搜索跳转精准化 🎯)
                 <a
                   key={i}
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
+<<<<<<< HEAD
                   className="group relative bg-white rounded-2xl border border-gray-100 p-5 hover:border-[#8B7AB8]/30 hover:shadow-lg transition-all duration-200"
                   style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04)' }}
+=======
+                  data-hash={toolId}
+                  className={`card hover:scale-105 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden ${
+                    tool.recommended ? 'border-2 border-accent-400' : ''
+                  }`}
+>>>>>>> a7728e4 (修复：搜索跳转精准化 🎯)
                 >
                   {/* ⭐ 强推标记 */}
                   {tool.star && (
@@ -534,7 +558,8 @@ function Tools() {
                     </span>
                   </div>
                 </a>
-              ))}
+                )
+              })}
             </div>
           </div>
         ))}
