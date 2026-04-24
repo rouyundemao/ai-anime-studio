@@ -5,6 +5,7 @@
 
 import React, { useMemo, useState, useCallback, useRef } from 'react'
 import { useCodeLayout } from '../hooks/useTextLayout'
+import CollectionButton from './CollectionButton'
 
 interface CodeBlockProps {
   code: string
@@ -96,34 +97,45 @@ function CodeBlock({
 
       {/* 代码块容器 */}
       <div className="relative rounded-xl" style={{ zIndex: 1 }}>
-        {/* 复制按钮 - 放在 overflow-hidden 外面 */}
-        <button
-          ref={buttonRef}
-          onClick={handleCopy}
-          className="absolute top-3 right-3 z-50 px-3 py-1.5 text-xs font-semibold rounded-lg
-            bg-blue-500 text-white hover:bg-blue-600
-            transition-all duration-300
-            flex items-center gap-1.5
-            shadow-md hover:shadow-lg"
-          aria-label={copied ? '已复制' : '复制代码'}
-          style={{ cursor: 'pointer' }}
-        >
-          {copied ? (
-            <>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>已复制</span>
-            </>
-          ) : (
-            <>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-              <span>复制</span>
-            </>
-          )}
-        </button>
+        {/* 操作按钮组 */}
+        <div className="absolute top-3 right-3 z-50 flex items-center gap-2">
+          {/* 收藏按钮 */}
+          <CollectionButton
+            id={`code_${title || Date.now()}`}
+            title={title || '代码片段'}
+            content={code}
+            type={language === 'prompt' ? 'prompt' : 'template'}
+          />
+          
+          {/* 复制按钮 */}
+          <button
+            ref={buttonRef}
+            onClick={handleCopy}
+            className="px-3 py-1.5 text-xs font-semibold rounded-lg
+              bg-blue-500 text-white hover:bg-blue-600
+              transition-all duration-300
+              flex items-center gap-1.5
+              shadow-md hover:shadow-lg"
+            aria-label={copied ? '已复制' : '复制代码'}
+            style={{ cursor: 'pointer' }}
+          >
+            {copied ? (
+              <>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>已复制</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <span>复制</span>
+              </>
+            )}
+          </button>
+        </div>
 
         {/* 代码内容 - 带渐变边框和光效 */}
         <div
