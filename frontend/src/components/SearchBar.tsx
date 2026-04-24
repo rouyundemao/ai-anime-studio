@@ -90,7 +90,10 @@ function SearchBar() {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-500 dark:text-gray-400">搜索历史</span>
                 <button
-                  onClick={clearHistory}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    clearHistory()
+                  }}
                   className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
                   清除
