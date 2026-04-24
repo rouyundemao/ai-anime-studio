@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHashScroll } from '../hooks/useHashScroll'
+import BrandLogo from '../components/BrandLogo'
 
 // 工具网站数据
 const toolWebsites = [
@@ -387,26 +388,69 @@ const toolWebsites = [
 
 function Tools() {
   useHashScroll()
+  const allCategories = useMemo(() => ['全部', ...toolWebsites.map(c => c.category)], [])
+  const [active, setActive] = useState('全部')
+
+  const totalTools = useMemo(
+    () => toolWebsites.reduce((acc, c) => acc + c.tools.length, 0),
+    []
+  )
+  const visibleCategories = active === '全部'
+    ? toolWebsites
+    : toolWebsites.filter(c => c.category === active)
 
   return (
-    <div className="space-y-12">
-      {/* 页面标题 */}
-      <div className="text-center py-12 bg-gradient-to-br from-primary-50 via-white to-accent-50 rounded-3xl">
-        <div className="inline-block bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-lg">
-          🛠️ 实用工具网站精选
+    <div className="space-y-10">
+      {/* 页头 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">工具评测 · Tool Stack</span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            {totalTools}+ AI 创作工具 · 按场景选型
+          </h1>
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            不按品牌、不按热度，只按<strong className="text-gray-800">"你要做什么"</strong>推荐工具。<br className="hidden md:block" />
+            <span className="text-gray-500">2026 年 4 月最新版本 · 持续更新评测与替代方案。</span>
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎨 图片生成</span>
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎬 视频生成</span>
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎭 数字人</span>
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">📝 提示词</span>
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎵 音频</span>
+            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">📹 剪辑</span>
+          </div>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          一键直达，高效创作
-        </h1>
-        <p className="text-xl text-gray-600 mx-auto">
-          精选顶级创作工具网站，点击即可访问<br />
-          <span className="text-gray-500">AI 生成 · 提示词 · 翻译 · 设计 · 音频视频 · 学习资源</span>
-        </p>
+      </section>
+
+      {/* 分类筛选 */}
+      <div className="flex flex-wrap gap-2 justify-center">
+        {allCategories.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setActive(cat)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              active === cat
+                ? 'bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white shadow-lg scale-105'
+                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
       </div>
 
       {/* 工具分类列表 */}
       <div className="space-y-12">
-        {toolWebsites.map((category, categoryIndex) => (
+        {visibleCategories.map((category, categoryIndex) => (
           <div key={categoryIndex}>
             {/* 分类标题 */}
             <div className="flex items-center gap-3 mb-6">
@@ -481,27 +525,45 @@ function Tools() {
         ))}
       </div>
 
-      {/* 使用说明 */}
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">💡 使用提示</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
-          <div className="bg-white p-6 rounded-xl shadow-lg">
-            <div className="text-3xl mb-3">🔗</div>
-            <h3 className="font-bold mb-2">点击访问</h3>
-            <p className="text-gray-600 text-sm">点击工具卡片即可访问对应网站</p>
+      {/* 选型决策指引 */}
+      <section className="bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB] rounded-3xl p-8 border border-gray-100">
+        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-gray-800">🧭 工具选型决策指引</h2>
+        <p className="text-center text-gray-500 mb-8">不要盲目追求"最强"，按你的场景和预算来选</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B7AB8] to-[#5B4B89] flex items-center justify-center text-2xl text-white mb-4">💰</div>
+            <h3 className="font-bold text-gray-800 mb-2">按预算</h3>
+            <ul className="space-y-1 text-sm text-gray-600">
+              <li>· 0 元：即梦 / 通义 / Kling 免费额度</li>
+              <li>· 个人：Midjourney $10 / 月起</li>
+              <li>· 团队：Runway / Sora 企业版</li>
+            </ul>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-lg">
-            <div className="text-3xl mb-3">⭐</div>
-            <h3 className="font-bold mb-2">优先推荐</h3>
-            <p className="text-gray-600 text-sm">带⭐标记的是雾推荐的工具</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C2649C] to-[#8B3A6E] flex items-center justify-center text-2xl text-white mb-4">🌏</div>
+            <h3 className="font-bold text-gray-800 mb-2">按语言</h3>
+            <ul className="space-y-1 text-sm text-gray-600">
+              <li>· 中文优先：即梦、通义万相、Kling</li>
+              <li>· 英文原生：Midjourney、Flux、Sora</li>
+              <li>· 双语友好：海螺、Seedance</li>
+            </ul>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-lg">
-            <div className="text-3xl mb-3">📑</div>
-            <h3 className="font-bold mb-2">标签筛选</h3>
-            <p className="text-gray-600 text-sm">根据标签快速找到合适的工具</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C23B22] to-[#8A1F0E] flex items-center justify-center text-2xl text-white mb-4">🎯</div>
+            <h3 className="font-bold text-gray-800 mb-2">按场景</h3>
+            <ul className="space-y-1 text-sm text-gray-600">
+              <li>· 角色一致性：ComfyUI + IP-Adapter</li>
+              <li>· 电影级视频：Sora / Veo / Kling 高阶</li>
+              <li>· 快速出稿：即梦 / Midjourney</li>
+            </ul>
           </div>
         </div>
-      </div>
+        <div className="mt-6 text-center">
+          <Link to="/prompt-library" className="inline-flex items-center gap-2 text-[#8B7AB8] font-semibold hover:text-[#C23B22] transition-colors">
+            下一步：浏览 250+ 通用 Prompt →
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

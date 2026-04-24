@@ -45,15 +45,24 @@ function Module5() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              🖼️ 顶级画面生成
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EF4444] to-[#B91C1C] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 05
+              </span>
+              <span className="text-[#EF4444] text-sm font-semibold">🖼️ 画面生成 · Image Generation</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              电影级画面生成
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              多模型画面生成实战
             </h1>
-            <p className="text-xl text-gray-600">
-              电影级画面构建，三层光影设计，细节精度控制
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              Midjourney V7 · 即梦 4.5 · 通义万相 3 · SD 3 · Flux · ComfyUI 横向对比。不止教单个工具，而是在不同场景（概念图 / 关键帧 / 批量出图）下的组合使用策略。
             </p>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 极致追求（5–8 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 电影级出图稳定</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：关键帧画面集</span>
+            </div>
           </header>
 
           <div className="prose prose-lg max-w-none">

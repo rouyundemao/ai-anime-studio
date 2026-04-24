@@ -29,6 +29,6 @@ app.get('/api/health', (req, res) => {
 
 // 启动服务器
 app.listen(PORT, () => {
-  console.log(`🚀 AI 动漫工作室后端服务运行在 http://localhost:${PORT}`)
-  console.log(`📚 API 文档: http://localhost:${PORT}/api/health`)
+  console.log(`🌙 轻语绘梦 · QingyuDreams 后端服务运行在 http://localhost:${PORT}`)
+  console.log(`📚 健康检查: http://localhost:${PORT}/api/health`)
 })

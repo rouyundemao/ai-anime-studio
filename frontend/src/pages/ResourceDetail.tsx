@@ -102,7 +102,7 @@ python "C:/Users/32346/.openclaw/workspace/skills/doubao-tts/scripts/tts_synthes
         cases: [
           {
             title: '语音生成示例',
-            prompt: '生成一段温柔的问候语：你好，欢迎来到 AI 幻梦工作室，我是雾，很高兴认识你！',
+            prompt: '生成一段温柔的问候语：你好，欢迎来到轻语绘梦，让我们一起把灵感绘成梦境。',
             params: '音色：zh_female_vv_uranus_bigtts | 格式：ogg_opus | 采样率：24000'
           }
         ],

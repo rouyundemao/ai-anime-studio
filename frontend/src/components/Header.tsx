@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import SearchBar from './SearchBar'
+import BrandLogo from './BrandLogo'
 
 const navItems = [
   { path: '/', label: '首页', icon: '🏠' },
-  { path: '/tutorials', label: '教程', icon: '📚' },
+  { path: '/tutorials', label: '课程体系', icon: '📚' },
   { path: '/prompt-library', label: 'Prompt 库', icon: '✨' },
-  { path: '/resources', label: '资源', icon: '📦' },
-  { path: '/tools', label: '工具', icon: '🛠️' },
-  { path: '/workflow', label: '工作流', icon: '📊' },
+  { path: '/resources', label: '资源中心', icon: '📦' },
+  { path: '/tools', label: '工具评测', icon: '🛠️' },
+  { path: '/workflow', label: '生产流程', icon: '📊' },
 ]
 
 function Header() {
@@ -28,16 +29,15 @@ function Header() {
       <div className="px-4 md:px-8 py-3 md:py-4">
         <nav className="flex items-center justify-between max-w-[1800px] mx-auto">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity"
+          <Link
+            to="/"
+            className="flex items-center hover:opacity-80 transition-opacity"
             onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="轻语绘梦 首页"
           >
-            <div className="h-8 md:h-10 w-8 md:w-10 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-sm md:text-base">
-              AI
-            </div>
-            <span className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-              AI 幻梦工作室
+            <BrandLogo size={40} />
+            <span className="hidden sm:inline ml-2 text-xs text-gray-400 dark:text-gray-500 font-medium tracking-widest uppercase">
+              QingyuDreams
             </span>
           </Link>
           

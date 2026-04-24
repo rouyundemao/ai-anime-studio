@@ -45,22 +45,23 @@ function Module3() {
         <main className="flex-1 min-w-0 xl:mx-60">
           <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
           <header className="mb-12 border-b border-gray-200 pb-8">
-            <div className="inline-block bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              👤 角色设计体系
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                MODULE 03
+              </span>
+              <span className="text-[#3B82F6] text-sm font-semibold">👤 角色设计 · Character Design</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              角色设计体系
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+              可商用的角色一致性方案
             </h1>
-            <p className="text-xl text-gray-600">
-              精致五官美学，发型服装设计，风格统一性控制
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              彻底解决"角色脸会变"的痛点。三视图 / 表情集 / 服装集制作流程 + Lora、IP-Adapter、Reference、ControlNet 四种一致性技术路线取舍。
             </p>
-            <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                ⏳ 精细打磨
-              </span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                📚 专业级内容
-              </span>
+            <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 精细打磨（4–6 小时）</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 角色一致性稳定</span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：角色资产包</span>
             </div>
           </header>
 

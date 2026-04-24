@@ -336,10 +336,26 @@ function Workflow() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-primary-600 to-primary-800 py-12 text-white">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">🎬 AI 动漫制作六步标准化流程</h1>
-          <p className="text-xl opacity-90">2026 年最新行业标准 · 专业级制作流程</p>
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#8B7AB8] via-[#C2649C] to-[#C23B22] py-14 md:py-16 text-white">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        <div className="relative container mx-auto px-4">
+          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 tracking-wider">
+            📊 PRODUCTION WORKFLOW · 2026
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            六步标准化生产流程
+          </h1>
+          <p className="text-base md:text-xl opacity-95 max-w-3xl leading-relaxed">
+            把"做一部 AI 动漫"拆成可执行的六个阶段，每一步都有<strong className="text-white">清晰目标、产出物、工具链和检查清单</strong>。<br className="hidden md:block" />
+            团队协作、个人出片、IP 批量生产都能套用。
+          </p>
+          <div className="flex flex-wrap gap-3 mt-6 text-sm">
+            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 团队可复用</span>
+            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 产出物清晰</span>
+            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 可量化追踪</span>
+            <span className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25">✓ 支持跳章执行</span>
+          </div>
         </div>
       </div>
 
