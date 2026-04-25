@@ -1,5 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
+import BrandLogo from '../components/BrandLogo'
+import { NavIcon } from '../components/NavIcons'
 
 // 资源详情数据 - 完整 7 大分类（2026 年 4 月最新版）
 const resourceDetails: Record<string, any> = {
@@ -1723,19 +1725,34 @@ function ResourceDetail() {
 
   return (
     <div className="space-y-12">
-      {/* 分类头部 */}
-      <div className={`text-center py-12 bg-gradient-to-br ${category.color} text-white rounded-3xl`}>
-        <div className="text-6xl mb-4">{category.icon}</div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{category.title}</h1>
-        <p className="text-xl opacity-90">{category.description}</p>
-      </div>
+      {/* 分类头部 - 统一品牌风格 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">资源中心 · Resources</span>
+          </div>
+
+          <div className="text-6xl mb-4">{category.icon}</div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            {category.title}
+          </h1>
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {category.description}<br className="hidden md:block" />
+            <span className="text-gray-500">每条资源都附带使用指南、参数配置、成品案例。</span>
+          </p>
+        </div>
+      </section>
 
       {/* 资源列表 */}
       <div className="space-y-8">
         {category.resources.map((resource: any, index: number) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            {/* 资源头部 */}
-            <div className={`bg-gradient-to-r ${category.color} p-6 text-white`}>
+          <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+            {/* 资源头部 - 统一品牌色 */}
+            <div className="bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] p-6 text-white">
               <h2 className="text-2xl font-bold mb-2">{resource.name}</h2>
               <p className="opacity-90">{resource.subtitle}</p>
             </div>
@@ -1763,8 +1780,10 @@ function ResourceDetail() {
               {/* 使用方法 */}
               {resource.usage && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">🔧 使用方法</h3>
-                  <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre">
+                  <h3 className="text-lg font-bold mb-3 text-gray-800 flex items-center gap-2">
+                    <NavIcon type="tools" size={20} /> 使用方法
+                  </h3>
+                  <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-green-400 p-5 rounded-xl font-mono text-sm overflow-x-auto whitespace-pre border border-gray-700 shadow-inner">
                     {resource.usage}
                   </div>
                 </div>
@@ -1773,18 +1792,23 @@ function ResourceDetail() {
               {/* 实战案例 */}
               {resource.cases && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">🎯 实战案例</h3>
+                  <h3 className="text-lg font-bold mb-3 text-gray-800 flex items-center gap-2">
+                    <NavIcon type="target" size={20} /> 实战案例
+                  </h3>
                   <div className="space-y-4">
                     {resource.cases.map((caseItem: any, i: number) => (
-                      <div key={i} className="bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 border-accent-500">
-                        <h4 className="font-bold text-gray-800 mb-2">{caseItem.title}</h4>
+                      <div key={i} className="bg-gradient-to-r from-primary-50 to-accent-50 p-5 rounded-xl border-l-4 border-[#8B7AB8]">
+                        <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                          <span className="w-2 h-2 bg-[#8B7AB8] rounded-full"></span>
+                          {caseItem.title}
+                        </h4>
                         <div className="mb-2">
                           <span className="text-sm font-semibold text-gray-600">提示词：</span>
-                          <p className="text-gray-700 text-sm">{caseItem.prompt}</p>
+                          <p className="text-gray-700 text-sm mt-1 p-3 bg-white rounded-lg border border-gray-200">{caseItem.prompt}</p>
                         </div>
                         <div>
                           <span className="text-sm font-semibold text-gray-600">参数：</span>
-                          <span className="text-gray-700 text-sm">{caseItem.params}</span>
+                          <span className="text-gray-700 text-sm ml-2 bg-white px-3 py-1 rounded-full border border-gray-200">{caseItem.params}</span>
                         </div>
                       </div>
                     ))}
@@ -1795,27 +1819,39 @@ function ResourceDetail() {
               {/* 使用技巧 */}
               {resource.tips && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">💡 使用技巧</h3>
-                  <ul className="space-y-2">
-                    {resource.tips.map((tip: string, i: number) => (
-                      <li key={i} className="flex items-start text-gray-700">
-                        <span className="text-accent-600 mr-2 mt-1">•</span>
-                        <span>{tip}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="text-lg font-bold mb-3 text-gray-800 flex items-center gap-2">
+                    <NavIcon type="sparkles" size={20} /> 使用技巧
+                  </h3>
+                  <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-5 rounded-xl border border-yellow-200">
+                    <ul className="space-y-2">
+                      {resource.tips.map((tip: string, i: number) => (
+                        <li key={i} className="flex items-start text-gray-700">
+                          <span className="text-[#8B7AB8] mr-2 mt-1 font-bold">✦</span>
+                          <span>{tip}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               )}
 
               {/* 常见问题 */}
               {resource.faq && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">❓ 常见问题</h3>
-                  <div className="space-y-4">
+                  <h3 className="text-lg font-bold mb-3 text-gray-800 flex items-center gap-2">
+                    <NavIcon type="book" size={20} /> 常见问题
+                  </h3>
+                  <div className="space-y-3">
                     {resource.faq.map((item: any, i: number) => (
-                      <div key={i} className="bg-gray-50 p-4 rounded-lg">
-                        <p className="font-semibold text-gray-800 mb-2">Q: {item.q}</p>
-                        <p className="text-gray-700 text-sm">A: {item.a}</p>
+                      <div key={i} className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <p className="font-semibold text-gray-800 mb-2 flex items-start gap-2">
+                          <span className="bg-[#8B7AB8] text-white px-2 py-0.5 rounded text-xs font-bold">Q</span>
+                          {item.q}
+                        </p>
+                        <p className="text-gray-700 text-sm flex items-start gap-2">
+                          <span className="bg-[#C23B22] text-white px-2 py-0.5 rounded text-xs font-bold">A</span>
+                          {item.a}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -1825,8 +1861,10 @@ function ResourceDetail() {
               {/* 更新日志 */}
               {resource.updates && (
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">📅 最新更新</h3>
-                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h3 className="text-lg font-bold mb-3 text-gray-800 flex items-center gap-2">
+                    <NavIcon type="pencil" size={20} /> 最新更新
+                  </h3>
+                  <div className="bg-gradient-to-r from-primary-50 to-accent-50 p-4 rounded-xl border border-primary-200">
                     <p className="text-gray-700 text-sm">{resource.updates}</p>
                   </div>
                 </div>
@@ -1840,9 +1878,10 @@ function ResourceDetail() {
       <div className="text-center">
         <Link
           to="/resources"
-          className="inline-block bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] hover:from-[#7B6AA8] hover:to-[#B22B12] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
         >
-          ← 返回资源库
+          <NavIcon type="target" size={20} />
+          返回资源库
         </Link>
       </div>
     </div>
