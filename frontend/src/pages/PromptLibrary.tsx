@@ -772,15 +772,23 @@ function PromptLibrary() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* 页面头部 */}
-      <div className="bg-gradient-to-r from-[#6B5FA0] via-[#8B7AB8] to-[#C2649C] text-white py-16 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="mr-3">✨</span>
+      {/* 页面头部 - 统一品牌风格 */}
+      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+
+        <div className="relative z-10 px-4">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <BrandLogo size={22} showText={false} />
+            <span className="text-gray-700">提示词库 · Prompt Library</span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
             AI 动漫 Prompt 库
           </h1>
-          <p className="text-xl text-blue-100 mb-8">
-            覆盖 13 个创作维度，{prompts.length} 个高质量 Prompt，一键复制，即拿即用
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            覆盖<span className="text-gray-700">13 个创作维度，{prompts.length} 个高质量 Prompt</span>，<br className="hidden md:block" />
+            <span className="text-gray-500">一键复制，即拿即用，让创作更高效。</span>
           </p>
 
           {/* 搜索框 */}
@@ -803,7 +811,7 @@ function PromptLibrary() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 分类筛选 */}
       <div className="max-w-6xl mx-auto px-4 py-8">
