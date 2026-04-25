@@ -225,8 +225,8 @@ export const SideNavigation = ({ currentId }: SideNavigationProps) => {
                   }}
                 />
 
-                <span className={`text-sm flex-shrink-0 transition-opacity ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-90'}`}>
-                  {module.icon}
+                <span className={`flex-shrink-0 transition-opacity ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-90'}`}>
+                  <NavIcon type={module.icon} size={20} />
                 </span>
 
                 <div className="flex-1 min-w-0">
