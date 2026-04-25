@@ -2,511 +2,536 @@ import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import BrandLogo from '../components/BrandLogo'
 
-// 工具网站数据
-const toolWebsites = [
+interface Tool {
+  name: string
+  url: string
+  description: string
+  tags: string[]
+  star?: boolean   // 强烈推荐
+  free?: boolean   // 有免费额度
+}
+
+interface Category {
+  id: string
+  label: string
+  icon: string
+  tools: Tool[]
+}
+
+const toolCategories: Category[] = [
+  // ─── 1. AI 图片生成 ──────────────────────────────
   {
-    category: '🎨 AI 图片生成（2026最新）',
+    id: 'image',
+    label: 'AI 图片生成',
+    icon: '🎨',
     tools: [
       {
-        name: '即梦 AI (Seedream 4.5)',
+        name: '即梦 AI · Seedream 4.5',
         url: 'https://jimeng.jianying.com/',
-        description: '字节跳动顶级图片生成，4K超高清，中文提示词理解优秀，特别适合东方美学风格',
-        tags: ['国产', '免费', '4K'],
-        recommended: true
+        description: '字节跳动出品，4K 超高清，中文提示词理解一流，东方美学与国风角色首选，附带 Seedance 视频生成。',
+        tags: ['国产', '动漫优化', '4K'],
+        star: true, free: true
       },
       {
         name: '通义万相 3.0',
-        url: 'https://wanxiang.aliyun.com/',
-        description: '阿里云东方风格优化，特别适合水墨效果和古风创作，长文本理解能力强',
-        tags: ['国产', '免费', '东方风格'],
-        recommended: true
+        url: 'https://tongyi.aliyun.com/wanxiang/',
+        description: '阿里云出品，水墨画与古风效果顶级，长文本理解强，免费额度充足，适合东方意境创作。',
+        tags: ['国产', '水墨/古风', '免费'],
+        star: true, free: true
       },
       {
-        name: 'Nano Banana',
-        url: 'https://aistudio.google.com/',
-        description: 'Google Gemini 2.5 Pro Image，付费版最强，多轮编辑后保持高度一致性，支持自然语言指令',
-        tags: ['国际', '付费', '最强图片'],
-        recommended: true
-      },
-      {
-        name: 'Midjourney',
+        name: 'Midjourney V7',
         url: 'https://www.midjourney.com/',
-        description: '国际顶级艺术风格AI，创意生成能力强，V7版本支持4K高清，适合高端商业创作',
-        tags: ['国际', '付费', '艺术风格'],
-        recommended: true
+        description: '国际顶级艺术风格 AI，V7 版本支持 4K、角色参考图（--cref）和风格参考（--sref），商业级品质。',
+        tags: ['国际', '艺术风格', '付费'],
+        star: true, free: false
       },
       {
-        name: 'Stable Diffusion 3.0',
+        name: 'NijiJourney V6',
+        url: 'https://nijijourney.com/',
+        description: 'Midjourney 旗下专业二次元工具，动漫插画风格无出其右，角色设计与场景创作首选。',
+        tags: ['动漫', '二次元', '付费'],
+        star: true, free: false
+      },
+      {
+        name: 'Stable Diffusion + Flux',
         url: 'https://stability.ai/',
-        description: '开源免费，可本地部署，SDXL/SD 3.0模型，ControlNet/IP-Adapter专业控制',
-        tags: ['开源', '免费', '本地部署'],
-        recommended: true
+        description: '开源免费本地部署，Flux.1 模型画质比肩商业级，ControlNet / IP-Adapter 精准控制，LoRA 训练必备。',
+        tags: ['开源', '本地部署', '免费'],
+        star: true, free: true
       },
       {
         name: 'Civitai',
         url: 'https://civitai.com/',
-        description: '全球最大的SD模型社区，海量高质量模型可下载，社区活跃（1000万+月活）',
-        tags: ['模型库', '免费', '社区'],
-        recommended: true
+        description: '全球最大 SD/Flux 模型社区，1000 万月活，海量动漫 LoRA / Checkpoint 免费下载。',
+        tags: ['模型社区', '动漫模型', '免费'],
+        star: true, free: true
       },
       {
-        name: 'NijiJourney',
-        url: 'https://docs.nijijourney.com/',
-        description: 'Midjourney 旗下专业动漫风格工具，二次元创作首选',
-        tags: ['动漫', '付费', '二次元'],
-        recommended: false
+        name: 'Google Imagen 3',
+        url: 'https://aistudio.google.com/',
+        description: 'Google 最新图片生成模型，通过 AI Studio 免费调用，细节丰富，多轮编辑一致性高。',
+        tags: ['国际', '免费API', '高细节'],
+        star: false, free: true
       },
-      {
-        name: 'Draw Things',
-        url: 'https://drawthings.ai/',
-        description: 'iOS/iPadOS 本地部署工具，隐私安全，适合接NDA保密项目',
-        tags: ['本地', '免费', '隐私'],
-        recommended: false
-      }
     ]
   },
+  // ─── 2. AI 视频生成 ──────────────────────────────
   {
-    category: '🎬 AI 视频生成（2026最新）',
+    id: 'video',
+    label: 'AI 视频生成',
+    icon: '🎬',
     tools: [
       {
-        name: 'Seedance 2.0',
+        name: 'Seedance 2.0（即梦）',
         url: 'https://jimeng.jianying.com/',
-        description: '字节跳动顶级视频生成模型，支持12项多模态输入，15秒视频，原生音频，2K画质，可用产 出率90%+',
-        tags: ['国产', '付费', '最强视频'],
-        recommended: true
+        description: '字节跳动旗舰视频模型，支持 12 项多模态输入，15 秒 2K 输出，原生音轨，可用产出率 90%+。',
+        tags: ['国产', '2K/音轨', '多模态'],
+        star: true, free: true
       },
       {
         name: 'Kling 3.0',
         url: 'https://kling.kuaishou.com/',
-        description: '快手顶级视频生成，2K/4K超高清输出，物理真实感强，多镜头叙事（6镜头），AI导演系统',
-        tags: ['国产', '免费', '4K画质'],
-        recommended: true
-      },
-      {
-        name: 'Veo 3.1',
-        url: 'https://flow.google.com/',
-        description: 'Google 旗舰视频生成模型，4K原生画质，原生音画同步，镜头语言丰富，集成 Gemini API',
-        tags: ['国际', '付费', '电影级'],
-        recommended: true
+        description: '快手出品，4K 超高清，物理真实感强，AI 导演系统支持多镜头叙事，免费额度每日刷新。',
+        tags: ['国产', '4K', '物理模拟'],
+        star: true, free: true
       },
       {
         name: 'Wan 2.7',
         url: 'https://wan.ai/',
-        description: '免费工具中逼真度最高（9.8/10），动态逻辑与物理模拟最强，适合专业B-roll素材',
-        tags: ['免费', '高逼真度', '物理模拟'],
-        recommended: true
+        description: '开源免费视频模型，逼真度测评最高（9.8/10），动态逻辑与物理模拟强，专业 B-roll 首选。',
+        tags: ['开源', '免费', '高逼真'],
+        star: true, free: true
       },
       {
-        name: 'Runway Gen-4 Turbo',
+        name: 'Veo 3',
+        url: 'https://deepmind.google/technologies/veo/',
+        description: 'Google DeepMind 旗舰，4K 原生，原生音画同步，镜头语言最丰富，集成 Gemini API。',
+        tags: ['国际', '4K/音频', '电影级'],
+        star: true, free: false
+      },
+      {
+        name: 'Runway Gen-4',
         url: 'https://runwayml.com/',
-        description: '国际顶级视频生成和编辑工具，精准操控，主体一致性突破，125积分新用户免费',
-        tags: ['国际', '付费', '专业级'],
-        recommended: true
+        description: '国际顶级视频编辑与生成工具，主体一致性突破，精准运镜控制，125 积分新用户免费。',
+        tags: ['国际', '专业级', '运镜控制'],
+        star: true, free: true
+      },
+      {
+        name: '海螺 AI（MiniMax）',
+        url: 'https://hailuoai.com/',
+        description: 'MiniMax 出品，中文理解强，生成速度快，300 积分新用户免费，适合快速出片。',
+        tags: ['国产', '速度快', '免费额度'],
+        star: false, free: true
       },
       {
         name: 'Vidu 2.0',
         url: 'https://www.vidu.cn/',
-        description: '生数科技视频生成工具，中国风元素支持佳，3D空间深度强，推拉镜头优秀',
-        tags: ['国产', '免费', '国风'],
-        recommended: true
+        description: '生数科技出品，中国风元素支持出色，3D 空间深度强，推拉镜头自然，免费可用。',
+        tags: ['国产', '国风', '3D运镜'],
+        star: false, free: true
       },
-      {
-        name: '海螺 AI 2.3',
-        url: 'https://hailuoai.com/',
-        description: 'MiniMax 视频生成工具，中文理解能力强，生成速度快，300积分新用户免费',
-        tags: ['国产', '免费', '中文优化'],
-        recommended: true
-      },
-      {
-        name: 'PixVerse',
-        url: 'https://pixverse.ai/',
-        description: '免费工具中面部映射和口型同步表现优秀，60积分/天，适合对口型视频',
-        tags: ['免费', '口型同步', '面部映射'],
-        recommended: false
-      }
     ]
   },
+  // ─── 3. AI 写作 & 剧本 ──────────────────────────
   {
-    category: '🎭 数字人 AI（2026新热门）',
+    id: 'writing',
+    label: 'AI 写作 & 剧本',
+    icon: '✍️',
     tools: [
       {
-        name: '悟空AI',
+        name: 'DeepSeek R2',
+        url: 'https://chat.deepseek.com/',
+        description: '国内综合能力最强的开源大模型，深度推理与长文本创作一流，剧本/大纲/世界观构建首选，完全免费。',
+        tags: ['国产', '推理最强', '免费'],
+        star: true, free: true
+      },
+      {
+        name: 'Claude Sonnet 4',
+        url: 'https://claude.ai/',
+        description: 'Anthropic 出品，创意写作与叙事能力国际顶级，角色心理刻画细腻，长文档一致性强。',
+        tags: ['国际', '创意写作', '付费'],
+        star: true, free: true
+      },
+      {
+        name: 'ChatGPT-4o',
+        url: 'https://chat.openai.com/',
+        description: 'OpenAI 旗舰多模态模型，支持图文混合输入，分镜描述与对白创作能力强。',
+        tags: ['国际', '多模态', '付费'],
+        star: true, free: true
+      },
+      {
+        name: '豆包（Doubao）',
+        url: 'https://www.doubao.com/',
+        description: '字节跳动全能 AI 助手，中文创作自然流畅，一键生成小红书文案、短视频脚本，完全免费。',
+        tags: ['国产', '中文优化', '免费'],
+        star: true, free: true
+      },
+      {
+        name: '通义千问 Max',
+        url: 'https://tongyi.aliyun.com/',
+        description: '阿里云出品，国风叙事与东方美学描写出色，适合古风剧本与世界观设定，免费使用。',
+        tags: ['国产', '古风叙事', '免费'],
+        star: false, free: true
+      },
+    ]
+  },
+  // ─── 4. AI 音乐 & 配乐 ──────────────────────────
+  {
+    id: 'music',
+    label: 'AI 音乐 & 配乐',
+    icon: '🎵',
+    tools: [
+      {
+        name: 'Suno AI v4',
+        url: 'https://suno.com/',
+        description: '全球最强 AI 音乐生成，2 分钟完整曲目，支持歌词、风格、情绪精准控制，每日 50 首免费。',
+        tags: ['国际', '完整曲目', '免费额度'],
+        star: true, free: true
+      },
+      {
+        name: 'Udio',
+        url: 'https://www.udio.com/',
+        description: '音质最接近人工制作的 AI 音乐工具，支持分段扩展，适合长篇动漫 OST 制作。',
+        tags: ['国际', 'OST', '高音质'],
+        star: true, free: true
+      },
+      {
+        name: '天工音乐（昆仑万维）',
+        url: 'https://music.tiangong.cn/',
+        description: '国产最强 AI 音乐，中文歌词理解一流，古风/国风/流行全风格覆盖，免费生成。',
+        tags: ['国产', '中文歌词', '免费'],
+        star: true, free: true
+      },
+      {
+        name: '网易天音',
+        url: 'https://tianyin.music.163.com/',
+        description: '网易出品，辅助作曲工具，支持哼唱转曲、旋律续写，适合有音乐基础的创作者。',
+        tags: ['国产', '辅助作曲', '免费'],
+        star: false, free: true
+      },
+      {
+        name: 'Stable Audio 2.0',
+        url: 'https://stableaudio.com/',
+        description: 'Stability AI 音频模型，专注高保真环境音效与背景乐，最长 3 分钟，每月 20 首免费。',
+        tags: ['国际', '环境音效', '免费额度'],
+        star: false, free: true
+      },
+    ]
+  },
+  // ─── 5. AI 配音 & TTS ───────────────────────────
+  {
+    id: 'tts',
+    label: 'AI 配音 & TTS',
+    icon: '🎙️',
+    tools: [
+      {
+        name: '豆包 TTS 2.0（Vivi）',
+        url: 'https://www.volcengine.com/product/speech',
+        description: '火山引擎语音合成，Vivi 2.0 音色情绪饱满，支持多角色切换，动漫配音最自然，API 价格低。',
+        tags: ['国产', '情绪控制', 'API'],
+        star: true, free: true
+      },
+      {
+        name: 'ElevenLabs',
+        url: 'https://elevenlabs.io/',
+        description: '国际顶级声音克隆与配音平台，3 秒音频即可克隆声线，英文配音效果无出其右。',
+        tags: ['国际', '声音克隆', '付费'],
+        star: true, free: true
+      },
+      {
+        name: 'Fish Audio',
+        url: 'https://fish.audio/',
+        description: '开源声音克隆工具，中英文效果俱佳，海量免费音色模型可直接使用，支持 API 调用。',
+        tags: ['开源', '中英双语', '免费'],
+        star: true, free: true
+      },
+      {
+        name: '剪映 AI 配音',
+        url: 'https://www.capcut.cn/',
+        description: '剪映内置 AI 配音功能，数百种音色，情绪调节简单直观，适合不懂 API 的创作者。',
+        tags: ['国产', '零门槛', '免费'],
+        star: false, free: true
+      },
+    ]
+  },
+  // ─── 6. 数字人 ──────────────────────────────────
+  {
+    id: 'avatar',
+    label: '数字人',
+    icon: '🧑‍💻',
+    tools: [
+      {
+        name: '悟空 AI',
         url: 'https://wukongai.com/',
-        description: '字节跳动与香港大学联合研发，超写实数字人视频生成，解决闪烁断层问题，直接对接电商场景',
-        tags: ['国产', '电商', '数字人'],
-        recommended: true
+        description: '字节跳动 × 港大联研，超写实数字人视频，解决闪烁断层，直接对接电商带货场景。',
+        tags: ['国产', '超写实', '电商'],
+        star: true, free: false
       },
       {
         name: '即梦数字人',
         url: 'https://jimeng.jianying.com/',
-        description: '即梦AI内置数字人功能，输入产品图和文案即可生成带货素材',
-        tags: ['国产', '带货', '短视频'],
-        recommended: true
+        description: '即梦 AI 内置数字人模块，输入产品图 + 文案即可生成带货视频，零门槛入手。',
+        tags: ['国产', '带货', '零门槛'],
+        star: true, free: true
       },
       {
         name: 'HeyGen',
         url: 'https://heygen.com/',
-        description: '国际顶级数字人平台，支持100+语言，口型同步优秀',
-        tags: ['国际', '付费', '多语言'],
-        recommended: true
+        description: '国际顶级数字人平台，100+ 语言，口型同步业界最佳，适合国际化内容制作。',
+        tags: ['国际', '多语言', '口型同步'],
+        star: true, free: true
       },
-      {
-        name: 'D-ID',
-        url: 'https://www.d-id.com/',
-        description: '专业数字人视频生成，支持照片说话，适合营销视频',
-        tags: ['国际', '付费', '营销'],
-        recommended: false
-      }
     ]
   },
+  // ─── 7. 提示词工具 ──────────────────────────────
   {
-    category: '📝 提示词工具',
+    id: 'prompt',
+    label: '提示词工具',
+    icon: '📝',
     tools: [
       {
         name: 'MyPrompt 提示词库',
         url: 'https://myprompt.cc/zh',
-        description: 'AI 图片与视频提示词大全，支持 Midjourney、Stable Diffusion、DALL·E、Nano Banana Pro，海量优质提示词',
-        tags: ['中文', '免费', '图库'],
-        recommended: true
-      },
-      {
-        name: 'PromLib·AI 提示词画廊',
-        url: 'https://promlib.com/',
-        description: 'AIGC 提示词分享平台，海量 AI 绘画提示词，支持多种模型，社区活跃',
-        tags: ['中文', '免费', '社区'],
-        recommended: true
+        description: '中文 AI 图片/视频提示词大全，覆盖 Midjourney、SD、DALL·E，海量优质分类模板。',
+        tags: ['中文', '图片/视频', '免费'],
+        star: true, free: true
       },
       {
         name: 'PromptHero',
         url: 'https://prompthero.com/',
-        description: '顶级 AI 提示词搜索引擎，百万级提示词库',
-        tags: ['国际', '免费', '搜索'],
-        recommended: true
+        description: '百万级提示词搜索引擎，按图片效果反查提示词，找参考学习的最佳工具。',
+        tags: ['国际', '搜索引擎', '免费'],
+        star: true, free: true
       },
       {
-        name: 'PromptBase',
-        url: 'https://promptbase.com/',
-        description: '专业提示词交易平台，高质量付费提示词',
-        tags: ['国际', '付费', '交易'],
-        recommended: true
-      },
-      {
-        name: 'FlowGPT',
-        url: 'https://flowgpt.com/',
-        description: '社区驱动的提示词分享平台',
-        tags: ['国际', '免费', '社区'],
-        recommended: true
-      },
-      {
-        name: 'AIPRM',
-        url: 'https://www.aiprm.com/',
-        description: 'Chrome 插件，一键使用优质提示词',
-        tags: ['插件', '免费', '便捷'],
-        recommended: true
+        name: 'PromLib',
+        url: 'https://promlib.com/',
+        description: 'AIGC 提示词分享平台，社区活跃，按风格/主题分类浏览，适合灵感发现。',
+        tags: ['中文', '社区', '免费'],
+        star: false, free: true
       },
       {
         name: 'Prompt Engineering Guide',
         url: 'https://www.promptingguide.ai/',
-        description: '提示词工程学习指南，系统学习提示词技巧',
-        tags: ['学习', '免费', '教程'],
-        recommended: true
-      }
+        description: '系统学习提示词工程的最佳教程网站，从基础到高阶，免费开源。',
+        tags: ['学习', '教程', '免费'],
+        star: false, free: true
+      },
     ]
   },
+  // ─── 8. 视频剪辑 ────────────────────────────────
   {
-    category: '🌐 翻译工具',
+    id: 'edit',
+    label: '视频剪辑',
+    icon: '✂️',
     tools: [
       {
-        name: 'DeepL',
-        url: 'https://www.deepl.com/',
-        description: '全球最精准的 AI 翻译工具，支持中日英等多语言',
-        tags: ['国际', '免费', '高精度'],
-        recommended: true
-      },
-      {
-        name: 'Google 翻译',
-        url: 'https://translate.google.com/',
-        description: '谷歌翻译，支持 100+ 语言，实时翻译',
-        tags: ['国际', '免费', '多语言'],
-        recommended: true
-      },
-      {
-        name: '百度翻译',
-        url: 'https://fanyi.baidu.com/',
-        description: '百度翻译，中文优化好，支持文档翻译',
-        tags: ['国产', '免费', '文档'],
-        recommended: true
-      },
-      {
-        name: '有道翻译',
-        url: 'https://fanyi.youdao.com/',
-        description: '网易有道翻译，专业术语准确',
-        tags: ['国产', '免费', '专业'],
-        recommended: true
-      },
-      {
-        name: '彩云小译',
-        url: 'https://fanyi.caiyunapp.com/',
-        description: 'AI 翻译工具，支持双语对照',
-        tags: ['国产', '免费', '双语'],
-        recommended: false
-      }
-    ]
-  },
-  {
-    category: '✏️ 在线设计工具',
-    tools: [
-      {
-        name: 'Figma',
-        url: 'https://www.figma.com/',
-        description: '专业在线设计工具，支持协作',
-        tags: ['国际', '免费', '协作'],
-        recommended: true
-      },
-      {
-        name: 'Canva',
-        url: 'https://www.canva.com/',
-        description: '简单易用的在线设计平台',
-        tags: ['国际', '免费', '模板'],
-        recommended: true
-      },
-      {
-        name: '稿定设计',
-        url: 'https://www.gaoding.com/',
-        description: '国产在线设计工具，模板丰富',
-        tags: ['国产', '免费', '模板'],
-        recommended: false
-      }
-    ]
-  },
-  {
-    category: '🎵 音频处理工具',
-    tools: [
-      {
-        name: 'Audacity',
-        url: 'https://www.audacityteam.org/',
-        description: '免费开源音频编辑软件',
-        tags: ['免费', '开源', '桌面'],
-        recommended: true
-      },
-      {
-        name: 'Adobe Audition',
-        url: 'https://www.adobe.com/products/audition.html',
-        description: '专业音频处理软件',
-        tags: ['付费', '专业', '桌面'],
-        recommended: true
-      },
-      {
-        name: '豆包语音合成',
-        url: 'https://www.volcengine.com/product/speech',
-        description: '火山引擎语音合成服务',
-        tags: ['国产', 'API', 'TTS'],
-        recommended: true
-      }
-    ]
-  },
-  {
-    category: '📹 视频编辑工具',
-    tools: [
-      {
-        name: '剪映',
+        name: '剪映专业版',
         url: 'https://www.capcut.cn/',
-        description: '字节跳动视频编辑工具，功能强大',
-        tags: ['国产', '免费', '易用'],
-        recommended: true
+        description: '字节跳动出品，AI 剪辑能力强，字幕/变速/色彩分级一体，国内 AI 动漫后期首选，免费。',
+        tags: ['国产', 'AI辅助', '免费'],
+        star: true, free: true
       },
       {
-        name: 'DaVinci Resolve',
+        name: 'DaVinci Resolve 19',
         url: 'https://www.blackmagicdesign.com/products/davinciresolve',
-        description: '专业级视频剪辑和调色软件',
-        tags: ['免费', '专业', '桌面'],
-        recommended: true
+        description: '专业级剪辑 + 调色 + 特效三合一，免费版功能已超越绝大多数付费软件，色彩分级业界标准。',
+        tags: ['免费', '专业调色', '桌面'],
+        star: true, free: true
       },
       {
-        name: 'Premiere Pro',
+        name: 'Adobe Premiere Pro',
         url: 'https://www.adobe.com/products/premiere.html',
-        description: 'Adobe 专业视频编辑软件',
-        tags: ['付费', '专业', '桌面'],
-        recommended: true
-      }
+        description: 'Adobe 旗舰视频编辑，与 After Effects / Photoshop 无缝联动，团队协作首选。',
+        tags: ['付费', '全家桶', '协作'],
+        star: false, free: false
+      },
+      {
+        name: 'Adobe After Effects',
+        url: 'https://www.adobe.com/products/aftereffects.html',
+        description: '运动图形与视觉特效标准工具，动漫片头/字幕动画/粒子特效，与 Premiere 无缝联动。',
+        tags: ['付费', '特效', '片头'],
+        star: false, free: false
+      },
     ]
   },
-  {
-    category: '📚 学习资源网站',
-    tools: [
-      {
-        name: 'B 站教程',
-        url: 'https://www.bilibili.com/',
-        description: '丰富的 AI 创作和动漫制作教程',
-        tags: ['国产', '免费', '视频'],
-        recommended: true
-      },
-      {
-        name: 'YouTube',
-        url: 'https://www.youtube.com/',
-        description: '国际视频教程平台',
-        tags: ['国际', '免费', '视频'],
-        recommended: true
-      },
-      {
-        name: 'Coursera',
-        url: 'https://www.coursera.org/',
-        description: '在线课程平台，有 AI 和艺术相关课程',
-        tags: ['国际', '付费', '课程'],
-        recommended: false
-      }
-    ]
-  },
-  {
-    category: '💾 素材资源网站',
-    tools: [
-      {
-        name: 'Unsplash',
-        url: 'https://unsplash.com/',
-        description: '高质量免费图片库',
-        tags: ['国际', '免费', '图片'],
-        recommended: true
-      },
-      {
-        name: 'Pexels',
-        url: 'https://www.pexels.com/',
-        description: '免费图片和视频素材库',
-        tags: ['国际', '免费', '视频'],
-        recommended: true
-      },
-      {
-        name: 'Pixabay',
-        url: 'https://pixabay.com/',
-        description: '免费图片、视频、音乐素材库',
-        tags: ['国际', '免费', '综合'],
-        recommended: true
-      }
-    ]
-  }
 ]
 
+// 选型指引
+const decisionGuide = [
+  {
+    icon: '🎯',
+    title: '按创作阶段',
+    gradient: 'from-[#8B7AB8] to-[#6B5FA0]',
+    items: [
+      '剧本创作 → DeepSeek / Claude',
+      '角色出图 → 即梦 / NijiJourney',
+      '视频生成 → Seedance / Kling',
+      '配音配乐 → 豆包TTS + Suno',
+    ]
+  },
+  {
+    icon: '💰',
+    title: '按预算',
+    gradient: 'from-[#C2649C] to-[#A44B82]',
+    items: [
+      '零成本：DeepSeek + 即梦 + Kling 免费额度',
+      '轻付费：Midjourney $10/月',
+      '专业级：Runway + ElevenLabs 套餐',
+    ]
+  },
+  {
+    icon: '🌏',
+    title: '按语言偏好',
+    gradient: 'from-[#C23B22] to-[#A82C16]',
+    items: [
+      '中文优先：即梦、豆包、天工、通义',
+      '英文原生：Midjourney、Runway、Suno',
+      '双语均优：DeepSeek、Wan、Fish Audio',
+    ]
+  },
+]
+
+// 标签颜色映射
+const tagColor = (tag: string) => {
+  if (['国产', '国际'].includes(tag)) return 'bg-[#8B7AB8]/10 text-[#6B5FA0]'
+  if (['免费', '免费额度', '免费API'].includes(tag)) return 'bg-emerald-50 text-emerald-700'
+  if (['付费'].includes(tag)) return 'bg-amber-50 text-amber-700'
+  if (['开源'].includes(tag)) return 'bg-sky-50 text-sky-700'
+  return 'bg-gray-100 text-gray-600'
+}
+
 function Tools() {
-  const allCategories = useMemo(() => ['全部', ...toolWebsites.map(c => c.category)], [])
   const [active, setActive] = useState('全部')
 
   const totalTools = useMemo(
-    () => toolWebsites.reduce((acc, c) => acc + c.tools.length, 0),
+    () => toolCategories.reduce((acc, c) => acc + c.tools.length, 0),
     []
   )
+
   const visibleCategories = active === '全部'
-    ? toolWebsites
-    : toolWebsites.filter(c => c.category === active)
+    ? toolCategories
+    : toolCategories.filter(c => c.id === active)
 
   return (
     <div className="space-y-10">
       {/* 页头 */}
-      <section className="relative text-center py-12 md:py-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B7AB8]/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/10 rounded-full blur-3xl" />
+      <section className="relative text-center py-14 overflow-hidden rounded-3xl bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB]">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#8B7AB8]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C23B22]/08 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 px-4">
-          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#8B7AB8]/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <BrandLogo size={22} showText={false} />
-            <span className="text-gray-700">工具评测 · Tool Stack</span>
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#8B7AB8]/25 px-4 py-1.5 rounded-full text-xs font-semibold mb-5 shadow-sm">
+            <BrandLogo size={18} showText={false} />
+            <span className="text-gray-600">工具评测 · Tool Stack</span>
+            <span className="w-1 h-1 rounded-full bg-[#8B7AB8]/40" />
+            <span className="text-[#8B7AB8]">2026 最新整理</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-            {totalTools}+ AI 创作工具 · 按场景选型
+          <h1 className="text-4xl md:text-5xl font-black mb-4 text-[#1F1A3D] tracking-tight">
+            {totalTools} 个精选工具
           </h1>
-          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            不按品牌、不按热度，只按<strong className="text-gray-800">"你要做什么"</strong>推荐工具。<br className="hidden md:block" />
-            <span className="text-gray-500">2026 年 4 月最新版本 · 持续更新评测与替代方案。</span>
+          <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            不按品牌、不按热度，只按<strong className="text-gray-700">「你要做什么」</strong>推荐工具。<br className="hidden md:block" />
+            低质工具已清除，剩下的都是经过实测的精选。
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎨 图片生成</span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎬 视频生成</span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎭 数字人</span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">📝 提示词</span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">🎵 音频</span>
-            <span className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700">📹 剪辑</span>
+          {/* 分类标签预览 */}
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {toolCategories.map(c => (
+              <span key={c.id} className="px-3 py-1.5 rounded-full bg-white border border-gray-100 text-xs text-gray-600 shadow-sm">
+                {c.icon} {c.label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 分类筛选 */}
-      <div className="flex flex-wrap gap-2 justify-center">
-        {allCategories.map(cat => (
+      <div className="flex flex-wrap gap-2">
+        <button
+          onClick={() => setActive('全部')}
+          className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+            active === '全部'
+              ? 'bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white shadow-md'
+              : 'bg-white text-gray-600 hover:text-gray-800 border border-gray-200 hover:border-gray-300'
+          }`}
+        >
+          全部
+        </button>
+        {toolCategories.map(c => (
           <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              active === cat
-                ? 'bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white shadow-lg scale-105'
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+            key={c.id}
+            onClick={() => setActive(c.id)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              active === c.id
+                ? 'bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white shadow-md'
+                : 'bg-white text-gray-600 hover:text-gray-800 border border-gray-200 hover:border-gray-300'
             }`}
           >
-            {cat}
+            <span>{c.icon}</span>
+            <span>{c.label}</span>
           </button>
         ))}
       </div>
 
-      {/* 工具分类列表 */}
+      {/* 工具列表 */}
       <div className="space-y-12">
-        {visibleCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex}>
+        {visibleCategories.map(category => (
+          <div key={category.id}>
             {/* 分类标题 */}
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">{category.category}</h2>
-              <div className="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent"></div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-1 h-5 rounded-full bg-gradient-to-b from-[#8B7AB8] to-[#C23B22]" />
+              <h2 className="text-lg font-extrabold text-[#1F1A3D]">
+                {category.icon} {category.label}
+              </h2>
+              <span className="text-xs text-gray-400">{category.tools.length} 个工具</span>
+              <div className="flex-1 h-px bg-gradient-to-r from-gray-200 to-transparent" />
             </div>
 
-            {/* 工具卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {category.tools.map((tool, toolIndex) => (
+            {/* 工具卡片网格 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {category.tools.map((tool, i) => (
                 <a
-                  key={toolIndex}
+                  key={i}
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`card hover:scale-105 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden ${
-                    tool.recommended ? 'border-2 border-accent-400' : ''
-                  }`}
+                  className="group relative bg-white rounded-2xl border border-gray-100 p-5 hover:border-[#8B7AB8]/30 hover:shadow-lg transition-all duration-200"
+                  style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04)' }}
                 >
-                  {/* 推荐标记 */}
-                  {tool.recommended && (
-                    <div className="absolute top-3 right-3 bg-gradient-to-r from-accent-500 to-accent-700 text-white px-3 py-1 rounded-full text-xs font-bold z-10">
-                      ⭐ 推荐
-                    </div>
+                  {/* ⭐ 强推标记 */}
+                  {tool.star && (
+                    <span className="absolute top-3.5 right-3.5 text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#8B7AB8]/15 to-[#C2649C]/15 text-[#6B5FA0] border border-[#8B7AB8]/20">
+                      强推
+                    </span>
                   )}
 
-                  {/* 工具信息 */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors">
-                        {tool.name}
-                      </h3>
-                      <span className="text-2xl group-hover:translate-x-2 transition-transform duration-300">
-                        🔗
-                      </span>
-                    </div>
+                  {/* 工具名 */}
+                  <h3 className="text-sm font-extrabold text-[#1F1A3D] group-hover:text-[#6B5FA0] transition-colors mb-2 pr-12 leading-snug">
+                    {tool.name}
+                  </h3>
 
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                      {tool.description}
-                    </p>
+                  {/* 描述 */}
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3 line-clamp-3">
+                    {tool.description}
+                  </p>
 
-                    {/* 标签 */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {tool.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
-                        >
+                  {/* 标签 + 链接 */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap gap-1">
+                      {tool.tags.map((tag, j) => (
+                        <span key={j} className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${tagColor(tag)}`}>
                           {tag}
                         </span>
                       ))}
                     </div>
-
-                    {/* 访问按钮 */}
-                    <div className="flex items-center text-primary-600 font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
-                      访问网站
-                      <span className="ml-2">→</span>
-                    </div>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 group-hover:bg-[#8B7AB8]/10 flex items-center justify-center transition-colors">
+                      <svg className="w-3 h-3 text-gray-400 group-hover:text-[#8B7AB8] group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </div>
                 </a>
               ))}
@@ -516,42 +541,40 @@ function Tools() {
       </div>
 
       {/* 选型决策指引 */}
-      <section className="bg-gradient-to-br from-[#F5F0E8] via-white to-[#F0EAFB] rounded-3xl p-8 border border-gray-100">
-        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-gray-800">🧭 工具选型决策指引</h2>
-        <p className="text-center text-gray-500 mb-8">不要盲目追求"最强"，按你的场景和预算来选</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B7AB8] to-[#5B4B89] flex items-center justify-center text-2xl text-white mb-4">💰</div>
-            <h3 className="font-bold text-gray-800 mb-2">按预算</h3>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>· 0 元：即梦 / 通义 / Kling 免费额度</li>
-              <li>· 个人：Midjourney $10 / 月起</li>
-              <li>· 团队：Runway / Sora 企业版</li>
-            </ul>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C2649C] to-[#8B3A6E] flex items-center justify-center text-2xl text-white mb-4">🌏</div>
-            <h3 className="font-bold text-gray-800 mb-2">按语言</h3>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>· 中文优先：即梦、通义万相、Kling</li>
-              <li>· 英文原生：Midjourney、Flux、Sora</li>
-              <li>· 双语友好：海螺、Seedance</li>
-            </ul>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C23B22] to-[#8A1F0E] flex items-center justify-center text-2xl text-white mb-4">🎯</div>
-            <h3 className="font-bold text-gray-800 mb-2">按场景</h3>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>· 角色一致性：ComfyUI + IP-Adapter</li>
-              <li>· 电影级视频：Sora / Veo / Kling 高阶</li>
-              <li>· 快速出稿：即梦 / Midjourney</li>
-            </ul>
-          </div>
+      <section className="rounded-3xl overflow-hidden border border-gray-100" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06)' }}>
+        <div className="bg-gradient-to-r from-[#F8F6FF] to-[#FDF8F6] px-8 pt-8 pb-5 border-b border-gray-100">
+          <h2 className="text-xl font-bold text-[#1F1A3D] mb-1">🧭 工具选型决策指引</h2>
+          <p className="text-sm text-gray-500">不要追求「最强」，按场景和预算来选</p>
         </div>
-        <div className="mt-6 text-center">
-          <Link to="/prompt-library" className="inline-flex items-center gap-2 text-[#8B7AB8] font-semibold hover:text-[#C23B22] transition-colors">
-            下一步：浏览 250+ 通用 Prompt →
-          </Link>
+        <div className="bg-white p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {decisionGuide.map(({ icon, title, gradient, items }) => (
+              <div key={title} className="flex gap-4">
+                <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-base flex-shrink-0`}>
+                  {icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-800 mb-2 text-sm">{title}</h3>
+                  <ul className="space-y-1.5">
+                    {items.map((item, i) => (
+                      <li key={i} className="text-xs text-gray-500 leading-relaxed flex items-start gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-[#8B7AB8]/40 flex-shrink-0 mt-1.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 pt-5 border-t border-gray-50 text-center">
+            <Link to="/prompt-library" className="inline-flex items-center gap-2 text-[#8B7AB8] text-sm font-semibold hover:text-[#C23B22] transition-colors">
+              去提示词库找现成模板，直接上手
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
