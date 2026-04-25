@@ -5,7 +5,7 @@ import BrandLogo from '../components/BrandLogo'
 import { NavIcon } from '../components/NavIcons'
 
 // 资源分类数据
-type ResourceIcon = 'tools' | 'image' | 'headphone' | 'palette' | 'pencil' | 'book' | 'target'
+type ResourceIcon = string
 const resourceCategories: { id: string; title: string; icon: ResourceIcon; color: string; description: string; count: number; items: string[] }[] = [
   {
     id: 'ai-tools',
@@ -110,7 +110,7 @@ function Resources() {
             {/* 头部 */}
             <div className={`bg-gradient-to-br ${category.color} p-6 text-white`}>
               <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                <NavIcon type={category.icon} size={48} />
+                {category.icon.length === 1 ? <span className="text-3xl">{category.icon}</span> : <NavIcon type={category.icon as any} size={48} />}
               </div>
               <h3 className="text-xl font-bold mb-2">{category.title}</h3>
               <p className="text-sm opacity-90">{category.description}</p>

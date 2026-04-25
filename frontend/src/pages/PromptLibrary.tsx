@@ -15,7 +15,7 @@ interface PromptItem {
   title: string
   category: string
   module: string
-  icon: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond' | 'tools' | 'tutorials' | 'prompts' | 'resources' | 'workflow' | 'home' | 'search' | 'chart' | 'spiral'
+  icon: string
   tags: string[]
 }
 
@@ -803,7 +803,7 @@ function PromptLibrary() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* 分类筛选 */}
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -819,7 +819,7 @@ function PromptLibrary() {
                   : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg'
                 }`}
             >
-              <NavIcon type={category.icon} size={16} />
+              {category.icon.length === 1 ? <span className="text-base">{category.icon}</span> : <NavIcon type={category.icon as any} size={16} />}
               <span>{category.name}</span>
               {category.name !== '全部' && (
                 <span className="text-xs opacity-75">

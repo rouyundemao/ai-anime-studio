@@ -11,7 +11,7 @@ interface PromptCardProps {
   prompt: string
   title?: string
   category?: string
-  icon?: 'palette' | 'book' | 'user' | 'globe' | 'image' | 'film' | 'sparkles' | 'rocket' | 'target' | 'diamond' | 'tools' | 'tutorials' | 'prompts' | 'resources' | 'workflow' | 'home' | 'search' | 'chart' | 'spiral' | 'pencil' | 'headphone' | 'clapperboard'
+  icon?: string
   maxWidth?: number
   fontSize?: number
   className?: string
@@ -102,7 +102,7 @@ function PromptCard({
         <div className="flex items-center justify-between px-6 pt-5 pb-3">
           <div className="flex items-center gap-3">
             {icon && (
-              <NavIcon type={icon} size={24} />
+              icon.length === 1 ? <span className="text-xl">{icon}</span> : <NavIcon type={icon as any} size={24} />
             )}
             <div>
               {title && (
