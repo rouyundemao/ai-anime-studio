@@ -85,7 +85,7 @@ const modules = [
     path: '/module-7',
     order: 7,
     prerequisite: 'module6',
-    next: 'module8',
+    next: null,
     related: ['module1', 'module5', 'module6'],
     duration: '艺术探索',
     description: '水墨与数字融合，手绘与AI结合，电影级后期制作'

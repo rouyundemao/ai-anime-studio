@@ -108,19 +108,6 @@ const modules: Module[] = [
     icon: 'sparkles',
     path: '/module-7',
     level: '高阶'
-  },
-  {
-    id: 'module8',
-    title: '发行运营',
-    subtitle: '把作品变成可持续的业务',
-    category: '商业闭环',
-    duration: '商业转化',
-    description: '抖音 / 小红书 / B 站 / YouTube / TikTok 的算法偏好、封面与标题规范、付费投流策略，以及 IP 矩阵、商单接洽、广告植入、会员订阅四条主流变现路径。',
-    outcomes: ['针对 5 大平台的差异化发行策略', '搭建 AI 内容数据分析看板', '建立个人 / 团队的 IP 变现路径'],
-    color: 'from-[#F59E0B] to-[#B45309]',
-    icon: 'rocket',
-    path: '/module-8',
-    level: '高阶'
   }
 ]
 

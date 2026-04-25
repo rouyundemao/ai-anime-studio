@@ -104,24 +104,11 @@ const modules: Module[] = [
     path: '/module-7',
     order: 7,
     prerequisite: 'module6',
-    next: 'module8',
+    next: null,
     related: ['module1', 'module2', 'module3', 'module4', 'module5', 'module6'],
     duration: '艺术探索',
     color: 'from-fuchsia-500 to-pink-500',
     icon: 'sparkles'
-  },
-  {
-    id: 'module8',
-    title: 'Module 8',
-    subtitle: '完整的 AI 动漫制作流程',
-    path: '/module-8',
-    order: 8,
-    prerequisite: 'module7',
-    next: null,
-    related: ['module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'module7'],
-    duration: '全流程实战',
-    color: 'from-amber-500 to-orange-500',
-    icon: 'rocket'
   }
 ]
 

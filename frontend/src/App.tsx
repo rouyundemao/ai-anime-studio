@@ -18,7 +18,6 @@ import Module4 from './pages/Module4/Module4'
 import Module5 from './pages/Module5/Module5'
 import Module6 from './pages/Module6/Module6'
 import Module7 from './pages/Module7/Module7'
-import Module8 from './pages/Module8/Module8'
 import TestTextLayout from './pages/TestTextLayout'
 import PromptLibrary from './pages/PromptLibrary'
 
@@ -46,7 +45,6 @@ function App() {
           <Route path="module-5" element={<Module5 />} />
           <Route path="module-6" element={<Module6 />} />
           <Route path="module-7" element={<Module7 />} />
-          <Route path="module-8" element={<Module8 />} />
         </Route>
       </Routes>
     </AppProvider>
