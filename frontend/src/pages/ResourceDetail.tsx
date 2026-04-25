@@ -7,7 +7,7 @@ import { NavIcon } from '../components/NavIcons'
 const resourceDetails: Record<string, any> = {
   'ai-tools': {
     title: 'AI 工具资源',
-    icon: '🤖',
+    icon: 'tools' as const,
     color: 'from-blue-500 to-blue-700',
     description: '顶级 AI 创作工具完整指南（2026 年 4 月更新）',
     resources: [
@@ -370,7 +370,7 @@ dashscope.ImageSynthesis.call(model='wanx-v1', prompt='提示词')`,
   },
   'materials': {
     title: '高质量素材库',
-    icon: '🖼️',
+    icon: 'image' as const,
     color: 'from-purple-500 to-purple-700',
     description: '精选动漫创作素材资源（2026 年 4 月更新）',
     resources: [
@@ -573,7 +573,7 @@ https://hailuoai.com/
   },
   'audio': {
     title: '音频资源库',
-    icon: '🎵',
+    icon: 'headphone' as const,
     color: 'from-green-500 to-green-700',
     description: '专业音频制作资源集合（2026 年 4 月更新）',
     resources: [
@@ -792,7 +792,7 @@ Suno AI: https://suno.com/
   },
   'design': {
     title: '设计资源库',
-    icon: '🎨',
+    icon: 'palette' as const,
     color: 'from-pink-500 to-pink-700',
     description: '专业设计资源与指南（2026 年 4 月更新）',
     resources: [
@@ -1004,7 +1004,7 @@ Coolors: https://coolors.co/`,
   },
   'prompts': {
     title: '提示词库',
-    icon: '📝',
+    icon: 'pencil' as const,
     color: 'from-yellow-500 to-yellow-700',
     description: '顶级提示词工程指南（2026 年 4 月更新）',
     resources: [
@@ -1216,7 +1216,7 @@ Coolors: https://coolors.co/`,
   },
   'documents': {
     title: '技术文档库',
-    icon: '📚',
+    icon: 'book' as const,
     color: 'from-indigo-500 to-indigo-700',
     description: '专业技术文档与手册（2026 年 4 月更新）',
     resources: [
@@ -1449,7 +1449,7 @@ npm install fluent-ffmpeg  # 视频处理`,
   },
   'learning': {
     title: '学习资料库',
-    icon: '🎓',
+    icon: 'book' as const,
     color: 'from-red-500 to-red-700',
     description: '系统化学习资料集合（2026 年 4 月更新）',
     resources: [
@@ -1736,7 +1736,9 @@ function ResourceDetail() {
             <span className="text-gray-700">资源中心 · Resources</span>
           </div>
 
-          <div className="text-6xl mb-4">{category.icon}</div>
+          <div className="mb-6 flex justify-center">
+            <NavIcon type={category.icon} size={80} />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
             {category.title}
           </h1>
