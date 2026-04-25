@@ -42,14 +42,14 @@ function Module4() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#10B981] to-[#047857] text-white px-4 py-1.5 rounded-full text-sm font-bold">
                 MODULE 04
               </span>
               <span className="text-[#10B981] text-sm font-semibold">🌍 世界构建 · Worldbuilding</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-[#6B5FA0] border border-blue-200 font-semibold">进阶</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               可复用的世界观与场景库
@@ -64,10 +64,10 @@ function Module4() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="world-building" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌐 世界是故事的土壤
               </h2>
               
@@ -80,12 +80,12 @@ function Module4() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white border-2 border-emerald-200 rounded-xl p-6">
                   <div className="text-4xl mb-3">🌍</div>
-                  <h3 className="text-xl font-bold mb-2 text-emerald-600">地理生态</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#6B5FA0]">地理生态</h3>
                   <p className="text-gray-700">自然环境如何影响文明发展</p>
                 </div>
                 <div className="bg-white border-2 border-teal-200 rounded-xl p-6">
                   <div className="text-4xl mb-3">🏛️</div>
-                  <h3 className="text-xl font-bold mb-2 text-teal-600">文明文化</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#6B5FA0]">文明文化</h3>
                   <p className="text-gray-700">社会结构和文化习俗体系</p>
                 </div>
               </div>
@@ -93,7 +93,7 @@ function Module4() {
 
             {/* 地理生态设定 */}
             <section id="geography" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🏞️ 地理生态设定体系
               </h2>
 
@@ -113,7 +113,7 @@ function Module4() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-lg font-bold mb-3 text-teal-600">气候雨量</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">气候雨量</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>热带</strong>：湿热多雨，植被茂盛</li>
                       <li>• <strong>温带</strong>：四季分明，适宜居住</li>
@@ -123,7 +123,7 @@ function Module4() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-lg font-bold mb-3 text-blue-600">自然资源</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">自然资源</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>水源</strong>：生命之源，文明发源地</li>
                       <li>• <strong>矿产</strong>：工业基础，财富来源</li>
@@ -133,7 +133,7 @@ function Module4() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-lg font-bold mb-3 text-indigo-600">生态环境</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">生态环境</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>食物链</strong>：生态平衡的基础</li>
                       <li>• <strong>动植物</strong>：地域特色的体现</li>
@@ -145,7 +145,7 @@ function Module4() {
               </div>
 
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 text-emerald-700">地理设计技巧</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">地理设计技巧</h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <span className="text-2xl mr-3 text-emerald-500">1</span>
@@ -174,12 +174,12 @@ function Module4() {
 
             {/* 文明文化体系 */}
             <section id="civilization" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🏛️ 文明文化体系
               </h2>
 
               <div className="bg-white border-2 border-emerald-200 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold mb-4 text-emerald-600">文明的六大核心</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">文明的六大核心</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg text-center">
                     <div className="text-3xl mb-2">🏛️</div>
@@ -215,19 +215,19 @@ function Module4() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-400">
-                  <h3 className="text-xl font-bold mb-4 text-purple-700">社会阶层体系</h3>
+                <div className="bg-gradient-to-r from-violet-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-400">
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">社会阶层体系</h3>
                   <div className="space-y-2 text-gray-700">
                     <p><strong className="text-purple-600">贵族</strong>：统治阶层，掌握权力</p>
-                    <p><strong className="text-indigo-600">士人</strong>：知识分子，文化传承</p>
-                    <p><strong className="text-teal-600">平民</strong>：劳动阶层，社会基础</p>
+                    <p><strong className="text-[#6B5FA0]">士人</strong>：知识分子，文化传承</p>
+                    <p><strong className="text-[#6B5FA0]">平民</strong>：劳动阶层，社会基础</p>
                     <p><strong className="text-gray-600">工匠</strong>：技术阶层，工艺传承</p>
                     <p><strong className="text-amber-600">商人</strong>：经济阶层，财富流通</p>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border-l-4 border-blue-400">
-                  <h3 className="text-xl font-bold mb-4 text-blue-700">日常生活体系</h3>
+                <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-400">
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">日常生活体系</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">衣食住行</h4>
@@ -253,7 +253,7 @@ function Module4() {
 
             {/* 历史神话体系 */}
             <section id="history" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ⏳ 历史神话体系
               </h2>
 
@@ -262,7 +262,7 @@ function Module4() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h4 className="font-bold text-lg mb-3 text-emerald-600">远古时期</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">远古时期</h4>
                     <p className="text-sm text-gray-700 mb-2">创世神话、文明起源</p>
                     <ul className="text-xs text-gray-600 space-y-1">
                       <li>• 创世传说</li>
@@ -272,7 +272,7 @@ function Module4() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h4 className="font-bold text-lg mb-3 text-teal-600">黄金时期</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">黄金时期</h4>
                     <p className="text-sm text-gray-700 mb-2">帝国盛世、文化繁荣</p>
                     <ul className="text-xs text-gray-600 space-y-1">
                       <li>• 文化巅峰</li>
@@ -282,7 +282,7 @@ function Module4() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h4 className="font-bold text-lg mb-3 text-indigo-600">现代时期</h4>
+                    <h4 className="font-bold text-lg mb-3 text-[#6B5FA0]">现代时期</h4>
                     <p className="text-sm text-gray-700 mb-2">当前时代、社会现状</p>
                     <ul className="text-xs text-gray-600 space-y-1">
                       <li>• 当前政局</li>
@@ -294,7 +294,7 @@ function Module4() {
               </div>
 
               <div className="bg-white border-2 border-emerald-200 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-emerald-600">神话体系构建</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">神话体系构建</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold mb-2 text-gray-800">创世神话</h4>
@@ -320,16 +320,16 @@ function Module4() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步构建流程
               </h2>
 
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-xl border border-emerald-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-emerald-700">从零开始构建完整世界</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#6B5FA0]">从零开始构建完整世界</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -342,7 +342,7 @@ function Module4() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -355,7 +355,7 @@ function Module4() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -368,7 +368,7 @@ function Module4() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -381,7 +381,7 @@ function Module4() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -394,7 +394,7 @@ function Module4() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -410,7 +410,7 @@ function Module4() {
             </section>
 
             <section id="world-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-emerald-600 border-l-4 border-emerald-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 世界观构建全流程教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -419,7 +419,7 @@ function Module4() {
               
               {/* 世界观底层框架搭建 */}
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-emerald-700">世界观底层框架搭建</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">世界观底层框架搭建</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -481,7 +481,7 @@ function Module4() {
               
               {/* 文明文化与历史神话构建 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">文明文化与历史神话构建</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">文明文化与历史神话构建</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -536,7 +536,7 @@ function Module4() {
               
               {/* 世界观可视化落地 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">世界观可视化落地</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">世界观可视化落地</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -592,7 +592,7 @@ function Module4() {
               
               {/* 世界观设定标准化归档 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">世界观设定标准化归档</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">世界观设定标准化归档</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>

@@ -16,6 +16,7 @@ function Module6() {
   // 目录章节
   const sections = [
     { id: 'animation-basics', title: '动画生成基础', icon: '🎬' },
+    { id: 'video-model-comparison', title: '八大视频模型对比', icon: '⚖️' },
     { id: 'keyframes', title: '关键帧设计', icon: '✏️' },
     { id: 'motion-guide', title: '运动引导', icon: '💃' },
     { id: 'rendering', title: '渲染技术', icon: '🎨' },
@@ -43,7 +44,7 @@ function Module6() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] text-white px-4 py-1.5 rounded-full text-sm font-bold">
@@ -65,14 +66,14 @@ function Module6() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="animation-basics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎭 动画是生命的艺术表达
               </h2>
               
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700">
                   电影级动画 = <strong>物理真实感</strong> + <strong>情感表现力</strong> + <strong>艺术化运动</strong> + <strong>电影级节奏</strong>
                 </p>
@@ -81,17 +82,17 @@ function Module6() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="bg-white border-2 border-purple-200 rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">⚡</div>
-                  <h3 className="text-lg font-bold mb-2 text-purple-600">物理真实感</h3>
+                  <h3 className="text-lg font-bold mb-2 text-[#6B5FA0]">物理真实感</h3>
                   <p className="text-xs text-gray-600">遵循物理定律</p>
                 </div>
                 <div className="bg-white border-2 border-indigo-200 rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">❤️</div>
-                  <h3 className="text-lg font-bold mb-2 text-indigo-600">情感表现</h3>
+                  <h3 className="text-lg font-bold mb-2 text-[#6B5FA0]">情感表现</h3>
                   <p className="text-xs text-gray-600">传递角色情感</p>
                 </div>
                 <div className="bg-white border-2 border-blue-200 rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">🎨</div>
-                  <h3 className="text-lg font-bold mb-2 text-blue-600">艺术化运动</h3>
+                  <h3 className="text-lg font-bold mb-2 text-[#6B5FA0]">艺术化运动</h3>
                   <p className="text-xs text-gray-600">超越现实的美</p>
                 </div>
                 <div className="bg-white border-2 border-violet-200 rounded-xl p-6 text-center">
@@ -102,9 +103,123 @@ function Module6() {
               </div>
             </section>
 
+            {/* 八大视频模型对比 */}
+            <section id="video-model-comparison" className="mb-12 scroll-mt-24">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
+                ⚖️ 八大视频模型横向评测
+              </h2>
+              <p className="text-gray-600 mb-6">2026 年主流视频生成模型对比，按场景选工具而非追热点。</p>
+
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse bg-white rounded-xl shadow-sm overflow-hidden text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-[#8B7AB8] to-[#C2649C] text-white">
+                      <th className="p-4 text-left font-bold">模型</th>
+                      <th className="p-4 text-center font-bold">动漫适配</th>
+                      <th className="p-4 text-center font-bold">一致性</th>
+                      <th className="p-4 text-center font-bold">运动真实感</th>
+                      <th className="p-4 text-center font-bold">费用</th>
+                      <th className="p-4 text-left font-bold">最强场景</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Seedance 2.0 <span className="text-xs text-green-600 font-normal">★推荐</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">低价</span></td>
+                      <td className="p-4 text-gray-600">角色一致性 · 动漫批量生产</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Kling 3.0</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">中等</span></td>
+                      <td className="p-4 text-gray-600">4K 原生 · 动作场景 · 肢体运动</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Wan 2.7</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded text-xs">本地免费</span></td>
+                      <td className="p-4 text-gray-600">写实运动 · 零成本本地部署</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Veo 3.1</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="bg-red-100 text-[#C23B22] px-2 py-0.5 rounded text-xs">高价</span></td>
+                      <td className="p-4 text-gray-600">4K 原生音效同步 · 商业大片</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Runway Gen-4 Turbo</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">中等</span></td>
+                      <td className="p-4 text-gray-600">首尾帧控制 · 视频风格迁移</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">海螺 AI 2.3</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">低价</span></td>
+                      <td className="p-4 text-gray-600">中文优化 · 快速出图 · 国风场景</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Vidu 2.0</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">低价</span></td>
+                      <td className="p-4 text-gray-600">中国文化场景 · 历史题材</td>
+                    </tr>
+                    <tr className="hover:bg-indigo-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">PixVerse 3</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">免费额度</span></td>
+                      <td className="p-4 text-gray-600">口型同步 · 对口型专项</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* 4种工业化用法 */}
+              <h3 className="text-xl font-bold mb-4 text-gray-800">4种工业化用法 · 选最适合的那一种</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#6B5FA0] mb-2">🎞️ 首尾帧控制</h4>
+                  <p className="text-sm text-gray-700 mb-2">提供开始帧 + 结束帧，让模型自动补全中间运动过程。最精准的镜头控制方式。</p>
+                  <div className="text-xs text-gray-500">推荐：Runway Gen-4 Turbo · Kling 3</div>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#6B5FA0] mb-2">🖼️ 图生视频</h4>
+                  <p className="text-sm text-gray-700 mb-2">上传一张静帧图，配合文字描述想要的动作，最适合动漫批量生产。</p>
+                  <div className="text-xs text-gray-500">推荐：Seedance 2.0 · 即梦 · 海螺</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-teal-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-2">🎨 视频风格重绘</h4>
+                  <p className="text-sm text-gray-700 mb-2">上传真人视频，AI 自动转化为动漫风格。最快的"真人转动漫"方案。</p>
+                  <div className="text-xs text-gray-500">推荐：Runway Gen-4 · Vidu 2.0</div>
+                </div>
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#C23B22] mb-2">👄 对口型生成</h4>
+                  <p className="text-sm text-gray-700 mb-2">上传角色图 + 音频，AI 自动生成口型同步动画。配音后期必备。</p>
+                  <div className="text-xs text-gray-500">推荐：PixVerse · HeyGen · 即梦数字人</div>
+                </div>
+              </div>
+            </section>
+
             {/* 物理真实感动画 */}
             <section id="keyframes" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌍 物理真实感动画体系
               </h2>
 
@@ -122,7 +237,7 @@ function Module6() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-xl font-bold mb-3 text-indigo-600">2. 弹性与碰撞</h4>
+                    <h4 className="text-xl font-bold mb-3 text-[#6B5FA0]">2. 弹性与碰撞</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>弹性系数</strong>：决定弹跳程度</li>
                       <li>• <strong>能量守恒</strong>：碰撞中的能量转换</li>
@@ -131,7 +246,7 @@ function Module6() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-xl font-bold mb-3 text-blue-600">3. 流体动力学</h4>
+                    <h4 className="text-xl font-bold mb-3 text-[#6B5FA0]">3. 流体动力学</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• <strong>液体流动</strong>：水、酒、血液</li>
                       <li>• <strong>气体运动</strong>：烟雾、蒸汽、风</li>
@@ -150,8 +265,8 @@ function Module6() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 text-purple-700">物理模拟技术</h3>
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl">
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">物理模拟技术</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-white p-4 rounded-lg text-center">
                     <div className="text-3xl mb-2">🌊</div>
@@ -174,7 +289,7 @@ function Module6() {
 
             {/* 情感动画表现 */}
             <section id="motion-guide" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ❤️ 情感动画表现体系
               </h2>
 
@@ -224,8 +339,8 @@ function Module6() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border-l-4 border-blue-400">
-                  <h3 className="text-xl font-bold mb-4 text-blue-700">角色情绪设计</h3>
+                <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-400">
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">角色情绪设计</h3>
                   <div className="space-y-3">
                     <div className="flex items-start">
                       <span className="text-2xl mr-3 text-blue-500">😊</span>
@@ -262,7 +377,7 @@ function Module6() {
 
             {/* 艺术化运动表达 */}
             <section id="rendering" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 艺术化运动表达体系
               </h2>
 
@@ -275,11 +390,11 @@ function Module6() {
                     <p className="text-sm text-gray-600">赋予物体生命力</p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
-                    <h4 className="font-bold text-lg mb-2 text-indigo-600">预备动作</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#6B5FA0]">预备动作</h4>
                     <p className="text-sm text-gray-600">为动作做准备</p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
-                    <h4 className="font-bold text-lg mb-2 text-blue-600">表演夸张</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#6B5FA0]">表演夸张</h4>
                     <p className="text-sm text-gray-600">强化视觉效果</p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -298,7 +413,7 @@ function Module6() {
               </div>
 
               <div className="bg-white border-2 border-indigo-200 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-indigo-600">艺术化表达技巧</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">艺术化表达技巧</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold mb-3 text-gray-800">节奏控制</h4>
@@ -322,16 +437,16 @@ function Module6() {
 
             {/* 电影级节奏 */}
             <section id="video-export" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎬 电影级节奏控制
               </h2>
 
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl mb-8">
-                <h3 className="text-xl font-bold mb-6 text-center text-blue-700">节奏的三个层面</h3>
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-8 rounded-xl mb-8">
+                <h3 className="text-xl font-bold mb-6 text-center text-[#6B5FA0]">节奏的三个层面</h3>
                 
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg border-l-4 border-blue-500">
-                    <h4 className="text-lg font-bold mb-3 text-blue-600">宏观节奏</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">宏观节奏</h4>
                     <p className="text-gray-700 mb-2">整个作品的节奏规划</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• 开场：快速抓住注意力</li>
@@ -352,7 +467,7 @@ function Module6() {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg border-l-4 border-indigo-500">
-                    <h4 className="text-lg font-bold mb-3 text-indigo-600">微观节奏</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">微观节奏</h4>
                     <p className="text-gray-700 mb-2">单帧动画的节奏感</p>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• 关键帧：精确控制</li>
@@ -366,16 +481,16 @@ function Module6() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步生成流程
               </h2>
 
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-8 rounded-xl border border-purple-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-purple-700">从零开始生成顶级动画</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#6B5FA0]">从零开始生成顶级动画</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -388,7 +503,7 @@ function Module6() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -401,7 +516,7 @@ function Module6() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -414,7 +529,7 @@ function Module6() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -427,7 +542,7 @@ function Module6() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -440,7 +555,7 @@ function Module6() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#8B7AB8] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -456,7 +571,7 @@ function Module6() {
             </section>
 
             <section id="animation-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 动画生成全流程教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -465,7 +580,7 @@ function Module6() {
               
               {/* 静帧图生动画 */}
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">静帧图生动画基础操作</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">静帧图生动画基础操作</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -527,7 +642,7 @@ function Module6() {
               
               {/* 物理真实感动画 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">物理真实感动画生成</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">物理真实感动画生成</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -637,7 +752,7 @@ function Module6() {
               
               {/* 后期精细化调控 */}
               <div className="bg-gradient-to-br from-teal-50 to-green-50 border border-teal-200 rounded-2xl p-6">
-                <h3 className="text-2xl font-bold mb-4 text-teal-700">后期精细化调控</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">后期精细化调控</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>

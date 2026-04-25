@@ -16,6 +16,7 @@ function Module5() {
   // 目录章节
   const sections = [
     { id: 'image-generation', title: '画面生成基础', icon: '🎨' },
+    { id: 'model-comparison', title: '多模型对比选型', icon: '⚖️' },
     { id: 'prompt-engineering', title: '提示词工程', icon: '✍️' },
     { id: 'style-transfer', title: '风格迁移', icon: '🎭' },
     { id: 'composition', title: '构图美学', icon: '📐' },
@@ -43,14 +44,14 @@ function Module5() {
           </div>
         </aside>
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EF4444] to-[#B91C1C] text-white px-4 py-1.5 rounded-full text-sm font-bold">
                 MODULE 05
               </span>
               <span className="text-[#EF4444] text-sm font-semibold">🖼️ 画面生成 · Image Generation</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">进阶</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-[#6B5FA0] border border-blue-200 font-semibold">进阶</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               多模型画面生成实战
@@ -65,14 +66,14 @@ function Module5() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             {/* 核心理念 */}
             <section id="image-generation" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 画面是故事的视觉呈现
               </h2>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-rose-50 to-red-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700">
                   电影级画面 = <strong>电影级构图</strong> + <strong>三层光影</strong> + <strong>发丝级精度</strong> + <strong>电影级调色</strong>
                 </p>
@@ -102,9 +103,123 @@ function Module5() {
               </div>
             </section>
 
+            {/* 多模型对比选型 */}
+            <section id="model-comparison" className="mb-12 scroll-mt-24">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
+                ⚖️ 多模型对比选型指南
+              </h2>
+              <p className="text-gray-600 mb-6">不同模型各有所长。根据你的场景、预算、风格需求选择合适工具，而不是盲目追最贵或最热的。</p>
+
+              {/* 快速决策表 */}
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse bg-white rounded-xl shadow-sm overflow-hidden text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white">
+                      <th className="p-4 text-left font-bold">工具</th>
+                      <th className="p-4 text-center font-bold">画质上限</th>
+                      <th className="p-4 text-center font-bold">动漫适配</th>
+                      <th className="p-4 text-center font-bold">速度</th>
+                      <th className="p-4 text-center font-bold">费用</th>
+                      <th className="p-4 text-left font-bold">最适场景</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">即梦 AI 4.5</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-medium">免费/低价</span></td>
+                      <td className="p-4 text-gray-600">国风角色 · 批量关键帧 · 快速迭代</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Midjourney V7</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-medium">$10–$120/月</span></td>
+                      <td className="p-4 text-gray-600">概念艺术 · 宣传图 · 精品单图</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">通义万相 3.0</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★☆</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-medium">免费额度丰厚</span></td>
+                      <td className="p-4 text-gray-600">东方美学 · 国风场景 · 中文 Prompt</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">Stable Diffusion 3 / Flux</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-gray-600">LoRA 训练 · 角色一致性 · 高度定制</td>
+                    </tr>
+                    <tr className="hover:bg-orange-50 transition-colors">
+                      <td className="p-4 font-semibold text-gray-800">ComfyUI</td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★★★★</span></td>
+                      <td className="p-4 text-center"><span className="text-yellow-500">★★☆☆☆</span></td>
+                      <td className="p-4 text-center"><span className="bg-blue-100 text-[#6B5FA0] px-2 py-0.5 rounded text-xs font-medium">本地免费</span></td>
+                      <td className="p-4 text-gray-600">工作流自动化 · IP-Adapter · 批量出图</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* 场景决策卡 */}
+              <h3 className="text-xl font-bold mb-4 text-gray-800">按场景快速选型</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#C23B22] mb-3">🚀 快速出图 / 原型验证</h4>
+                  <p className="text-sm text-gray-700 mb-2">优先选 <strong>即梦 AI</strong> 或 <strong>通义万相</strong>，免费额度足够验证概念，速度快，中文 Prompt 直接用。</p>
+                  <div className="text-xs text-gray-500">预算：0–20元/天 · 出图时间：&lt;30秒/张</div>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#6B5FA0] mb-3">🎨 精品宣传 / 概念艺术</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>Midjourney V7</strong>，艺术感最强，用 --style raw 和 --s 参数精确控制风格。</p>
+                  <div className="text-xs text-gray-500">预算：$10–30/月 · 出图时间：~60秒/张</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-5">
+                  <h4 className="font-bold text-green-700 mb-3">🔄 角色一致性 / LoRA 训练</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>SD3 / Flux + ComfyUI</strong>，完全控制训练参数，IP-Adapter 保持角色跨场景一致。</p>
+                  <div className="text-xs text-gray-500">需要本地 GPU（≥8GB VRAM）· 学习曲线较陡</div>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-5">
+                  <h4 className="font-bold text-[#6B5FA0] mb-3">🏭 批量生产 / IP 系列</h4>
+                  <p className="text-sm text-gray-700 mb-2">选 <strong>ComfyUI 工作流</strong>，节点化自动化批处理，一次设置批量输出百张风格统一的图。</p>
+                  <div className="text-xs text-gray-500">一次性配置成本高，长期效率最优</div>
+                </div>
+              </div>
+
+              {/* 组合策略 */}
+              <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-4">💡 专业组合策略</h3>
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="bg-orange-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">概念期</span>
+                    <span className="text-gray-300">即梦 AI + 通义万相 → 快速验证视觉风格，成本接近零</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-blue-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">精修期</span>
+                    <span className="text-gray-300">Midjourney V7 → 精品封面图、宣传物料，高质量少量图</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-green-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">量产期</span>
+                    <span className="text-gray-300">SD3/Flux + ComfyUI → 用 LoRA 锁定角色，批量生成全集关键帧</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="bg-purple-500 text-white px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 mt-0.5">增强期</span>
+                    <span className="text-gray-300">Topaz Gigapixel + DaVinci → 无损 4K 放大 + 统一调色 LUT</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* 电影级构图 */}
             <section id="prompt-engineering" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📸 电影级构图体系
               </h2>
 
@@ -113,7 +228,7 @@ function Module5() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <h4 className="text-xl font-bold mb-3 text-blue-600">三分法</h4>
+                    <h4 className="text-xl font-bold mb-3 text-[#6B5FA0]">三分法</h4>
                     <p className="text-sm text-gray-700 mb-3">将画面分为九宫格，关键元素放在交点上。</p>
                     <div className="grid grid-cols-3 gap-1 h-24 bg-gray-100 rounded">
                       <div className="bg-blue-400/30"></div>
@@ -175,7 +290,7 @@ function Module5() {
 
             {/* 三层光影设计 */}
             <section id="lighting" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 💡 三层光影设计体系
               </h2>
 
@@ -237,7 +352,7 @@ function Module5() {
 
             {/* 电影级调色 */}
             <section id="composition" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 电影级调色体系
               </h2>
 
@@ -246,7 +361,7 @@ function Module5() {
                 
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg">
-                    <h4 className="text-lg font-bold mb-3 text-blue-600">1. 基础校正</h4>
+                    <h4 className="text-lg font-bold mb-3 text-[#6B5FA0]">1. 基础校正</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• <strong>白平衡</strong>：确保色彩准确</li>
                       <li>• <strong>曝光</strong>：调整亮度对比</li>
@@ -305,11 +420,11 @@ function Module5() {
 
             {/* 细节精度控制 */}
             <section id="style-transfer" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 ✨ 细节精度控制系统
               </h2>
 
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-xl mb-8">
+              <div className="bg-gradient-to-r from-rose-50 to-red-50 p-8 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">细节的四个等级</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -373,16 +488,16 @@ function Module5() {
 
             {/* 实践步骤 */}
             <section id="practical-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 📋 一步一步生成流程
               </h2>
 
               <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-xl border border-orange-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-orange-700">从零开始生成顶级画面</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center text-[#C23B22]">从零开始生成顶级画面</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       1
                     </div>
                     <div className="flex-1">
@@ -395,7 +510,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       2
                     </div>
                     <div className="flex-1">
@@ -408,7 +523,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       3
                     </div>
                     <div className="flex-1">
@@ -421,7 +536,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       4
                     </div>
                     <div className="flex-1">
@@ -434,7 +549,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       5
                     </div>
                     <div className="flex-1">
@@ -447,7 +562,7 @@ function Module5() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="bg-[#C23B22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       6
                     </div>
                     <div className="flex-1">
@@ -463,7 +578,7 @@ function Module5() {
             </section>
 
             <section id="image-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-orange-600 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 AI 电影级画面生成全流程教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -472,7 +587,7 @@ function Module5() {
               
               {/* 电影级镜头语言设计 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">电影级镜头语言设计</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">电影级镜头语言设计</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -534,7 +649,7 @@ function Module5() {
               
               {/* 三层光影精准控制 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">三层光影精准控制</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">三层光影精准控制</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>
@@ -589,7 +704,7 @@ function Module5() {
               
               {/* 画质与细节精度提升 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">画质与细节精度提升</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">画质与细节精度提升</h3>
                 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">适配工具</h4>

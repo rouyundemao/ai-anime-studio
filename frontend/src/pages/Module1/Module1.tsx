@@ -50,7 +50,7 @@ function Module1() {
 
         {/* 中间:教程内容 - 真正全宽 */}
         <main className="flex-1 min-w-0 xl:mx-60">
-          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full">
+          <article className="bg-white rounded-2xl shadow-lg p-4 md:p-8 lg:p-10 w-full module-article-wrapper">
           {/* 模块标题 */}
           <header className="mb-12 border-b border-gray-200 pb-8">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -58,7 +58,7 @@ function Module1() {
                 MODULE 01
               </span>
               <span className="text-[#8B7AB8] text-sm font-semibold">🎨 艺术理念 · Aesthetics</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">入门</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-[#6B5FA0] border border-emerald-200 font-semibold">入门</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
               建立通用 AI 动漫的美学坐标系
@@ -74,12 +74,12 @@ function Module1() {
           </header>
 
           {/* 内容主体 */}
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none module-prose">
             <section id="core-concept" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎯 核心理念
               </h2>
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   AI 动漫创作的本质是<strong>艺术表达</strong>,技术只是实现创意的手段。
                   优秀的 AI 动漫作品需要:
@@ -106,13 +106,13 @@ function Module1() {
             </section>
 
             <section id="eastern-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🌸 东方美学体系
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-green-600">留白艺术</h3>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">留白艺术</h3>
                   <p className="text-gray-700 mb-3">以空取胜,计白当黑</p>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 留3分想象空间</li>
@@ -122,17 +122,17 @@ function Module1() {
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-blue-600">意境营造</h3>
-                  <p className="text-gray-700 mb-3">情景交融,虚实相生</p>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">意境营造</h3>
+                  <p className="text-gray-700 mb-3">以景抒情，寓情于境</p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• 情景交融</li>
-                    <li>• 虚实相生</li>
-                    <li>• 不着一字尽得风流</li>
+                    <li>• 环境映射人物心境</li>
+                    <li>• 触景生情，以景暗示情变</li>
+                    <li>• 超以象外，言有尽而意无穷</li>
                   </ul>
                 </div>
 
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold mb-3 text-purple-600">韵律节奏</h3>
+                  <h3 className="text-xl font-bold mb-3 text-[#6B5FA0]">韵律节奏</h3>
                   <p className="text-gray-700 mb-3">气韵生动,随物赋形</p>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 气韵生动</li>
@@ -153,7 +153,7 @@ function Module1() {
             </section>
 
             <section id="eastern-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 东方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -162,7 +162,7 @@ function Module1() {
 
               {/* 留白艺术 AI 教学 */}
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">留白艺术 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">留白艺术 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -230,7 +230,7 @@ function Module1() {
 
               {/* 意境营造 AI 教学 */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-purple-700">意境营造 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">意境营造 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -273,7 +273,7 @@ function Module1() {
             </section>
 
             <section id="western-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎭 西方美学融合
               </h2>
 
@@ -297,7 +297,7 @@ function Module1() {
                 </div>
 
                 <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-200">
-                  <h3 className="text-xl font-bold mb-4 text-yellow-600">黄金比例</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#8B7AB8]">黄金比例</h3>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-lg mr-2">📐</span>
@@ -338,7 +338,7 @@ function Module1() {
             </section>
 
             <section id="western-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🤖 西方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
@@ -347,7 +347,7 @@ function Module1() {
 
               {/* 黄金比例 AI 教学 */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-orange-700">黄金比例 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">黄金比例 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -414,7 +414,7 @@ function Module1() {
 
               {/* 戏剧张力 AI 教学 */}
               <div className="bg-gradient-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-red-700">戏剧张力 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#C23B22]">戏剧张力 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -478,7 +478,7 @@ function Module1() {
 
               {/* 电影语言 AI 教学 */}
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
-                <h3 className="text-2xl font-bold mb-4 text-blue-700">电影语言 - AI 实操教学</h3>
+                <h3 className="text-2xl font-bold mb-4 text-[#6B5FA0]">电影语言 - AI 实操教学</h3>
 
                 <div className="bg-white rounded-xl p-5 mb-4">
                   <h4 className="font-bold text-gray-800 mb-3">能力锚点</h4>
@@ -542,13 +542,13 @@ function Module1() {
             </section>
 
             <section id="anime-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
                 🎨 动漫美学特征
               </h2>
 
               <div className="space-y-8">
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-pink-600">角色美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#C2649C]">角色美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">五官比例</h4>
@@ -572,7 +572,7 @@ function Module1() {
                 </div>
 
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-indigo-600">场景美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">场景美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="text-center">
                       <div className="text-2xl mb-2">📏</div>
@@ -593,7 +593,7 @@ function Module1() {
                 </div>
 
                 <div className="border border-gray-200 rounded-xl p-6">
-                  <h3 className="text-xl font-bold mb-4 text-teal-600">色彩美学</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#6B5FA0]">色彩美学</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-2 text-gray-800">配色原理</h4>
@@ -619,125 +619,186 @@ function Module1() {
             </section>
 
             <section id="classic-analysis" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
-                🏛️ 经典作品分析
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
+                🏛️ 经典作品风格解析 & AI 复刻指南
               </h2>
+              <p className="text-gray-600 mb-8">分析三大标志性美学体系，并提供可直接使用的 AI Prompt 公式，让工具输出向大师靠拢。</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-bold mb-3 text-blue-700">新海诚风格</h3>
-                  <p className="text-sm text-gray-700 mb-3">细腻光影,唯美景色</p>
-                  <ul className="text-xs text-gray-600 space-y-1">
-                    <li>• 光影渲染细腻</li>
-                    <li>• 色彩清新明亮</li>
-                    <li>• 情感表达深刻</li>
-                  </ul>
+              <div className="space-y-8 mb-8">
+                {/* 新海诚 */}
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">新海誠 Style</span>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">光的叙事诗</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">视觉密码</h4>
+                      <ul className="text-sm text-gray-700 space-y-1.5">
+                        <li>• <strong>镜头感光</strong>：逆光 + 光晕 + 透射感，光线永远是主角</li>
+                        <li>• <strong>高饱和色彩</strong>：天空蓝 × 夕阳橙，色彩对比强烈鲜明</li>
+                        <li>• <strong>超写实背景</strong>：建筑 / 电车 / 街道细节精度超越写真</li>
+                        <li>• <strong>距离感构图</strong>：人物渺小于宏大的自然环境</li>
+                        <li>• <strong>雨与光的交织</strong>：雨滴高光、水面倒影是标志元素</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">AI 复刻 Prompt</h4>
+                      <CodeBlock
+                        code="anime scene in Makoto Shinkai style, cinematic lens flare, golden hour backlighting, ultra-detailed cityscape background, rain drops on glass, volumetric light rays, hyper-realistic architecture, vivid blue sky with orange clouds, emotional solitary figure, 8K detail --ar 16:9 --style raw --s 300"
+                        title="新海诚风格 Prompt"
+                        language="prompt"
+                        showLineNumbers={false}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-bold mb-3 text-green-700">宫崎骏美学</h3>
-                  <p className="text-sm text-gray-700 mb-3">人文关怀,自然之美</p>
-                  <ul className="text-xs text-gray-600 space-y-1">
-                    <li>• 人文关怀深刻</li>
-                    <li>• 自然描绘细腻</li>
-                    <li>• 人物设计温馨</li>
-                  </ul>
+                {/* 宫崎骏 */}
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">宮崎駿 Style</span>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">自然与生命的礼赞</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">视觉密码</h4>
+                      <ul className="text-sm text-gray-700 space-y-1.5">
+                        <li>• <strong>手绘质感</strong>：粗犷线条、水彩渲染、笔触可见</li>
+                        <li>• <strong>绿意盎然</strong>：植物与自然占据画面大量比重</li>
+                        <li>• <strong>圆润人物</strong>：角色造型圆润温和，透着善意</li>
+                        <li>• <strong>奇幻机械</strong>：蒸汽朋克 + 生态主义的矛盾融合</li>
+                        <li>• <strong>飞行意象</strong>：飞翔、漂浮、失重感贯穿始终</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">AI 复刻 Prompt</h4>
+                      <CodeBlock
+                        code="Studio Ghibli style, Hayao Miyazaki aesthetic, watercolor hand-painted texture, lush green forest environment, whimsical steampunk elements, round cheerful character design, warm earthy tones, floating clouds, magical realism, visible brush strokes, peaceful pastoral scene --ar 16:9 --style raw"
+                        title="宫崎骏风格 Prompt"
+                        language="prompt"
+                        showLineNumbers={false}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-bold mb-3 text-purple-700">京阿尼细节</h3>
-                  <p className="text-sm text-gray-700 mb-3">细节至上,生活美学</p>
-                  <ul className="text-xs text-gray-600 space-y-1">
-                    <li>• 细节刻画入微</li>
-                    <li>• 生活场景真实</li>
-                    <li>• 情感表达细腻</li>
-                  </ul>
+                {/* 京阿尼 */}
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">京アニ Style</span>
+                    <h3 className="text-xl font-bold text-[#6B5FA0]">日常即诗意</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">视觉密码</h4>
+                      <ul className="text-sm text-gray-700 space-y-1.5">
+                        <li>• <strong>精工五官</strong>：眼睛高光 × 睫毛层次 × 瞳孔细节，眼神有故事</li>
+                        <li>• <strong>柔和光影</strong>：散射软光、皮肤通透感、无硬阴影</li>
+                        <li>• <strong>生活细节</strong>：教室、图书馆、电车——日常场景极致精细</li>
+                        <li>• <strong>情感特写</strong>：眼部 / 嘴角微表情是情感传递的核心</li>
+                        <li>• <strong>高密度背景</strong>：背景物件密度远超普通动漫</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">AI 复刻 Prompt</h4>
+                      <CodeBlock
+                        code="Kyoto Animation style anime, ultra-detailed expressive eyes with multi-layer highlights, soft diffused lighting, translucent skin, hyper-detailed school interior background, delicate facial micro-expressions, clean smooth linework, pastel color palette, emotional close-up portrait, 8K resolution --ar 9:16 --style raw --s 250"
+                        title="京阿尼风格 Prompt"
+                        language="prompt"
+                        showLineNumbers={false}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">深度分析要点</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
+                <h3 className="text-xl font-bold mb-4 text-gray-800">风格分析四维框架</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-start">
                     <span className="text-lg mr-2">🔍</span>
-                    <span><strong>视觉风格</strong>:色彩、光影、构图的独特之处</span>
-                  </li>
-                  <li className="flex items-start">
+                    <span><strong>视觉指纹</strong>：色彩偏好、光源特征、线条风格——可量化的识别特征</span>
+                  </div>
+                  <div className="flex items-start">
                     <span className="text-lg mr-2">🎭</span>
-                    <span><strong>叙事手法</strong>:故事结构、节奏把控、情感表达</span>
-                  </li>
-                  <li className="flex items-start">
+                    <span><strong>叙事节奏</strong>：如何用画面说话——景别切换频率 × 停顿时间</span>
+                  </div>
+                  <div className="flex items-start">
                     <span className="text-lg mr-2">🎨</span>
-                    <span><strong>美学特征</strong>:东方美学与西方美学的融合方式</span>
-                  </li>
-                  <li className="flex items-start">
+                    <span><strong>情感密度</strong>：单帧能承载多少情绪信息——观众停留时长</span>
+                  </div>
+                  <div className="flex items-start">
                     <span className="text-lg mr-2">✨</span>
-                    <span><strong>创新元素</strong>:在传统基础上的突破与创新</span>
-                  </li>
-                </ul>
+                    <span><strong>可迁移性</strong>：哪些元素能被 AI 工具准确复现，哪些需要人工修正</span>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section id="practice-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-3xl font-bold mb-6 text-primary-600 border-l-4 border-primary-500 pl-4">
-                📋 实践步骤
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
+                📋 建立个人美学坐标系 · 四步实操
               </h2>
 
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-8 rounded-xl border border-primary-200">
-                <h3 className="text-2xl font-bold mb-6 text-center text-primary-700">一步一步制作流程</h3>
+                <h3 className="text-xl font-bold mb-2 text-primary-700">目标产出</h3>
+                <p className="text-gray-600 mb-8">完成本节后，你将拥有一份<strong>个人美学风格指南</strong>——一份可复用、可交给 AI 工具直接执行的标准文档。</p>
 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-gray-800 mb-2">美学理念确立</h4>
-                      <p className="text-gray-700 mb-3">确定你的美学倾向:偏向东方美学还是西方美学,或是两者的融合。</p>
+                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-gray-800 mb-1">参考图收集（1–2 小时）</h4>
+                      <p className="text-gray-600 text-sm mb-3">从 Pinterest / Behance / ArtStation 收集 50–100 幅参考图，范围不限于动漫——电影剧照、平面海报、摄影作品均可。</p>
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
-                        <p className="text-sm text-gray-600"><strong>操作要点:</strong>收集50-100幅参考图,分析它们的美学特征。</p>
+                        <p className="text-sm text-gray-700"><strong>执行标准：</strong>至少覆盖 3 种不同风格，并标注每张图吸引你的具体原因（光影 / 构图 / 色彩 / 情绪）。</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-gray-800 mb-2">风格定位</h4>
-                      <p className="text-gray-700 mb-3">根据美学理念确定你的视觉风格:清新、厚重、梦幻、写实等。</p>
+                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-gray-800 mb-1">风格聚类与提炼（30 分钟）</h4>
+                      <p className="text-gray-600 text-sm mb-3">将参考图按视觉感受分组（如"清冷忧郁""温暖治愈""暗黑史诗"），找出你反复选择的那组——这就是你的天然风格倾向。</p>
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
-                        <p className="text-sm text-gray-600"><strong>操作要点:</strong>创建风格参考板,明确色彩、光影、构图标准。</p>
+                        <p className="text-sm text-gray-700"><strong>执行标准：</strong>用 3 个形容词定义你的风格，例如：「水墨 · 清冷 · 孤寂」或「赛博 · 霓虹 · 躁动」。</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-gray-800 mb-2">美学原则制定</h4>
-                      <p className="text-gray-700 mb-3">制定你在创作中要遵循的美学原则,确保作品风格统一。</p>
+                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-gray-800 mb-1">撰写风格指南文档（1 小时）</h4>
+                      <p className="text-gray-600 text-sm mb-3">将你的风格转化为可执行的参数标准，包括：主色调 HEX 值、光源类型、画面留白比例、景别偏好、禁用元素。</p>
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
-                        <p className="text-sm text-gray-600"><strong>操作要点:</strong>编写美学原则文档,包括构图、色彩、光影等具体标准。</p>
+                        <p className="text-sm text-gray-700"><strong>执行标准：</strong>文档长度 1–2 页，每条规则必须有对应的"允许 / 禁止"示例图。</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                      4
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg text-gray-800 mb-2">实践验证</h4>
-                      <p className="text-gray-700 mb-3">用小作品验证你的美学理念,根据效果调整和完善。</p>
+                    <div className="bg-primary-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-gray-800 mb-1">用 AI 工具验证（30 分钟）</h4>
+                      <p className="text-gray-600 text-sm mb-3">将风格关键词转化为 Prompt，在 Midjourney 或即梦 AI 中生成 10 张测试图。逐一对照风格指南，判断吻合度是否达 70% 以上。</p>
                       <div className="bg-white p-4 rounded-lg border border-gray-200">
-                        <p className="text-sm text-gray-600"><strong>操作要点:</strong>制作1-2分钟的概念短片,检验美学理念的可行性。</p>
+                        <p className="text-sm text-gray-700"><strong>合格标准：</strong>随机抽取 3 张结果图，自己与他人能不看提示词就识别出你的风格 → 美学坐标系建立成功。</p>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-8 bg-white p-5 rounded-xl border border-primary-200">
+                  <h4 className="font-bold text-primary-700 mb-3">✅ 本节产出检查清单</h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-center gap-2"><span className="text-green-500 font-bold">✓</span> 参考图库（≥ 50 张，分类标注）</li>
+                    <li className="flex items-center gap-2"><span className="text-green-500 font-bold">✓</span> 3 个风格定义词（量化到颜色 / 光源 / 情绪）</li>
+                    <li className="flex items-center gap-2"><span className="text-green-500 font-bold">✓</span> 个人风格指南文档（1–2 页）</li>
+                    <li className="flex items-center gap-2"><span className="text-green-500 font-bold">✓</span> AI 验证测试图 10 张，吻合度 ≥ 70%</li>
+                  </ul>
                 </div>
               </div>
             </section>

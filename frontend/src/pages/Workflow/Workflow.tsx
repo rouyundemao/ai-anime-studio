@@ -63,7 +63,13 @@ const workflowSteps = [
       '视觉化描写与留白艺术'
     ],
     tools: ['豆包 AI', '通义千问', 'DeepSeek'],
-    optimization: '增加：音乐漫剧切入点、灵感捕捉与故事内核'
+    checklist: [
+      '故事核心一句话（主角 + 情境 + 目标 + 困难 + 结果）',
+      '角色卡片：姓名 / 年龄 / 性格 / 欲望 / 恐惧 / 秘密',
+      '三幕式大纲，含至少 5 个情节节点',
+      '分集概要（每集悬念点明确）',
+      '视觉化场景描述清单（AI 可出图的画面文字）'
+    ]
   },
   {
     id: 2,
@@ -116,7 +122,13 @@ const workflowSteps = [
       '角色一致性技术'
     ],
     tools: ['即梦 AI 5.0', 'ComfyUI', '中控', 'Seedance 2.0'],
-    optimization: '增加：多视角参考图、ComfyUI 高级控制、角色一致性技术'
+    checklist: [
+      '正面 / 侧面 / 背面参考图各 1 张',
+      '8 种核心表情图（喜 / 怒 / 哀 / 惧 / 惊 / 思 / 疲 / 平）',
+      '3 套服装变体图',
+      'LoRA 训练数据集（20–30 张高质量参考图）',
+      '统一角色描述词（Prompt 锁定一致性用）'
+    ]
   },
   {
     id: 3,
@@ -169,7 +181,13 @@ const workflowSteps = [
       '场景参考图库'
     ],
     tools: ['即梦 AI', '海螺 AI', 'Vidu'],
-    optimization: '增加：场景设计与布局、VR 实时调整、环境音效设计'
+    checklist: [
+      '核心场景背景图（每个重要场景至少 1 张）',
+      '统一色彩方案文档（主色 / 辅色 / 强调色）',
+      '日间 / 夜间版本各一张（同场景不同时间）',
+      '场景参考图库（≥ 20 张）',
+      '环境音效清单（风 / 雨 / 城市 / 自然）'
+    ]
   },
   {
     id: 4,
@@ -222,7 +240,13 @@ const workflowSteps = [
       '镜头运动与转场'
     ],
     tools: ['即梦 Seedance 2.0', '豆包 AI', 'Kling', 'Wan2.2'],
-    optimization: '增加：运动捕捉技术、帧数自动化、豆包 TTS 2.0 微表情控制'
+    checklist: [
+      '所有关键场景视频片段（单段 3–8 秒）',
+      '转场设计清单（方式 + 时长）',
+      '运镜脚本（推 / 拉 / 摇 / 移 / 跟）',
+      '帧率统一（24fps 或 60fps 保持一致）',
+      '画面质量验收（无明显闪烁 / 抖动 / 变形）'
+    ]
   },
   {
     id: 5,
@@ -275,7 +299,14 @@ const workflowSteps = [
       '数据分析优化'
     ],
     tools: ['豆包 TTS 2.0', '剪映', 'ElevenLabs', '调色大师'],
-    optimization: '增加：AI 音乐生成、豆包 TTS 2.0 微表情控制、数据分析优化'
+    checklist: [
+      '完整配音文件（所有台词录制完毕）',
+      'BGM 选定并与画面同步',
+      '音效补全（环境音 / 动作音效）',
+      '统一调色 LUT 全片应用',
+      '字幕添加（中文 / 双语），字体风格统一',
+      '导出规范：1080p / 4K，MP4 H.264'
+    ]
   },
   {
     id: 6,
@@ -328,7 +359,13 @@ const workflowSteps = [
       '商业化变现路径'
     ],
     tools: ['红果', '抖音', 'B站', 'YouTube'],
-    optimization: '新增：发布与推广策略、AI数据分析、商业化变现路径'
+    checklist: [
+      '封面图（16:9 横版 + 9:16 竖版各一张）',
+      '标题文案（主标题 + 副标题 / 悬念钩子）',
+      '话题标签清单（≥ 10 个精选标签）',
+      '发布时间计划表（平台 / 时间 / 频率）',
+      '数据监测目标（完播率 ≥ 60% / 互动率 ≥ 3%）'
+    ]
   }
 ]
 
@@ -399,10 +436,19 @@ function Workflow() {
               key={step.id}
               id={`step-${step.id}`}
               className={`mb-12 bg-white rounded-2xl shadow-xl overflow-hidden ${
-                currentStep === index ? 'ring-4 ring-primary-500' : ''
+                currentStep === index ? 'ring-2 ring-[#8B7AB8]/60' : ''
               }`}
             >
-              <div className={`bg-gradient-to-r ${step.id === 1 ? 'from-gray-700 to-gray-900' : step.id === 2 ? 'from-blue-600 to-cyan-600' : step.id === 3 ? 'from-green-600 to-emerald-600' : step.id === 4 ? 'from-purple-600 to-indigo-600' : step.id === 5 ? 'from-teal-600 to-cyan-600' : 'from-orange-600 to-red-600'} p-8 text-white`}>
+              <div className="p-8 text-white" style={{
+                background: [
+                  'linear-gradient(120deg, #3d3358 0%, #1F1A3D 100%)',
+                  'linear-gradient(120deg, #6B5FA0 0%, #8B7AB8 100%)',
+                  'linear-gradient(120deg, #8B7AB8 0%, #C2649C 100%)',
+                  'linear-gradient(120deg, #C2649C 0%, #C23B22 100%)',
+                  'linear-gradient(120deg, #7c6ba0 0%, #5c4e8a 100%)',
+                  'linear-gradient(120deg, #C23B22 0%, #8B2815 100%)',
+                ][step.id - 1] || 'linear-gradient(120deg, #8B7AB8 0%, #C23B22 100%)'
+              }}>
                 <div className="flex items-start justify-between">
                   <div>
                     <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
@@ -507,15 +553,25 @@ function Workflow() {
                   </div>
                 </div>
 
-                {/* 优化内容 */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <NavIcon type="sparkles" size={20} /> 优化内容
-                  </h3>
-                  <div className="bg-green-50 border-l-4 border-green-500 p-6">
-                    <p className="text-gray-700 leading-relaxed">{step.optimization}</p>
+                {/* 产出检查清单 */}
+                {step.checklist && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <span>✅</span> 本步骤产出清单
+                    </h3>
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                      <p className="text-sm text-green-700 mb-4 font-medium">完成本步骤后，确认以下产出物已就位：</p>
+                      <ul className="space-y-2">
+                        {step.checklist.map((item: string, i: number) => (
+                          <li key={i} className="flex items-center gap-3 text-gray-700">
+                            <span className="w-5 h-5 rounded border-2 border-green-400 flex-shrink-0 flex items-center justify-center bg-white text-green-600 text-xs font-bold">✓</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* 返回按钮 */}
                 <div className="text-center mt-8">
@@ -535,10 +591,8 @@ function Workflow() {
         </div>
 
         {/* 结语 */}
-        <div className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-8 text-white text-center mt-12">
-          <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
-            <NavIcon type="target" size={28} /> 六步流程总结
-          </h2>
+        <div className="bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] rounded-2xl p-8 text-white text-center mt-12">
+          <h2 className="text-3xl font-bold mb-4">🎯 六步流程总结</h2>
           <p className="text-lg opacity-90 max-w-3xl mx-auto">
             AI 动漫制作不再是复杂的系统工程，而是可以通过标准化流程快速掌握的技能。<br/>
             从构思到发布，每一步都有明确的方法和工具支持，让你的创作之路更加顺畅！
