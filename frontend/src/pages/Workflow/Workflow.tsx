@@ -371,7 +371,58 @@ const workflowSteps = [
 
 function Workflow() {
   const [currentStep, setCurrentStep] = useState(0)
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    steps: true,
+    prompt: false,
+    details: false,
+    tools: false,
+    checklist: false,
+  })
+  const [collapsedSteps, setCollapsedSteps] = useState<Record<number, boolean>>({
+    0: false,
+    1: true,
+    2: true,
+    3: true,
+    4: true,
+    5: true,
+  })
   useHashScroll()
+
+  const toggleSection = (section: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section],
+    }))
+  }
+
+  const toggleStepCollapse = (stepIndex: number) => {
+    setCollapsedSteps(prev => ({
+      ...prev,
+      [stepIndex]: !prev[stepIndex],
+    }))
+  }
+
+  const expandAllSteps = () => {
+    setCollapsedSteps({
+      0: false,
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+    })
+  }
+
+  const collapseAllSteps = () => {
+    setCollapsedSteps({
+      0: false,
+      1: true,
+      2: true,
+      3: true,
+      4: true,
+      5: true,
+    })
+  }
 
   return (
     <div className="space-y-12">
@@ -399,15 +450,35 @@ function Workflow() {
       <div className="container mx-auto px-4 py-12">
         {/* 流程概览 */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-            <NavIcon type="chart" size={24} /> 流程概览
-          </h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-3">
+              <NavIcon type="chart" size={24} /> 流程概览
+            </h2>
+            <div className="flex gap-2">
+              <button
+                onClick={expandAllSteps}
+                className="text-sm bg-primary-50 text-primary-700 px-3 py-1.5 rounded-lg hover:bg-primary-100 transition-colors"
+              >
+                展开全部
+              </button>
+              <button
+                onClick={collapseAllSteps}
+                className="text-sm bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-200 transition-colors"
+              >
+                折叠全部
+              </button>
+            </div>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {workflowSteps.map((step) => (
               <div
                 key={step.id}
                 onClick={() => {
                   setCurrentStep(step.id - 1)
+                  setCollapsedSteps(prev => ({
+                    ...prev,
+                    [step.id - 1]: false,
+                  }))
                   const element = document.getElementById(`step-${step.id}`)
                   if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -429,52 +500,80 @@ function Workflow() {
           </div>
         </div>
 
-        {/* 当前选中步骤的详细内容 */}
-        <div className={`transition-all duration-500 ${currentStep !== -1 ? 'opacity-100' : 'opacity-50'}`}>
-          {workflowSteps.map((step, index) => (
-            <div
-              key={step.id}
-              id={`step-${step.id}`}
-              className={`mb-12 bg-white rounded-2xl shadow-xl overflow-hidden ${
-                currentStep === index ? 'ring-2 ring-[#8B7AB8]/60' : ''
-              }`}
-            >
-              <div className="p-8 text-white" style={{
-                background: [
-                  'linear-gradient(120deg, #3d3358 0%, #1F1A3D 100%)',
-                  'linear-gradient(120deg, #6B5FA0 0%, #8B7AB8 100%)',
-                  'linear-gradient(120deg, #8B7AB8 0%, #C2649C 100%)',
-                  'linear-gradient(120deg, #C2649C 0%, #C23B22 100%)',
-                  'linear-gradient(120deg, #7c6ba0 0%, #5c4e8a 100%)',
-                  'linear-gradient(120deg, #C23B22 0%, #8B2815 100%)',
-                ][step.id - 1] || 'linear-gradient(120deg, #8B7AB8 0%, #C23B22 100%)'
-              }}>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
-                      <NavIcon type={step.icon} size={36} />
-                      {step.id}. {step.title}
-                    </h2>
-                    <p className="text-xl opacity-90">{step.description}</p>
-                    <div className="mt-4 inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
-                      <NavIcon type="target" size={16} /> 时间占比：{step.duration}
+        {/* 当前选中步骤的详细内容 - 手风琴折叠式 */}
+        <div className="space-y-4">
+          {workflowSteps.map((step, index) => {
+            const isCollapsed = collapsedSteps[index] ?? true
+            const isCurrent = currentStep === index
+            
+            return (
+              <div
+                key={step.id}
+                id={`step-${step.id}`}
+                className={`bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 ${
+                  isCurrent ? 'ring-2 ring-[#8B7AB8]/60' : ''
+                } ${isCollapsed ? 'hover:shadow-lg' : ''}`}
+              >
+                {/* 步骤标题栏 - 可点击折叠/展开 */}
+                <div
+                  onClick={() => {
+                    setCurrentStep(index)
+                    toggleStepCollapse(index)
+                  }}
+                  className="p-6 cursor-pointer transition-all duration-300"
+                  style={{
+                    background: [
+                      'linear-gradient(120deg, #3d3358 0%, #1F1A3D 100%)',
+                      'linear-gradient(120deg, #6B5FA0 0%, #8B7AB8 100%)',
+                      'linear-gradient(120deg, #8B7AB8 0%, #C2649C 100%)',
+                      'linear-gradient(120deg, #C2649C 0%, #C23B22 100%)',
+                      'linear-gradient(120deg, #7c6ba0 0%, #5c4e8a 100%)',
+                      'linear-gradient(120deg, #C23B22 0%, #8B2815 100%)',
+                    ][step.id - 1] || 'linear-gradient(120deg, #8B7AB8 0%, #C23B22 100%)'
+                  }}
+                >
+                  <div className="flex items-center justify-between text-white">
+                    <div className="flex items-center gap-4">
+                      <NavIcon type={step.icon} size={32} />
+                      <div>
+                        <h2 className="text-2xl font-bold flex items-center gap-2">
+                          {step.id}. {step.title}
+                          <span className="text-sm font-normal opacity-70 bg-white/20 px-2 py-0.5 rounded-full">
+                            {step.duration}
+                          </span>
+                        </h2>
+                        <p className="text-sm opacity-80 mt-1">{step.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-4xl font-bold opacity-20 hidden md:block">{step.id}</span>
+                      <div className={`w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`}>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <div className="hidden md:block text-right">
-                    <div className="text-6xl font-bold opacity-20">{step.id}</div>
-                    <div className="text-lg opacity-70">STEP</div>
-                  </div>
                 </div>
-              </div>
 
-              <div className="p-8">
+                {/* 步骤详细内容 - 折叠/展开 */}
+                <div className={`overflow-hidden transition-all duration-500 ${isCollapsed ? 'max-h-0' : 'max-h-[20000px]'}`}>
+                  <div className="p-8">
                 {/* 操作步骤 */}
                 {step.stepByStep && (
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                      <NavIcon type="book" size={20} /> 详细操作步骤
-                    </h3>
-                    <div className="space-y-4">
+                    <button
+                      onClick={() => toggleSection('steps')}
+                      className="text-xl font-bold mb-4 flex items-center gap-2 w-full hover:text-primary-700 transition-colors"
+                    >
+                      <NavIcon type="book" size={20} />
+                      详细操作步骤
+                      <span className="ml-auto text-sm text-gray-500">
+                        {expandedSections.steps ? '收起' : '展开'}
+                      </span>
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${expandedSections.steps ? 'max-h-[5000px]' : 'max-h-0'}`}>
+                      <div className="space-y-4">
                       {step.stepByStep.map((stepItem, i) => (
                         <div key={i} className="bg-gray-50 p-5 rounded-xl border border-gray-200">
                           <h4 className="font-bold text-primary-700 mb-2">{stepItem.title}</h4>
@@ -498,6 +597,7 @@ function Workflow() {
                           )}
                         </div>
                       ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -505,10 +605,18 @@ function Workflow() {
                 {/* 提示词模板 */}
                 {step.promptTemplate && (
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                      <NavIcon type="pencil" size={20} /> {step.promptTemplate.title}
-                    </h3>
-                    <div className="bg-gradient-to-br from-primary-50 to-accent-50 border border-primary-200 rounded-xl p-6">
+                    <button
+                      onClick={() => toggleSection('prompt')}
+                      className="text-xl font-bold mb-4 flex items-center gap-2 w-full hover:text-primary-700 transition-colors"
+                    >
+                      <NavIcon type="pencil" size={20} />
+                      {step.promptTemplate.title}
+                      <span className="ml-auto text-sm text-gray-500">
+                        {expandedSections.prompt ? '收起' : '展开'}
+                      </span>
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${expandedSections.prompt ? 'max-h-[2000px]' : 'max-h-0'}`}>
+                      <div className="bg-gradient-to-br from-primary-50 to-accent-50 border border-primary-200 rounded-xl p-6">
                       <div className="bg-white p-4 rounded-lg border border-gray-200 mb-4">
                         <pre className="text-sm text-gray-800 font-mono whitespace-pre-wrap">{step.promptTemplate.baseTemplate}</pre>
                       </div>
@@ -520,45 +628,76 @@ function Workflow() {
                           </div>
                         </div>
                       )}
+                      </div>
                     </div>
                   </div>
                 )}
 
                 {/* 核心内容 */}
+                {step.details && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <NavIcon type="prompts" size={20} /> 核心内容
-                  </h3>
-                  <ul className="space-y-3">
+                  <button
+                    onClick={() => toggleSection('details')}
+                    className="text-xl font-bold mb-4 flex items-center gap-2 w-full hover:text-primary-700 transition-colors"
+                  >
+                    <NavIcon type="prompts" size={20} />
+                    核心内容
+                    <span className="ml-auto text-sm text-gray-500">
+                      {expandedSections.details ? '收起' : '展开'}
+                    </span>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ${expandedSections.details ? 'max-h-[1000px]' : 'max-h-0'}`}>
+                    <ul className="space-y-3">
                     {step.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="text-primary-500 text-xl">✓</span>
                         <span>{detail}</span>
                       </li>
                     ))}
-                  </ul>
-                </div>
+                      </ul>
+                    </div>
+                  </div>
+                )}
 
                 {/* 推荐工具 */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <NavIcon type="tools" size={20} /> 推荐工具
-                  </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {step.tools.map((tool, i) => (
-                      <div key={i} className="bg-gray-50 p-4 rounded-xl border border-gray-200">
-                        <div className="font-semibold text-gray-800">{tool}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 产出检查清单 */}
-                {step.checklist && (
+                {step.tools && (
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                      <span>✅</span> 本步骤产出清单
-                    </h3>
+                    <button
+                      onClick={() => toggleSection('tools')}
+                      className="text-xl font-bold mb-4 flex items-center gap-2 w-full hover:text-primary-700 transition-colors"
+                    >
+                      <NavIcon type="tools" size={20} />
+                      推荐工具
+                      <span className="ml-auto text-sm text-gray-500">
+                        {expandedSections.tools ? '收起' : '展开'}
+                      </span>
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${expandedSections.tools ? 'max-h-[1000px]' : 'max-h-0'}`}>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {step.tools.map((tool, i) => (
+                        <div key={i} className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                          <div className="font-semibold text-gray-800">{tool}</div>
+                        </div>
+                      ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+              {/* 产出检查清单 */}
+              {step.checklist && (
+                <div className="mb-8">
+                  <button
+                    onClick={() => toggleSection('checklist')}
+                    className="text-xl font-bold mb-4 flex items-center gap-2 w-full hover:text-primary-700 transition-colors"
+                  >
+                    <span>✅</span>
+                    本步骤产出清单
+                    <span className="ml-auto text-sm text-gray-500">
+                      {expandedSections.checklist ? '收起' : '展开'}
+                    </span>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ${expandedSections.checklist ? 'max-h-[2000px]' : 'max-h-0'}`}>
                     <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                       <p className="text-sm text-green-700 mb-4 font-medium">完成本步骤后，确认以下产出物已就位：</p>
                       <ul className="space-y-2">
@@ -571,13 +710,15 @@ function Workflow() {
                       </ul>
                     </div>
                   </div>
-                )}
+                </div>
+              )}
 
                 {/* 返回按钮 */}
                 <div className="text-center mt-8">
                   <button
                     onClick={() => {
                       setCurrentStep(-1)
+                      toggleStepCollapse(index)
                       window.scrollTo({ top: 0, behavior: 'smooth' })
                     }}
                     className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg transition-colors"
@@ -587,7 +728,9 @@ function Workflow() {
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+          )
+        })}
         </div>
 
         {/* 结语 */}
