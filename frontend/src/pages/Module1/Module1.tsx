@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TopNavigation, SideNavigation, TableOfContents, ModuleFooter, getModule } from '../../components/AdvancedNavigation'
 import CodeBlock from '../../components/CodeBlock'
+import { NavIcon } from '../../components/NavIcons'
 
 // 模块 1:艺术理念
 function Module1() {
@@ -15,14 +16,14 @@ function Module1() {
 
   // 目录章节
   const sections = [
-    { id: 'core-concept', title: '核心理念', icon: '🎯' },
-    { id: 'eastern-aesthetics', title: '东方美学体系', icon: '🌸' },
-    { id: 'eastern-ai-tutorial', title: '东方美学 AI 实操教学', icon: '🤖' },
-    { id: 'western-aesthetics', title: '西方美学融合', icon: '🎭' },
-    { id: 'western-ai-tutorial', title: '西方美学 AI 实操教学', icon: '🤖' },
-    { id: 'anime-aesthetics', title: '动漫美学特征', icon: '🎨' },
-    { id: 'classic-analysis', title: '经典作品分析', icon: '🏛️' },
-    { id: 'practice-steps', title: '实践步骤', icon: '📋' }
+    { id: 'core-concept', title: '核心理念', icon: 'sparkles' as const },
+    { id: 'eastern-aesthetics', title: '东方美学体系', icon: 'palette' as const },
+    { id: 'eastern-ai-tutorial', title: '东方美学 AI 实操教学', icon: 'tools' as const },
+    { id: 'western-aesthetics', title: '西方美学融合', icon: 'diamond' as const },
+    { id: 'western-ai-tutorial', title: '西方美学 AI 实操教学', icon: 'tools' as const },
+    { id: 'anime-aesthetics', title: '动漫美学特征', icon: 'image' as const },
+    { id: 'classic-analysis', title: '经典作品分析', icon: 'book' as const },
+    { id: 'practice-steps', title: '实践步骤', icon: 'target' as const }
   ]
 
   if (loading) {
@@ -57,7 +58,10 @@ function Module1() {
               <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] text-white px-4 py-1.5 rounded-full text-sm font-bold">
                 MODULE 01
               </span>
-              <span className="text-[#8B7AB8] text-sm font-semibold">🎨 艺术理念 · Aesthetics</span>
+              <span className="inline-flex items-center gap-1.5 text-[#8B7AB8] text-sm font-semibold">
+                <NavIcon type="palette" size={16} />
+                艺术理念 · Aesthetics
+              </span>
               <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-[#6B5FA0] border border-emerald-200 font-semibold">入门</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
@@ -67,17 +71,27 @@ function Module1() {
               在打开任何 AI 工具之前，先定调你的风格。融合东方留白、西方戏剧张力、电影语言三大体系，让 AI 成为你审美的放大器。
             </p>
             <div className="flex items-center gap-3 mt-6 text-gray-600 flex-wrap">
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">⏱️ 深度研习（2–4 小时）</span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">🎯 建立风格判断力</span>
-              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">📦 产出：美学风格指南</span>
+              <span className="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm">
+                <NavIcon type="book" size={14} />
+                深度研习（2–4 小时）
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm">
+                <NavIcon type="target" size={14} />
+                建立风格判断力
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm">
+                <NavIcon type="sparkles" size={14} />
+                产出：美学风格指南
+              </span>
             </div>
           </header>
 
           {/* 内容主体 */}
           <div className="prose prose-lg max-w-none module-prose">
             <section id="core-concept" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🎯 核心理念
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="sparkles" size={24} />
+                核心理念
               </h2>
               <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-xl mb-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
@@ -106,8 +120,9 @@ function Module1() {
             </section>
 
             <section id="eastern-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🌸 东方美学体系
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="palette" size={24} />
+                东方美学体系
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -153,8 +168,9 @@ function Module1() {
             </section>
 
             <section id="eastern-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🤖 东方美学 AI 实操教学
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="tools" size={24} />
+                东方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
                 将东方美学理念转化为 AI 工具可理解的 Prompt,实现算法化创作
@@ -273,8 +289,9 @@ function Module1() {
             </section>
 
             <section id="western-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🎭 西方美学融合
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="diamond" size={24} />
+                西方美学融合
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -338,8 +355,9 @@ function Module1() {
             </section>
 
             <section id="western-ai-tutorial" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🤖 西方美学 AI 实操教学
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="tools" size={24} />
+                西方美学 AI 实操教学
               </h2>
               <p className="text-gray-700 mb-6">
                 将西方美学理念转化为 AI 工具可理解的 Prompt,实现算法化创作
@@ -542,8 +560,9 @@ function Module1() {
             </section>
 
             <section id="anime-aesthetics" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🎨 动漫美学特征
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="image" size={24} />
+                动漫美学特征
               </h2>
 
               <div className="space-y-8">
@@ -619,8 +638,9 @@ function Module1() {
             </section>
 
             <section id="classic-analysis" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                🏛️ 经典作品风格解析 & AI 复刻指南
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="book" size={24} />
+                经典作品风格解析 & AI 复刻指南
               </h2>
               <p className="text-gray-600 mb-8">分析三大标志性美学体系，并提供可直接使用的 AI Prompt 公式，让工具输出向大师靠拢。</p>
 
@@ -737,8 +757,9 @@ function Module1() {
             </section>
 
             <section id="practice-steps" className="mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight">
-                📋 建立个人美学坐标系 · 四步实操
+              <h2 className="text-2xl font-extrabold mb-6 text-[#1F1A3D] border-l-[3px] border-[#8B7AB8] pl-5 tracking-tight flex items-center gap-2">
+                <NavIcon type="target" size={24} />
+                建立个人美学坐标系 · 四步实操
               </h2>
 
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-8 rounded-xl border border-primary-200">
