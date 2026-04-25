@@ -1705,14 +1705,25 @@ npm install fluent-ffmpeg  # 视频处理`,
   }
 };
 
+// 分类 id → 品牌渐变色映射
+const categoryGradients: Record<string, string> = {
+  'ai-tools':  'from-[#6B5FA0] to-[#8B7AB8]',
+  'materials': 'from-[#8B7AB8] to-[#C2649C]',
+  'audio':     'from-[#C2649C] to-[#C23B22]',
+  'design':    'from-[#C23B22] to-[#A82C16]',
+  'prompts':   'from-[#504782] to-[#6B5FA0]',
+  'documents': 'from-[#3A3161] to-[#504782]',
+  'learning':  'from-[#8B7AB8] to-[#C23B22]',
+}
+
 function ResourceDetail() {
   const { categoryId } = useParams<{ categoryId: string }>()
-  
+
   if (!categoryId || !resourceDetails[categoryId]) {
     return (
       <div className="text-center py-20">
         <h1 className="text-4xl font-bold mb-4">资源分类不存在</h1>
-        <Link to="/resources" className="text-primary-600 hover:underline">
+        <Link to="/resources" className="text-[#6B5FA0] hover:underline">
           ← 返回资源库
         </Link>
       </div>
@@ -1720,71 +1731,111 @@ function ResourceDetail() {
   }
 
   const category = resourceDetails[categoryId]
+  const gradient = categoryGradients[categoryId] || 'from-[#8B7AB8] to-[#C23B22]'
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8">
       {/* 分类头部 */}
-      <div className={`text-center py-12 bg-gradient-to-br ${category.color} text-white rounded-3xl`}>
-        <div className="text-6xl mb-4">{category.icon}</div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{category.title}</h1>
-        <p className="text-xl opacity-90">{category.description}</p>
+      <div className={`relative overflow-hidden text-center py-12 bg-gradient-to-br ${gradient} text-white rounded-3xl`}>
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="relative z-10">
+          <div className="text-6xl mb-4">{category.icon}</div>
+          <h1 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">{category.title}</h1>
+          <p className="text-base opacity-85 max-w-xl mx-auto">{category.description}</p>
+          <div className="mt-5 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium">
+            <span>{category.resources?.length ?? 0} 个详细资源</span>
+          </div>
+        </div>
       </div>
+
+      {/* 返回 */}
+      <Link to="/resources" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#6B5FA0] transition-colors">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        返回资源中心
+      </Link>
 
       {/* 资源列表 */}
       <div className="space-y-8">
         {category.resources.map((resource: any, index: number) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div key={index} className="bg-white rounded-2xl overflow-hidden module-article-wrapper">
             {/* 资源头部 */}
-            <div className={`bg-gradient-to-r ${category.color} p-6 text-white`}>
-              <h2 className="text-2xl font-bold mb-2">{resource.name}</h2>
-              <p className="opacity-90">{resource.subtitle}</p>
+            <div className={`bg-gradient-to-r ${gradient} p-6 text-white`}>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-extrabold mb-1 tracking-tight">{resource.name}</h2>
+                  <p className="text-sm opacity-85">{resource.subtitle}</p>
+                </div>
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
             </div>
 
             {/* 资源内容 */}
-            <div className="p-8">
+            <div className="p-7 space-y-7">
               {/* 简介 */}
-              <div className="mb-6">
-                <h3 className="text-lg font-bold mb-2 text-gray-800">📖 简介</h3>
-                <p className="text-gray-700 leading-relaxed">{resource.content}</p>
+              <div>
+                <SectionLabel icon="📖" title="简介" />
+                <p className="text-gray-600 leading-[1.85] text-[0.9375rem]">{resource.content}</p>
               </div>
 
-              {/* 特性 */}
-              <div className="mb-6">
-                <h3 className="text-lg font-bold mb-3 text-gray-800">✨ 主要特性</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {/* 特性标签 */}
+              <div>
+                <SectionLabel icon="✨" title="主要特性" />
+                <div className="flex flex-wrap gap-2">
                   {resource.features.map((feature: string, i: number) => (
-                    <div key={i} className="bg-gray-50 p-3 rounded-lg text-center">
-                      <span className="text-gray-700 text-sm">{feature}</span>
-                    </div>
+                    <span key={i} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-[#8B7AB8]/08 text-[#6B5FA0] border border-[#8B7AB8]/15">
+                      <span className="w-1 h-1 rounded-full bg-[#8B7AB8]" />
+                      {feature}
+                    </span>
                   ))}
                 </div>
               </div>
 
               {/* 使用方法 */}
               {resource.usage && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">🔧 使用方法</h3>
-                  <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre">
-                    {resource.usage}
+                <div>
+                  <SectionLabel icon="🔧" title="使用方法 / 命令" />
+                  <div
+                    className="rounded-xl overflow-hidden font-mono text-sm"
+                    style={{
+                      background: 'linear-gradient(135deg, #1e2030 0%, #22243a 100%)',
+                      border: '1.5px solid transparent',
+                      backgroundImage: 'linear-gradient(#1e2030, #22243a), linear-gradient(120deg, #4f46e5 0%, #8B7AB8 50%, #4f46e5 100%)',
+                      backgroundOrigin: 'padding-box, border-box',
+                      backgroundClip: 'padding-box, border-box',
+                    }}
+                  >
+                    <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/08">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                      <span className="ml-2 text-gray-500 text-[11px]">命令 / 配置</span>
+                    </div>
+                    <pre className="p-4 text-gray-200 whitespace-pre-wrap break-words text-xs leading-relaxed overflow-x-auto">{resource.usage}</pre>
                   </div>
                 </div>
               )}
 
               {/* 实战案例 */}
               {resource.cases && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">🎯 实战案例</h3>
+                <div>
+                  <SectionLabel icon="🎯" title="实战案例" />
                   <div className="space-y-4">
                     {resource.cases.map((caseItem: any, i: number) => (
-                      <div key={i} className="bg-gradient-to-r from-gray-50 to-white p-4 rounded-lg border-l-4 border-accent-500">
-                        <h4 className="font-bold text-gray-800 mb-2">{caseItem.title}</h4>
-                        <div className="mb-2">
-                          <span className="text-sm font-semibold text-gray-600">提示词：</span>
-                          <p className="text-gray-700 text-sm">{caseItem.prompt}</p>
+                      <div key={i} className="rounded-xl border border-[#8B7AB8]/15 overflow-hidden">
+                        <div className="bg-gradient-to-r from-[#F8F6FF] to-[#FFF6FB] px-5 py-3 border-b border-[#8B7AB8]/10">
+                          <h4 className="font-bold text-[#1F1A3D] text-sm">{caseItem.title}</h4>
                         </div>
-                        <div>
-                          <span className="text-sm font-semibold text-gray-600">参数：</span>
-                          <span className="text-gray-700 text-sm">{caseItem.params}</span>
+                        <div className="p-5 space-y-3 bg-white">
+                          <div>
+                            <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8B7AB8] block mb-1.5">Prompt</span>
+                            <p className="text-gray-700 text-sm leading-relaxed bg-[#FDFAF5] border border-[#8B7AB8]/12 rounded-lg px-4 py-3 font-mono">{caseItem.prompt}</p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">参数</span>
+                            <span className="text-xs text-gray-600 bg-gray-50 border border-gray-100 rounded-md px-2.5 py-1">{caseItem.params}</span>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -1794,28 +1845,34 @@ function ResourceDetail() {
 
               {/* 使用技巧 */}
               {resource.tips && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">💡 使用技巧</h3>
-                  <ul className="space-y-2">
+                <div>
+                  <SectionLabel icon="💡" title="使用技巧" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                     {resource.tips.map((tip: string, i: number) => (
-                      <li key={i} className="flex items-start text-gray-700">
-                        <span className="text-accent-600 mr-2 mt-1">•</span>
-                        <span>{tip}</span>
-                      </li>
+                      <div key={i} className="flex items-start gap-2.5 bg-[#F8F6FF] border border-[#8B7AB8]/12 rounded-lg px-3.5 py-2.5">
+                        <span className="text-[#8B7AB8] font-bold text-sm flex-shrink-0 mt-0.5">✓</span>
+                        <span className="text-gray-700 text-sm leading-relaxed">{tip.replace(/^✅\s*/, '')}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
 
               {/* 常见问题 */}
               {resource.faq && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">❓ 常见问题</h3>
-                  <div className="space-y-4">
+                <div>
+                  <SectionLabel icon="❓" title="常见问题" />
+                  <div className="space-y-3">
                     {resource.faq.map((item: any, i: number) => (
-                      <div key={i} className="bg-gray-50 p-4 rounded-lg">
-                        <p className="font-semibold text-gray-800 mb-2">Q: {item.q}</p>
-                        <p className="text-gray-700 text-sm">A: {item.a}</p>
+                      <div key={i} className="rounded-xl border border-gray-100 overflow-hidden">
+                        <div className="bg-gray-50 px-5 py-3 flex items-start gap-3">
+                          <span className="w-5 h-5 rounded-full bg-[#8B7AB8]/15 text-[#6B5FA0] flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">Q</span>
+                          <p className="font-semibold text-gray-800 text-sm">{item.q}</p>
+                        </div>
+                        <div className="bg-white px-5 py-3 flex items-start gap-3">
+                          <span className="w-5 h-5 rounded-full bg-[#C23B22]/10 text-[#C23B22] flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">A</span>
+                          <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -1824,10 +1881,11 @@ function ResourceDetail() {
 
               {/* 更新日志 */}
               {resource.updates && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-bold mb-3 text-gray-800">📅 最新更新</h3>
-                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-                    <p className="text-gray-700 text-sm">{resource.updates}</p>
+                <div className="flex items-start gap-3 bg-[#F8F6FF] border border-[#8B7AB8]/15 rounded-xl px-4 py-3">
+                  <span className="text-[#8B7AB8] text-sm font-bold flex-shrink-0">📅</span>
+                  <div>
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8B7AB8] block mb-0.5">最新更新</span>
+                    <p className="text-gray-600 text-sm leading-relaxed">{resource.updates}</p>
                   </div>
                 </div>
               )}
@@ -1837,14 +1895,26 @@ function ResourceDetail() {
       </div>
 
       {/* 返回按钮 */}
-      <div className="text-center">
+      <div className="text-center pb-4">
         <Link
           to="/resources"
-          className="inline-block bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B7AB8] to-[#C23B22] hover:opacity-90 text-white font-bold py-3 px-8 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
         >
-          ← 返回资源库
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          返回资源库
         </Link>
       </div>
+    </div>
+  )
+}
+
+// 小标题辅助组件
+function SectionLabel({ icon, title }: { icon: string; title: string }) {
+  return (
+    <div className="flex items-center gap-2 mb-3">
+      <span className="text-base">{icon}</span>
+      <span className="text-sm font-bold text-[#1F1A3D] tracking-tight">{title}</span>
+      <span className="flex-1 h-px bg-gray-100" />
     </div>
   )
 }
