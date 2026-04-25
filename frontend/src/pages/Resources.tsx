@@ -5,12 +5,12 @@ import BrandLogo from '../components/BrandLogo'
 import { NavIcon } from '../components/NavIcons'
 
 // 资源分类数据
-type ResourceIcon = string
+type ResourceIcon = 'tools' | 'image' | 'headphone' | 'palette' | 'pencil' | 'book' | 'target'
 const resourceCategories: { id: string; title: string; icon: ResourceIcon; color: string; description: string; count: number; items: string[] }[] = [
   {
     id: 'ai-tools',
     title: 'AI 工具资源',
-    icon: '🤖',
+    icon: 'tools',
     color: 'from-[#6B5FA0] to-[#8B7AB8]',
     description: '顶级 AI 创作工具完整指南',
     count: 7,
@@ -19,7 +19,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'materials',
     title: '高质量素材库',
-    icon: '🖼️',
+    icon: 'image',
     color: 'from-[#8B7AB8] to-[#C2649C]',
     description: '精选动漫创作素材资源',
     count: 4,
@@ -28,7 +28,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'audio',
     title: '音频资源库',
-    icon: '🎵',
+    icon: 'headphone',
     color: 'from-[#C2649C] to-[#C23B22]',
     description: '专业音频制作资源集合',
     count: 4,
@@ -37,7 +37,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'design',
     title: '设计资源库',
-    icon: '🎨',
+    icon: 'palette',
     color: 'from-[#C23B22] to-[#A82C16]',
     description: '专业设计资源与指南',
     count: 4,
@@ -46,7 +46,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'prompts',
     title: '提示词库',
-    icon: '📝',
+    icon: 'pencil',
     color: 'from-[#504782] to-[#6B5FA0]',
     description: '顶级提示词模板集合',
     count: 4,
@@ -55,7 +55,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'documents',
     title: '技术文档库',
-    icon: '📚',
+    icon: 'book',
     color: 'from-[#3A3161] to-[#504782]',
     description: '专业技术文档与手册',
     count: 4,
@@ -64,7 +64,7 @@ const resourceCategories: { id: string; title: string; icon: ResourceIcon; color
   {
     id: 'learning',
     title: '学习资料库',
-    icon: '🎓',
+    icon: 'book',
     color: 'from-[#8B7AB8] to-[#C23B22]',
     description: '系统化学习资料集合',
     count: 4,
@@ -110,7 +110,7 @@ function Resources() {
             {/* 头部 */}
             <div className={`bg-gradient-to-br ${category.color} p-6 text-white`}>
               <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                {category.icon.length === 1 ? <span className="text-3xl">{category.icon}</span> : <NavIcon type={category.icon as any} size={48} />}
+                <NavIcon type={category.icon} size={48} />
               </div>
               <h3 className="text-xl font-bold mb-2">{category.title}</h3>
               <p className="text-sm opacity-90">{category.description}</p>
